@@ -8,12 +8,6 @@ import Innovation from "@/components/Client/Innovation";
 import Hero from "@/sections/Hero";
 import Introduction from "@/sections/Introduction";
 
-export const metaData = {
-  title: "Awwwards SOTD",
-  description: "Pixel perfect clone on an awwwards 'Site of the Day' website",
-  type: "website",
-};
-
 export default function Home() {
   return (
     <main>

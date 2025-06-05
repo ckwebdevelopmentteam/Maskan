@@ -16,8 +16,8 @@ const BasisGrotesquePro = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "localhost:3000",
-  description: "",
+  title: "Awwwards SOTD",
+  description: "Pixel perfect clone on an awwwards 'Site of the Day' website",
 };
 
 export default function RootLayout({
