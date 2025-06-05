@@ -14,7 +14,7 @@ export function useCursor() {
 
   const displacement = useMotionValue(0);
   const velocity = useVelocity(displacement);
-  const scale = useTransform(velocity, [-5000, 0, 5000], [0.85, 1, 0.85]);
+  const scale = useTransform(velocity, [-5000, 0, 5000], [0.8, 1, 0.8]);
 
   const onMouseEnter = (e: any) => {
     left.jump(e.clientX);

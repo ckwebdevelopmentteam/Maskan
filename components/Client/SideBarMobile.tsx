@@ -45,6 +45,12 @@ export default function SideBarMobile() {
           initial: { x: "100%" },
           animate: { x: "0%" },
         }}
+        initial="initial"
+        animate="animate"
+        transition={{
+          ease: [0.24, 0.43, 0.15, 0.97],
+          duration: 0.8,
+        }}
         className="h-screen overflow-y-scroll bg-[#CED1BF] px-3-75 pt-12000svh"
       >
         <span className="text-sm text-[#2b353080]">Discover Pages</span>
