@@ -21,7 +21,7 @@ export default function FormServer() {
 
   return (
     <div className="flex flex-col bg-[#CED1BF] md:grid md:grid-cols-2">
-      <ParallaxContainer parallaxAmount={25}>
+      <ParallaxContainer parallaxAmount={20}>
         <Image src={FormImage} alt="form-image" className="h-auto w-full" />
       </ParallaxContainer>
       <div className="col-start-2 flex flex-col items-center justify-center">
