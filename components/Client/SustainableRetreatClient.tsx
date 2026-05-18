@@ -2,11 +2,11 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "motion/react";
 import StyledLinkClient from "@/components/Client/StyledLinkClient";
-import Image1 from "@/public/group/discover-elementis.png";
-import Image2 from "@/public/group/our-vision-and-mission.png";
-import Image3 from "@/public/group/our-commitment.png";
-import Image4 from "@/public/group/our-pillars.png";
-import Image5 from "@/public/group/sustainability.png";
+import Image1 from "@/public/Maskan 01_page-0002.jpg";
+import Image2 from "@/public/Maskan 01_page-0003.jpg";
+import Image3 from "@/public/Maskan 01_page-0004.jpg";
+import Image4 from "@/public/Maskan 01_page-0005.jpg";
+import Image5 from "@/public/Maskan 01_page-0006.jpg";
 import { useImageReveal } from "@/hooks/useImageReveal";
 interface LinkType {
   title: string;
@@ -17,28 +17,28 @@ export default function SustainableRetreatClient() {
   const { imgContainerRef, handleFocus } = useImageReveal();
   const links: LinkType[] = [
     {
-      title: "ELEMENTIS Story",
-      href: "https://elementis.co/the-story",
+      title: "Corporate Profile",
+      href: "https://maskan.pk/profile",
       img: Image1,
     },
     {
-      title: "Our Vision & Mission",
-      href: "https://elementis.co/sustainability#mission-vision",
+      title: "Construction SOP",
+      href: "https://maskan.pk/sop",
       img: Image2,
     },
     {
-      title: "Our Commitment",
-      href: "https://elementis.co/sustainability#our-comitment",
+      title: "Budgeting Model",
+      href: "https://maskan.pk/budgeting",
       img: Image3,
     },
     {
-      title: "Our Pillars",
-      href: "https://elementis.co/sustainability#our-pillars",
+      title: "Our Team",
+      href: "https://maskan.pk/team",
       img: Image4,
     },
     {
-      title: "Sustainability",
-      href: "https://elementis.co/sustainability",
+      title: "Quality Control",
+      href: "https://maskan.pk/quality",
       img: Image5,
     },
   ];

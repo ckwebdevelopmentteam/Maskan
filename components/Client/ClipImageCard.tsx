@@ -30,114 +30,65 @@ export default function ClipImageCard({
   const [currentState, setCurrentState] = useState(1);
   const data: DataItem[] = [
     {
-      title: [<>ELEMENTIS</>, <>Innovation Culture</>],
+      title: [<>MERIDIAN HEIGHTS</>, <>Perinthalmanna</>],
       description: {
         mobile: [
-          <>We foster a culture of Innovation that </>,
-          <>enriches lives through transformative</>,
-          <>solutions and innovative ideas that</>,
-          <>resonate with our global Community.</>,
+          <>An exclusive boutique villa project offering</>,
+          <>unparalleled elegance, premium architecture,</>,
+          <>and custom-tailored living spaces.</>,
+          <>Status: Ongoing</>,
         ],
         desktop: [
-          <>We foster a culture of Innovation that enriches</>,
-          <>lives through transformative solutions and</>,
-          <>innovative ideas that resonate with our global</>,
-          <>Community.</>,
+          <>An exclusive boutique villa project in Perinthalmanna</>,
+          <>offering unparalleled elegance, premium architecture,</>,
+          <>and custom-tailored living spaces designed for modern luxury.</>,
+          <>Status: Ongoing</>,
         ],
       },
     },
     {
-      title: [<>Exceptional Wood</>, <>Construction</>],
+      title: [<>AVORIA HEIGHTS</>, <>Marad</>],
       description: {
         mobile: [
-          <>Our high-quality glue laminated timber</>,
-          <>revolutionizes tropical climate</>,
-          <>construction byseamlessly combining</>,
-          <>natural elegance, unparalleled durability,</>,
-          <>and environmental responsibility.</>,
+          <>A modern high-rise luxury apartment project</>,
+          <>featuring premium structural design, efficient space</>,
+          <>utilization, and state-of-the-art amenities.</>,
+          <>Status: Ongoing</>,
         ],
         desktop: [
-          <>Our high-quality glue laminated timber</>,
-          <>revolutionizes tropical climate construction by</>,
-          <>seamlessly combining natural elegance,</>,
-          <>unparalleled durability, and environmental</>,
-          <>responsibility.</>,
+          <>A modern high-rise luxury apartment project in Marad</>,
+          <>featuring premium structural design, efficient space</>,
+          <>utilization, and state-of-the-art amenities for comfortable urban living.</>,
+          <>Status: Ongoing</>,
         ],
       },
     },
     {
-      title: [<>Innovative Glass</>, <>Solutions</>],
+      title: [<>WHITE FEELD</>, <>Manjeri</>],
       description: {
         mobile: [
-          <>The innovative Low-E solar control glass</>,
-          <>stands out for its unparalleled ability to</>,
-          <>blend energy efficiency, enhanced</>,
-          <>comfort, and breathtaking aesthetic</>,
-          <>appeal.</>,
+          <>An upscale villa community combining eco-friendly</>,
+          <>construction standards, sophisticated design aesthetics,</>,
+          <>and ultimate functional efficiency.</>,
+          <>Status: Ongoing</>,
         ],
         desktop: [
-          <>The innovative Low-E solar control glass stands</>,
-          <>out for its unparalleled ability to blend energy</>,
-          <>efficiency, enhanced comfort, and breathtaking</>,
-          <>aesthetic appeal.</>,
-        ],
-      },
-    },
-    {
-      title: [<>World First Climate</>, <>Control</>],
-      description: {
-        mobile: [
-          <>We pioneer an innovative climate</>,
-          <>control system that outperforms any</>,
-          <>other option, ending the battle with</>,
-          <>moid for an infinitely healthier</>,
-          <>experience. When combined with our</>,
-          <>solar energy system it provides a</>,
-          <>world-first sustainable solution.</>,
-        ],
-        desktop: [
-          <>We pioneer an innovative climate control</>,
-          <>system that outperforms any other option,</>,
-          <>ending the battle with moid for an infinitely </>,
-          <>healthier experience. When combined with our</>,
-          <>solar energy system it provides a world-first</>,
-          <>sustainable solution.</>,
-        ],
-      },
-    },
-    {
-      title: [<>State-of-the-Art</>, <>Design</>],
-      description: {
-        mobile: [
-          <>By blending natural elements,panoramic</>,
-          <>views, tactile textures, luxury touches,</>,
-          <>and sustainable design principles, we</>,
-          <>create a memorable and inviting hotel</>,
-          <>interior that reflects ELEMENTIS</>,
-          <>modern, wooden eco concept.</>,
-        ],
-        desktop: [
-          <>By blending natural elements,panoramic views,</>,
-          <>tactile textures, luxury touches, and sustainable</>,
-          <>design principles, we create a memorable and</>,
-          <>inviting hotel interior that reflects ELEMENTIS</>,
-          <>modern, wooden eco concept.</>,
+          <>An upscale villa community in Manjeri combining eco-friendly</>,
+          <>construction standards, sophisticated design aesthetics,</>,
+          <>and ultimate functional efficiency for discerning families.</>,
+          <>Status: Ongoing</>,
         ],
       },
     },
   ];
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.125) {
+    if (latest < 0.33) {
       setCurrentState(1);
-    } else if (latest <= 0.375) {
+    } else if (latest <= 0.66) {
       setCurrentState(2);
-    } else if (latest <= 0.625) {
-      setCurrentState(3);
-    } else if (latest <= 0.875) {
-      setCurrentState(4);
     } else {
-      setCurrentState(5);
+      setCurrentState(3);
     }
   });
   const prependZero = (num: number) => (num < 10 ? `0${num}` : `${num}`);
@@ -149,11 +100,11 @@ export default function ClipImageCard({
       viewport={{ amount: 0.5, once: true }}
       style={{ ...style }}
       className={cn(
-        "relative z-10 flex h-full flex-col items-center justify-between py-[8vh] text-[#d1ccbf] backdrop-brightness-[60%] md:flex-row md:px-16 md:py-[15vh]",
+        "relative z-10 flex h-full flex-col items-center justify-between py-[8vh] text-[#D1CCBF] backdrop-brightness-[60%] md:flex-row md:px-16 md:py-[15vh]",
         className,
       )}
     >
-      <SectionTitle className="">Innovation</SectionTitle>
+      <SectionTitle className="">Featured Projects</SectionTitle>
       <motion.div
         variants={{
           initial: { y: "50%" },

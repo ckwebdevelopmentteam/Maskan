@@ -7,12 +7,16 @@ interface CheckboxProps {
   children: ReactNode;
   className?: string;
   required?: boolean;
+  name?: string;
+  value?: string;
 }
 
 export default function Checkbox({
   children,
   className,
   required = false,
+  name,
+  value,
 }: CheckboxProps) {
   const [checked, setChecked] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,20 +25,22 @@ export default function Checkbox({
   return (
     <label
       className={cn(
-        "flex cursor-pointer items-center gap-2 text-[#2b3530]",
+        "flex cursor-pointer items-center gap-2 text-[#2B3530]",
         className,
       )}
     >
       <input
         type="checkbox"
+        name={name}
+        value={value}
         className="hidden"
         onChange={handleChange}
         required={required}
       />
       <span
         className={cn(
-          "grid size-3-5 place-items-center border border-[#2b3530]",
-          checked && "bg-[#2b3530]",
+          "grid size-3-5 place-items-center border border-[#2B3530]",
+          checked && "bg-[#2B3530]",
         )}
       >
         {checked && <CheckBoxIcon className="h-auto w-1-75" />}

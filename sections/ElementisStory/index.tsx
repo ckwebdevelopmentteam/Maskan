@@ -3,8 +3,10 @@ import ElementisStoryServer from "./Server";
 
 export default function ElementisStory() {
   return (
-    <div className="overflow-x-hidden bg-[#2B3530] px-3-75 py-40 text-[#D1CCBF] md:grid md:grid-cols-11 md:grid-rows-[repeat(2,auto)] md:gap-x-5 md:gap-y-24 md:px-16 md:py-50">
-      <ElementisStoryServer />
+    <div id="portfolio" className="overflow-x-hidden bg-[#2B3530] px-3-75 py-24 text-[#D1CCBF] md:px-16 md:py-36 flex flex-col gap-16 md:gap-20 border-t border-white/5">
+      <div className="md:grid md:grid-cols-11 md:gap-x-5">
+        <ElementisStoryServer />
+      </div>
       <ElementisStoryClient />
     </div>
   );

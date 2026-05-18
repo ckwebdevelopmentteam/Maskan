@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import Image1 from "@/public/ImageContainer/image-1.png";
-import Image2 from "@/public/ImageContainer/image-2.png";
-import Image3 from "@/public/ImageContainer/image-3.png";
-import Image4 from "@/public/ImageContainer/image-4.png";
-import Image5 from "@/public/ImageContainer/image-5.png";
+import Image1 from "@/public/property-1.jpg";
+import Image2 from "@/public/property-2.jpg";
+import Image3 from "@/public/property-3.jpg";
+import Image4 from "@/public/property-4.jpg";
+import Image5 from "@/public/property-5.jpg";
 import {
   motion,
   MotionValue,
@@ -13,6 +13,8 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
+import { useDispatch } from "react-redux";
+import { setNavOpacity } from "@/store";
 import ClipImageCard from "./ClipImageCard";
 import useMaskImage from "@/hooks/useMaskImage";
 import CustomCursor from "./Cursor";
@@ -29,30 +31,36 @@ function Innovation() {
   const ref = useRef<HTMLDivElement>(null);
   const { handlers, cursorProps } = useCursor();
 
+  const dispatch = useDispatch();
   const { scrollYProgress: parentProgress } = useScroll({
     target: ref,
-    offset: ["15vh 0", "485vh end"],
+    offset: ["15vh 0", "285vh end"],
   });
   useMotionValueEvent(parentProgress, "change", (latest) => {
-    if (latest <= 0.25) {
+    if (latest > 0 && latest < 1) {
+      dispatch(setNavOpacity(0));
+    } else {
+      dispatch(setNavOpacity(1));
+    }
+    
+    if (latest <= 0.33) {
       setState(0);
-    } else if (latest <= 0.5) {
+    } else if (latest <= 0.66) {
       setState(1);
-    } else if (latest <= 0.75) {
+    } else {
       setState(2);
-    } else if (latest <= 1) {
-      setState(3);
     }
   });
-  const imgs = [Image1, Image2, Image3, Image4, Image5];
+  const imgs = [Image1, Image2, Image3];
   return (
     <div
-      className="relative h-[500vh] cursor-pointer overflow-clip bg-[#2b3530]"
+      id="gallery"
+      className="relative h-[300vh] cursor-pointer overflow-clip bg-[#2B3530] border-t border-white/5"
       ref={ref}
     >
       <motion.div
         {...handlers}
-        onClick={() => router.replace("https://elementis.co/innovation")}
+        onClick={() => router.replace("https://maskan.pk/projects")}
         className="sticky -top-[5vh] h-[110vh] md:-top-[15vh] md:h-[130vh]"
       >
         <ClipImageCard
@@ -75,12 +83,12 @@ function Innovation() {
             );
           })}
       </motion.div>
-      {!isMobile && (
+      {isMobile === false && (
         <CustomCursor
           {...cursorProps}
           className="flex -translate-x-1/2 translate-y-1/4 items-center justify-center gap-2 rounded-full px-5 py-2 text-white"
         >
-          Discover More
+          View Projects
           <NavigateSVG style={{ fill: "white" }} className="size-2.5" />
         </CustomCursor>
       )}
@@ -101,7 +109,7 @@ Innovation.Container = function Container({
 }) {
   const localScrollYProgress = useTransform(
     scrollYProgress,
-    [index * 0.25, (index + 1) * 0.25],
+    [index * 0.5, (index + 1) * 0.5],
     [0, 1],
     {
       ease: cubicBezier(0, 0, 1, 1),
@@ -110,7 +118,7 @@ Innovation.Container = function Container({
   const maskImage = useMaskImage(localScrollYProgress, isMobile);
   const scaleProgress = useTransform(
     scrollYProgress,
-    [(index - 1) * 0.25, (index + 1) * 0.25],
+    [(index - 1) * 0.5, (index + 1) * 0.5],
     [1.075, 1],
   );
   return (

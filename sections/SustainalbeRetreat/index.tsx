@@ -18,7 +18,7 @@ export default function SustainableRetreat() {
           },
         }}
       >
-        {"Sustainable Retreat • Sustainable Retreat • Sustainable Retreat • "}
+        {"Fifty/Fifty Model • Flexible Budgeting • Interest Free • "}
       </ResponsiveMarquee>
 
       <div className="mt-18 flex flex-col gap-y-14 px-8-25 md:mt-26 md:grid md:grid-cols-3 md:grid-rows-[auto_auto] md:gap-y-24 md:px-16">
@@ -26,42 +26,41 @@ export default function SustainableRetreat() {
           <ResponsiveMaskTextVariant
             desktop={[
               <Fragment key="d-0">
-                At our Resorts and Residences, we believe in
+                Our Unique and Convenient Budgeting Model
               </Fragment>,
               <Fragment key="d-1">
-                fostering a sense of partnership, building a
+                for Clients: Start the construction of your
               </Fragment>,
               <Fragment key="d-2">
-                thriving ecosystem, nurturing a strong
+                building with our 'Fifty/Fifty' model.
               </Fragment>,
               <Fragment key="d-3">
-                Community, and prioritizing the health of the
+                Firstly, commit an advance token-payment
               </Fragment>,
               <Fragment key="d-4">
-                planet. These values shape every aspect of
+                of half the budget. As progress continues,
               </Fragment>,
               <Fragment key="d-5">
-                your personalized Wellness experience.
+                complete the first half seamlessly.
               </Fragment>,
             ]}
             mobile={[
               <Fragment key="m-0">
-                At our Resorts and Residences, we believe
+                Our Unique and Convenient Budgeting
               </Fragment>,
               <Fragment key="m-1">
-                in fostering a sense of partnership,
+                Model for Clients: Start with our
               </Fragment>,
               <Fragment key="m-2">
-                building a thriving ecosystem, nurturing a
+                'Fifty/Fifty' model. Commit an
               </Fragment>,
               <Fragment key="m-3">
-                strong Community, and prioritizing the
+                advance token-payment of half the
               </Fragment>,
               <Fragment key="m-4">
-                health of the planet. These values shape
+                budget, and complete the first half
               </Fragment>,
-              <Fragment key="m-5">every aspect of your personalized</Fragment>,
-              <Fragment key="m-6">Wellness experience.</Fragment>,
+              <Fragment key="m-5">as construction progress unfolds.</Fragment>,
             ]}
             className="text-base [line-height:1.33] md:text-lg"
           />
@@ -69,33 +68,33 @@ export default function SustainableRetreat() {
           <ResponsiveMaskTextVariant
             desktop={[
               <Fragment key="d2-0">
-                We envision a world where mind, body, and
+                The rest of the funding can wait and
               </Fragment>,
               <Fragment key="d2-1">
-                spirit thrive in harmony, fostering
+                be split into equal instalments of
               </Fragment>,
               <Fragment key="d2-2">
-                connections to each other and the natural
+                thirty-six payments in thirty-six months.
               </Fragment>,
               <Fragment key="d2-3">
-                world, redefining the concept of fulfillment
+                Most importantly, without incurring any
               </Fragment>,
-              <Fragment key="d2-4">beyond material success.</Fragment>,
+              <Fragment key="d2-4">additional fees or market surplus.</Fragment>,
             ]}
             mobile={[
               <Fragment key="m2-0">
-                We envision a world where mind, body,
+                The rest of the funding can wait
               </Fragment>,
               <Fragment key="m2-1">
-                and spirit thrive in harmony, fostering
+                and be split into thirty-six equal
               </Fragment>,
               <Fragment key="m2-2">
-                connections to each other and the natural
+                monthly instalments. No additional
               </Fragment>,
               <Fragment key="m2-3">
-                world, redefining the concept of fulfillment
+                fees, no market surplus—just your
               </Fragment>,
-              <Fragment key="m2-4">beyond material success.</Fragment>,
+              <Fragment key="m2-4">building dreams realized.</Fragment>,
             ]}
             className="text-base [line-height:1.33] md:text-lg"
           />

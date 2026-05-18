@@ -17,7 +17,7 @@ export default function NavigateSVG({
   variants = {
     initial: { fill },
     whileHover: {
-      fill: "#2b3530",
+      fill: "#2B3530",
     },
   },
 }: NavigateSVGProps) {

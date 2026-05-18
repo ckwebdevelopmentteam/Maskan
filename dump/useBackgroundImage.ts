@@ -20,7 +20,7 @@ export default function useBackgroundImage(
   const backgroundImage = useTransform(localProgress, (latest) => {
     let temp = "";
     for (let i = 0; i < divisions; i++) {
-      temp += `#2B3530 ${i * (vh / divisions)}vh ,#2B3530 ${func(i, latest) * (vh / divisions) + i * (vh / divisions)}vh,rgba(0,0,0,0) ${func(i, latest) * (vh / divisions) + i * (vh / divisions)}vh,rgba(0,0,0,0) ${(i + 1) * (vh / divisions)}vh`;
+      temp += `#0B0C10 ${i * (vh / divisions)}vh ,#0B0C10 ${func(i, latest) * (vh / divisions) + i * (vh / divisions)}vh,rgba(0,0,0,0) ${func(i, latest) * (vh / divisions) + i * (vh / divisions)}vh,rgba(0,0,0,0) ${(i + 1) * (vh / divisions)}vh`;
       if (i != divisions - 1) temp += ",";
     }
     return `linear-gradient(to top,${temp})`;

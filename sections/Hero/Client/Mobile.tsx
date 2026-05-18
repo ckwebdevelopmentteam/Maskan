@@ -21,7 +21,7 @@ export default function HeroMobileClient({
         loop
         poster="/Hero/elementis-cover-mjpg.png"
       >
-        <source src="Hero/elementismp4.mp4" type="video/mp4" />
+        <source src="/Hero/elementis-mmp4.mp4" type="video/mp4" />
       </video>
       <Cursor
         renderCursor={!playIntro}

@@ -31,7 +31,7 @@ export default function HeroDesktopClient({
       <div className="absolute inset-0 overflow-clip" ref={containerRef}>
         <motion.div style={{ y, maskImage }} className="h-full">
           <video className="size-full object-cover" autoPlay muted loop>
-            <source src="/Hero/elementismp4.mp4" type="video/mp4"></source>
+            <source src="/Hero/elementismp4.mp4" type="video/mp4" />
           </video>
         </motion.div>
         <motion.div

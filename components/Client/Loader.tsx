@@ -8,8 +8,8 @@ export default function Loader() {
     <AnimatePresence>
       {typeof isMobile !== "boolean" && (
         <motion.div
-          initial={{ backgroundColor: "#ced1bf" }}
-          exit={{ backgroundColor: "#2b3530" }}
+          initial={{ backgroundColor: "#CED1BF" }}
+          exit={{ backgroundColor: "#2B3530" }}
           transition={{ duration: 0.3 }}
           className="fixed inset-0 top-0 grid h-screen w-full place-items-center"
         >
@@ -26,10 +26,10 @@ const CustomLoader = () => {
       height="17"
       viewBox="0 0 216 17"
       initial={{
-        fill: "#2b3530",
+        fill: "#2B3530",
       }}
       exit={{
-        fill: "#ced1bf",
+        fill: "#CED1BF",
       }}
       strokeWidth="0px"
       xmlns="http://www.w3.org/2000/svg"

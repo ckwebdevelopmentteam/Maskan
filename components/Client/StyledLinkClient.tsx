@@ -89,7 +89,7 @@ export default function StyledLinkClient({
       color: "#D1CCBF",
     },
     whileHover: {
-      color: "#2b3530",
+      color: "#2B3530",
     },
   };
   return (

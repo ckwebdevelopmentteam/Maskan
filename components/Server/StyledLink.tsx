@@ -12,6 +12,7 @@ interface StyledLinkProps extends LinkProps {
   arrowFill?: "#2B3530" | "#D1CCBF" | "#FFFFFF";
   active?: boolean;
   href: string;
+  onClick?: () => void;
 }
 export default function StyledLink({
   children,
@@ -21,9 +22,10 @@ export default function StyledLink({
   href,
   className,
   style,
+  onClick,
 }: StyledLinkProps) {
   return (
-    <Link href={href}>
+    <Link href={href} onClick={onClick}>
       <motion.div
         initial="initial"
         whileHover="whileHover"

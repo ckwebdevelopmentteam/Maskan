@@ -25,7 +25,7 @@ export default function HeroServer() {
             className="text-white"
           >
             {
-              "Wellness • Innovation • Nature • Community • Wellness • Innovation • Nature • Community • "
+              "Construction • Design • Budgeting • Infrastructure • Construction • Design • Budgeting • Infrastructure • "
             }
           </ResponsiveMarquee>,
         ]}
@@ -55,8 +55,8 @@ export default function HeroServer() {
           }}
           className="md:[line-height:1.2]"
           lines={[
-            <>A lifestyle revolution for a</>,
-            <>sustaiable fulfilling future</>,
+            <>Building foundations for the future</>,
+            <>with precision and expertise</>,
           ]}
         />
         <MaskText

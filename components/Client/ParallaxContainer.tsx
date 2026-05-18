@@ -8,39 +8,35 @@ export default function ParallaxContainer({
   children,
   className,
   parallaxAmount,
+  containerClassName,
 }: {
   style?: CSSProperties;
   children: ReactNode;
   className?: string;
   parallaxAmount: number;
+  containerClassName?: string;
 }) {
   const imageContainer = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: imageContainer,
     offset: ["start end", "end start"],
   });
-  const scrollY = useTransform(
+  const transform = useTransform(
     scrollYProgress,
-    (latest) =>
-      latest *
-      ((globalThis.window?.innerHeight as number) +
-        (imageContainer.current?.getBoundingClientRect().height as number)),
+    [0, 1],
+    [
+      `translateY(-${parallaxAmount}%) scale(${1 + parallaxAmount / 50})`,
+      `translateY(${parallaxAmount}%) scale(${1 + parallaxAmount / 50})`,
+    ],
   );
-  const transform = useTransform(scrollY, (latest) => {
-    const containerHeight = imageContainer.current?.getBoundingClientRect()
-      .height as number;
-    return containerHeight >= (globalThis.window?.innerHeight as number)
-      ? `translateY(${scrollYProgress.get() * parallaxAmount * 2 - parallaxAmount}%) scale(1)`
-      : `translateY(${(parallaxAmount / ((globalThis.window?.innerHeight as number) - containerHeight)) * (latest - containerHeight)}%) scale(${1 + 0.01 * parallaxAmount})`;
-  });
   return (
-    <motion.div className="overflow-hidden" ref={imageContainer}>
+    <motion.div className={cn("overflow-hidden", containerClassName)} ref={imageContainer}>
       <motion.div
         style={{
           transform,
           ...style,
         }}
-        className={cn(className, "origin-bottom")}
+        className={cn(className, "origin-center")}
       >
         {children}
       </motion.div>

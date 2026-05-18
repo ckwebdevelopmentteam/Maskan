@@ -10,6 +10,9 @@ import {
 
 const WindowSizeContext = createContext<boolean | null>(null);
 
+import { Provider } from "react-redux";
+import { store } from "@/store";
+
 export const WindowSizeProvider = ({
   children,
 }: Readonly<{ children: ReactNode }>) => {
@@ -24,9 +27,11 @@ export const WindowSizeProvider = ({
   }, []);
 
   return (
-    <WindowSizeContext.Provider value={isMobile}>
-      {children}
-    </WindowSizeContext.Provider>
+    <Provider store={store}>
+      <WindowSizeContext.Provider value={isMobile}>
+        {children}
+      </WindowSizeContext.Provider>
+    </Provider>
   );
 };
 

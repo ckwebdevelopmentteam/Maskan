@@ -6,40 +6,34 @@ import { Fragment } from "react";
 export default function ElementisStoryServer() {
   const textLines = {
     mobile: [
-      <Fragment key="m-1"> Our story is deeply</Fragment>,
-      <Fragment key="m-2">
-        rooted in fostering <span>meaningful</span>
-      </Fragment>,
-      <Fragment key="m-3">
-        <span>connections</span>, providing genuine
-      </Fragment>,
-      <Fragment key="m-4">care, and upholding a strong</Fragment>,
-      <Fragment key="m-5">commitment to our Community.</Fragment>,
+      <Fragment key="m-1">Turnkey residential estates,</Fragment>,
+      <Fragment key="m-2">commercial high-rises,</Fragment>,
+      <Fragment key="m-3">and luxury architectural</Fragment>,
+      <Fragment key="m-4">finishes engineered for</Fragment>,
+      <Fragment key="m-5">supreme predictability.</Fragment>,
     ],
     desktop: [
-      <Fragment key="d-1">Our story is deeply rooted in</Fragment>,
-      <Fragment key="d-2">
-        fostering <span>meaningful connections</span>,
-      </Fragment>,
-      <Fragment key="d-3">providing genuine care, and upholding</Fragment>,
-      <Fragment key="d-4">a strong commitment to our</Fragment>,
-      <Fragment key="d-5">Community.</Fragment>,
+      <Fragment key="d-1">Turnkey residential estates, commercial</Fragment>,
+      <Fragment key="d-2">high-rises, and luxury architectural</Fragment>,
+      <Fragment key="d-3">finishes engineered beautifully for</Fragment>,
+      <Fragment key="d-4">maximum capital reach and</Fragment>,
+      <Fragment key="d-5">predictable building delivery.</Fragment>,
     ],
   };
   return (
     <>
-      <SectionTitle className="md:col-span-3">ELEMENTIS Story</SectionTitle>
-      <div className="max-md:mt-12 md:col-span-6 md:col-start-6">
+      <SectionTitle className="md:col-span-3">Maskan Services</SectionTitle>
+      <div className="max-md:mt-12 md:col-span-8 md:col-start-4 text-right flex flex-col items-end">
         <ResponsiveMaskText
           {...textLines}
-          className="text-24 [line-height:1] md:text-40 [&>:first-child]:indent-23"
+          className="text-24 [line-height:1.2] md:text-40 text-right w-full text-[#D1CCBF]"
         />
-        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4">
-          <StyledLink href="https://elementis.co/the-story">
-            Discover ELEMENTIS
+        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md ml-auto">
+          <StyledLink href="/services">
+            Explore Services
           </StyledLink>
-          <StyledLink href="https://elementis.co/the-story#team">
-            Meet The Global Team
+          <StyledLink href="/#contact">
+            Request Services Brochure
           </StyledLink>
         </div>
       </div>

@@ -10,6 +10,7 @@ interface CustomLinkProps {
   initialDelay: number;
   delay: number;
   duration: number;
+  onClick?: () => void;
 }
 export default function CustomLink({
   children,
@@ -19,9 +20,10 @@ export default function CustomLink({
   delay,
   duration,
   handleFocus,
+  onClick,
 }: CustomLinkProps) {
   return (
-    <Link href={href}>
+    <Link href={href} onClick={onClick}>
       <MotionConfig
         transition={{
           ease: [0.24, 0.43, 0.15, 0.97],
@@ -31,7 +33,7 @@ export default function CustomLink({
           initial="initial"
           whileHover="whileHover"
           animate="animate"
-          className="flex cursor-pointer py-2 text-3000svh font-light text-[#2b3530]"
+          className="flex cursor-pointer py-2 text-3000svh font-light text-[#2B3530]"
           variants={{
             whileHover: { gap: "var(--spacing-5)" },
             initial: { gap: "0px", y: "60%", opacity: 0 },
@@ -47,7 +49,7 @@ export default function CustomLink({
           onMouseEnter={() => handleFocus(sNo, false)}
         >
           <NavigateSVG
-            className="mr-0 size-4 origin-bottom-left [&_path]:[fill:#2b3530]"
+            className="mr-0 size-4 origin-bottom-left [&_path]:[fill:#2B3530]"
             variants={{
               whileHover: { scale: 1 },
               initial: { scale: 0 },

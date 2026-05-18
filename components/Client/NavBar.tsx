@@ -1,6 +1,7 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import LogoFull from "@/components/SVGComponents/LogoFull";
+import Image from "next/image";
+import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 import DashedLink from "@/components/Server/DashedLink";
 import BorderedButton from "../Server/BorderedButton";
 import NavigateSVG from "../SVGComponents/NavigateSVG";
@@ -11,9 +12,12 @@ import Link from "next/link";
 import { useIsMobile } from "@/app/providers";
 import ResponsiveSideBar from "./ResponsiveSideBar";
 import CloseIcon from "../SVGComponents/CloseIcon";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export default function NavBar() {
   const isMobile = useIsMobile();
+  const navOpacity = useSelector((state: RootState) => state.nav.opacity);
   const [openSideBar, setOpenSideBar] = useState(false);
   const [state, setState] = useState(false);
   const [y, setY] = useState("0%");
@@ -31,28 +35,20 @@ export default function NavBar() {
   });
   const navItems = [
     {
-      href: "https://elementis.co/destinations",
-      children: "Destinations",
+      href: "/about",
+      children: "About Us",
     },
     {
-      href: "https://elementis.co/wellness",
-      children: "Wellness",
+      href: "/services",
+      children: "Services",
     },
     {
-      href: "https://elementis.co/innovation",
-      children: "Innovation",
+      href: "/projects",
+      children: "Projects",
     },
     {
-      href: "https://elementis.co/sustainability",
-      children: "Nature",
-    },
-    {
-      href: "https://elementis.co/community",
-      children: "Community",
-    },
-    {
-      href: "https://elementis.co/the-story",
-      children: "The Story",
+      href: "/#contact",
+      children: "Contact Us",
     },
   ];
   return (
@@ -66,6 +62,7 @@ export default function NavBar() {
             ease: [0.24, 0.43, 0.15, 0.97],
             duration: 0.6,
           },
+          opacity: { duration: 0.4 },
           y: {
             ease: [0.24, 0.43, 0.15, 0.97],
             duration: 0.8,
@@ -76,37 +73,35 @@ export default function NavBar() {
             paddingBlock: isMobile
               ? "calc(40 * var(--multiplier))"
               : "calc(33 * var(--multiplier))",
-            backgroundColor: "rgba(206, 209, 191,0)",
+            backgroundColor: "transparent",
             y,
+            opacity: navOpacity,
           },
           animate: {
             paddingBlock: isMobile
               ? "calc(18 * var(--multiplier))"
               : "calc(8 * var(--multiplier))",
-            backgroundColor: "rgba(206, 209, 191,1)",
+            backgroundColor: "transparent",
             y,
+            opacity: navOpacity,
           },
         }}
       >
-        <LogoFull
-          className="h-auto w-full max-w-38 origin-left md:max-w-53-75"
-          variants={{
-            initial: { fill: "#FFFFFF" },
-            animate: { fill: "#2B3530" },
-          }}
-        />
+        <Link href="#home" className="cursor-pointer">
+          <Image 
+            src={MaskanLogo} 
+            alt="Maskan Builders" 
+            height={110}
+            className="h-20 md:h-28 w-auto object-contain"
+          />
+        </Link>
         <nav aria-label="navigation" className="hidden gap-6 md:flex">
           {navItems.map((eachItem) => (
             <Link href={eachItem.href} key={eachItem.children}>
               <DashedLink
-                className={cn(
-                  "text-base font-normal",
-                  state
-                    ? "[&>.animated-underline]:bg-[#2b3530]"
-                    : "[&>.animated-underline]:bg-white",
-                )}
+                className="text-base font-normal [&>.animated-underline]:bg-white"
                 variants={{
-                  animate: { color: "#2b3530" },
+                  animate: { color: "#ffffff" },
                   initial: { color: "#ffffff" },
                 }}
               >
@@ -117,16 +112,11 @@ export default function NavBar() {
         </nav>
         <div className="flex items-center gap-8">
           <BorderedButton
-            className={cn(
-              "relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base [line-height:0.8] font-normal md:flex",
-              state
-                ? "text-[#2b3530] [&_svg]:[stroke:#2b3530]"
-                : "text-white [&_svg]:[stroke:white]",
-            )}
+            className="relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base [line-height:0.8] font-normal md:flex text-white [&_svg]:[stroke:white]"
           >
-            Join Us
+            Get a Quote
             <NavigateSVG
-              style={{ fill: state ? "#ffffff" : "#2b3530" }}
+              style={{ fill: "#2B3530" }}
               className="mr-2.5 size-2.5"
             />
           </BorderedButton>
@@ -154,7 +144,7 @@ export default function NavBar() {
               <CloseIcon className="size-7 [&_path]:[stroke-width:1px]" />
             ) : (
               <AnimatedBurger
-                className={cn(state ? "[stroke:#2b3530]" : "[stroke:white]")}
+                className="[stroke:white]"
               />
             )}
           </motion.button>

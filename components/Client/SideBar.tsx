@@ -17,7 +17,7 @@ import NewDevelopments from "@/public/SideBar/new-developments.png";
 import PressRoom from "@/public/SideBar/press-room.png";
 import Careers from "@/public/SideBar/careers.png";
 import { useImageReveal } from "@/hooks/useImageReveal";
-import StayConnected from "@/components//Server/StayConnected";
+import StayConnected from "@/components/Server/StayConnected";
 import Link from "next/link";
 
 interface LinkItem {
@@ -32,40 +32,11 @@ interface SideBarProps {
 export default function SideBar({ setOpenSideBar }: SideBarProps) {
   const { imgContainerRef, handleFocus } = useImageReveal();
   const data: LinkItem[] = [
-    { href: "https://elementis.co/", link: "Home", src: Home },
-    {
-      href: "https://elementis.co/destinations",
-      link: "Destinations",
-      src: Destinations,
-    },
-    { href: "https://elementis.co/wellness", link: "Wellness", src: Wellness },
-    {
-      href: "https://elementis.co/innovation",
-      link: "Innovation",
-      src: Innovation,
-    },
-    {
-      href: "https://elementis.co/sustainability",
-      link: "Nature",
-      src: Nature,
-    },
-    {
-      href: "https://elementis.co/community",
-      link: "Community",
-      src: Community,
-    },
-    {
-      href: "https://elementis.co/the-story",
-      link: "The Story",
-      src: TheStory,
-    },
-    {
-      href: "https://elementis.co/new-developments",
-      link: "New Developments",
-      src: NewDevelopments,
-    },
-    { href: "https://elementis.co/press", link: "Press Room", src: PressRoom },
-    { href: "https://elementis.co/careers", link: "Careers", src: Careers },
+    { href: "/", link: "Home", src: Home },
+    { href: "/about", link: "About Us", src: TheStory },
+    { href: "/services", link: "Services", src: Wellness },
+    { href: "/projects", link: "Projects / Portfolio", src: Destinations },
+    { href: "/#contact", link: "Contact Us", src: NewDevelopments },
   ];
 
   const temp = {
@@ -148,39 +119,23 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
           ))}
         </motion.div>
         <div className="flex-1 pt-7000svh pr-16 pb-3500svh pl-48">
-          <span className="text-1800svh text-[#2b3530]/80">Discover pages</span>
+          <span className="text-1800svh text-[#2B3530]/80">Discover pages</span>
           <nav
             aria-label="pages"
-            className="mt-6400svh mb-8000svh grid grid-flow-col-dense grid-cols-2 grid-rows-5"
+            className="mt-6400svh mb-8000svh grid grid-flow-col-dense grid-cols-2 grid-rows-3"
           >
-            {data.map((eachColData, i) =>
-              i === 0 ? (
-                <motion.div
-                  initial="initial"
-                  animate="animate"
-                  variants={variants}
-                  transition={{
-                    duration: temp.duration,
-                    delay: temp.initialDelay + (i % 5) * temp.delay,
-                    ease: [0.24, 0.43, 0.15, 0.97],
-                  }}
-                  key={"link-" + (i + 1)}
-                  className="cursor-default py-2 text-3000svh [line-height:120%] font-light text-[#2b3530] underline"
-                >
-                  {eachColData.link}
-                </motion.div>
-              ) : (
-                <CustomLink
-                  {...temp}
-                  key={"link-" + (i + 1)}
-                  href={eachColData.href}
-                  sNo={i + 1}
-                  handleFocus={handleFocus}
-                >
-                  {eachColData.link}
-                </CustomLink>
-              ),
-            )}
+            {data.map((eachColData, i) => (
+              <CustomLink
+                {...temp}
+                key={"link-" + (i + 1)}
+                href={eachColData.href}
+                sNo={i + 1}
+                handleFocus={handleFocus}
+                onClick={() => setOpenSideBar(false)}
+              >
+                {eachColData.link}
+              </CustomLink>
+            ))}
           </nav>
           <motion.div
             className="space-y-5600svh"
@@ -203,13 +158,13 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
                 ease: [0.24, 0.43, 0.15, 0.97],
               }}
               id="contact-us"
-              className="space-y-2400svh text-1800svh text-[#2b3530]"
+              className="space-y-2400svh text-1800svh text-[#2B3530]"
             >
-              <div className="text-[#2b3530]/80">Contact Us</div>
-              <div className="flex items-center [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2b3530]">
-                <DashedLink>info@ELEMENTIS.co</DashedLink>
+              <div className="text-[#2B3530]/80">Contact Us</div>
+              <div className="flex items-center [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2B3530]">
+                <DashedLink>info@maskan.pk</DashedLink>
                 <div className="mx-5">|</div>
-                <DashedLink>+62 823 4078 1817</DashedLink>
+                <DashedLink>+92 51 111 MASKAN</DashedLink>
               </div>
             </motion.div>
             <motion.div
@@ -223,7 +178,7 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
                 style={{
                   fontSize: "var(--text-1800svh)",
                 }}
-                className="gap-y-2400svh text-1800svh text-[#2b3530]/80 [&_div]:gap-x-10 [&_svg]:h-2400svh [&_svg]:w-auto [&>:first-child]:text-[#2b3530]/80"
+                className="gap-y-2400svh text-1800svh text-[#2B3530]/80 [&_div]:gap-x-10 [&_svg]:h-2400svh [&_svg]:w-auto [&>:first-child]:text-[#2B3530]/80"
               />
             </motion.div>
             <motion.div
@@ -234,8 +189,8 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
               }}
               className="text-1600svh"
             >
-              <Link href="https://elementis.co/privacy-terms">
-                <DashedLink className="w-fit text-[#2b3530] [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2b3530]">
+              <Link href="/privacy-terms" onClick={() => setOpenSideBar(false)}>
+                <DashedLink className="w-fit text-[#2B3530] [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2B3530]">
                   Policy and Terms
                 </DashedLink>
               </Link>
@@ -246,7 +201,6 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
           initial="initial"
           whileHover="whileHover"
           className="absolute top-8 right-16 cursor-pointer"
-          // p-2000svh
           onClick={() => setOpenSideBar((prev) => !prev)}
         >
           <CloseIcon className="size-4 [&_path]:[stroke-width:1px]" />
