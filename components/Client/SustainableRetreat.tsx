@@ -230,8 +230,8 @@ export default function SustainableRetreat() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-white/80 uppercase tracking-widest text-xs font-bold">Unique Financial Engine</div>
-            <h2 className="text-3xl md:text-5xl font-light text-white leading-tight">
+            <div className="text-white/60 uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">Unique Financial Engine</div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
               The Maskan <br />
               <span className="text-white font-normal border-b border-white/20 pb-1">30/70</span> Payment Model
             </h2>
