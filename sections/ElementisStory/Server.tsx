@@ -22,13 +22,13 @@ export default function ElementisStoryServer() {
   };
   return (
     <>
-      <SectionTitle className="md:col-span-3 text-center md:text-left w-full">Maskan Services</SectionTitle>
-      <div className="max-md:mt-12 md:col-span-8 md:col-start-4 text-center md:text-right flex flex-col items-center md:items-end px-4 md:px-0">
+      {/* Description Column: Starts on Left */}
+      <div className="max-md:mt-12 md:col-span-8 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
         <ResponsiveMaskText
           {...textLines}
-          className="text-24 [line-height:1.2] md:text-40 text-center md:text-right w-full text-[#D1CCBF]"
+          className="text-24 [line-height:1.2] md:text-40 text-center md:text-left w-full text-[#D1CCBF]"
         />
-        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-auto items-center md:items-end">
+        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-0 items-center md:items-start">
           <StyledLink href="/services">
             Explore Services
           </StyledLink>
@@ -37,6 +37,14 @@ export default function ElementisStoryServer() {
           </StyledLink>
         </div>
       </div>
+
+      {/* Section Title Column: Starts on Right */}
+      <SectionTitle 
+        className="md:col-span-3 md:col-start-9 text-center md:text-right w-full md:justify-end order-1 md:order-2"
+        titleClassName="text-xl md:text-3xl font-normal tracking-[0.2em]"
+      >
+        Maskan Services
+      </SectionTitle>
     </>
   );
 }

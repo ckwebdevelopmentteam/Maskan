@@ -6,11 +6,13 @@ interface SectionTitleProps {
   children: string;
   className?: string;
   style?: CSSProperties;
+  titleClassName?: string;
 }
 export default function SectionTitle({
   children,
   className,
   style,
+  titleClassName,
 }: SectionTitleProps) {
   return (
     <div
@@ -18,7 +20,7 @@ export default function SectionTitle({
       className={cn("flex h-fit items-center gap-5 justify-center md:justify-start w-full md:w-auto", className)}
     >
       <BurgerSVG />
-      <div className="text-base [line-height:1] md:text-xl uppercase tracking-widest">{children}</div>
+      <div className={cn("text-base [line-height:1] md:text-xl uppercase tracking-widest", titleClassName)}>{children}</div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function IntroductionServer() {
       </motion.div>
 
       <div className="flex flex-col gap-8 md:gap-12 justify-center text-center md:text-left items-center md:items-start px-4 md:px-0">
-        <SectionTitle>
+        <SectionTitle titleClassName="text-xl md:text-3xl font-normal tracking-[0.2em]">
           About Maskan
         </SectionTitle>
 
@@ -33,7 +33,7 @@ export default function IntroductionServer() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-2xl md:text-4xl font-light text-[#D1CCBF] leading-tight text-center md:text-left">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-[#D1CCBF] leading-tight text-center md:text-left">
             Building Smarter, <br className="hidden md:block" /> More Efficient Spaces
           </h2>
 
