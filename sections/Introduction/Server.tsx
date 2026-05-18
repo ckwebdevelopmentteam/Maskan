@@ -16,7 +16,7 @@ export default function IntroductionServer() {
           <Image
             src={IntroductionImage}
             alt="maskan-about-image"
-            className="w-full h-full object-cover max-md:aspect-[1.18] md:aspect-[3/4]"
+            className="w-full h-full object-cover max-md:aspect-[1.18] md:aspect-[1.1] rounded-3xl border border-white/10"
           />
         </ResponsiveImage>
       </motion.div>
