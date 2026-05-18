@@ -4,7 +4,6 @@ import ParallaxContainer from "@/components/Client/ParallaxContainer";
 import Input from "@/components/Server/Input";
 import Checkbox from "@/components/Client/Checkbox";
 import Form from "next/form";
-import Select from "@/components/Server/Select";
 import Label from "@/components/Server/Label";
 import Link from "next/link";
 import * as motion from "motion/react-client";
@@ -45,13 +44,10 @@ export default function FormServer() {
               <Input name="email" type="email" placeholder="Enter your email address" required />
             </Label>
             <Label label="Phone number">
-              <div className="flex -space-x-4 md:-space-x-6">
-                <Select name="dialCode" options="dial code" />
-                <Input name="phone" type="tel" placeholder="Enter your phone number" required />
-              </div>
+              <Input name="phone" type="tel" placeholder="Enter your phone number" required />
             </Label>
-            <Label label="Country">
-              <Select name="country" options="countries" />
+            <Label label="Location">
+              <Input name="location" type="text" placeholder="Enter your location" required />
             </Label>
           </div>
           <div className="mt-10 space-y-5 text-sm text-[#2B3530] md:text-base">

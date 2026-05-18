@@ -46,17 +46,17 @@ export default function IntroductionServer() {
           </p>
 
           <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8 my-2 w-full justify-items-center md:justify-items-start">
-            <div className="flex flex-col gap-1 items-center md:items-start">
-              <span className="text-2xl md:text-3xl font-light text-white">750K+</span>
-              <span className="text-2xs uppercase tracking-wider text-white/50 leading-tight">Sq. Ft. Built</span>
+            <div className="flex flex-col gap-2 items-center md:items-start">
+              <span className="text-3xl md:text-5xl font-light text-white tracking-tight">750K+</span>
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/50 leading-tight font-semibold">Sq. Ft. Built</span>
             </div>
-            <div className="flex flex-col gap-1 items-center md:items-start">
-              <span className="text-2xl md:text-3xl font-light text-white">7,000+</span>
-              <span className="text-2xs uppercase tracking-wider text-white/50 leading-tight">Designs Delivered</span>
+            <div className="flex flex-col gap-2 items-center md:items-start">
+              <span className="text-3xl md:text-5xl font-light text-white tracking-tight">7,000+</span>
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/50 leading-tight font-semibold">Designs Delivered</span>
             </div>
-            <div className="flex flex-col gap-1 items-center md:items-start">
-              <span className="text-2xl md:text-3xl font-light text-white">1,700+</span>
-              <span className="text-2xs uppercase tracking-wider text-white/50 leading-tight">Expert Staff</span>
+            <div className="flex flex-col gap-2 items-center md:items-start">
+              <span className="text-3xl md:text-5xl font-light text-white tracking-tight">1,700+</span>
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/50 leading-tight font-semibold">Expert Staff</span>
             </div>
           </div>
         </motion.div>
