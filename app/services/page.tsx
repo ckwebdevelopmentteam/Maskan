@@ -4,7 +4,7 @@ import React from "react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import { motion } from "motion/react";
-import { Hammer, Landmark, Paintbrush, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Hammer, Landmark, Paintbrush, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import ServiceBanner from "@/public/property-4.jpg";
 import ImageRes from "@/public/property-1.jpg";

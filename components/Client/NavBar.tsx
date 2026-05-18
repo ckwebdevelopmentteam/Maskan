@@ -7,7 +7,6 @@ import BorderedButton from "../Server/BorderedButton";
 import NavigateSVG from "../SVGComponents/NavigateSVG";
 import AnimatedBurger from "../SVGComponents/AnimatedBurger";
 import { useState } from "react";
-import cn from "@/utils/cn";
 import Link from "next/link";
 import { useIsMobile } from "@/app/providers";
 import ResponsiveSideBar from "./ResponsiveSideBar";

@@ -4,7 +4,7 @@ import React from "react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import { motion } from "motion/react";
-import { MapPin, Calendar, Info, ShieldAlert } from "lucide-react";
+import { MapPin, Info } from "lucide-react";
 import Image from "next/image";
 import ProjectBanner from "@/public/property-5.jpg";
 

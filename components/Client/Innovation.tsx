@@ -4,8 +4,6 @@ import Image, { StaticImageData } from "next/image";
 import Image1 from "@/public/property-1.jpg";
 import Image2 from "@/public/property-2.jpg";
 import Image3 from "@/public/property-3.jpg";
-import Image4 from "@/public/property-4.jpg";
-import Image5 from "@/public/property-5.jpg";
 import {
   motion,
   MotionValue,

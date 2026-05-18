@@ -8,7 +8,6 @@ function useCountUp(endValue: number, duration = 1000) {
 
   useEffect(() => {
     let startTimestamp: number | null = null;
-    const startValue = count;
     let animationFrameId: number;
     
     const step = (timestamp: number) => {
@@ -16,7 +15,7 @@ function useCountUp(endValue: number, duration = 1000) {
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       
-      setCount(Math.floor(startValue + easeProgress * (endValue - startValue)));
+      setCount(Math.floor(easeProgress * endValue));
       
       if (progress < 1) {
         animationFrameId = window.requestAnimationFrame(step);
@@ -62,7 +61,7 @@ export default function PaymentCalculator() {
           Start your project with our exclusive budgeting model. By committing an advance token-payment of just {initialPercent}%, the remaining balance is seamlessly split into {calculations.tenure} equal monthly instalments. No market surplus, no hidden fees.
         </p>
         <p className="text-base leading-relaxed opacity-90 md:text-lg">
-          We believe luxury construction must be a transparent journey. We've restructured the traditional financial model to align completely with your progress, ensuring your capital is utilized efficiently and visibly.
+          We believe luxury construction must be a transparent journey. We&apos;ve restructured the traditional financial model to align completely with your progress, ensuring your capital is utilized efficiently and visibly.
         </p>
         <p className="text-base leading-relaxed opacity-90 md:text-lg">
           With our in-house architects and engineers working in absolute synergy, every rupee spent is justified. Enjoy total control over your investment—from the first foundation pour to the final handover.

@@ -9,7 +9,6 @@ function useCountUp(endValue: number, duration = 800) {
 
   useEffect(() => {
     let startTimestamp: number | null = null;
-    const startValue = count;
     let animationFrameId: number;
     
     const step = (timestamp: number) => {
@@ -17,7 +16,7 @@ function useCountUp(endValue: number, duration = 800) {
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       
-      setCount(Math.floor(startValue + easeProgress * (endValue - startValue)));
+      setCount(Math.floor(easeProgress * endValue));
       
       if (progress < 1) {
         animationFrameId = window.requestAnimationFrame(step);
@@ -237,7 +236,7 @@ export default function SustainableRetreat() {
               <span className="text-white font-normal border-b border-white/20 pb-1">30/70</span> Payment Model
             </h2>
             <p className="text-white/60 text-sm md:text-base leading-relaxed">
-              We've completely re-engineered high-end home building finances. Traditional construction models force clients to pay heavy upfront margins, creating severe capital bottlenecks. Maskan replaces this stress with a clean, low-advance, installment-driven workflow synced perfectly with project milestones.
+              We&apos;ve completely re-engineered high-end home building finances. Traditional construction models force clients to pay heavy upfront margins, creating severe capital bottlenecks. Maskan replaces this stress with a clean, low-advance, installment-driven workflow synced perfectly with project milestones.
             </p>
           </motion.div>
 

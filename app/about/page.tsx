@@ -62,7 +62,7 @@ export default function AboutPage() {
           >
             <div className="text-[#D1CCBF]/50 text-xs uppercase tracking-widest font-mono">Company Vision</div>
             <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
-              To be the <span className="font-normal">"First-choice"</span> for clients seeking capital reach and efficiency in the "Design and Build" sector.
+              To be the <span className="font-normal">&quot;First-choice&quot;</span> for clients seeking capital reach and efficiency in the &quot;Design and Build&quot; sector.
             </h2>
           </motion.div>
 
