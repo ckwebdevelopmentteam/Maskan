@@ -22,13 +22,13 @@ export default function ElementisStoryServer() {
   };
   return (
     <>
-      <SectionTitle className="md:col-span-3">Maskan Services</SectionTitle>
-      <div className="max-md:mt-12 md:col-span-8 md:col-start-4 text-right flex flex-col items-end">
+      <SectionTitle className="md:col-span-3 text-center md:text-left w-full">Maskan Services</SectionTitle>
+      <div className="max-md:mt-12 md:col-span-8 md:col-start-4 text-center md:text-right flex flex-col items-center md:items-end px-4 md:px-0">
         <ResponsiveMaskText
           {...textLines}
-          className="text-24 [line-height:1.2] md:text-40 text-right w-full text-[#D1CCBF]"
+          className="text-24 [line-height:1.2] md:text-40 text-center md:text-right w-full text-[#D1CCBF]"
         />
-        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md ml-auto">
+        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-auto items-center md:items-end">
           <StyledLink href="/services">
             Explore Services
           </StyledLink>

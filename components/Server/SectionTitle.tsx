@@ -15,10 +15,10 @@ export default function SectionTitle({
   return (
     <div
       style={{ ...style }}
-      className={cn("flex h-fit items-center gap-5", className)}
+      className={cn("flex h-fit items-center gap-5 justify-center md:justify-start w-full md:w-auto", className)}
     >
       <BurgerSVG />
-      <div className="text-base [line-height:1] md:text-xl">{children}</div>
+      <div className="text-base [line-height:1] md:text-xl uppercase tracking-widest">{children}</div>
     </div>
   );
 }
