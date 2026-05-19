@@ -1,124 +1,167 @@
 "use client";
 import React from "react";
-import * as motion from "motion/react-client";
+import Image from "next/image";
+import { motion } from "motion/react";
+import Image1 from "@/public/IrsyMMpxpY0yqVMutVpGtcoOSx4.webp";
+import Image2 from "@/public/S0kKRTM44yfHbhgnxbX3PNQlwE.avif";
+import Image3 from "@/public/UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif";
 
 export default function IntroductionServer() {
+  const arrowIcon = (
+    <svg
+      className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 11L11 1M11 1H3M11 1V9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
   return (
-    <section id="about" className="relative bg-[#16221C] border-b border-white/5 overflow-hidden h-auto py-16 md:py-24 flex flex-col">
-
-      {/* ── FULL-BLEED VIDEO BACKDROP ─────────────────────────────────── */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover scale-105"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/SliderCentral.mp4" type="video/mp4" />
-        </video>
-        {/* Layered tinting system */}
-        <div className="absolute inset-0 bg-[#1a2420]/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#16221C]/90 via-transparent to-[#16221C]/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#16221C]/60 via-transparent to-[#16221C]/40" />
-      </div>
-
-      {/* ── TOP META BAR ─────────────────────────────────────────────── */}
-      <motion.div
-        className="relative z-10 flex justify-between items-center px-6 md:px-12 lg:px-16 py-5 border-b border-white/[0.06]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#DCD4C4]/40" />
-          <span className="text-[9px] uppercase tracking-[0.35em] text-white/30 font-bold">About Maskan</span>
-        </div>
-        <span className="text-[9px] uppercase tracking-[0.35em] text-white/20 font-bold hidden md:block">
-          Est. 2018 · Pakistan
-        </span>
-      </motion.div>
-
-      {/* ── HERO AREA: Overflowing display type ──────────────────────── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-start gap-6 md:gap-8 px-6 md:px-12 lg:px-16 pt-12 md:pt-16 pb-8 overflow-hidden">
+    <section id="about" className="relative bg-[#2B3530] pt-20 md:pt-28 pb-20 md:pb-32 px-6 md:px-16 w-full overflow-hidden">
+      <div className="max-w-[1400px] mx-auto w-full">
         
-        {/* Gigantic bleed headline */}
+        {/* Small Tagline */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6 }}
+          className="text-sm md:text-base uppercase tracking-[0.25em] text-[#DCD4C4]/80 font-bold mb-4"
         >
-          <h2
-            className="font-extralight text-white leading-[0.9] tracking-[-0.04em] select-none"
-            style={{ fontSize: "clamp(3.5rem, 12vw, 11rem)" }}
-          >
-            About
-          </h2>
-          <h2
-            className="font-extralight text-[#DCD4C4]/20 leading-[0.9] tracking-[-0.04em] select-none -mt-1 md:-mt-2"
-            style={{ fontSize: "clamp(3.5rem, 12vw, 11rem)" }}
-          >
-            Maskan.
-          </h2>
+          ABOUT US
         </motion.div>
-        
-        {/* ── NARRATIVE & STATS ROW (NO BOXES) ────────────────────────────── */}
-        {/* ── NARRATIVE & STATS (SINGLE COLUMN) ────────────────────────────── */}
-        <motion.div
-          className="flex flex-col gap-10 mt-4 md:mt-6 max-w-5xl"
+
+        {/* Large Bleed Title */}
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-3xl md:text-5xl lg:text-55 font-light tracking-tight text-[#DCD4C4] max-w-5xl leading-[1.15] mb-16"
         >
-          {/* Combined Paragraph */}
-          <div className="flex flex-col gap-6">
-            <p className="text-[#DCD4C4]/80 text-base md:text-lg lg:text-xl font-light leading-[1.85]">
-              At Maskan, we believe in delivering unprecedented capital reach and efficiency to the Design and Build sector. Our vision is to serve as the definitive first-choice partner for commercial and institutional clients seeking smart, sustainable, and highly optimized spaces through unique payment timelines that relieve the upfront capital demands of traditional construction. Guided by a strict commitment to absolute integrity, time-boundedness, uncompromising quality, and extreme efficiency, we convert complex architectural investments into exceptionally organized, stress-free journeys from the first blueprint to the final handover.
+          Shaping the Future of Architecture with Innovation, Precision, and Timeless Design
+        </motion.h2>
+
+        {/* Three Columns (Vision, Mission, Value) */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 border-b border-white/10 pb-16 mb-16"
+        >
+          {/* Vision */}
+          <div className="flex flex-col">
+            <h3 className="text-lg font-medium text-white mb-3">Our Vision</h3>
+            <p className="text-sm md:text-15 text-white/70 font-light leading-relaxed">
+              To redefine modern architecture by creating inspiring, sustainable, and functional spaces that shape the future.
             </p>
           </div>
 
-          {/* Stats Row Below Paragraph */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 pt-8 border-t border-white/[0.08]">
-            {[
-              { value: "750K+", label: "Sq. Ft. Built" },
-              { value: "7,000+", label: "Designs" },
-              { value: "1,700+", label: "Expert Staff" },
-            ].map((stat, i) => (
-              <div key={stat.label} className="flex flex-col gap-2">
-                <span className="text-4xl md:text-5xl font-extralight text-white leading-none tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#DCD4C4]/40 font-bold">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          {/* Mission */}
+          <div className="flex flex-col">
+            <h3 className="text-lg font-medium text-white mb-3">Our Mission</h3>
+            <p className="text-sm md:text-15 text-white/70 font-light leading-relaxed">
+              To deliver innovative, client-focused architectural solutions that blend aesthetics, efficiency, and environmental responsibility.
+            </p>
+          </div>
+
+          {/* Core Value */}
+          <div className="flex flex-col">
+            <h3 className="text-lg font-medium text-white mb-3">Core Value</h3>
+            <p className="text-sm md:text-15 text-white/70 font-light leading-relaxed">
+              To uphold innovation, sustainability, excellence, and collaboration in every project, ensuring timeless design and meaningful impact.
+            </p>
           </div>
         </motion.div>
-      </div>
 
-      {/* ── BOTTOM MARQUEE TICKER ─────────────────────────────────────── */}
-      <div className="relative z-10 border-t border-white/[0.06] overflow-hidden py-3">
-        <motion.div
-          className="flex gap-16 whitespace-nowrap"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-        >
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex gap-16 shrink-0">
-              {["Building Excellence", "Design & Build", "750K+ Sq Ft", "Est. 2018", "Pakistan", "Smart Construction", "7,000+ Designs", "Expert Builders", "Maskan Builders"].map((item) => (
-                <span key={item} className="text-[9px] uppercase tracking-[0.3em] text-white/15 font-bold">
-                  {item} <span className="text-white/10 mx-2">·</span>
-                </span>
-              ))}
+        {/* Bottom Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start">
+          
+          {/* Left Column (spans 3 grid columns on md+) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-span-3 flex flex-col"
+          >
+            <p className="text-sm md:text-15 text-white/80 font-light leading-relaxed mb-8">
+              At Maskan, we believe architecture is more than just constructing spaces—it's about crafting experiences, fostering connections, and leaving a lasting impact.
+            </p>
+            <div className="relative aspect-[3/5] w-full overflow-hidden bg-white/5 group">
+              <Image
+                src={Image1}
+                alt="Maskan Interior Corridor"
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
             </div>
-          ))}
-        </motion.div>
-      </div>
+          </motion.div>
 
+          {/* Middle Column (spans 3 grid columns on md+) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:col-span-3 flex flex-col md:pt-16"
+          >
+            <div className="relative aspect-[3/5] w-full overflow-hidden bg-white/5 mb-6 group">
+              <Image
+                src={Image2}
+                alt="Maskan Architectural Structure"
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
+            </div>
+            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed">
+              With a deep commitment to creativity, sustainability, and functionality, our expert team transforms ideas into extraordinary built environments.
+            </p>
+          </motion.div>
+
+          {/* Right Column (spans 6 grid columns on md+) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="md:col-span-6 flex flex-col"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5 mb-6 group">
+              <Image
+                src={Image3}
+                alt="Maskan Premium Living Space"
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed mb-8">
+              From visionary residential designs to groundbreaking commercial spaces, we seamlessly blend artistry with practicality. Every project we undertake is a testament to our passion for design excellence, meticulous attention to detail, and client-centered approach.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button className="px-6 py-3 bg-[#DCD4C4] text-[#2B3530] text-xs uppercase tracking-widest font-semibold hover:bg-[#DCD4C4]/90 transition-all duration-300 cursor-pointer">
+                MORE ABOUT US
+              </button>
+              <button className="px-6 py-3 bg-[#C87A53] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#C87A53]/90 transition-all duration-300 flex items-center gap-2 group cursor-pointer">
+                OUR WORKS {arrowIcon}
+              </button>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
     </section>
   );
 }
