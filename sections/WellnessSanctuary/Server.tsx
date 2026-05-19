@@ -22,7 +22,7 @@ export default function WellnessSanctuary() {
   };
 
   return (
-    <div id="services" className="flex flex-col bg-[#30493D] text-[#D1CCBF] md:grid md:grid-cols-2 border-t border-white/5">
+    <div id="services" className="flex flex-col bg-[#121C29] text-[#DCD4C4] md:grid md:grid-cols-2 border-t border-white/5">
       <ResponsiveImage parallaxAmount={20}>
         <Image
           src={ConstructionExpertiseImage}

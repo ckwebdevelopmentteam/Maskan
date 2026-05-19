@@ -25,7 +25,7 @@ export default function DashedLink({
       >
         {children}
         <motion.div
-          className="animated-underline absolute bottom-0 h-[1px] bg-black"
+          className="animated-underline absolute bottom-0 h-[1px] bg-[#2B3530]"
           variants={{
             initial: { width: "0%", right: "0px", left: "auto" },
             hover: { width: "100%", left: "0px", right: "auto" },

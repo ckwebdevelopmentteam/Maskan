@@ -51,7 +51,7 @@ export default function PaymentCalculator() {
   const animatedEmi = useCountUp(calculations.emi);
 
   return (
-    <div className="grid md:grid-cols-2 gap-12 md:gap-x-12 md:gap-y-0 mt-20 pt-20 border-t border-[#D1CCBF]/20 col-span-1 md:col-span-2">
+    <div className="grid md:grid-cols-2 gap-12 md:gap-x-12 md:gap-y-0 mt-20 pt-20 border-t border-[#DCD4C4]/20 col-span-1 md:col-span-2">
       {/* Left side: Description */}
       <div className="flex flex-col gap-6 md:gap-8 md:pr-12">
         <div className="text-xl font-medium uppercase tracking-widest text-white/80 md:text-2xl">
@@ -74,27 +74,27 @@ export default function PaymentCalculator() {
         {!showEnquiry ? (
           <div className="space-y-12">
             <div className="space-y-4">
-              <label className="text-sm uppercase tracking-widest text-[#D1CCBF]/60 block">Project Valuation</label>
+              <label className="text-sm uppercase tracking-widest text-[#DCD4C4]/60 block">Project Valuation</label>
               <div className="relative group">
                 <input 
                   type="number" 
                   value={totalCost || ''}
                   onChange={(e) => setTotalCost(Number(e.target.value))}
-                  className="w-full bg-transparent border-b border-[#D1CCBF]/30 py-4 text-4xl md:text-5xl font-light text-[#D1CCBF] focus:outline-none focus:border-[#D1CCBF] transition-colors"
+                  className="w-full bg-transparent border-b border-[#DCD4C4]/30 py-4 text-4xl md:text-5xl font-light text-[#DCD4C4] focus:outline-none focus:border-[#DCD4C4] transition-colors"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-[#D1CCBF]/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-[#DCD4C4]/10">
               <div className="space-y-2">
-                <span className="text-sm uppercase tracking-widest text-[#D1CCBF]/60 block">Advance ({initialPercent}%)</span>
-                <div className="text-2xl md:text-3xl font-light text-[#D1CCBF] flex items-baseline gap-2">
+                <span className="text-sm uppercase tracking-widest text-[#DCD4C4]/60 block">Advance ({initialPercent}%)</span>
+                <div className="text-2xl md:text-3xl font-light text-[#DCD4C4] flex items-baseline gap-2">
                   <span>{animatedAdvance.toLocaleString()}</span>
                 </div>
               </div>
               <div className="space-y-2">
-                <span className="text-sm uppercase tracking-widest text-[#D1CCBF]/60 block">Monthly EMI ({emiPercent}%)</span>
-                <div className="text-2xl md:text-3xl font-light text-[#D1CCBF] flex items-baseline gap-2">
+                <span className="text-sm uppercase tracking-widest text-[#DCD4C4]/60 block">Monthly EMI ({emiPercent}%)</span>
+                <div className="text-2xl md:text-3xl font-light text-[#DCD4C4] flex items-baseline gap-2">
                   <span>{animatedEmi.toLocaleString()}</span>
                 </div>
               </div>
@@ -102,17 +102,17 @@ export default function PaymentCalculator() {
 
             <div className="space-y-4">
               <div className="flex justify-between items-end">
-                <span className="text-sm uppercase tracking-widest text-[#D1CCBF]/60">Tenure Breakdown</span>
-                <span className="text-lg text-[#D1CCBF]">{calculations.tenure} MONTHS</span>
+                <span className="text-sm uppercase tracking-widest text-[#DCD4C4]/60">Tenure Breakdown</span>
+                <span className="text-lg text-[#DCD4C4]">{calculations.tenure} MONTHS</span>
               </div>
-              <div className="h-px w-full bg-[#D1CCBF]/20 relative">
-                <div className="absolute top-0 left-0 h-full bg-[#D1CCBF] shadow-[0_0_10px_rgba(209,204,191,0.5)]" style={{ width: `${initialPercent}%`, borderRadius: '2px' }} />
+              <div className="h-px w-full bg-[#DCD4C4]/20 relative">
+                <div className="absolute top-0 left-0 h-full bg-[#DCD4C4] shadow-[0_0_10px_rgba(209,204,191,0.5)]" style={{ width: `${initialPercent}%`, borderRadius: '2px' }} />
               </div>
             </div>
 
             <button 
               onClick={() => setShowEnquiry(true)}
-              className="w-full mt-8 py-5 rounded-2xl bg-[#D1CCBF] text-[#2B3530] text-sm uppercase tracking-widest font-bold hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 shadow-[4px_4px_10px_rgba(0,0,0,0.3),_inset_-2px_-2px_5px_rgba(0,0,0,0.1),_inset_2px_2px_5px_rgba(255,255,255,0.8)]"
+              className="w-full mt-8 py-5 rounded-2xl bg-[#DCD4C4] text-[#2B3530] text-sm uppercase tracking-widest font-bold hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 shadow-[4px_4px_10px_rgba(0,0,0,0.3),_inset_-2px_-2px_5px_rgba(0,0,0,0.1),_inset_2px_2px_5px_rgba(255,255,255,0.8)]"
             >
               Proceed with Design <ArrowRight className="w-4 h-4" />
             </button>
@@ -120,10 +120,10 @@ export default function PaymentCalculator() {
         ) : (
           <div className="space-y-8 animate-in fade-in slide-in-from-right-8 duration-500">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-light text-[#D1CCBF]">Finalize Inquiry</h3>
+              <h3 className="text-2xl font-light text-[#DCD4C4]">Finalize Inquiry</h3>
               <button 
                 onClick={() => setShowEnquiry(false)}
-                className="p-3 rounded-full hover:bg-[#D1CCBF]/10 text-[#D1CCBF]/60 hover:text-[#D1CCBF] transition-colors shadow-[inset_2px_2px_5px_rgba(255,255,255,0.05),_inset_-2px_-2px_5px_rgba(0,0,0,0.3)]"
+                className="p-3 rounded-full hover:bg-[#DCD4C4]/10 text-[#DCD4C4]/60 hover:text-[#DCD4C4] transition-colors shadow-[inset_2px_2px_5px_rgba(255,255,255,0.05),_inset_-2px_-2px_5px_rgba(0,0,0,0.3)]"
               >
                 <Calculator className="w-5 h-5" />
               </button>
@@ -131,15 +131,15 @@ export default function PaymentCalculator() {
             
             {/* Summary Box */}
             <div className="bg-[#1f2622] rounded-2xl p-5 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)] space-y-3">
-              <div className="flex justify-between text-sm text-[#D1CCBF]/80">
+              <div className="flex justify-between text-sm text-[#DCD4C4]/80">
                 <span>Valuation:</span>
                 <span className="font-medium">{totalCost.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between text-sm text-[#D1CCBF]/80">
+              <div className="flex justify-between text-sm text-[#DCD4C4]/80">
                 <span>Advance:</span>
                 <span className="font-medium">{calculations.advance.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between text-sm text-[#D1CCBF]/80">
+              <div className="flex justify-between text-sm text-[#DCD4C4]/80">
                 <span>EMI ({calculations.tenure} mos):</span>
                 <span className="font-medium">{calculations.emi.toLocaleString()}</span>
               </div>
@@ -150,42 +150,42 @@ export default function PaymentCalculator() {
               alert(`Lead Captured! \nName: ${formData.name} \nPhone: ${formData.phone} \nLocation: ${formData.location} \n\nProject: ${totalCost}`);
             }}>
               <div className="relative group">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D1CCBF]/40 group-focus-within:text-[#D1CCBF] transition-colors" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#DCD4C4]/40 group-focus-within:text-[#DCD4C4] transition-colors" />
                 <input 
                   type="text" 
                   placeholder="Your Name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#D1CCBF] placeholder:text-[#D1CCBF]/30 focus:outline-none focus:ring-1 focus:ring-[#D1CCBF]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
+                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#DCD4C4] placeholder:text-[#DCD4C4]/30 focus:outline-none focus:ring-1 focus:ring-[#DCD4C4]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
                 />
               </div>
               <div className="relative group">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D1CCBF]/40 group-focus-within:text-[#D1CCBF] transition-colors" />
+                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#DCD4C4]/40 group-focus-within:text-[#DCD4C4] transition-colors" />
                 <input 
                   type="tel" 
                   placeholder="Phone Number"
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#D1CCBF] placeholder:text-[#D1CCBF]/30 focus:outline-none focus:ring-1 focus:ring-[#D1CCBF]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
+                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#DCD4C4] placeholder:text-[#DCD4C4]/30 focus:outline-none focus:ring-1 focus:ring-[#DCD4C4]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
                 />
               </div>
               <div className="relative group">
-                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#D1CCBF]/40 group-focus-within:text-[#D1CCBF] transition-colors" />
+                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#DCD4C4]/40 group-focus-within:text-[#DCD4C4] transition-colors" />
                 <input 
                   type="text" 
                   placeholder="Project Location"
                   required
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
-                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#D1CCBF] placeholder:text-[#D1CCBF]/30 focus:outline-none focus:ring-1 focus:ring-[#D1CCBF]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
+                  className="w-full bg-[#1f2622] border-none rounded-xl py-4 pl-12 pr-4 text-[#DCD4C4] placeholder:text-[#DCD4C4]/30 focus:outline-none focus:ring-1 focus:ring-[#DCD4C4]/50 shadow-[inset_3px_3px_8px_rgba(0,0,0,0.4),_inset_-2px_-2px_5px_rgba(255,255,255,0.02)]"
                 />
               </div>
 
               <button 
                 type="submit"
-                className="w-full mt-4 py-5 rounded-2xl bg-[#D1CCBF] text-[#2B3530] text-sm uppercase tracking-widest font-bold hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 shadow-[4px_4px_10px_rgba(0,0,0,0.3),_inset_-2px_-2px_5px_rgba(0,0,0,0.1),_inset_2px_2px_5px_rgba(255,255,255,0.8)]"
+                className="w-full mt-4 py-5 rounded-2xl bg-[#DCD4C4] text-[#2B3530] text-sm uppercase tracking-widest font-bold hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 shadow-[4px_4px_10px_rgba(0,0,0,0.3),_inset_-2px_-2px_5px_rgba(0,0,0,0.1),_inset_2px_2px_5px_rgba(255,255,255,0.8)]"
               >
                 Submit Inquiry <Send className="w-4 h-4" />
               </button>

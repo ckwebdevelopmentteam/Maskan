@@ -1,35 +1,16 @@
 "use client";
-import { Dispatch, SetStateAction } from "react";
-import Cursor from "@/components/Client/Cursor";
-import PlaySVG from "@/components/SVGComponents/PlaySVG";
-export default function HeroMobileClient({
-  playIntro,
-  setPlayIntro,
-}: {
-  setPlayIntro: Dispatch<SetStateAction<boolean>>;
-  playIntro: boolean;
-}) {
+export default function HeroMobileClient() {
   return (
-    <div
-      className="absolute inset-0 grid place-items-center"
-      onClick={() => setPlayIntro((prev) => !prev)}
-    >
+    <div className="absolute inset-0 grid place-items-center">
       <video
         className="size-full object-cover md:hidden"
         autoPlay
         muted
         loop
-        poster="/Hero/elementis-cover-mjpg.png"
+        playsInline
       >
-        <source src="/Hero/elementis-mmp4.mp4" type="video/mp4" />
+        <source src="/motion_2.0-fast_behide_the_maskan_logo_and_writing_all_the_content_should_happen_2_male_workers_-0.mp4" type="video/mp4" />
       </video>
-      <Cursor
-        renderCursor={!playIntro}
-        isMobile={true}
-        className="absolute grid aspect-square w-11 place-items-center rounded-full"
-      >
-        <PlaySVG className="w-1/3" />
-      </Cursor>
     </div>
   );
 }

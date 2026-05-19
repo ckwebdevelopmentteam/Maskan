@@ -10,43 +10,43 @@ import Locations from "@/sections/Locations";
 import Testimonials from "@/sections/Testimonials";
 import Advantage from "@/sections/Advantage";
 import ProjectsGrid from "@/sections/ProjectsGrid";
+import CTA from "@/sections/CTA";
+import FAQ from "@/sections/FAQ";
 
 export default function Home() {
   return (
     <main>
-      {/* 1. Home */}
       <Hero />
-
-      {/* 2. About Us */}
       <Introduction />
-
-      {/* Standalone: The Maskan Advantage (with split parallax image) */}
-      <Advantage />
-
-      {/* 3. Main Services (Beautiful 3-column grid of core services) */}
-      <div id="services">
-        <ElementisStory />
-      </div>
-
-
-
-      {/* 8. Gallery (Parallax/Clip-mask Project Showcase) */}
       <Innovation />
-      {/* 4. Projects / Portfolio (8 Majestic Property Cards Grid!) */}
       <ProjectsGrid />
-      {/* 5. Locations / Areas Served */}
-      <Locations />
 
-      {/* Financial Calculator Segment */}
+      {/* Calculation */}
       <SustainableRetreat />
 
-      {/* 6. Contact Us */}
-      <Form />
+      {/* Advantage */}
+      <Advantage />
+      <ElementisStory />
 
-      {/* 7. Testimonials */}
+      {/* Location */}
+      <Locations />
+
+      {/* CTA */}
+      <CTA />
+
+      {/* Testimonial */}
       <Testimonials />
 
-      {/* Footers & Navigators */}
+      {/* FAQ */}
+      <FAQ />
+
+      {/* Content (Services & Contact) */}
+      <div id="services">
+
+      </div>
+      <Form />
+
+      {/* Footer */}
       <Footer />
       <NavBar />
     </main>

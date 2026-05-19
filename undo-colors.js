@@ -3,8 +3,8 @@ const path = require('path');
 
 const replacements = [
   { regex: /#1F2833/gi, replacement: '#CED1BF' },
-  { regex: /#0B0C10/gi, replacement: '#2B3530' },
-  { regex: /#C5C6C7/gi, replacement: '#D1CCBF' }
+  { regex: /#0B0C10/gi, replacement: '#0C121A' },
+  { regex: /#C5C6C7/gi, replacement: '#DCD4C4' }
 ];
 
 function walk(dir) {

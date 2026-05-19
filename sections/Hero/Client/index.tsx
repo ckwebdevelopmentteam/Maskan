@@ -2,25 +2,17 @@
 
 import { useIsMobile } from "@/app/providers";
 import HeroDesktopClient from "./Desktop";
-import { useState } from "react";
-import VideoPlayer from "@/components/VideoPlayer";
 import HeroMobileClient from "@/sections/Hero/Client/Mobile";
 
 export default function HeroClient() {
   const isMobile = useIsMobile();
-  const [playIntro, setPlayIntro] = useState(false);
   return (
     <>
       {isMobile ? (
-        <HeroMobileClient playIntro={playIntro} setPlayIntro={setPlayIntro} />
+        <HeroMobileClient />
       ) : (
-        <HeroDesktopClient setPlayIntro={setPlayIntro} />
+        <HeroDesktopClient />
       )}
-      <VideoPlayer
-        isMobile={isMobile}
-        playIntro={playIntro}
-        setPlayIntro={setPlayIntro}
-      />
     </>
   );
 }

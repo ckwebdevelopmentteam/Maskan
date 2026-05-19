@@ -169,7 +169,7 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <main className="bg-[#2B3530] text-[#D1CCBF] min-h-screen overflow-x-hidden">
+    <main className="bg-[#2B3530] text-[#DCD4C4] min-h-screen overflow-x-hidden">
       <NavBar />
       
       {/* 1. Header Banner */}
@@ -221,9 +221,9 @@ export default function ProjectsPage() {
                 
                 {/* On-going Status Badge overlay */}
                 <div className={`absolute top-6 left-6 text-[10px] font-mono tracking-widest font-semibold px-4 py-2 uppercase shadow-lg flex items-center gap-2 ${
-                  isCompleted ? "bg-[#CED1BF] text-black" : "bg-white text-black"
+                  isCompleted ? "bg-[#CED1BF] text-[#2B3530]" : "bg-white text-[#2B3530]"
                 }`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${isCompleted ? "bg-black" : "bg-green-500 animate-ping"}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${isCompleted ? "bg-[#2B3530]" : "bg-green-500 animate-ping"}`} />
                   {proj.status}
                 </div>
               </motion.div>

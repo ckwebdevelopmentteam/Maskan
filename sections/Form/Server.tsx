@@ -2,22 +2,12 @@ import Image from "next/image";
 import FormImage from "@/public/Maskan 01_page-0026.jpg";
 import ParallaxContainer from "@/components/Client/ParallaxContainer";
 import Input from "@/components/Server/Input";
-import Checkbox from "@/components/Client/Checkbox";
 import Form from "next/form";
 import Label from "@/components/Server/Label";
-import Link from "next/link";
 import * as motion from "motion/react-client";
 import NavigateSVG from "@/components/SVGComponents/NavigateSVG";
 
 export default function FormServer() {
-  const categories = [
-    "Residential Construction",
-    "Commercial Projects",
-    "Interior Design",
-    "Renovations",
-    "Consultancy",
-  ];
-
   return (
     <div id="contact" className="flex flex-col bg-[#CED1BF] md:grid md:grid-cols-2 border-t border-white/5">
       <ParallaxContainer 
@@ -50,29 +40,15 @@ export default function FormServer() {
               <Input name="location" type="text" placeholder="Enter your location" required />
             </Label>
           </div>
-          <div className="mt-10 space-y-5 text-sm text-[#2B3530] md:text-base">
-            <p>I would like to receive information on Maskan Builders.</p>
-            <div className="flex flex-wrap gap-4">
-              {categories.map((category) => (
-                <Checkbox name="interests" value={category} key={category}>{category}</Checkbox>
-              ))}
-            </div>
-          </div>
-          <Checkbox name="agree" className="mt-8-75" required={true}>
-            I agree to the{" "}
-            <Link href="" className="underline-[#2B3530] underline">
-              Policies and Terms
-            </Link>
-          </Checkbox>
           <motion.button
             type="submit"
-            className="mt-14 flex w-full cursor-pointer items-center justify-between px-6 py-5 text-base text-[#D1CCBF] md:text-lg"
+            className="mt-14 flex w-full cursor-pointer items-center justify-between px-6 py-5 text-base text-[#DCD4C4] md:text-lg"
             initial={{ backgroundColor: "#2B3530" }}
             whileHover={{ backgroundColor: "#304d3d" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <span>Sign up</span>
-            <NavigateSVG fill="#D1CCBF" />
+            <span>Enquire Now</span>
+            <NavigateSVG fill="#DCD4C4" />
           </motion.button>
         </Form>
       </div>

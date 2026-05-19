@@ -28,7 +28,7 @@ const projects = [
 
 export default function ProjectsGrid() {
   return (
-    <div id="portfolio" className="overflow-x-hidden bg-[#2B3530] px-3-75 py-24 text-[#D1CCBF] md:px-16 md:py-36 flex flex-col gap-16 md:gap-20 border-t border-white/5">
+    <div id="portfolio" className="overflow-x-hidden bg-[#2B3530] px-3-75 py-24 text-[#DCD4C4] md:px-16 md:py-36 flex flex-col gap-16 md:gap-20 border-t border-white/5">
       {/* Minimalist Intro Header Section */}
       <div className="border-b border-white/10 pb-6">
         <SectionTitle>Maskan Projects</SectionTitle>
@@ -40,7 +40,7 @@ export default function ProjectsGrid() {
           {projects.map((project, idx) => (
             <Link href="/projects" key={project.name} className="w-full">
               <motion.div
-                className="relative aspect-[2/3] w-full overflow-hidden rounded-none border border-white/10 group cursor-pointer shadow-2xl bg-[#232b27]"
+                className="relative aspect-[2/3] w-full overflow-hidden rounded-none border border-[#DCD4C4]/20 p-2 group cursor-pointer shadow-2xl bg-[#2B3530]"
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

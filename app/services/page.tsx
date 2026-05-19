@@ -61,7 +61,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="bg-[#2B3530] text-[#D1CCBF] min-h-screen overflow-x-hidden">
+    <main className="bg-[#2B3530] text-[#DCD4C4] min-h-screen overflow-x-hidden">
       <NavBar />
       
       {/* 1. Header Banner */}
@@ -146,7 +146,7 @@ export default function ServicesPage() {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute top-6 right-6 bg-black/40 p-4 rounded-xl border border-white/5 text-white backdrop-blur-md">
+                <div className="absolute top-6 right-6 bg-[#2B3530]/40 p-4 rounded-xl border border-white/5 text-white backdrop-blur-md">
                   <IconComponent className="w-6 h-6 stroke-[1.5]" />
                 </div>
               </motion.div>

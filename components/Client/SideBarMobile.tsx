@@ -59,13 +59,13 @@ export default function SideBarMobile({ setOpenSideBar }: SideBarMobileProps) {
             ))}
             <motion.button
               onClick={() => setOpenSideBar(false)}
-              className="mt-14 flex w-full cursor-pointer items-center justify-between px-6 py-5 text-lg font-light text-[#D1CCBF]"
+              className="mt-14 flex w-full cursor-pointer items-center justify-between px-6 py-5 text-lg font-light text-[#DCD4C4]"
               initial={{ backgroundColor: "#2B3530" }}
               whileHover={{ backgroundColor: "#304d3d" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <span>Join us</span>
-              <NavigateSVG fill="#D1CCBF" />
+              <NavigateSVG fill="#DCD4C4" />
             </motion.button>
           </div>
           <ContactUs className="gap-y-8 text-base text-[#2B3530] max-md:mt-16 md:hidden [&>:first-child]:text-sm [&>:first-child]:text-[#2B3530]/80 [&>div]:gap-x-5" />

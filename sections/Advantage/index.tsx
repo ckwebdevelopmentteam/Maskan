@@ -81,7 +81,7 @@ export default function Advantage() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <div id="advantage" className="bg-[#2B3530] text-[#D1CCBF] py-24 md:py-36 px-4 md:px-16 border-b border-white/5 relative overflow-hidden">
+    <div id="advantage" className="bg-[#2B3530] text-[#DCD4C4] py-24 md:py-36 px-4 md:px-16 border-b border-white/5 relative overflow-hidden">
       {/* Structural Tech Grid Background Watermark */}
       <div className="absolute right-10 top-10 pointer-events-none opacity-[0.02] text-white font-mono text-[14vw] font-black select-none leading-none">
         PILLARS
@@ -98,84 +98,24 @@ export default function Advantage() {
             </h2>
           </div>
           <p className="max-w-md text-white/50 text-sm leading-relaxed text-center md:text-left mx-auto md:mx-0">
-            Explore our architectural and execution pillars. Select any menu item to explore detailed parameters and technical metrics.
+            Explore our architectural and execution pillars. Hover over any vertical item to dynamically display detailed blueprints and parameters.
           </p>
         </div>
 
-        {/* Cinematic Dashboard Layout (Desktop View) */}
-        <div className="hidden lg:grid grid-cols-12 gap-12 items-stretch min-h-[580px]">
-          {/* Left Column: Vertical Control Terminal */}
-          <div className="col-span-5 flex flex-col justify-between gap-3">
-            {advantages.map((adv, idx) => {
-              const IconComponent = adv.icon;
-              const isActive = activeIndex === idx;
-
-              return (
-                <button
-                  key={adv.id}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex items-center justify-between group outline-none ${
-                    isActive
-                      ? "bg-[#232b27] border-white/20 shadow-2xl scale-[1.02]"
-                      : "bg-transparent border-white/5 hover:border-white/10 hover:bg-white/[0.01]"
-                  }`}
-                >
-                  <div className="flex items-center gap-6">
-                    {/* Index */}
-                    <span className={`text-xl font-mono transition-colors duration-300 ${
-                      isActive ? "text-white font-bold" : "text-[#D1CCBF]/40"
-                    }`}>
-                      {adv.id}
-                    </span>
-
-                    {/* Left active line indicator */}
-                    <div className="relative w-[2px] h-8 bg-white/10 overflow-hidden">
-                      <motion.div
-                        className="absolute inset-0 bg-[#CED1BF]"
-                        initial={false}
-                        animate={{ y: isActive ? "0%" : "100%" }}
-                        transition={{ duration: 0.4 }}
-                      />
-                    </div>
-
-                    {/* Titles */}
-                    <div className="space-y-1">
-                      <h3 className={`text-lg uppercase tracking-wider font-light transition-colors duration-300 ${
-                        isActive ? "text-white font-normal" : "text-[#D1CCBF]/80"
-                      }`}>
-                        {adv.title}
-                      </h3>
-                      <span className="text-[10px] text-white/40 tracking-widest uppercase block">
-                        {adv.tagline}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Icon Indicator */}
-                  <div className={`p-3 rounded-xl border transition-all duration-300 ${
-                    isActive
-                      ? "bg-white text-black border-white shadow-md scale-110"
-                      : "bg-white/5 text-white/40 border-white/10 group-hover:text-white/70"
-                  }`}>
-                    <IconComponent className="w-5 h-5 stroke-[1.5]" />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Right Column: Split Screen Cinematic Showcase */}
-          <div className="col-span-7 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#232b27] flex flex-col justify-end min-h-[580px]">
+        {/* Cinematic Hover-Reveal Magazine Layout (Desktop View) */}
+        <div className="hidden lg:grid grid-cols-12 gap-16 items-stretch">
+          {/* Left Column: Immersive Cinematic Viewport Window */}
+          <div className="col-span-8 relative bg-[#232b27] border border-white/10 rounded-none overflow-hidden shadow-2xl h-full min-h-[480px] flex flex-col justify-end">
+            {/* Background Image Panel */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, scale: 1.03 }}
+                initial={{ opacity: 0, scale: 1.02 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="absolute inset-0 w-full h-full"
               >
-                {/* Background Image */}
                 <Image
                   src={advantages[activeIndex].image}
                   alt={advantages[activeIndex].title}
@@ -184,13 +124,12 @@ export default function Advantage() {
                   placeholder="blur"
                   priority
                 />
-                
-                {/* Dark Vignette Mask Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-95" />
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent opacity-95" />
               </motion.div>
             </AnimatePresence>
 
-            {/* Technical Parameters Panel Overlay (Sits inside the display) */}
+            {/* Overlaid HUD Stats details */}
             <div className="relative z-10 p-12 space-y-8 w-full">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -198,35 +137,91 @@ export default function Advantage() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
+                  transition={{ duration: 0.4, delay: 0.05 }}
                   className="space-y-6"
                 >
-                  {/* Detailed Description */}
-                  <div className="space-y-3 max-w-xl">
+                  <div className="space-y-2">
                     <span className="text-[10px] uppercase font-mono tracking-widest text-[#CED1BF] font-semibold block">
-                      // PILLAR SPECIFICATION
+                      // {advantages[activeIndex].tagline}
                     </span>
-                    <p className="text-base text-white/90 leading-relaxed font-light">
+                    <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                       {advantages[activeIndex].description}
                     </p>
                   </div>
 
-                  {/* Dynamic Technical Metrics HUD */}
+                  {/* Technical metrics layout */}
                   <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
-                    {advantages[activeIndex].metrics.map((metric) => (
-                      <div key={metric.label} className="space-y-1.5 bg-black/30 p-4 border border-white/5 backdrop-blur-sm">
+                    {advantages[activeIndex].metrics.map((metric, mIdx) => (
+                      <motion.div 
+                        key={metric.label} 
+                        className="space-y-1.5 bg-[#2B3530]/40 backdrop-blur-sm p-4 rounded-none border border-white/5"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: mIdx * 0.08 }}
+                      >
                         <span className="text-[9px] font-mono tracking-wider uppercase text-white/40 block leading-tight">
                           {metric.label}
                         </span>
-                        <span className="text-lg font-semibold text-white block">
+                        <span className="text-lg md:text-xl font-bold text-white block">
                           {metric.value}
                         </span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+
+          {/* Right Column: Interactive Divider List */}
+          <div className="col-span-4 flex flex-col justify-center divide-y divide-white/10 border-t border-b border-white/10 h-full">
+            {advantages.map((adv, idx) => {
+              const isActive = activeIndex === idx;
+              const IconComponent = adv.icon;
+
+              return (
+                <div
+                  key={adv.id}
+                  onMouseEnter={() => setActiveIndex(idx)}
+                  className="py-8 cursor-pointer group flex items-center justify-between transition-all duration-300 outline-none"
+                >
+                  <div className="flex items-center gap-6">
+                    {/* Index Number */}
+                    <span className={`font-mono text-sm transition-colors duration-300 ${
+                      isActive ? "text-white font-bold" : "text-[#DCD4C4]/25"
+                    }`}>
+                      {adv.id}
+                    </span>
+
+                    {/* Left Active Line */}
+                    <div className="relative w-[1.5px] h-6 bg-white/10 overflow-hidden">
+                      <motion.div
+                        className="absolute inset-0 bg-[#CED1BF]"
+                        initial={false}
+                        animate={{ y: isActive ? "0%" : "100%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+
+                    {/* Pillar Title */}
+                    <h3 className={`text-xl uppercase tracking-[0.15em] transition-all duration-500 font-light ${
+                      isActive ? "text-white font-normal translate-x-3" : "text-[#DCD4C4]/50 group-hover:text-white group-hover:translate-x-1.5"
+                    }`}>
+                      {adv.title}
+                    </h3>
+                  </div>
+
+                  {/* Icon Indicator */}
+                  <div className={`p-2.5 rounded-full border transition-all duration-500 ${
+                    isActive
+                      ? "bg-white text-[#2B3530] border-white shadow-md rotate-0 scale-105"
+                      : "bg-transparent border-white/10 text-white/30 group-hover:text-white/70 group-hover:border-white/20 -rotate-45"
+                  }`}>
+                    <IconComponent className="w-4 h-4 stroke-[1.5]" />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -242,7 +237,7 @@ export default function Advantage() {
                   onClick={() => setActiveIndex(idx)}
                   className={`snap-center flex-shrink-0 px-5 py-3 rounded-full text-xs font-mono uppercase tracking-widest border transition-all duration-300 ${
                     isActive
-                      ? "bg-white text-black border-white"
+                      ? "bg-white text-[#2B3530] border-white"
                       : "bg-[#232b27] text-white/60 border-white/10"
                   }`}
                 >

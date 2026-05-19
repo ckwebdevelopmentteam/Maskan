@@ -26,7 +26,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="bg-[#2B3530] text-[#D1CCBF] min-h-screen overflow-x-hidden">
+    <main className="bg-[#2B3530] text-[#DCD4C4] min-h-screen overflow-x-hidden">
       <NavBar />
       
       {/* 1. Header Banner */}
@@ -60,7 +60,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-[#D1CCBF]/50 text-xs uppercase tracking-widest font-mono">Company Vision</div>
+            <div className="text-[#DCD4C4]/50 text-xs uppercase tracking-widest font-mono">Company Vision</div>
             <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
               To be the <span className="font-normal">&quot;First-choice&quot;</span> for clients seeking capital reach and efficiency in the &quot;Design and Build&quot; sector.
             </h2>
@@ -74,7 +74,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-[#D1CCBF]/50 text-xs uppercase tracking-widest font-mono">Company Mission</div>
+            <div className="text-[#DCD4C4]/50 text-xs uppercase tracking-widest font-mono">Company Mission</div>
             <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
               Delivering <span className="font-normal">inclusive capital reach</span> to commercial and institutional clients through unique payment timelines.
             </h2>
@@ -100,7 +100,7 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                 >
-                  <div className="bg-white/5 p-3 rounded-lg border border-white/10 text-white/80 group-hover:bg-white group-hover:text-black w-fit transition-all duration-300">
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/10 text-white/80 group-hover:bg-white group-hover:text-[#2B3530] w-fit transition-all duration-300">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <h4 className="text-base font-semibold tracking-wider uppercase text-white">{value.name}</h4>

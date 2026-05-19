@@ -63,7 +63,7 @@ export default function SustainableRetreat() {
   };
 
   return (
-    <div className="bg-[#2B3530] py-24 md:py-36 px-4 md:px-16 text-[#D1CCBF] border-t border-white/5">
+    <div className="bg-[#2B3530] py-24 md:py-36 px-4 md:px-16 text-[#DCD4C4] border-t border-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Flat Minimalism Calculator */}
@@ -88,7 +88,7 @@ export default function SustainableRetreat() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-xs uppercase tracking-widest text-white/50">
                     <span>Project Budget Valuation</span>
-                    <span className="text-[#D1CCBF] text-sm">₹ {totalCost.toLocaleString()}</span>
+                    <span className="text-[#DCD4C4] text-sm">₹ {totalCost.toLocaleString()}</span>
                   </div>
                   <input 
                     type="range" 
@@ -131,7 +131,7 @@ export default function SustainableRetreat() {
 
                 <button 
                   onClick={() => setShowEnquiry(true)}
-                  className="w-full py-4 rounded-xl bg-white hover:bg-neutral-100 text-black text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2 group animate-pulse"
+                  className="w-full py-4 rounded-xl bg-white hover:bg-neutral-100 text-[#2B3530] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2 group animate-pulse"
                 >
                   Customize Payment Plan 
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -150,7 +150,7 @@ export default function SustainableRetreat() {
                 </div>
 
                 {/* Summary box */}
-                <div className="bg-black/20 border border-white/5 rounded-2xl p-4 space-y-2 text-xs">
+                <div className="bg-[#2B3530]/20 border border-white/5 rounded-2xl p-4 space-y-2 text-xs">
                   <div className="flex justify-between text-white/60">
                     <span>Total Project Valuation:</span>
                     <span className="font-semibold text-white">₹ {totalCost.toLocaleString()}</span>
@@ -174,7 +174,7 @@ export default function SustainableRetreat() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#D1CCBF] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
                   <div className="relative border-b border-white/10 focus-within:border-white transition-colors py-2 flex items-center gap-3">
@@ -185,7 +185,7 @@ export default function SustainableRetreat() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#D1CCBF] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
                   <div className="relative border-b border-white/10 focus-within:border-white transition-colors py-2 flex items-center gap-3">
@@ -196,14 +196,14 @@ export default function SustainableRetreat() {
                       required
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#D1CCBF] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
 
                   <button 
                     type="submit"
                     disabled={isSubmitted}
-                    className="w-full py-4 mt-2 rounded-xl bg-white hover:bg-neutral-100 text-black text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full py-4 mt-2 rounded-xl bg-white hover:bg-neutral-100 text-[#2B3530] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     {isSubmitted ? (
                       <>

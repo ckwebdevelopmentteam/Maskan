@@ -67,7 +67,7 @@ export default function SustainableRetreatClient() {
           </motion.div>
         ))}
       </div>
-      <div className="-mx-8-25 grid grid-rows-5 divide-y divide-[#D1CCBF] border-y border-[#D1CCBF] md:col-span-2 md:col-start-2 md:row-start-2 md:mx-0">
+      <div className="-mx-8-25 grid grid-rows-5 divide-y divide-[#DCD4C4] border-y border-[#DCD4C4] md:col-span-2 md:col-start-2 md:row-start-2 md:mx-0">
         {links.map((eachLink, index) => (
           <StyledLinkClient
             handleFocus={handleFocus}
