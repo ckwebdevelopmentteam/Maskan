@@ -22,15 +22,15 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-24 bg-white text-[#2B3530] border-b border-[#2B3530]/5 overflow-hidden">
+    <section id="faq" className="relative py-24 bg-[#2B3530] text-[#DCD4C4] border-b border-white/5 overflow-hidden">
       
       {/* Floor Plan / Blueprint Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-10">
+      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.04]">
         <svg width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#000" strokeWidth="1" fill="none">
+          <g stroke="#FFF" strokeWidth="1" fill="none">
             {/* Blueprint Grid */}
             <pattern id="faq-grid" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#000" strokeWidth="0.5" strokeOpacity="0.2" />
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#FFF" strokeWidth="0.5" strokeOpacity="0.2" />
             </pattern>
             <rect width="100%" height="100%" fill="url(#faq-grid)" />
 
@@ -46,7 +46,7 @@ export default function FAQ() {
               <line x1="0" y1="-20" x2="400" y2="-20" />
               <line x1="0" y1="-25" x2="0" y2="-15" />
               <line x1="400" y1="-25" x2="400" y2="-15" />
-              <text x="200" y="-30" fill="#000" fontSize="12" letterSpacing="2" textAnchor="middle">FLOOR PLAN A</text>
+              <text x="200" y="-30" fill="#FFF" fontSize="12" letterSpacing="2" textAnchor="middle">FLOOR PLAN A</text>
             </g>
             
             {/* Scaffold / Column Lines */}
@@ -61,20 +61,20 @@ export default function FAQ() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12">
         <div className="mb-16 text-center md:text-left">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold mb-4 block">Information</span>
-          <h2 className="text-3xl md:text-5xl font-light">Frequently Asked Questions</h2>
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#DCD4C4]/60 font-bold mb-4 block">Information</span>
+          <h2 className="text-3xl md:text-5xl font-light text-[#DCD4C4]">Frequently Asked Questions</h2>
         </div>
 
         <div className="flex flex-col gap-4">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-[#2B3530]/10 pb-4">
+            <div key={idx} className="border-b border-white/10 pb-4">
               <button
                 className="w-full flex items-center justify-between py-4 text-left focus:outline-none"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               >
-                <span className="text-lg md:text-xl font-light pr-8">{faq.question}</span>
-                <span className="text-[#2B3530] shrink-0">
-                  {openIndex === idx ? <Minus size={20} /> : <Plus size={20} />}
+                <span className="text-lg md:text-xl font-light pr-8 text-[#DCD4C4]">{faq.question}</span>
+                <span className="text-[#DCD4C4] shrink-0">
+                  {openIndex === idx ? <Minus size={20} strokeWidth={1.5} /> : <Plus size={20} strokeWidth={1.5} />}
                 </span>
               </button>
               <AnimatePresence>
@@ -85,7 +85,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-zinc-600 font-light pt-2 pb-6 pr-8">
+                    <p className="text-white/70 font-light pt-2 pb-6 pr-8">
                       {faq.answer}
                     </p>
                   </motion.div>

@@ -28,11 +28,11 @@ export default function Home() {
       <Advantage />
       <ElementisStory />
 
-      {/* Location */}
-      <Locations />
+      {/* Location
+      <Locations /> */}
 
       {/* CTA */}
-      <CTA />
+      <Form />
 
       {/* Testimonial */}
       <Testimonials />
@@ -44,7 +44,7 @@ export default function Home() {
       <div id="services">
 
       </div>
-      <Form />
+
 
       {/* Footer */}
       <Footer />
