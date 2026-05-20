@@ -33,7 +33,7 @@ export default function ElementisStoryClient() {
         {services.map((ser, idx) => (
           <Link href="/services" key={ser.name} className="w-full">
             <motion.div
-              className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-white/10 group cursor-pointer shadow-2xl bg-[#232b27]"
+              className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-[var(--border-white-10)] group cursor-pointer shadow-2xl bg-[var(--bg-card)]"
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -58,10 +58,10 @@ export default function ElementisStoryClient() {
               {/* Overlay block */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex flex-col justify-end items-center pb-12 px-6 text-center space-y-2">
                 {/* Title */}
-                <h3 className="text-base md:text-lg font-light tracking-[0.25em] text-white leading-tight uppercase">
+                <h3 className="text-base md:text-lg font-light tracking-[0.25em] text-[var(--text-white)] leading-tight uppercase">
                   {ser.name}
                 </h3>
-                <span className="text-[10px] uppercase tracking-widest text-white/55 font-mono">
+                <span className="text-[10px] uppercase tracking-widest text-[var(--text-white)]/55 font-mono">
                   {ser.tagline}
                 </span>
               </div>
@@ -73,9 +73,9 @@ export default function ElementisStoryClient() {
       {/* VIEW ALL SERVICES Button */}
       <div className="flex justify-center mt-12 md:mt-16 w-full">
         <Link href="/services">
-          <button className="bg-transparent border-none text-white hover:text-white/80 text-sm uppercase tracking-[0.25em] font-medium py-3 px-6 flex items-center gap-4 transition-all duration-300 group cursor-pointer">
+          <button className="bg-transparent border-none text-[var(--text-white)] hover:text-[var(--text-white)]/80 text-sm uppercase tracking-[0.25em] font-medium py-3 px-6 flex items-center gap-4 transition-all duration-300 group cursor-pointer">
             <svg 
-              className="w-8 h-3 text-white transition-transform duration-300 group-hover:translate-x-1" 
+              className="w-8 h-3 text-[var(--text-white)] transition-transform duration-300 group-hover:translate-x-1" 
               viewBox="0 0 40 10" 
               fill="none" 
               stroke="currentColor" 

@@ -86,10 +86,10 @@ export default function StyledLinkClient({
   };
   const childVariants = {
     initial: {
-      color: "#DCD4C4",
+      color: "var(--fg-primary)",
     },
     whileHover: {
-      color: "#2B3530",
+      color: "var(--bg-primary)",
     },
   };
   return (
@@ -111,7 +111,7 @@ export default function StyledLinkClient({
           <motion.div
             variants={{ initial: { height: "0%" } }}
             ref={scope}
-            className="absolute inset-x-0 z-10 bg-[#DCD4C4]"
+            className="absolute inset-x-0 z-10 bg-[var(--fg-primary)]"
           />
           <motion.div
             className="z-20 flex gap-6 md:gap-28"

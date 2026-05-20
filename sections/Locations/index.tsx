@@ -61,7 +61,7 @@ export default function Locations() {
   const [activeLoc, setActiveLoc] = useState(locations[2]); // Default to Kochi
 
   return (
-    <div id="locations" className="bg-[#2B3530] py-24 md:py-36 px-4 md:px-16 text-[#DCD4C4] border-t border-white/5 relative overflow-hidden">
+    <div id="locations" className="bg-[var(--bg-primary)] py-24 md:py-36 px-4 md:px-16 text-[var(--fg-primary)] border-t border-[var(--border-white-5)] relative overflow-hidden">
       {/* Decorative architectural grid lines */}
       <div className="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-5">
         <div className="border-r border-white h-full" />
@@ -71,15 +71,15 @@ export default function Locations() {
 
       <div className="max-w-7xl mx-auto space-y-16 relative z-10">
         {/* Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[var(--border-white-10)] pb-8">
           <div className="space-y-4">
-            <span className="text-white/60 text-xs uppercase tracking-[0.25em] font-bold block">Regional Footprint</span>
-            <h2 className="text-3xl md:text-5xl font-light text-white leading-tight">
+            <span className="text-[var(--text-white)]/60 text-xs uppercase tracking-[0.25em] font-bold block">Regional Footprint</span>
+            <h2 className="text-3xl md:text-5xl font-light text-[var(--text-white)] leading-tight">
               Locations &amp; <br />
               <span className="font-normal border-b border-white/20 pb-1">Areas Served</span>
             </h2>
           </div>
-          <p className="max-w-md text-white/50 text-sm leading-relaxed">
+          <p className="max-w-md text-[var(--text-white)]/50 text-sm leading-relaxed">
             Maskan's luxury construction engineering spans across Kerala's most premium metropolitan and scenic coastal/mountainous enclaves. Hover or tap to explore.
           </p>
         </div>
@@ -96,22 +96,22 @@ export default function Locations() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full bg-[#232b27] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+                className="w-full bg-[var(--bg-card)] border border-[var(--border-white-10)] rounded-3xl overflow-hidden shadow-2xl flex flex-col"
               >
                 {/* Image Section with Gradient Overlay */}
-                <div className="relative h-64 w-full overflow-hidden border-b border-white/10">
+                <div className="relative h-64 w-full overflow-hidden border-b border-[var(--border-white-10)]">
                   <Image
                     src={activeLoc.image}
                     alt={activeLoc.projectName}
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#232b27] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent" />
                   
                   {/* Coordinates Badge */}
-                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
-                    <Navigation className="w-3 h-3 text-[#DCD4C4] rotate-45" />
-                    <span className="text-[10px] font-mono tracking-widest text-[#DCD4C4]/80">
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-[var(--border-white-10)] flex items-center gap-1.5">
+                    <Navigation className="w-3 h-3 text-[var(--fg-primary)] rotate-45" />
+                    <span className="text-[10px] font-mono tracking-widest text-[var(--fg-primary)]/80">
                       {activeLoc.coordinates}
                     </span>
                   </div>
@@ -121,26 +121,26 @@ export default function Locations() {
                 <div className="p-8 space-y-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-semibold">
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--text-white)]/40 font-semibold">
                         {activeLoc.region}
                       </span>
-                      <h3 className="text-2xl font-light text-white tracking-wide">
+                      <h3 className="text-2xl font-light text-[var(--text-white)] tracking-wide">
                         {activeLoc.projectName}
                       </h3>
                     </div>
-                    <p className="text-xs md:text-sm text-white/60 leading-relaxed font-light">
+                    <p className="text-xs md:text-sm text-[var(--text-white)]/60 leading-relaxed font-light">
                       {activeLoc.description}
                     </p>
                   </div>
 
                   {/* Sectors list */}
-                  <div className="pt-6 border-t border-white/5 space-y-3">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#DCD4C4]/40 block font-bold">
+                  <div className="pt-6 border-t border-[var(--border-white-5)] space-y-3">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--fg-primary)]/40 block font-bold">
                       Featured Sectors & Projects
                     </span>
                     <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                       {activeLoc.sectors.map((sec) => (
-                        <li key={sec} className="text-xs text-white/70 flex items-center gap-2">
+                        <li key={sec} className="text-xs text-[var(--text-white)]/70 flex items-center gap-2">
                           <span className="w-1 h-1 bg-white/40 rounded-full shrink-0" />
                           <span className="truncate">{sec}</span>
                         </li>
@@ -153,7 +153,7 @@ export default function Locations() {
           </div>
 
           {/* RIGHT: Kerala Interactive Map (55% width on desktop) */}
-          <div className="lg:col-span-7 flex justify-center items-center relative w-full h-[600px] bg-[#232b27]/40 rounded-3xl border border-white/5 p-6 overflow-hidden">
+          <div className="lg:col-span-7 flex justify-center items-center relative w-full h-[600px] bg-[var(--bg-card)]/40 rounded-3xl border border-[var(--border-white-5)] p-6 overflow-hidden">
             {/* Grid blueprint background inside map panel */}
             <div className="absolute inset-0 pointer-events-none opacity-20 z-0">
               <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -170,7 +170,7 @@ export default function Locations() {
             <div className="relative z-10 w-full h-full max-w-[450px] max-h-[550px]">
               <svg
                 viewBox="0 0 400 700"
-                className="w-full h-full text-white/10"
+                className="w-full h-full text-[var(--text-white)]/10"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -252,7 +252,7 @@ export default function Locations() {
                       className={`absolute -inset-4 rounded-full transition-all duration-500 scale-75 group-hover/pin:scale-100 ${
                         isActive 
                           ? "bg-white/10 border border-white/30 animate-pulse" 
-                          : "bg-transparent border border-transparent group-hover/pin:bg-white/5 group-hover/pin:border-white/10"
+                          : "bg-transparent border border-transparent group-hover/pin:bg-[var(--bg-white-5)] group-hover/pin:border-[var(--border-white-10)]"
                       }`}
                     />
 
@@ -260,8 +260,8 @@ export default function Locations() {
                     <div
                       className={`relative flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${
                         isActive
-                          ? "bg-[#DCD4C4] border-white text-[#2B3530] scale-110 shadow-lg"
-                          : "bg-[#232b27] border-white/30 text-white/70 group-hover/pin:border-white group-hover/pin:text-white"
+                          ? "bg-[var(--fg-primary)] border-white text-[var(--bg-primary)] scale-110 shadow-lg"
+                          : "bg-[var(--bg-card)] border-white/30 text-[var(--text-white)]/70 group-hover/pin:border-white group-hover/pin:text-[var(--text-white)]"
                       }`}
                     >
                       <MapPin className="w-4 h-4" />
@@ -274,10 +274,10 @@ export default function Locations() {
 
                     {/* Text tooltip next to pin */}
                     <div
-                      className={`absolute left-10 top-1/2 -translate-y-1/2 whitespace-nowrap px-3 py-1 rounded bg-[#232b27]/90 border text-[11px] tracking-wider transition-all duration-300 ${
+                      className={`absolute left-10 top-1/2 -translate-y-1/2 whitespace-nowrap px-3 py-1 rounded bg-[var(--bg-card)]/90 border text-[11px] tracking-wider transition-all duration-300 ${
                         isActive
-                          ? "border-white/30 text-white translate-x-0 opacity-100"
-                          : "border-white/10 text-white/50 -translate-x-2 opacity-0 pointer-events-none group-hover/pin:opacity-100 group-hover/pin:translate-x-0"
+                          ? "border-white/30 text-[var(--text-white)] translate-x-0 opacity-100"
+                          : "border-[var(--border-white-10)] text-[var(--text-white)]/50 -translate-x-2 opacity-0 pointer-events-none group-hover/pin:opacity-100 group-hover/pin:translate-x-0"
                       }`}
                     >
                       {loc.projectName.toUpperCase()}

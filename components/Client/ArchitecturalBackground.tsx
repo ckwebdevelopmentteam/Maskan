@@ -14,7 +14,7 @@ export default function ArchitecturalBackground() {
             height="1200"
             patternUnits="userSpaceOnUse"
           >
-            <g stroke="currentColor" strokeWidth="1" fill="none" className="text-white">
+            <g stroke="currentColor" strokeWidth="1" fill="none" className="text-[var(--text-white)]">
               {/* Primary Grid System */}
               <path d="M 0 100 L 1200 100 M 0 200 L 1200 200 M 0 300 L 1200 300 M 0 400 L 1200 400 M 0 500 L 1200 500 M 0 600 L 1200 600 M 0 700 L 1200 700 M 0 800 L 1200 800 M 0 900 L 1200 900 M 0 1000 L 1200 1000 M 0 1100 L 1200 1100" strokeOpacity="0.3" strokeDasharray="4 4" />
               <path d="M 100 0 L 100 1200 M 200 0 L 200 1200 M 300 0 L 300 1200 M 400 0 L 400 1200 M 500 0 L 500 1200 M 600 0 L 600 1200 M 700 0 L 700 1200 M 800 0 L 800 1200 M 900 0 L 900 1200 M 1000 0 L 1000 1200 M 1100 0 L 1100 1200" strokeOpacity="0.3" strokeDasharray="4 4" />

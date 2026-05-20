@@ -26,7 +26,7 @@ export default function ElementisStoryServer() {
       <div className="max-md:mt-12 md:col-span-8 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
         <ResponsiveMaskText
           {...textLines}
-          className="text-24 [line-height:1.2] md:text-40 text-center md:text-left w-full text-[#DCD4C4]"
+          className="text-24 [line-height:1.2] md:text-40 text-center md:text-left w-full text-[var(--fg-primary)]"
         />
         <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-0 items-center md:items-start">
           <StyledLink href="/services">

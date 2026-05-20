@@ -27,7 +27,7 @@ export default function CloseIcon({ className }: { className?: string }) {
           duration: 0.8,
         }}
         d="M13 1L1 13"
-        stroke="#2B3530"
+        stroke="var(--bg-primary)"
         fill="none"
       ></motion.path>
       <motion.path
@@ -48,7 +48,7 @@ export default function CloseIcon({ className }: { className?: string }) {
           delay: 0.15,
         }}
         d="M1 1L13 13"
-        stroke="#2B3530"
+        stroke="var(--bg-primary)"
         fill="none"
       ></motion.path>
     </svg>

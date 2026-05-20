@@ -25,7 +25,7 @@ export default function Checkbox({
   return (
     <label
       className={cn(
-        "flex cursor-pointer items-center gap-2 text-[#2B3530]",
+        "flex cursor-pointer items-center gap-2 text-[var(--bg-primary)]",
         className,
       )}
     >
@@ -39,8 +39,8 @@ export default function Checkbox({
       />
       <span
         className={cn(
-          "grid size-3-5 place-items-center border border-[#2B3530]",
-          checked && "bg-[#2B3530]",
+          "grid size-3-5 place-items-center border border-[var(--bg-primary)]",
+          checked && "bg-[var(--bg-primary)]",
         )}
       >
         {checked && <CheckBoxIcon className="h-auto w-1-75" />}

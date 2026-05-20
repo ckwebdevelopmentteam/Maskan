@@ -22,13 +22,13 @@ html.lenis body {
 }
 
 ::-moz-selection {
-  background: #CED1BF;
-  color: #2B3530;
+  background: var(--accent);
+  color: var(--bg-primary);
 }
 
 ::selection {
-  background: #CED1BF;
-  color: #2B3530;
+  background: var(--accent);
+  color: var(--bg-primary);
 }
 div::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -36,16 +36,38 @@ body::-webkit-scrollbar {
 }
 body {
   font-family: var(--font-grotesque), sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  transition: background-color 0.6s cubic-bezier(0.24, 0.43, 0.15, 0.97), color 0.6s cubic-bezier(0.24, 0.43, 0.15, 0.97);
 }
-@layer base {
+:root {
+  --multiplier: calc(100vw / 375);
+  --basesvh: 812;
+
+  /* Theme colors (Forest Sanctuary Fallback) */
+  --bg-primary: #2B3530;
+  --fg-primary: #DCD4C4;
+  --accent: #CED1BF;
+  --bg-card: #232b27;
+  --bg-dark: #1f2622;
+
+  /* Adaptive theme elements */
+  --text-white: #ffffff;
+  --text-white-70: rgba(255, 255, 255, 0.7);
+  --text-white-60: rgba(255, 255, 255, 0.6);
+  --text-white-50: rgba(255, 255, 255, 0.5);
+  --text-white-40: rgba(255, 255, 255, 0.4);
+  --text-white-30: rgba(255, 255, 255, 0.3);
+  --text-white-20: rgba(255, 255, 255, 0.2);
+  --text-white-10: rgba(255, 255, 255, 0.1);
+  --border-white-10: rgba(255, 255, 255, 0.1);
+  --border-white-5: rgba(255, 255, 255, 0.05);
+  --bg-white-5: rgba(255, 255, 255, 0.05);
+  --bg-white-50: rgba(255, 255, 255, 0.5);
+}
+@media only screen and (min-width: 768px) {
   :root {
-    --multiplier: calc(100vw / 375);
-    --basesvh: 812;
-  }
-  @media only screen and (min-width: 768px) {
-    :root {
-      --multiplier: calc(100vw / 1440);
-    }
+    --multiplier: calc(100vw / 1440);
   }
 }
 @theme {
@@ -133,3 +155,33 @@ body {
   --spacing-8000svh: calc(8000svh / var(--basesvh));
   --spacing-12000svh: calc(12000svh / var(--basesvh));
 }
+
+/* Premium Custom Scrollbars */
+.scrollbar-custom::-webkit-scrollbar {
+  display: block !important;
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: var(--bg-primary) !important;
+  border-radius: 9999px !important;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-primary) !important;
+  opacity: 0.8 !important;
+}
+
+/* Firefox compatibility */
+.scrollbar-custom {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--bg-primary) transparent !important;
+}
+
+/* Force Tailwind V4 rebuild for newly added components */
+

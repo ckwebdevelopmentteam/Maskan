@@ -34,6 +34,10 @@ export default function NavBar() {
   });
   const navItems = [
     {
+      href: "/",
+      children: "Home",
+    },
+    {
       href: "/about",
       children: "About Us",
     },
@@ -91,17 +95,18 @@ export default function NavBar() {
             src={MaskanLogo} 
             alt="Maskan Builders" 
             height={110}
-            className="h-20 md:h-28 w-auto object-contain"
+            className="h-20 md:h-28 w-auto object-contain transition-all duration-500"
+            style={{ filter: "var(--logo-filter, none)" }}
           />
         </Link>
         <nav aria-label="navigation" className="hidden gap-6 md:flex">
           {navItems.map((eachItem) => (
             <Link href={eachItem.href} key={eachItem.children}>
               <DashedLink
-                className="text-base font-normal [&>.animated-underline]:bg-white"
+                className="text-base font-normal [&>.animated-underline]:bg-[var(--text-white)]"
                 variants={{
-                  animate: { color: "#ffffff" },
-                  initial: { color: "#ffffff" },
+                  animate: { color: "var(--text-white)" },
+                  initial: { color: "var(--text-white)" },
                 }}
               >
                 {eachItem.children}
@@ -111,11 +116,11 @@ export default function NavBar() {
         </nav>
         <div className="flex items-center gap-8">
           <BorderedButton
-            className="relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base [line-height:0.8] font-normal md:flex text-white [&_svg]:[stroke:white]"
+            className="relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base [line-height:0.8] font-normal md:flex text-[var(--text-white)] [&_svg]:[stroke:var(--text-white)]"
           >
             Get a Quote
             <NavigateSVG
-              style={{ fill: "#2B3530" }}
+              style={{ fill: "var(--bg-primary)" }}
               className="mr-2.5 size-2.5"
             />
           </BorderedButton>
@@ -136,14 +141,14 @@ export default function NavBar() {
               }
               setOpenSideBar(!isOpen);
             }}
-            className="cursor-pointer p-2"
+            className="cursor-pointer p-2 animate-colors duration-500"
             disabled={isMobile == null}
           >
             {isMobile && openSideBar ? (
-              <CloseIcon className="size-7 [&_path]:[stroke-width:1px]" />
+              <CloseIcon className="size-7 [&_path]:[stroke-width:1px] [&_path]:[stroke:var(--text-white)]" />
             ) : (
               <AnimatedBurger
-                className="[stroke:white]"
+                className="[stroke:var(--text-white)]"
               />
             )}
           </motion.button>

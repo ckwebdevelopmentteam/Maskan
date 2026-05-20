@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 
 export default function FormServer() {
   return (
-    <div id="contact" className="w-full py-12 md:py-20 bg-[#2B3530] flex justify-center items-center">
-      <div className="w-[95%] max-w-[1600px] bg-[#F5F5F5] rounded-[3rem] p-5 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+    <div id="contact" className="w-full py-12 md:py-20 bg-[var(--bg-primary)] flex justify-center items-center">
+      <div className="w-[95%] max-w-[1600px] bg-white rounded-[3rem] p-5 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
         {/* Left Column - Video Card */}
         <div className="relative w-full min-h-[350px] lg:min-h-[520px] rounded-[2rem] overflow-hidden shadow-sm">
@@ -31,7 +31,7 @@ export default function FormServer() {
           
           <p className="mt-3 mb-6 text-sm text-gray-500 font-light leading-relaxed">
             Have a project in mind or just want to say hello?<br className="hidden md:inline" />
-            Fill out the form and our team will get back to you shortly.
+            Fill out the form and our team will get back to you.
           </p>
 
           <Form action="" className="grid grid-cols-1 md:grid-cols-2 gap-4">

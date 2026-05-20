@@ -1,4 +1,4 @@
 import IntroductionServer from "./Server";
-export default function () {
-  return <IntroductionServer />;
+export default function Introduction({ noTopPadding = false }: { noTopPadding?: boolean }) {
+  return <IntroductionServer noTopPadding={noTopPadding} />;
 }

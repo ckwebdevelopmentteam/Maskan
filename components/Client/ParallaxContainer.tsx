@@ -30,13 +30,13 @@ export default function ParallaxContainer({
     ],
   );
   return (
-    <motion.div className={cn("overflow-hidden", containerClassName)} ref={imageContainer}>
+    <motion.div className={cn("overflow-hidden w-full h-full", containerClassName)} ref={imageContainer}>
       <motion.div
         style={{
           transform,
           ...style,
         }}
-        className={cn(className, "origin-center")}
+        className={cn("w-full h-full origin-center", className)}
       >
         {children}
       </motion.div>

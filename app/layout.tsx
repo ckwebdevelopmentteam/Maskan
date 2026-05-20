@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
 import { WindowSizeProvider } from "./providers";
@@ -16,6 +17,13 @@ const BasisGrotesquePro = localFont({
   variable: "--font-grotesque",
 });
 
+const CormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Maskan Builders",
   description: "Premium architectural and construction services",
@@ -30,7 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <ReactLenis root>
         <body
-          className={`${BasisGrotesquePro.variable} overflow-x-clip antialiased selection:bg-[#CED1BF] selection:text-[#2B3530]`}
+          className={`${BasisGrotesquePro.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
         >
           <WindowSizeProvider>{children}</WindowSizeProvider>
         </body>

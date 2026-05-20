@@ -22,12 +22,12 @@ export default function WellnessSanctuary() {
   };
 
   return (
-    <div id="services" className="flex flex-col bg-[#121C29] text-[#DCD4C4] md:grid md:grid-cols-2 border-t border-white/5">
+    <div id="services" className="flex flex-col bg-[#121C29] text-[var(--fg-primary)] md:grid md:grid-cols-2 border-t border-[var(--border-white-5)]">
       <ResponsiveImage parallaxAmount={20}>
         <Image
           src={ConstructionExpertiseImage}
           alt="maskan-construction-image"
-          className="h-auto w-full object-cover"
+          className="h-[350px] md:h-full w-full object-cover"
         />
       </ResponsiveImage>
       <div className="flex flex-col justify-center px-3-75 py-40 md:py-0">

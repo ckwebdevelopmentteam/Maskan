@@ -53,7 +53,7 @@ function Innovation() {
   return (
     <div
       id="gallery"
-      className="relative h-[300vh] cursor-pointer overflow-clip bg-[#2B3530] border-t border-white/5"
+      className="relative h-[300vh] cursor-pointer overflow-clip bg-[var(--bg-primary)] border-t border-[var(--border-white-5)]"
       ref={ref}
     >
       <motion.div
@@ -84,7 +84,7 @@ function Innovation() {
       {isMobile === false && (
         <CustomCursor
           {...cursorProps}
-          className="flex -translate-x-1/2 translate-y-1/4 items-center justify-center gap-2 rounded-full px-5 py-2 text-white"
+          className="hidden md:flex -translate-x-1/2 translate-y-1/4 items-center justify-center gap-2 rounded-full px-5 py-2 text-[var(--text-white)]"
         >
           View Projects
           <NavigateSVG style={{ fill: "white" }} className="size-2.5" />
@@ -121,7 +121,7 @@ Innovation.Container = function Container({
   );
   return (
     <motion.div
-      className="absolute inset-0 grid place-items-center text-white"
+      className="absolute inset-0 grid place-items-center text-[var(--text-white)]"
       style={{ zIndex: -index, maskImage, scale: scaleProgress }}
     >
       <Image

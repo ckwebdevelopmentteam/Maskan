@@ -63,13 +63,13 @@ export default function SustainableRetreat() {
   };
 
   return (
-    <div className="bg-[#2B3530] py-24 md:py-36 px-4 md:px-16 text-[#DCD4C4] border-t border-white/5">
+    <div className="bg-[var(--bg-primary)] py-24 md:py-36 px-4 md:px-16 text-[var(--fg-primary)] border-t border-[var(--border-white-5)]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Flat Minimalism Calculator */}
         <div className="lg:col-span-6 w-full">
           <motion.div 
-            className="bg-[#232b27] border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden backdrop-blur-md"
+            className="bg-[var(--bg-card)] border border-[var(--border-white-10)] rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden backdrop-blur-md"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -80,15 +80,15 @@ export default function SustainableRetreat() {
 
             {!showEnquiry ? (
               <div className="space-y-8 relative z-10">
-                <div className="flex items-center justify-between border-b border-white/5 pb-4">
-                  <div className="text-xs uppercase tracking-widest text-white font-semibold">Installment Calculator</div>
-                  <Calculator className="w-4 h-4 text-white/40" />
+                <div className="flex items-center justify-between border-b border-[var(--border-white-5)] pb-4">
+                  <div className="text-xs uppercase tracking-widest text-[var(--text-white)] font-semibold">Installment Calculator</div>
+                  <Calculator className="w-4 h-4 text-[var(--text-white)]/40" />
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-white/50">
+                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-[var(--text-white)]/50">
                     <span>Project Budget Valuation</span>
-                    <span className="text-[#DCD4C4] text-sm">₹ {totalCost.toLocaleString()}</span>
+                    <span className="text-[var(--fg-primary)] text-sm">₹ {totalCost.toLocaleString()}</span>
                   </div>
                   <input 
                     type="range" 
@@ -103,23 +103,23 @@ export default function SustainableRetreat() {
 
                 <div className="grid grid-cols-2 gap-6 pt-4">
                   <div className="space-y-1">
-                    <span className="text-2xs uppercase tracking-widest text-white/40 block">Booking Advance ({initialPercent}%)</span>
-                    <div className="text-xl md:text-2xl font-light text-white leading-none">
+                    <span className="text-2xs uppercase tracking-widest text-[var(--text-white)]/40 block">Booking Advance ({initialPercent}%)</span>
+                    <div className="text-xl md:text-2xl font-light text-[var(--text-white)] leading-none">
                       ₹ {animatedAdvance.toLocaleString()}
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <span className="text-2xs uppercase tracking-widest text-white/40 block">Monthly Installment ({emiPercent}%)</span>
-                    <div className="text-xl md:text-2xl font-light text-white leading-none">
+                    <span className="text-2xs uppercase tracking-widest text-[var(--text-white)]/40 block">Monthly Installment ({emiPercent}%)</span>
+                    <div className="text-xl md:text-2xl font-light text-[var(--text-white)] leading-none">
                       ₹ {animatedEmi.toLocaleString()}
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-white/5">
-                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-white/50">
+                <div className="space-y-3 pt-4 border-t border-[var(--border-white-5)]">
+                  <div className="flex justify-between items-center text-xs uppercase tracking-widest text-[var(--text-white)]/50">
                     <span>Project Tenure</span>
-                    <span className="text-sm text-white font-medium">{calculations.tenure} Months</span>
+                    <span className="text-sm text-[var(--text-white)] font-medium">{calculations.tenure} Months</span>
                   </div>
                   <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                     <div 
@@ -131,7 +131,7 @@ export default function SustainableRetreat() {
 
                 <button 
                   onClick={() => setShowEnquiry(true)}
-                  className="w-full py-4 rounded-xl bg-white hover:bg-neutral-100 text-[#2B3530] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2 group animate-pulse"
+                  className="w-full py-4 rounded-xl bg-white hover:bg-neutral-100 text-[var(--bg-primary)] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2 group animate-pulse"
                 >
                   Customize Payment Plan 
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -139,71 +139,71 @@ export default function SustainableRetreat() {
               </div>
             ) : (
               <div className="space-y-6 relative z-10">
-                <div className="flex items-center justify-between border-b border-white/5 pb-4">
-                  <div className="text-xs uppercase tracking-widest text-white font-semibold">Estimate Details</div>
+                <div className="flex items-center justify-between border-b border-[var(--border-white-5)] pb-4">
+                  <div className="text-xs uppercase tracking-widest text-[var(--text-white)] font-semibold">Estimate Details</div>
                   <button 
                     onClick={() => setShowEnquiry(false)}
-                    className="text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                    className="text-xs uppercase tracking-widest text-[var(--text-white)]/40 hover:text-[var(--text-white)] transition-colors"
                   >
                     Back to Calculator
                   </button>
                 </div>
 
                 {/* Summary box */}
-                <div className="bg-[#2B3530]/20 border border-white/5 rounded-2xl p-4 space-y-2 text-xs">
-                  <div className="flex justify-between text-white/60">
+                <div className="bg-[var(--bg-primary)]/20 border border-[var(--border-white-5)] rounded-2xl p-4 space-y-2 text-xs">
+                  <div className="flex justify-between text-[var(--text-white)]/60">
                     <span>Total Project Valuation:</span>
-                    <span className="font-semibold text-white">₹ {totalCost.toLocaleString()}</span>
+                    <span className="font-semibold text-[var(--text-white)]">₹ {totalCost.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-white/60">
+                  <div className="flex justify-between text-[var(--text-white)]/60">
                     <span>Booking Advance ({initialPercent}%):</span>
-                    <span className="font-semibold text-white">₹ {calculations.advance.toLocaleString()}</span>
+                    <span className="font-semibold text-[var(--text-white)]">₹ {calculations.advance.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-white/60">
+                  <div className="flex justify-between text-[var(--text-white)]/60">
                     <span>Milestone EMI (x{calculations.tenure} months):</span>
-                    <span className="font-semibold text-white">₹ {calculations.emi.toLocaleString()}</span>
+                    <span className="font-semibold text-[var(--text-white)]">₹ {calculations.emi.toLocaleString()}</span>
                   </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative border-b border-white/10 focus-within:border-white transition-colors py-2 flex items-center gap-3">
-                    <User className="w-4 h-4 text-white/30" />
+                  <div className="relative border-b border-[var(--border-white-10)] focus-within:border-white transition-colors py-2 flex items-center gap-3">
+                    <User className="w-4 h-4 text-[var(--text-white)]/30" />
                     <input 
                       type="text" 
                       placeholder="Your Full Name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[var(--fg-primary)] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
-                  <div className="relative border-b border-white/10 focus-within:border-white transition-colors py-2 flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-white/30" />
+                  <div className="relative border-b border-[var(--border-white-10)] focus-within:border-white transition-colors py-2 flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-[var(--text-white)]/30" />
                     <input 
                       type="tel" 
                       placeholder="Contact Number"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[var(--fg-primary)] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
-                  <div className="relative border-b border-white/10 focus-within:border-white transition-colors py-2 flex items-center gap-3">
-                    <MapPin className="w-4 h-4 text-white/30" />
+                  <div className="relative border-b border-[var(--border-white-10)] focus-within:border-white transition-colors py-2 flex items-center gap-3">
+                    <MapPin className="w-4 h-4 text-[var(--text-white)]/30" />
                     <input 
                       type="text" 
                       placeholder="Project Location"
                       required
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="bg-transparent border-none w-full text-sm text-[#DCD4C4] placeholder-white/20 focus:outline-none focus:ring-0"
+                      className="bg-transparent border-none w-full text-sm text-[var(--fg-primary)] placeholder-white/20 focus:outline-none focus:ring-0"
                     />
                   </div>
 
                   <button 
                     type="submit"
                     disabled={isSubmitted}
-                    className="w-full py-4 mt-2 rounded-xl bg-white hover:bg-neutral-100 text-[#2B3530] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full py-4 mt-2 rounded-xl bg-white hover:bg-neutral-100 text-[var(--bg-primary)] text-xs uppercase tracking-widest font-bold transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     {isSubmitted ? (
                       <>
@@ -230,65 +230,65 @@ export default function SustainableRetreat() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-white/60 uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">Unique Financial Engine</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+            <div className="text-[var(--text-white)]/60 uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">Unique Financial Engine</div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--text-white)] leading-tight">
               The Maskan <br />
-              <span className="text-white font-normal border-b border-white/20 pb-1">30/70</span> Payment Model
+              <span className="text-[var(--text-white)] font-normal border-b border-white/20 pb-1">30/70</span> Payment Model
             </h2>
-            <p className="text-white/60 text-sm md:text-base leading-relaxed">
+            <p className="text-[var(--text-white)]/60 text-sm md:text-base leading-relaxed">
               We&apos;ve completely re-engineered high-end home building finances. Traditional construction models force clients to pay heavy upfront margins, creating severe capital bottlenecks. Maskan replaces this stress with a clean, low-advance, installment-driven workflow synced perfectly with project milestones.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
             <motion.div 
-              className="space-y-2 border-l border-white/10 pl-4"
+              className="space-y-2 border-l border-[var(--border-white-10)] pl-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="text-xs uppercase tracking-wider text-white font-semibold">01 / Low 30% Booking</div>
-              <div className="text-sm text-white/80 leading-relaxed font-normal">
+              <div className="text-xs uppercase tracking-wider text-[var(--text-white)] font-semibold">01 / Low 30% Booking</div>
+              <div className="text-sm text-[var(--text-white)]/80 leading-relaxed font-normal">
                 Secure design, detailed structural plans, and mobilization assets with a minimal down payment.
               </div>
             </motion.div>
 
             <motion.div 
-              className="space-y-2 border-l border-white/10 pl-4"
+              className="space-y-2 border-l border-[var(--border-white-10)] pl-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="text-xs uppercase tracking-wider text-white font-semibold">02 / No Capital Bottlenecks</div>
-              <div className="text-sm text-white/80 leading-relaxed font-normal">
+              <div className="text-xs uppercase tracking-wider text-[var(--text-white)] font-semibold">02 / No Capital Bottlenecks</div>
+              <div className="text-sm text-[var(--text-white)]/80 leading-relaxed font-normal">
                 Construction progresses fluidly without halting due to giant cash advances or supply constraints.
               </div>
             </motion.div>
 
             <motion.div 
-              className="space-y-2 border-l border-white/10 pl-4"
+              className="space-y-2 border-l border-[var(--border-white-10)] pl-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="text-xs uppercase tracking-wider text-white font-semibold">03 / 70% Over Tenure</div>
-              <div className="text-sm text-white/80 leading-relaxed font-normal">
+              <div className="text-xs uppercase tracking-wider text-[var(--text-white)] font-semibold">03 / 70% Over Tenure</div>
+              <div className="text-sm text-[var(--text-white)]/80 leading-relaxed font-normal">
                 The balance is split into easy monthly payments aligned with strict building standards.
               </div>
             </motion.div>
 
             <motion.div 
-              className="space-y-2 border-l border-white/10 pl-4"
+              className="space-y-2 border-l border-[var(--border-white-10)] pl-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="text-xs uppercase tracking-wider text-white font-semibold">04 / Zero Hidden Margins</div>
-              <div className="text-sm text-white/80 leading-relaxed font-normal">
+              <div className="text-xs uppercase tracking-wider text-[var(--text-white)] font-semibold">04 / Zero Hidden Margins</div>
+              <div className="text-sm text-[var(--text-white)]/80 leading-relaxed font-normal">
                 Any resource saving achieved during planning is directly passed back to lower your budget.
               </div>
             </motion.div>

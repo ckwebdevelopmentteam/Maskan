@@ -14,6 +14,7 @@ import NewDevelopments from "@/public/SideBar/new-developments.png";
 import { useImageReveal } from "@/hooks/useImageReveal";
 import StayConnected from "@/components/Server/StayConnected";
 import Link from "next/link";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 interface LinkItem {
   href: string;
@@ -72,7 +73,7 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
       className="fixed top-0 z-[200] w-full"
     >
       <motion.div
-        className="flex h-screen bg-[#CED1BF]"
+        className="flex h-screen bg-[var(--accent)]"
         initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
         animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
         transition={{
@@ -113,8 +114,8 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
             </motion.div>
           ))}
         </motion.div>
-        <div className="flex-1 pt-7000svh pr-16 pb-3500svh pl-48">
-          <span className="text-1800svh text-[#2B3530]/80">Discover pages</span>
+        <div className="flex-1 overflow-y-auto scrollbar-custom pt-7000svh pr-16 pb-3500svh pl-48">
+          <span className="text-1800svh text-[var(--bg-primary)]/80">Discover pages</span>
           <nav
             aria-label="pages"
             className="mt-6400svh mb-8000svh grid grid-flow-col-dense grid-cols-2 grid-rows-3"
@@ -153,10 +154,10 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
                 ease: [0.24, 0.43, 0.15, 0.97],
               }}
               id="contact-us"
-              className="space-y-2400svh text-1800svh text-[#2B3530]"
+              className="space-y-2400svh text-1800svh text-[var(--bg-primary)]"
             >
-              <div className="text-[#2B3530]/80">Contact Us</div>
-              <div className="flex items-center [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2B3530]">
+              <div className="text-[var(--bg-primary)]/80">Contact Us</div>
+              <div className="flex items-center [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[var(--bg-primary)]">
                 <DashedLink>info@maskan.pk</DashedLink>
                 <div className="mx-5">|</div>
                 <DashedLink>+92 51 111 MASKAN</DashedLink>
@@ -173,8 +174,18 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
                 style={{
                   fontSize: "var(--text-1800svh)",
                 }}
-                className="gap-y-2400svh text-1800svh text-[#2B3530]/80 [&_div]:gap-x-10 [&_svg]:h-2400svh [&_svg]:w-auto [&>:first-child]:text-[#2B3530]/80"
+                className="gap-y-2400svh text-1800svh text-[var(--bg-primary)]/80 [&_div]:gap-x-10 [&_svg]:h-2400svh [&_svg]:w-auto [&>:first-child]:text-[var(--bg-primary)]/80"
               />
+            </motion.div>
+            <motion.div
+              variants={variants}
+              transition={{
+                duration: temp.duration,
+                ease: [0.24, 0.43, 0.15, 0.97],
+              }}
+              className="max-h-[45vh] overflow-y-auto scrollbar-custom pr-2"
+            >
+              <ThemeSwitcher />
             </motion.div>
             <motion.div
               variants={variants}
@@ -185,7 +196,7 @@ export default function SideBar({ setOpenSideBar }: SideBarProps) {
               className="text-1600svh"
             >
               <Link href="/privacy-terms" onClick={() => setOpenSideBar(false)}>
-                <DashedLink className="w-fit text-[#2B3530] [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[#2B3530]">
+                <DashedLink className="w-fit text-[var(--bg-primary)] [&_.animated-underline]:h-[2px] [&_.animated-underline]:bg-[var(--bg-primary)]">
                   Policy and Terms
                 </DashedLink>
               </Link>

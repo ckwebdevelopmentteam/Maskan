@@ -22,7 +22,7 @@ export default function HeroServer() {
                 speed: 5,
               },
             }}
-            className="text-white"
+            className="text-[var(--text-white)]"
           >
             {
               "Construction • Design • Budgeting • Infrastructure • Construction • Design • Budgeting • Infrastructure • "
@@ -30,7 +30,7 @@ export default function HeroServer() {
           </ResponsiveMarquee>,
         ]}
       />
-      <div className="relative flex justify-center overflow-hidden py-5 font-light text-white md:mx-10 md:justify-between md:py-4 [&>*]:shrink-0">
+      <div className="relative flex justify-center overflow-hidden py-5 font-light text-[var(--text-white)] md:mx-10 md:justify-between md:py-4 [&>*]:shrink-0">
         <MaskText
           transition={{
             delayChildren: 0.2,
