@@ -33,7 +33,7 @@ export default function ElementisStoryClient() {
         {services.map((ser, idx) => (
           <Link href="/services" key={ser.name} className="w-full">
             <motion.div
-              className="relative aspect-[2/3] w-full overflow-hidden rounded-none border border-white/10 group cursor-pointer shadow-2xl bg-[#232b27]"
+              className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-white/10 group cursor-pointer shadow-2xl bg-[#232b27]"
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -41,7 +41,7 @@ export default function ElementisStoryClient() {
             >
               {/* Image block */}
               <motion.div 
-                className="w-full h-full"
+                className="w-full h-full overflow-hidden rounded-2xl"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
               >

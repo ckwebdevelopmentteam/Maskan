@@ -40,7 +40,7 @@ export default function ProjectsGrid() {
           {projects.map((project, idx) => (
             <Link href="/projects" key={project.name} className="w-full">
               <motion.div
-                className="relative aspect-[2/3] w-full overflow-hidden rounded-none border border-[#DCD4C4]/20 p-2 group cursor-pointer shadow-2xl bg-[#2B3530]"
+                className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-[#DCD4C4]/20 p-2 group cursor-pointer shadow-2xl bg-[#2B3530]"
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -48,7 +48,7 @@ export default function ProjectsGrid() {
               >
                 {/* Image block */}
                 <motion.div 
-                  className="w-full h-full"
+                  className="w-full h-full overflow-hidden rounded-xl"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                 >

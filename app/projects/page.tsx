@@ -205,7 +205,7 @@ export default function ProjectsPage() {
             >
               {/* Graphic Display (Spans 7 columns for premium width) */}
               <motion.div 
-                className={`lg:col-span-7 relative w-full aspect-[16/10] rounded-none overflow-hidden border border-white/10 shadow-xl ${isEven ? "" : "lg:order-2"}`}
+                className={`lg:col-span-7 relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-xl ${isEven ? "" : "lg:order-2"}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}

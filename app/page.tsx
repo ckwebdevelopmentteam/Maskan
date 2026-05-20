@@ -6,11 +6,9 @@ import Form from "@/sections/Form";
 import Innovation from "@/components/Client/Innovation";
 import Hero from "@/sections/Hero";
 import Introduction from "@/sections/Introduction";
-import Locations from "@/sections/Locations";
 import Testimonials from "@/sections/Testimonials";
 import Advantage from "@/sections/Advantage";
 import ProjectsGrid from "@/sections/ProjectsGrid";
-import CTA from "@/sections/CTA";
 import FAQ from "@/sections/FAQ";
 
 export default function Home() {

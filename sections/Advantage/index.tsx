@@ -105,7 +105,7 @@ export default function Advantage() {
         {/* Cinematic Hover-Reveal Magazine Layout (Desktop View) */}
         <div className="hidden lg:grid grid-cols-12 gap-16 items-stretch">
           {/* Left Column: Immersive Cinematic Viewport Window */}
-          <div className="col-span-8 relative bg-[#232b27] border border-white/10 rounded-none overflow-hidden shadow-2xl h-full min-h-[480px] flex flex-col justify-end">
+          <div className="col-span-8 relative bg-[#232b27] border border-white/10 rounded-2xl overflow-hidden shadow-2xl h-full min-h-[480px] flex flex-col justify-end">
             {/* Background Image Panel */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -154,7 +154,7 @@ export default function Advantage() {
                     {advantages[activeIndex].metrics.map((metric, mIdx) => (
                       <motion.div 
                         key={metric.label} 
-                        className="space-y-1.5 bg-[#2B3530]/40 backdrop-blur-sm p-4 rounded-none border border-white/5"
+                        className="space-y-1.5 bg-[#2B3530]/40 backdrop-blur-sm p-4 rounded-xl border border-white/5"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: mIdx * 0.08 }}
