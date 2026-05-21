@@ -34,7 +34,7 @@ export default function HeroServer() {
       <div className="relative z-10 mx-auto grid w-full max-w-[1360px] gap-8 md:grid-cols-[1.45fr_0.95fr] md:items-end">
         <div>
           <MaskText
-            transition={{ delayChildren: 0.15 }}
+
             className="mb-5"
             lines={[
               <div
@@ -47,7 +47,7 @@ export default function HeroServer() {
             ]}
           />
           <MaskText
-            transition={{ delayChildren: 0.3 }}
+
             className="max-w-4xl text-5xl font-light leading-[0.98] tracking-[-0.02em] md:text-7xl lg:text-[5.6rem]"
             lines={[
               <>Building Dreams, One</>,
