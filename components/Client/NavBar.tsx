@@ -6,7 +6,7 @@ import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 import AnimatedBurger from "../SVGComponents/AnimatedBurger";
 import { useState } from "react";
 import Link from "next/link";
-import { useIsMobile } from "@/app/providers";
+
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { usePathname } from "next/navigation";
@@ -74,17 +74,17 @@ export default function NavBar() {
       >
         {/* Logo (Big & Clearly Visible in crisp white against the dark capsule) */}
         <Link href="/" className="cursor-pointer flex items-center">
-          <Image 
-            src={MaskanLogo} 
-            alt="Maskan Builders" 
+          <Image
+            src={MaskanLogo}
+            alt="Maskan Builders"
             height={140}
             className="h-11 md:h-13 w-auto object-contain transition-all duration-300 brightness-0 invert"
           />
         </Link>
-        
+
         {/* Center Label (Active Page Name) */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="cursor-pointer text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-white/90 hover:text-white transition-colors"
         >
           {activeLabel}
