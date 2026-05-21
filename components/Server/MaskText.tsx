@@ -1,12 +1,13 @@
 import * as motion from "motion/react-client";
-import { AnimationProps } from "motion/react";
-import React, { CSSProperties, ReactNode } from "react";
+import { MotionProps, MotionStyle, Transition } from "motion/react";
+import React from "react";
 import cn from "@/utils/cn";
 
-interface MaskTextProps extends AnimationProps {
-  lines: ReactNode[];
+interface MaskTextProps extends MotionProps {
+  lines: React.ReactNode[];
   className?: string;
-  style?: CSSProperties;
+  style?: MotionStyle;
+  transition?: Transition;
 }
 
 export default function MaskText({
@@ -29,7 +30,7 @@ export default function MaskText({
       y: "0%",
       clipPath: "inset(0% 0% 0% 0%)",
       transition: {
-        ease: [0.24, 0.43, 0.15, 0.97],
+        ease: [0.76, 0, 0.24, 1] as const,
         duration: 0.8,
       },
     },

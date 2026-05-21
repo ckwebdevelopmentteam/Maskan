@@ -1,10 +1,10 @@
 import cn from "@/utils/cn";
 import * as motion from "motion/react-client";
-import { AnimationProps, MotionStyle } from "motion/react";
+import { MotionProps, MotionStyle } from "motion/react";
 import React, { PropsWithChildren } from "react";
 
 type DashedLinkProps = PropsWithChildren &
-  AnimationProps & {
+  MotionProps & {
     style?: MotionStyle;
     className?: string;
   };
