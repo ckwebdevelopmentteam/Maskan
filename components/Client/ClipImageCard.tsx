@@ -6,6 +6,7 @@ import AnimatedMaskText from "@/components/Client/MaskTextClient";
 import ClipImageContainer from "@/components/Client/ClipImageContainer";
 import SectionTitle from "../Server/SectionTitle";
 import cn from "@/utils/cn";
+import { useThemeInfo } from "@/components/Client/ThemeProvider";
 interface ClipImageCardProps {
   scrollYProgress: MotionValue<number>;
   images: StaticImageData[];
@@ -28,6 +29,8 @@ export default function ClipImageCard({
   style,
 }: ClipImageCardProps) {
   const [currentState, setCurrentState] = useState(1);
+  const { key: currentTheme } = useThemeInfo();
+  const isWabiTheme = currentTheme === "wabi";
   const data: DataItem[] = [
     {
       title: [<>MERIDIAN HEIGHTS</>, <>Perinthalmanna</>],
@@ -114,7 +117,12 @@ export default function ClipImageCard({
           ease: [0.24, 0.43, 0.15, 0.97],
           duration: 0.8,
         }}
-        className="relative z-20 my-[5vh] flex h-[70vh] min-h-fit w-[90%] flex-col items-center gap-8 bg-[var(--fg-primary)] p-5-75 text-[var(--bg-primary)] md:h-full md:max-h-172 md:w-full md:max-w-118 md:px-8 md:py-4"
+        className={cn(
+          "relative z-20 my-[5vh] flex h-[70vh] min-h-fit w-[90%] flex-col items-center gap-8 p-5-75 md:h-full md:max-h-172 md:w-full md:max-w-118 md:px-8 md:py-4",
+          isWabiTheme
+            ? "bg-[var(--bg-primary)] text-[var(--fg-primary)]"
+            : "bg-[var(--fg-primary)] text-[var(--bg-primary)]",
+        )}
       >
         <div className="flex items-center gap-1 text-2xs md:text-sm">
           <AnimatedMaskText
