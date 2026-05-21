@@ -9,22 +9,31 @@ import { ReactNode } from "react";
 
 interface CardImageProps {
   index: number;
+  total: number;
   scrollYProgress: MotionValue<number>;
   children: ReactNode;
 }
 export default function ClipImageContainer({
   index,
+  total,
   scrollYProgress,
   children,
 }: CardImageProps) {
+  const segment = 1 / total;
   const bottom = useTransform(
     scrollYProgress,
-    [index * 0.25, index * 0.25 + 0.25],
-    ["0%", "100%"],
+    (latest) => {
+      if (index === total - 1) return "0%";
+
+      const start = index * segment;
+      const end = start + segment;
+      const progress = Math.min(Math.max((latest - start) / (end - start), 0), 1);
+      return `${progress * 100}%`;
+    },
   );
   const scale = useTransform(
     scrollYProgress,
-    [(index - 1) * 0.25, index * 0.25 + 0.25],
+    [(index - 1) * segment, index * segment + segment],
     [1, 1.05],
   );
   const clipPath = useMotionTemplate`inset(0px 0px ${bottom} 0px)`;

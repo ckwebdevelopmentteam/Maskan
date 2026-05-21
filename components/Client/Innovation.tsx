@@ -1,9 +1,10 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import Image1 from "@/public/property-1.jpg";
-import Image2 from "@/public/property-2.jpg";
-import Image3 from "@/public/property-3.jpg";
+import Image1 from "@/public/F1.avif";
+import Image2 from "@/public/F2.avif";
+import Image3 from "@/public/F3.webp";
+import Image4 from "@/public/F4.avif";
 import {
   motion,
   MotionValue,
@@ -32,8 +33,9 @@ function Innovation() {
   const dispatch = useDispatch();
   const { scrollYProgress: parentProgress } = useScroll({
     target: ref,
-    offset: ["15vh 0", "285vh end"],
+    offset: ["15vh 0", "385vh end"],
   });
+  const imgs = [Image1, Image2, Image3, Image4];
   useMotionValueEvent(parentProgress, "change", (latest) => {
     if (latest > 0 && latest < 1) {
       dispatch(setNavOpacity(0));
@@ -41,19 +43,12 @@ function Innovation() {
       dispatch(setNavOpacity(1));
     }
     
-    if (latest <= 0.33) {
-      setState(0);
-    } else if (latest <= 0.66) {
-      setState(1);
-    } else {
-      setState(2);
-    }
+    setState(Math.min(Math.floor(latest * imgs.length), imgs.length - 1));
   });
-  const imgs = [Image1, Image2, Image3];
   return (
     <div
       id="gallery"
-      className="relative h-[300vh] cursor-pointer overflow-clip bg-[var(--bg-primary)] border-t border-[var(--border-white-5)]"
+      className="relative h-[400vh] cursor-pointer overflow-clip bg-[var(--bg-primary)] border-t border-[var(--border-white-5)]"
       ref={ref}
     >
       <motion.div
@@ -75,6 +70,7 @@ function Innovation() {
                 isMobile={isMobile}
                 scrollYProgress={parentProgress}
                 index={validElementIndex}
+                total={imgs.length}
               >
                 {imgs[validElementIndex]}
               </Innovation.Container>
@@ -99,24 +95,30 @@ Innovation.Container = function Container({
   index,
   children,
   isMobile,
+  total,
 }: {
   scrollYProgress: MotionValue<number>;
   index: number;
   children: StaticImageData;
   isMobile: boolean | null;
+  total: number;
 }) {
+  const segment = 1 / total;
   const localScrollYProgress = useTransform(
     scrollYProgress,
-    [index * 0.5, (index + 1) * 0.5],
-    [0, 1],
-    {
-      ease: cubicBezier(0, 0, 1, 1),
+    (latest) => {
+      if (index === total - 1) return 0;
+
+      const start = index * segment;
+      const end = (index + 1) * segment;
+      const progress = Math.min(Math.max((latest - start) / (end - start), 0), 1);
+      return cubicBezier(0, 0, 1, 1)(progress);
     },
   );
   const maskImage = useMaskImage(localScrollYProgress, isMobile);
   const scaleProgress = useTransform(
     scrollYProgress,
-    [(index - 1) * 0.5, (index + 1) * 0.5],
+    [(index - 1) * segment, (index + 1) * segment],
     [1.075, 1],
   );
   return (

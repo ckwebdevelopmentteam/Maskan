@@ -20,7 +20,7 @@ const getInitialTheme = (): string => {
     const savedTheme = localStorage.getItem("maskan-theme");
     if (savedTheme) return savedTheme;
   }
-  return "forest";
+  return "concrete";
 };
 
 const themeSlice = createSlice({

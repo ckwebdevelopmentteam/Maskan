@@ -15,7 +15,60 @@ export interface ThemeProperties {
 }
 
 export const THEMES: Record<string, ThemeProperties> = {
-  // 1 Dark Theme
+  monoMixed: {
+    name: "Black White Mix",
+    isDark: false,
+    bgPrimary: "#F7F7F4",
+    fgPrimary: "#151515",
+    accent: "#151515",
+    bgCard: "#151515",
+    bgDark: "#FFFFFF",
+  },
+  pureWhite: {
+    name: "Pure White",
+    isDark: false,
+    bgPrimary: "#FFFFFF",
+    fgPrimary: "#151515",
+    accent: "#151515",
+    bgCard: "#F2F2EE",
+    bgDark: "#E6E6E0",
+  },
+  pureBlack: {
+    name: "Pure Black",
+    isDark: true,
+    bgPrimary: "#151515",
+    fgPrimary: "#FFFFFF",
+    accent: "#FFFFFF",
+    bgCard: "#202020",
+    bgDark: "#0D0D0D",
+  },
+  concrete: {
+    name: "Concrete Steel",
+    isDark: true,
+    bgPrimary: "#151918",
+    fgPrimary: "#E7E0D4",
+    accent: "#C58A5A",
+    bgCard: "#202522",
+    bgDark: "#0F1211",
+  },
+  limestone: {
+    name: "Limestone Brass",
+    isDark: false,
+    bgPrimary: "#F4F0E8",
+    fgPrimary: "#25231F",
+    accent: "#A86F3C",
+    bgCard: "#E9E1D4",
+    bgDark: "#D8CDBD",
+  },
+  steel: {
+    name: "Steel Blueprint",
+    isDark: true,
+    bgPrimary: "#172029",
+    fgPrimary: "#E8ECE7",
+    accent: "#8EA4A8",
+    bgCard: "#202C35",
+    bgDark: "#10171D",
+  },
   forest: {
     name: "Forest Sanctuary",
     isDark: true,
@@ -25,7 +78,6 @@ export const THEMES: Record<string, ThemeProperties> = {
     bgCard: "#232b27",
     bgDark: "#1f2622",
   },
-  // 1 Light Theme
   wabi: {
     name: "Wabi-Sabi Silk",
     isDark: false,
@@ -37,24 +89,27 @@ export const THEMES: Record<string, ThemeProperties> = {
   },
 };
 
-const ThemeContext = createContext<string>("forest");
+const DEFAULT_THEME = "concrete";
+
+const ThemeContext = createContext<string>(DEFAULT_THEME);
 
 export const useThemeInfo = () => {
   const currentKey = useContext(ThemeContext);
   return {
     key: currentKey,
-    properties: THEMES[currentKey] || THEMES.forest,
+    properties: THEMES[currentKey] || THEMES[DEFAULT_THEME],
   };
 };
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const currentThemeKey = useSelector(
-    (state: RootState) => state.theme?.currentTheme || "forest"
+    (state: RootState) => state.theme?.currentTheme || DEFAULT_THEME
   );
 
   useEffect(() => {
-    const theme = THEMES[currentThemeKey] || THEMES.forest;
+    const theme = THEMES[currentThemeKey] || THEMES[DEFAULT_THEME];
     const root = document.documentElement;
+    root.classList.toggle("theme-mono-mixed", currentThemeKey === "monoMixed");
 
     // Apply main theme properties
     root.style.setProperty("--bg-primary", theme.bgPrimary);
@@ -106,6 +161,19 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       root.style.setProperty("--border-white-5", `rgba(${rgbBase}, 0.08)`);
       root.style.setProperty("--bg-white-5", `rgba(${rgbBase}, 0.06)`);
       root.style.setProperty("--bg-white-50", `rgba(${rgbBase}, 0.1)`);
+
+      if (currentThemeKey === "monoMixed") {
+        root.style.setProperty("--text-white", "#ffffff");
+        root.style.setProperty("--text-white-70", "rgba(255, 255, 255, 0.7)");
+        root.style.setProperty("--text-white-60", "rgba(255, 255, 255, 0.6)");
+        root.style.setProperty("--text-white-50", "rgba(255, 255, 255, 0.5)");
+        root.style.setProperty("--text-white-40", "rgba(255, 255, 255, 0.4)");
+        root.style.setProperty("--text-white-30", "rgba(255, 255, 255, 0.3)");
+        root.style.setProperty("--text-white-20", "rgba(255, 255, 255, 0.2)");
+        root.style.setProperty("--text-white-10", "rgba(255, 255, 255, 0.1)");
+        root.style.setProperty("--border-white-10", "rgba(255, 255, 255, 0.14)");
+        root.style.setProperty("--border-white-5", "rgba(255, 255, 255, 0.08)");
+      }
     }
   }, [currentThemeKey]);
 

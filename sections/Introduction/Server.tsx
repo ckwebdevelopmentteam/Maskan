@@ -2,9 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import Image1 from "@/public/IrsyMMpxpY0yqVMutVpGtcoOSx4.webp";
-import Image2 from "@/public/S0kKRTM44yfHbhgnxbX3PNQlwE.avif";
-import Image3 from "@/public/UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif";
+import Image1 from "@/public/about 1.avif";
+import Image2 from "@/public/about 5.avif";
+import Image3 from "@/public/about 4.avif";
 
 export default function IntroductionServer({ noTopPadding = false }: { noTopPadding?: boolean }) {
   const arrowIcon = (

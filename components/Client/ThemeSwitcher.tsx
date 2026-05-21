@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 export default function ThemeSwitcher() {
   const dispatch = useDispatch();
   const currentThemeKey = useSelector(
-    (state: RootState) => state.theme?.currentTheme || "forest"
+    (state: RootState) => state.theme?.currentTheme || "concrete"
   );
 
   const darkThemes = Object.entries(THEMES).filter(([, t]) => t.isDark);
@@ -80,7 +80,7 @@ export default function ThemeSwitcher() {
       {/* Dark Theme Section */}
       <div className="space-y-2.5">
         <span className="text-[10px] uppercase tracking-wider text-[var(--fg-primary)]/40 font-semibold font-mono block">
-          Dark Theme (Forest Sanctuary)
+          Dark Themes
         </span>
         <div className="grid grid-cols-1 gap-2">
           {darkThemes.map(([key, theme]) => renderThemeButton(key, theme))}
@@ -90,7 +90,7 @@ export default function ThemeSwitcher() {
       {/* Light Theme Section */}
       <div className="space-y-2.5 pt-2">
         <span className="text-[10px] uppercase tracking-wider text-[var(--fg-primary)]/40 font-semibold font-mono block">
-          Light Theme (Wabi-Sabi Silk)
+          Light Themes
         </span>
         <div className="grid grid-cols-1 gap-2">
           {lightThemes.map(([key, theme]) => renderThemeButton(key, theme))}

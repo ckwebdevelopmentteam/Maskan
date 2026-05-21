@@ -1,63 +1,53 @@
 "use client";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+
+import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
-import DashedLink from "@/components/Server/DashedLink";
-import BorderedButton from "../Server/BorderedButton";
-import NavigateSVG from "../SVGComponents/NavigateSVG";
 import AnimatedBurger from "../SVGComponents/AnimatedBurger";
 import { useState } from "react";
 import Link from "next/link";
 import { useIsMobile } from "@/app/providers";
-import ResponsiveSideBar from "./ResponsiveSideBar";
-import CloseIcon from "../SVGComponents/CloseIcon";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { usePathname } from "next/navigation";
+import MenuOverlay from "./MenuOverlay";
 
 export default function NavBar() {
-  const isMobile = useIsMobile();
-  const navOpacity = useSelector((state: RootState) => state.nav.opacity);
+
+  const navOpacity = useSelector((state: RootState) => state.nav?.opacity ?? 1);
   const [openSideBar, setOpenSideBar] = useState(false);
   const [state, setState] = useState(false);
   const [y, setY] = useState("0%");
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     const scrollValue = latest / window.innerHeight;
     setState(scrollValue > 0.5);
     if (scrollValue > 0.65) {
       if ((scrollY.getPrevious() as number) < latest) {
-        setY("-100%");
+        setY("150%"); // hide by sliding down off the bottom of the screen
       } else {
-        setY("0%");
+        setY("0%"); // show
       }
     }
   });
-  const navItems = [
-    {
-      href: "/",
-      children: "Home",
-    },
-    {
-      href: "/about",
-      children: "About Us",
-    },
-    {
-      href: "/services",
-      children: "Services",
-    },
-    {
-      href: "/projects",
-      children: "Projects",
-    },
-    {
-      href: "/#contact",
-      children: "Contact Us",
-    },
-  ];
+
+  const getActiveLabel = () => {
+    if (pathname === "/") return "HOME";
+    if (pathname === "/about") return "ABOUT";
+    if (pathname === "/services") return "SERVICES";
+    if (pathname === "/projects") return "PROJECTS";
+    if (pathname === "/contact") return "CONTACT";
+    return "HOME";
+  };
+
+  const activeLabel = getActiveLabel();
+
   return (
     <>
       <motion.div
-        className="fixed top-0 z-[50] flex w-full items-center justify-between px-5 py-10 md:px-16"
+        className="fixed bottom-6 inset-x-4 mx-auto z-[150] flex w-[90%] max-w-[340px] md:max-w-[400px] items-center justify-between border border-white/10 bg-[#121212]/92 px-5 py-3.5 backdrop-blur-[8px] shadow-[0_12px_40px_rgba(0,0,0,0.5)] rounded-none text-white"
         initial="initial"
         animate={state ? "animate" : "initial"}
         transition={{
@@ -73,92 +63,54 @@ export default function NavBar() {
         }}
         variants={{
           initial: {
-            paddingBlock: isMobile
-              ? "calc(40 * var(--multiplier))"
-              : "calc(33 * var(--multiplier))",
-            backgroundColor: "transparent",
-            y,
+            y: "0%",
             opacity: navOpacity,
           },
           animate: {
-            paddingBlock: isMobile
-              ? "calc(18 * var(--multiplier))"
-              : "calc(8 * var(--multiplier))",
-            backgroundColor: "transparent",
             y,
             opacity: navOpacity,
           },
         }}
       >
-        <Link href="#home" className="cursor-pointer">
+        {/* Logo (Big & Clearly Visible in crisp white against the dark capsule) */}
+        <Link href="/" className="cursor-pointer flex items-center">
           <Image 
             src={MaskanLogo} 
             alt="Maskan Builders" 
-            height={110}
-            className="h-20 md:h-28 w-auto object-contain transition-all duration-500"
-            style={{ filter: "var(--logo-filter, none)" }}
+            height={140}
+            className="h-11 md:h-13 w-auto object-contain transition-all duration-300 brightness-0 invert"
           />
         </Link>
-        <nav aria-label="navigation" className="hidden gap-6 md:flex">
-          {navItems.map((eachItem) => (
-            <Link href={eachItem.href} key={eachItem.children}>
-              <DashedLink
-                className="text-base font-normal [&>.animated-underline]:bg-[var(--text-white)]"
-                variants={{
-                  animate: { color: "var(--text-white)" },
-                  initial: { color: "var(--text-white)" },
-                }}
-              >
-                {eachItem.children}
-              </DashedLink>
-            </Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-8">
-          <BorderedButton
-            className="relative hidden w-fit cursor-pointer items-center gap-4 px-5 py-4.5 text-base [line-height:0.8] font-normal md:flex text-[var(--text-white)] [&_svg]:[stroke:var(--text-white)]"
-          >
-            Get a Quote
-            <NavigateSVG
-              style={{ fill: "var(--bg-primary)" }}
-              className="mr-2.5 size-2.5"
-            />
-          </BorderedButton>
-          <motion.button
-            initial="initial"
-            whileHover="whileHover"
-            onClick={() => {
-              const isOpen = openSideBar;
-              if (isMobile) {
-                if (!isOpen) {
-                  //about to open
-                  setState(true);
-                } else {
-                  //about to close -> the variant of the nav should be based on the scrollY
-                  const scrollValue = scrollY.get() / window.innerHeight;
-                  setState(scrollValue > 0.5);
-                }
-              }
-              setOpenSideBar(!isOpen);
-            }}
-            className="cursor-pointer p-2 animate-colors duration-500"
-            disabled={isMobile == null}
-          >
-            {isMobile && openSideBar ? (
-              <CloseIcon className="size-7 [&_path]:[stroke-width:1px] [&_path]:[stroke:var(--text-white)]" />
-            ) : (
-              <AnimatedBurger
-                className="[stroke:var(--text-white)]"
-              />
-            )}
-          </motion.button>
-        </div>
+        
+        {/* Center Label (Active Page Name) */}
+        <Link 
+          href="/" 
+          className="cursor-pointer text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-white/90 hover:text-white transition-colors"
+        >
+          {activeLabel}
+        </Link>
+
+        {/* Hamburger Menu Toggle */}
+        <motion.button
+          initial="initial"
+          whileHover="whileHover"
+          onClick={() => {
+            setOpenSideBar(true);
+          }}
+          className="cursor-pointer p-2 flex items-center justify-center text-white"
+          aria-label="Open menu"
+        >
+          <AnimatedBurger
+            className="[stroke:white] size-5"
+          />
+        </motion.button>
       </motion.div>
-      <ResponsiveSideBar
-        isMobile={isMobile}
-        openSideBar={openSideBar}
-        setOpenSideBar={setOpenSideBar}
-      />
+
+      <AnimatePresence>
+        {openSideBar && (
+          <MenuOverlay openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import NavBar from "@/components/Client/NavBar";
-import SustainableRetreat from "@/components/Client/SustainableRetreat";
+import ScrollReveal from "@/components/Client/ScrollReveal";
 import ElementisStory from "@/sections/ElementisStory";
 import Footer from "@/sections/Footer/Server";
 import Form from "@/sections/Form";
@@ -16,31 +16,31 @@ import HowWeWork from "@/sections/HowWeWork";
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Introduction />
-      <HowWeWork />
-      <Innovation />
-      <ProjectsGrid />
+      <ScrollReveal><Hero /></ScrollReveal>
+      <ScrollReveal className="my-8"><Introduction /></ScrollReveal>
+      <ScrollReveal className="my-8"><HowWeWork /></ScrollReveal>
+      <ScrollReveal className="my-8"><Innovation /></ScrollReveal>
+      <ScrollReveal className="my-8"><ProjectsGrid /></ScrollReveal>
 
       {/* Calculation */}
-      <SustainableRetreat />
+      {/* <SustainableRetreat /> */}
 
       {/* Why Choose Us */}
-      <WhyChooseUs />
-      <ElementisStory />
+      <ScrollReveal className="my-8"><WhyChooseUs /></ScrollReveal>
+      <ScrollReveal className="my-8"><ElementisStory /></ScrollReveal>
 
       {/* CTA */}
-      <Form />
+      <ScrollReveal className="my-8"><Form /></ScrollReveal>
 
       {/* Testimonial */}
-      <Testimonials />
+      <ScrollReveal className="my-8"><Testimonials /></ScrollReveal>
 
       {/* FAQ */}
-      <FAQ />
-      <SeoContent />
+      <ScrollReveal className="my-8"><FAQ /></ScrollReveal>
+      <ScrollReveal className="my-8"><SeoContent /></ScrollReveal>
 
       {/* Footer */}
-      <Footer />
+      <ScrollReveal className="my-8"><Footer /></ScrollReveal>
       <NavBar />
     </main>
   );

@@ -83,16 +83,27 @@ export default function ClipImageCard({
         ],
       },
     },
+    {
+      title: [<>MASKAN RESIDENCES</>, <>Kozhikode</>],
+      description: {
+        mobile: [
+          <>A premium residential construction concept</>,
+          <>focused on structural quality, refined planning,</>,
+          <>and long-term family comfort.</>,
+          <>Status: Ongoing</>,
+        ],
+        desktop: [
+          <>A premium residential construction concept in Kozhikode</>,
+          <>focused on structural quality, refined planning,</>,
+          <>and long-term family comfort with dependable delivery.</>,
+          <>Status: Ongoing</>,
+        ],
+      },
+    },
   ];
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.33) {
-      setCurrentState(1);
-    } else if (latest <= 0.66) {
-      setCurrentState(2);
-    } else {
-      setCurrentState(3);
-    }
+    setCurrentState(Math.min(Math.floor(latest * images.length) + 1, images.length));
   });
   const prependZero = (num: number) => (num < 10 ? `0${num}` : `${num}`);
 
@@ -121,7 +132,7 @@ export default function ClipImageCard({
           "relative z-20 my-[5vh] flex h-[70vh] min-h-fit w-[90%] flex-col items-center gap-8 p-5-75 md:h-full md:max-h-172 md:w-full md:max-w-118 md:px-8 md:py-4",
           isWabiTheme
             ? "bg-[var(--bg-primary)] text-[var(--fg-primary)]"
-            : "bg-[var(--fg-primary)] text-[var(--bg-primary)]",
+            : "bg-[var(--bg-card)] text-[var(--fg-primary)]",
         )}
       >
         <div className="flex items-center gap-1 text-2xs md:text-sm">
@@ -144,6 +155,7 @@ export default function ClipImageCard({
             <ClipImageContainer
               key={"card-image-container-" + (index + 1)}
               index={index}
+              total={images.length}
               scrollYProgress={scrollYProgress}
             >
               <Image

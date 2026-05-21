@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import WhyChooseUsSofa from "@/public/why_choose_us_sofa.png";
-import Team1 from "@/public/property-1.jpg";
+import WhyChooseUsImage from "@/public/why_choose_us_sofa.png";
+import Team1 from "@/public/F1.avif";
 import Team2 from "@/public/property-2.jpg";
 import Team3 from "@/public/property-4.jpg";
 
@@ -38,8 +38,8 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <Image 
-              src={WhyChooseUsSofa} 
-              alt="Maskan Interior Design Living Space" 
+              src={WhyChooseUsImage} 
+              alt="Maskan construction project exterior" 
               fill
               priority
               className="object-cover transition-transform duration-700 ease-out hover:scale-103 brightness-[0.95]"

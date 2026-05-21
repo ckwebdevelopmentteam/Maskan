@@ -9,7 +9,7 @@ export default function HeroMobileClient() {
         loop
         playsInline
       >
-        <source src="/motion_2.0-fast_behide_the_maskan_logo_and_writing_all_the_content_should_happen_2_male_workers_-0.mp4" type="video/mp4" />
+        <source src="/WBpOY8hrNdXiZ4GGR4RQTxf4R4.mp4" type="video/mp4" />
       </video>
     </div>
   );
