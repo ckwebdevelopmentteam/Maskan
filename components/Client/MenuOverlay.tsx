@@ -13,13 +13,13 @@ export default function MenuOverlay({ openSideBar, setOpenSideBar }: MenuOverlay
   if (!openSideBar) return null;
 
   const mainLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Collection" },
-    { href: "/projects", label: "Projects" },
-    { href: "/#how-we-work", label: "Approach" },
-    { href: "/#contact", label: "Contact" },
-  ];
+  { href: "/", label: "Home" },
+  // { href: "/about", label: "About" },
+  // { href: "/services", label: "Collection" },
+  // { href: "/projects", label: "Projects" },
+  // { href: "/#how-we-work", label: "Approach" },
+  { href: "/#contact", label: "Contact" },
+];
 
   return (
     <motion.div

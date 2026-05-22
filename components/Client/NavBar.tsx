@@ -56,11 +56,7 @@ export default function NavBar() {
   });
 
   const getActiveLabel = () => {
-    if (pathname === "/") return "HOME";
-    if (pathname === "/about") return "ABOUT";
-    if (pathname === "/services") return "SERVICES";
-    if (pathname === "/projects") return "PROJECTS";
-    if (pathname === "/contact") return "CONTACT";
+    // Only the home page is advertised; all other routes are disabled for navigation.
     return "HOME";
   };
 
