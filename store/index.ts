@@ -14,19 +14,10 @@ const navSlice = createSlice({
 
 export const { setNavOpacity } = navSlice.actions;
 
-// Load initial theme from localStorage safely
-const getInitialTheme = (): string => {
-  if (typeof window !== "undefined") {
-    const savedTheme = localStorage.getItem("maskan-theme");
-    if (savedTheme) return savedTheme;
-  }
-  return "concrete";
-};
-
 const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    currentTheme: getInitialTheme(),
+    currentTheme: "blueWhite", // safe SSR default; client restores from localStorage via ThemeProvider
   },
   reducers: {
     setTheme: (state, action: PayloadAction<string>) => {

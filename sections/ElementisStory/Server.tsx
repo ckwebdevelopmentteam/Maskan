@@ -2,6 +2,7 @@ import ResponsiveMaskText from "@/components/Client/ResponsiveMaskTextVariant";
 import SectionTitle from "@/components/Server/SectionTitle";
 import StyledLink from "@/components/Server/StyledLink";
 import { Fragment } from "react";
+import Image from "next/image";
 
 export default function ElementisStoryServer() {
   const textLines = {
@@ -23,7 +24,7 @@ export default function ElementisStoryServer() {
   return (
     <>
       {/* Description Column: Starts on Left */}
-      <div className="max-md:mt-12 md:col-span-8 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
+      <div className="max-md:mt-12 md:col-span-6 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
         <ResponsiveMaskText
           {...textLines}
           className="text-24 [line-height:1.2] md:text-40 text-center md:text-left w-full text-[var(--fg-primary)]"
@@ -39,12 +40,26 @@ export default function ElementisStoryServer() {
       </div>
 
       {/* Section Title Column: Starts on Right */}
-      <SectionTitle 
-        className="md:col-span-3 md:col-start-9 text-center md:text-right w-full md:justify-end order-1 md:order-2"
-        titleClassName="text-xl md:text-3xl font-normal tracking-[0.2em]"
-      >
-        Maskan Services
-      </SectionTitle>
+      <div className="md:col-span-5 md:col-start-7 flex flex-col items-center md:items-end w-full order-1 md:order-2 gap-8 md:gap-10">
+        <SectionTitle 
+          className="text-center md:text-right w-full md:justify-end"
+          titleClassName="text-xl md:text-3xl font-normal tracking-[0.2em]"
+        >
+          Maskan Services
+        </SectionTitle>
+
+        {/* Architectural Blueprint Drawing Image */}
+        <div
+          className="relative w-full aspect-[16/10] overflow-hidden"
+        >
+          <Image
+            src="/drawing.avif"
+            alt="Architectural drawing plan"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </div>
     </>
   );
 }

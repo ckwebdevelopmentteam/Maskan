@@ -153,18 +153,7 @@ export default function ProjectsPage() {
           {/* Columns 1 & 2 Combined (50%): Text Overlay on Stairs Background */}
           <div className="relative md:col-span-2 border-b md:border-b-0 md:border-r border-[var(--fg-primary)]/10 p-8 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] md:min-h-0 group overflow-hidden">
             
-            {/* Background Stairs Image with adaptive tint */}
-            <div className="absolute inset-0 w-full h-full -z-10">
-              <Image 
-                src="/about.avif" 
-                alt="concrete stairs background" 
-                fill 
-                priority
-                className="object-cover brightness-[0.95] dark:brightness-[0.3] contrast-[1.05] transition-transform duration-[10s] ease-out group-hover:scale-105"
-              />
-              {/* Theme adaptive overlay tint */}
-              <div className="absolute inset-0 bg-[var(--bg-primary)]/20 dark:bg-[var(--bg-primary)]/50 mix-blend-multiply" />
-            </div>
+
 
             {/* Top Row decoration or sub-label */}
             <span className="text-[var(--accent)] text-[10px] font-mono tracking-widest uppercase">

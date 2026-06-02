@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "slug": "senior-architect",
+    "title": "Senior Architect",
+    "category": "Design & Architecture",
+    "location": "Dubai, UAE",
+    "employmentType": "Full Time",
+    "experience": "7+ Years",
+    "salary": "Negotiable",
+    "shortDescription": "Lead innovative architectural projects from concept through to completion.",
+    "description": "<h3>Job Overview</h3><p>We are seeking a visionary Senior Architect to lead our design team. You will be responsible for overseeing major residential and commercial projects, ensuring they meet our high standards of sustainability, functionality, and aesthetic excellence.</p><h3>Responsibilities</h3><ul><li>Lead the design process from conceptualization to final execution.</li><li>Manage and mentor a team of junior architects and draftsmen.</li><li>Coordinate with clients, contractors, and regulatory authorities.</li><li>Ensure all designs comply with local building codes and sustainability standards.</li></ul><h3>Requirements</h3><ul><li>Bachelor's or Master's degree in Architecture.</li><li>Minimum 7 years of experience in architectural design, preferably in the UAE.</li><li>Strong portfolio demonstrating innovative design solutions.</li></ul><h3>Skills Required</h3><ul><li>AutoCAD, Revit, SketchUp, Lumion</li><li>Project Management</li><li>Client Presentation and Communication</li></ul>"
+  },
+  {
+    "id": 2,
+    "slug": "interior-designer",
+    "title": "Senior Interior Designer",
+    "category": "Interior Design",
+    "location": "Dubai, UAE",
+    "employmentType": "Full Time",
+    "experience": "5+ Years",
+    "salary": "Negotiable",
+    "shortDescription": "Create stunning, functional interior spaces for our premium residential clients.",
+    "description": "<h3>Job Overview</h3><p>As a Senior Interior Designer at Maskan, you will transform interior spaces into breathtaking environments. You will work closely with our architecture team to ensure seamless integration of exterior and interior aesthetics.</p><h3>Responsibilities</h3><ul><li>Develop interior design concepts and space planning.</li><li>Select materials, finishes, furniture, and lighting.</li><li>Create detailed 3D renderings and presentations for clients.</li><li>Oversee the execution of interior fit-outs.</li></ul><h3>Requirements</h3><ul><li>Degree in Interior Design or related field.</li><li>Proven track record of high-end residential or commercial projects.</li><li>Keen eye for detail and strong aesthetic sensibility.</li></ul><h3>Skills Required</h3><ul><li>3ds Max, V-Ray, AutoCAD, Photoshop</li><li>Material Sourcing</li><li>Space Planning</li></ul>"
+  },
+  {
+    "id": 3,
+    "slug": "project-manager-construction",
+    "title": "Construction Project Manager",
+    "category": "Project Management",
+    "location": "Abu Dhabi, UAE",
+    "employmentType": "Full Time",
+    "experience": "10+ Years",
+    "salary": "Negotiable",
+    "shortDescription": "Oversee construction operations ensuring projects are delivered on time and within budget.",
+    "description": "<h3>Job Overview</h3><p>We are looking for an experienced Construction Project Manager to take the helm of our execution phase. You will be the primary point of contact on-site, ensuring that the architectural vision is perfectly realized.</p><h3>Responsibilities</h3><ul><li>Plan and oversee construction operations and schedules.</li><li>Manage budgets, allocate resources, and monitor expenditures.</li><li>Ensure compliance with health, safety, and building regulations.</li><li>Resolve any on-site issues and mitigate risks.</li></ul><h3>Requirements</h3><ul><li>Degree in Civil Engineering, Construction Management, or Architecture.</li><li>At least 10 years of experience in managing large-scale construction projects in the UAE.</li><li>Strong leadership and crisis management skills.</li></ul>"
+  }
+]

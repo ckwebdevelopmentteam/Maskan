@@ -44,12 +44,12 @@ body {
   --multiplier: calc(100vw / 375);
   --basesvh: 812;
 
-  /* Theme colors (Concrete Steel Fallback) */
-  --bg-primary: #151918;
-  --fg-primary: #E7E0D4;
-  --accent: #C58A5A;
-  --bg-card: #202522;
-  --bg-dark: #0F1211;
+  /* Theme colors (Maskan Blue — default) */
+  --bg-primary: #1F5071;
+  --fg-primary: #EBEBEB;
+  --accent: #EBEBEB;
+  --bg-card: #27618A;
+  --bg-dark: #163D57;
 
   /* Adaptive theme elements */
   --text-white: #ffffff;

@@ -87,9 +87,27 @@ export const THEMES: Record<string, ThemeProperties> = {
     bgCard: "#EBE5DA",
     bgDark: "#E0D8C8",
   },
+  maskanBlue: {
+    name: "Maskan Blue",
+    isDark: true,
+    bgPrimary: "#1F5071",
+    fgPrimary: "#EBEBEB",
+    accent: "#EBEBEB",
+    bgCard: "#27618A",
+    bgDark: "#163D57",
+  },
+  blueWhite: {
+    name: "Blue & White",
+    isDark: false,
+    bgPrimary: "#FFFFFF",
+    fgPrimary: "#1F4F71",
+    accent: "#1F4F71",
+    bgCard: "#F0F7FC",
+    bgDark: "#E1EFF8",
+  },
 };
 
-const DEFAULT_THEME = "concrete";
+const DEFAULT_THEME = "blueWhite";
 
 const ThemeContext = createContext<string>(DEFAULT_THEME);
 

@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 export default function ThemeSwitcher() {
   const dispatch = useDispatch();
   const currentThemeKey = useSelector(
-    (state: RootState) => state.theme?.currentTheme || "concrete"
+    (state: RootState) => state.theme?.currentTheme || "maskanBlue"
   );
 
   const darkThemes = Object.entries(THEMES).filter(([, t]) => t.isDark);

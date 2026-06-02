@@ -9,27 +9,10 @@ import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 
 export default function HeroServer() {
   return (
-    <section className="relative flex h-[82vh] min-h-[640px] flex-col justify-end overflow-hidden pt-0 px-5 pb-12 text-white md:pt-0 md:px-20 md:pb-20">
-      <div className="absolute inset-0 bg-black/42" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.58)_0%,rgba(0,0,0,0.34)_48%,rgba(0,0,0,0.62)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 to-transparent" />
+    <section className="relative flex h-screen min-h-[640px] flex-col justify-end overflow-hidden pt-0 px-5 pb-12 text-white md:pt-0 md:px-20 md:pb-20">
+
 
       {/* Big Maskan Logo branding at the top-left of the screen */}
-      <motion.div
-        initial={{ opacity: 0, x: -25 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2, ease: [0.24, 0.43, 0.15, 0.97], delay: 0.15 }}
-        className="absolute top-0 left-0 p-0 z-20"
-      >
-        <Link href="/" className="cursor-pointer block">
-          <Image
-            src={MaskanLogo}
-            alt="Maskan Logo"
-            className="h-48 md:h-80 w-auto object-contain brightness-0 invert transition-all duration-300 hover:opacity-85"
-            priority
-          />
-        </Link>
-      </motion.div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1360px] gap-8 md:grid-cols-[1.45fr_0.95fr] md:items-end">
         <div>
@@ -44,7 +27,7 @@ export default function HeroServer() {
                 <span className="h-2 w-2 bg-white" />
                 Best construction company in Kerala
               </div>,
-            ]}
+            ]}z
           />
           <MaskText
             transition={{ delayChildren: 0.3 }}

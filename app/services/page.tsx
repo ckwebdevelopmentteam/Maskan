@@ -43,62 +43,6 @@ const services = [
     duration: "12–36 months",
     image: "/commercial_complex_render.png",
   },
-  {
-    id: "03",
-    title: "Hospitality & Healthcare Builds",
-    desc: "Experienced in constructing specialized clinic layouts and luxury hospitality spaces that conform to state-of-the-art medical zoning and high-traffic customer flows.",
-    bullets: [
-      "Infection-Control Surface Curing",
-      "Specialized Clinical Grid Systems",
-      "Professional Commercial Kitchen Spaces",
-      "Soundproof Multi-Zone Guest Rooms",
-    ],
-    budget: "₹80L – ₹20Cr",
-    duration: "8–24 months",
-    image: "/hospitality_sanctuary_render.png",
-  },
-  {
-    id: "04",
-    title: "3D Design & Space Planning",
-    desc: "Our in-house design consultants deliver detailed spatial planning, 3D structural modeling, and interior moodboards designed to enhance residential wellness and commercial functionality.",
-    bullets: [
-      "Immersive 3D Spatial Walkthroughs",
-      "Exterior Elevation Blueprint Maps",
-      "Integrated Interior Design Moods",
-      "Detailed CAD Material Specifications",
-    ],
-    budget: "₹50K – ₹5L",
-    duration: "2–6 weeks",
-    image: "/ImageContainer/image-1.png",
-  },
-  {
-    id: "05",
-    title: "Custom Lighting & Ceilings",
-    desc: "Specialization in designing, developing, and installing customized lighting solutions and acoustic suspended ceiling formworks that completely redefine the mood and interior ambience.",
-    bullets: [
-      "Custom LED Lighting Matrices",
-      "Acoustic Suspended Ceiling Panels",
-      "Smart Dimming & Scene Automation",
-      "Energy-Saving Low-Voltage Pre-Wiring",
-    ],
-    budget: "₹2L – ₹15L",
-    duration: "2–8 weeks",
-    image: "/ImageContainer/image-5.png",
-  },
-  {
-    id: "06",
-    title: "Bespoke Outdoor Spaces",
-    desc: "Bespoke vehicle shelter porches engineered to perform double duty — protecting your premium vehicles while serving as stunning outdoor dining, family gathering, or recreational zones.",
-    bullets: [
-      "Wind-Resistant Canopy Systems",
-      "Outdoor Recessed Lighting & Audio",
-      "Bespoke Natural Stone Paving Tiles",
-      "Architectural Steel & Wood Cladding",
-    ],
-    budget: "₹5L – ₹50L",
-    duration: "4–12 weeks",
-    image: "/Introduction.png",
-  },
 ];
 
 

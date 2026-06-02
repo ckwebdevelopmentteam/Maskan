@@ -162,13 +162,15 @@ export default function ClipImageCard({
                 src={eachImage}
                 alt={"card-image-" + (index + 1)}
                 className="size-full object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </ClipImageContainer>
           ))}
         </div>
         <AnimatedMaskText
           state={currentState}
-          lines={data[currentState - 1].description["desktop"]} //change this
+          lines={data[currentState - 1].description["desktop"]}
           className="text-center text-sm [line-height:1.25] md:text-base"
         />
       </motion.div>

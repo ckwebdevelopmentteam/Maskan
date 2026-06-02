@@ -8,11 +8,11 @@ export default function SeoContent() {
   return (
     <section className="w-full py-12 md:py-20 bg-[var(--bg-primary)] text-[var(--fg-primary)] flex justify-center border-t border-[var(--fg-primary)]/10">
       <div className="w-[95%] max-w-[1200px] flex flex-col gap-6">
-        
+
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
           Best Architecture & Interior Design Firm in Kozhikode, Kerala
         </h2>
-        
+
         <div className="text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed flex flex-col gap-4">
           <p>
             Maskan is a premium architecture and interior design firm based in Kozhikode (Calicut), Kerala. We combine creative vision with practical execution to help homeowners and ambitious businesses achieve real, measurable transformations — not just aesthetic upgrades.
@@ -25,7 +25,7 @@ export default function SeoContent() {
           </p>
         </div>
 
-        <button 
+        <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="self-start text-sm font-bold text-[var(--fg-primary)] underline underline-offset-4 decoration-[var(--fg-primary)]/50 hover:decoration-[var(--fg-primary)] transition-all mt-2 cursor-pointer"
         >
@@ -34,14 +34,14 @@ export default function SeoContent() {
 
         <AnimatePresence>
           {isExpanded && (
-            <motion.div 
+            <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="overflow-hidden flex flex-col gap-12 mt-4"
             >
-              
+
               <div className="flex flex-col gap-4 pt-6 border-t border-[var(--fg-primary)]/10">
                 <h3 className="text-xl md:text-2xl font-semibold">Why Choose Maskan as Your Design Partner in Kerala</h3>
                 <ul className="flex flex-col gap-4 text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed pl-5 list-disc marker:text-[var(--fg-primary)]/50">

@@ -9,10 +9,10 @@ export default function ServicesHero() {
     <div className="relative h-[80vh] md:h-[90vh] w-full flex items-end overflow-hidden">
       {/* Background Image with Dark Vignette Overlay */}
       <div className="absolute inset-0 w-full h-full">
-        <Image 
-          src="/projects hero.avif" 
-          alt="maskan-services-banner" 
-          fill 
+        <Image
+          src="/projects hero.avif"
+          alt="maskan-services-banner"
+          fill
           priority
           className="object-cover brightness-[0.7] contrast-[1.05]"
         />
@@ -40,10 +40,10 @@ export default function ServicesHero() {
               </h1>
             </motion.div>
           </div>
-          
+
           {/* Right Column: Paragraph Context */}
           <div className="md:col-span-5 flex md:justify-end">
-            <motion.p 
+            <motion.p
               className="text-sm md:text-base text-white/80 max-w-sm font-light leading-relaxed tracking-wide text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

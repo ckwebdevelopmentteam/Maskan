@@ -130,6 +130,8 @@ Innovation.Container = function Container({
         src={children}
         alt={`image-${index + 1}`}
         className="h-full w-full origin-bottom object-cover"
+        quality={100}
+        sizes="100vw"
       />
     </motion.div>
   );
