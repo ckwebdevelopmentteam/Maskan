@@ -4,13 +4,9 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useIsMobile } from "@/app/providers";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 
-const ALLOWED_THEMES = ["monoMixed", "pureWhite", "pureBlack", "maskanBlue", "blueWhite"] as const;
-
 export default function NavBar() {
-  const isMobile = useIsMobile();
   const [state, setState] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();

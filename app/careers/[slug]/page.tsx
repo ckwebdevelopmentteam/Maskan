@@ -132,7 +132,7 @@ export default async function JobDetailsPage({ params }: { params: Promise<{ slu
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <ApplicationForm jobTitle={job.title} />
+          <ApplicationForm jobTitle={job.title} isInline={true} />
         </div>
       </section>
 

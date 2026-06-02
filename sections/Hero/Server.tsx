@@ -27,7 +27,7 @@ export default function HeroServer() {
                 <span className="h-2 w-2 bg-white" />
                 Best construction company in Kerala
               </div>,
-            ]}z
+            ]}
           />
           <MaskText
             transition={{ delayChildren: 0.3 }}
