@@ -3,152 +3,147 @@
 import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import WhyChooseUsImage from "@/public/why_choose_us_sofa.png";
-import Team1 from "@/public/F1.avif";
-import Team2 from "@/public/property-2.jpg";
-import Team3 from "@/public/property-4.jpg";
+import Link from "next/link";
+import Img1 from "@/public/property-1.jpg";
+import Img2 from "@/public/property-2.jpg";
+import Img3 from "@/public/property-3.jpg";
+import Img4 from "@/public/property-4.jpg";
+import Img5 from "@/public/why_choose_us_sofa.png";
+import Img6 from "@/public/F1.avif";
+
+// We need 8 images for each octagon. Reusing imported ones to fill the 8 slots.
+const gallery1 = [Img1, Img2, Img3, Img4, Img5, Img6, Img1, Img2];
+const gallery2 = [Img4, Img5, Img6, Img1, Img2, Img3, Img4, Img5];
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-20 md:py-28 px-6 md:px-16 border-b border-[var(--border-white-5)]">
-      <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
+    <section 
+      id="why-choose-us" 
+      className="py-20 md:py-32 overflow-hidden bg-white border-b border-gray-200"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 space-y-32 md:space-y-48">
         
-        {/* Header */}
-        <div className="text-center space-y-3">
-          <span className="text-[var(--accent)] font-mono text-xs uppercase tracking-[0.3em] font-semibold block">
-            // Why choose us
-          </span>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[var(--text-white)] leading-[1.1] uppercase">
-            Design you can trust, <br className="hidden md:block" /> every step
-          </h2>
-        </div>
-
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        {/* ==============================
+            GRID 1: Top-Right Carousel 
+            ============================== */}
+        <div className="flex flex-col lg:flex-row items-center justify-between relative">
           
-          {/* Left Column: Corner-Clipped Image */}
-          <motion.div 
-            className="lg:col-span-5 relative w-full min-h-[400px] lg:min-h-full overflow-hidden shadow-2xl bg-[var(--bg-primary)] border border-[var(--border-white-10)]"
-            style={{ 
-              clipPath: "polygon(0 0, 88% 0, 100% 12%, 100% 100%, 0 100%)"
-            }}
-            initial={{ opacity: 0, scale: 0.98, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Image 
-              src={WhyChooseUsImage} 
-              alt="Maskan construction project exterior" 
-              fill
-              priority
-              className="object-cover transition-transform duration-700 ease-out hover:scale-103 brightness-[0.95]"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-          </motion.div>
-
-          {/* Right Column: Dynamic Sub-Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 border-t lg:border-t-0 lg:border-l border-[var(--border-white-10)]">
-            
-            {/* Row 1, Left Cell: Selected Designers */}
-            <div className="p-8 md:p-10 border-b border-[var(--border-white-10)] md:border-r flex flex-col justify-between space-y-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-normal tracking-wide text-[var(--text-white)]">
-                  Selected designers
-                </h3>
-                <p className="text-xs md:text-sm text-[var(--text-white)]/60 font-light leading-relaxed">
-                  Every project is led by experienced interior designers.
-                </p>
-              </div>
-              <div className="flex items-baseline space-x-2">
-                <span className="text-4xl md:text-5xl font-light text-[var(--text-white)] font-mono leading-none">25+</span>
-                <span className="text-xs uppercase tracking-wider text-[var(--text-white)]/50 font-mono">Designers</span>
-              </div>
-            </div>
-
-            {/* Row 1, Right Cell: Happy Clients (Avatars) */}
-            <div className="p-8 md:p-10 border-b border-[var(--border-white-10)] flex flex-col justify-between space-y-6">
-              {/* Avatars */}
-              <div className="flex items-center space-x-[-12px]">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[var(--bg-primary)] shadow-md z-[3]">
-                  <Image src={Team1} alt="Happy client 1" fill className="object-cover" />
-                </div>
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[var(--bg-primary)] shadow-md z-[2]">
-                  <Image src={Team2} alt="Happy client 2" fill className="object-cover" />
-                </div>
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[var(--bg-primary)] shadow-md z-[1]">
-                  <Image src={Team3} alt="Happy client 3" fill className="object-cover" />
-                </div>
-              </div>
-              <div className="space-y-1">
-                <span className="text-xs uppercase tracking-wider text-[var(--text-white)]/50 font-mono block">More than 2K</span>
-                <span className="text-lg font-light text-[var(--text-white)] tracking-wide">happy clients</span>
-              </div>
-            </div>
-
-            {/* Row 2, Left Cell: Thoughtful Process */}
-            <div className="p-8 md:p-10 border-b md:border-b-0 border-[var(--border-white-10)] md:border-r flex flex-col justify-between space-y-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-normal tracking-wide text-[var(--text-white)]">
-                  Thoughtful process
-                </h3>
-                <p className="text-xs md:text-sm text-[var(--text-white)]/60 font-light leading-relaxed">
-                  Clear workflows & structured milestones ensure best designs.
-                </p>
-              </div>
-              <div className="flex items-baseline space-x-2">
-                <span className="text-4xl md:text-5xl font-light text-[var(--text-white)] font-mono leading-none">95%</span>
-                <span className="text-xs uppercase tracking-wider text-[var(--text-white)]/50 font-mono">Satisfaction</span>
-              </div>
-            </div>
-
-            {/* Row 2, Right Cell: Stacked Reliable Delivery & Spaces That Last Dark Box */}
-            <div className="flex flex-col h-full">
-              {/* Upper Half: Reliable Delivery */}
-              <div className="p-8 md:p-10 border-b border-[var(--border-white-10)] flex-1">
-                <div className="space-y-3">
-                  <h3 className="text-xl font-normal tracking-wide text-[var(--text-white)]">
-                    Reliable delivery
-                  </h3>
-                  <p className="text-xs md:text-sm text-[var(--text-white)]/60 font-light leading-relaxed">
-                    Timelines, budgets, and expectations are clearly defined.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Lower Half: Dark contrast box */}
-              <motion.div 
-                className="bg-[#161B18] p-8 md:p-10 flex flex-col justify-between space-y-6 relative overflow-hidden group cursor-pointer"
-                whileHover="hover"
-              >
-                <div className="space-y-3 relative z-10">
-                  <h3 className="text-xl font-normal tracking-wide text-white">
-                    Spaces that last
-                  </h3>
-                  <p className="text-xs md:text-sm text-white/60 font-light leading-relaxed">
-                    We design interiors that age well & adapt to real life.
-                  </p>
-                </div>
-                {/* Floating bottom-right arrow */}
-                <div className="flex justify-end pr-2 pb-2 relative z-10">
-                  <motion.div
-                    variants={{
-                      hover: { x: 5, y: -5 }
-                    }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="text-white text-3xl font-light leading-none"
-                  >
-                    ↗
-                  </motion.div>
-                </div>
-                {/* Premium subtle hover light reflection background */}
-                <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </motion.div>
-            </div>
-
+          {/* Left: Main Title */}
+          <div className="lg:w-1/2 z-10 relative lg:pl-12 w-full">
+            <h2 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
+              <span className="block mb-2">Designing</span>
+              <span className="block mb-2">Workspaces that</span>
+              <span className="font-semibold text-[#4A5568]">expand Possibilities</span>
+            </h2>
           </div>
 
+          {/* Right: 3D Octagon Carousel 1 */}
+          <div 
+            className="lg:w-1/2 relative h-[500px] md:h-[600px] w-full flex items-center justify-end mt-20 lg:mt-0" 
+            style={{ perspective: '1500px' }}
+          >
+            {/* Bleeds off the right edge */}
+            <div className="translate-x-[20%] lg:translate-x-[35%]">
+              <div 
+                className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
+                style={{ 
+                  transformStyle: 'preserve-3d', 
+                  transform: 'rotateZ(-22deg) rotateX(-12deg) rotateY(15deg)',
+                }}
+              >
+                <motion.div
+                  className="w-full h-full absolute top-0 left-0"
+                  style={{ transformStyle: 'preserve-3d' }}
+                  animate={{ rotateY: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                >
+                  {gallery1.map((img, index) => {
+                    const angle = index * 45; // 8 sides = 360 / 8 = 45deg
+                    return (
+                      <div
+                        key={index}
+                        className="absolute top-0 left-0 w-full h-full overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
+                        style={{
+                          transform: `rotateY(${angle}deg) translateZ(550px)`,
+                          backfaceVisibility: 'visible', 
+                        }}
+                      >
+                        <Image src={img} alt={`Gallery 1 Img ${index + 1}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                        <div className="absolute inset-0 bg-black/5 mix-blend-multiply pointer-events-none" />
+                      </div>
+                    )
+                  })}
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* ==============================
+            GRID 2: Bottom-Left Carousel 
+            ============================== */}
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between relative mt-24">
+          
+          {/* Left: 3D Octagon Carousel 2 */}
+          <div 
+            className="lg:w-1/2 relative h-[500px] md:h-[600px] w-full flex items-center justify-start mt-20 lg:mt-0" 
+            style={{ perspective: '1500px' }}
+          >
+            {/* Bleeds off the left edge */}
+            <div className="-translate-x-[20%] lg:-translate-x-[35%]">
+              <div 
+                className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
+                style={{ 
+                  transformStyle: 'preserve-3d', 
+                  // Matching the exact same tilt for visual consistency
+                  transform: 'rotateZ(-22deg) rotateX(-12deg) rotateY(15deg)',
+                }}
+              >
+                <motion.div
+                  className="w-full h-full absolute top-0 left-0"
+                  style={{ transformStyle: 'preserve-3d' }}
+                  // Rotating in reverse for a dynamic complementary effect
+                  animate={{ rotateY: -360 }}
+                  transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                >
+                  {gallery2.map((img, index) => {
+                    const angle = index * 45; // 8 sides
+                    return (
+                      <div
+                        key={index}
+                        className="absolute top-0 left-0 w-full h-full overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
+                        style={{
+                          transform: `rotateY(${angle}deg) translateZ(550px)`,
+                          backfaceVisibility: 'visible', 
+                        }}
+                      >
+                        <Image src={img} alt={`Gallery 2 Img ${index + 1}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                        <div className="absolute inset-0 bg-black/5 mix-blend-multiply pointer-events-none" />
+                      </div>
+                    )
+                  })}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Paragraph & Button */}
+          <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-start lg:pl-16">
+            <p className="text-gray-600 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
+              For over 41 years, Fortune 500 companies and global innovators have trusted <span className="font-medium text-gray-900">Maskan</span> to design and build environments that inspire collaboration, accelerate productivity, and <span className="font-semibold text-gray-900">shape the future of business.</span>
+            </p>
+            
+            <Link 
+              href="/services" 
+              className="group inline-flex items-center space-x-3 text-cyan-600 font-medium tracking-wide pb-2 border-b-2 border-transparent hover:border-cyan-600 transition-colors"
+            >
+              <span className="text-xl leading-none transform group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">↘</span>
+              <span>Explore our Design Build approach</span>
+            </Link>
+          </div>
+          
+        </div>
+
       </div>
     </section>
   );

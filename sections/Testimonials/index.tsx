@@ -27,6 +27,30 @@ const testimonialsData = [
     author: "Dr. Amara Khan",
     location: "Vagamon",
   },
+  {
+    image: "/IrsyMMpxpY0yqVMutVpGtcoOSx4.webp",
+    quote: "Exceptional craftsmanship and a team that truly listens. They turned our vision into reality, exceeding our expectations at every step of the journey.",
+    author: "Anita Sharma",
+    location: "Bangalore",
+  },
+  {
+    image: "/S0kKRTM44yfHbhgnxbX3PNQlwE.avif",
+    quote: "Their commitment to sustainability and modern design is unparalleled. The finished project is not just a building; it's a piece of art.",
+    author: "Rahul Verma",
+    location: "Mumbai",
+  },
+  {
+    image: "/UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif",
+    quote: "From planning to execution, everything was handled with utmost professionalism. I couldn't be happier with my new workspace.",
+    author: "Emily Chen",
+    location: "Pune",
+  },
+  {
+    image: "/Maskan 01_page-0026.jpg",
+    quote: "A seamless experience from start to finish. The team's dedication to quality and timely delivery is truly commendable.",
+    author: "Vikram Singh",
+    location: "Delhi",
+  }
 ];
 
 export default function Testimonials() {
@@ -83,7 +107,7 @@ export default function Testimonials() {
         {testimonialsData.map((item, idx) => (
           <div
             key={idx}
-            className="w-[80vw] sm:w-[320px] md:w-[350px] flex-shrink-0 snap-center bg-[var(--bg-card)] rounded-[1.75rem] p-4.5 border border-[var(--border-white-10)] flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300"
+            className="w-[85vw] sm:w-[calc(50%-10px)] md:w-[calc(33.333%-13.33px)] lg:w-[calc(25%-15px)] flex-shrink-0 snap-center bg-[var(--bg-card)] rounded-[1.75rem] p-4.5 border border-[var(--border-white-10)] flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300"
           >
             <div className="space-y-4">
               {/* Image with decreased height */}

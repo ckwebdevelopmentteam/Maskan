@@ -55,6 +55,7 @@ export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () 
           <input type="hidden" name="_next" value="http://localhost:3000/careers" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycbxFR5Tr_Ai9s-7Nr5eHDsrhviOyxqZrqPV5JSg-MYEMCaivbHUL2wJaeH3ZVELCWWrJ/exec" />
 
           <div className="space-y-5">
             {/* Position (Read-only) */}
