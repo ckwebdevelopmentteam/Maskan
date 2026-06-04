@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Cormorant_Garamond } from "next/font/google";
+import { Jost, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
 import { WindowSizeProvider } from "./providers";
 
-const BasisGrotesquePro = localFont({
-  src: [
-    {
-      path: "./fonts/BasisGrotesquePro-Light.woff2",
-      weight: "300",
-    },
-    { path: "./fonts/BasisGrotesquePro-Regular.woff2", weight: "400" },
-    { path: "./fonts/BasisGrotesquePro-Medium.woff2", weight: "500" },
-  ],
-  variable: "--font-grotesque",
+const jost = Jost({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["100", "200", "300", "400", "500", "600"],
 });
 
 const CormorantGaramond = Cormorant_Garamond({
@@ -38,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <ReactLenis root>
         <body
-          className={`${BasisGrotesquePro.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
+          className={`${jost.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
         >
           <WindowSizeProvider>{children}</WindowSizeProvider>
         </body>

@@ -35,7 +35,9 @@ body::-webkit-scrollbar {
   display: none;
 }
 body {
-  font-family: var(--font-grotesque), sans-serif;
+  /* Using Jost (mapped to --font-sans) to perfectly match the sleek, thin, geometric style of the screenshot */
+  font-family: var(--font-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
   background-color: var(--bg-primary);
   color: var(--fg-primary);
   transition: background-color 0.6s cubic-bezier(0.24, 0.43, 0.15, 0.97), color 0.6s cubic-bezier(0.24, 0.43, 0.15, 0.97);

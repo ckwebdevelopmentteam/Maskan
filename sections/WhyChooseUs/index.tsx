@@ -11,6 +11,11 @@ import Img4 from "@/public/property-4.jpg";
 import Img5 from "@/public/why_choose_us_sofa.png";
 import Img6 from "@/public/F1.avif";
 
+// Re-import avatars from original design
+import Team1 from "@/public/F1.avif";
+import Team2 from "@/public/property-2.jpg";
+import Team3 from "@/public/property-4.jpg";
+
 // We need 8 images for each octagon. Reusing imported ones to fill the 8 slots.
 const gallery1 = [Img1, Img2, Img3, Img4, Img5, Img6, Img1, Img2];
 const gallery2 = [Img4, Img5, Img6, Img1, Img2, Img3, Img4, Img5];
@@ -19,27 +24,62 @@ export default function WhyChooseUs() {
   return (
     <section 
       id="why-choose-us" 
-      className="py-20 md:py-32 overflow-hidden bg-white border-b border-gray-200"
+      className="py-20 md:py-32 overflow-hidden bg-white border-b border-gray-200 px-4 md:px-10"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 space-y-32 md:space-y-48">
+      <div className="max-w-[1440px] mx-auto space-y-32 md:space-y-48">
         
         {/* ==============================
-            GRID 1: Top-Right Carousel 
+            GRID 1: Top-Right Carousel & Main Title
             ============================== */}
         <div className="flex flex-col lg:flex-row items-center justify-between relative">
           
-          {/* Left: Main Title */}
-          <div className="lg:w-1/2 z-10 relative lg:pl-12 w-full">
-            <h2 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
-              <span className="block mb-2">Designing</span>
-              <span className="block mb-2">Workspaces that</span>
-              <span className="font-semibold text-[#4A5568]">expand Possibilities</span>
+          {/* Left: Original Main Title */}
+          <div className="lg:w-1/2 z-10 relative w-full space-y-5">
+            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
+              <span className="font-semibold text-[#1F5071]">Why Choose</span><br />
+              <span className="text-[#4A5568]">Maskan?</span>
             </h2>
+            
+            <p className="text-gray-500 text-base md:text-lg font-light leading-relaxed max-w-xl pb-2">
+              For decades, we have set the standard in premium architectural and construction services by combining visionary design with flawless execution.
+            </p>
+
+            <ul className="space-y-6 max-w-xl mt-4">
+              <li className="flex items-start space-x-4">
+                <span className="text-[#1F5071] mt-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <div>
+                  <strong className="block text-gray-800 font-medium text-lg mb-1">Uncompromising Quality</strong>
+                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">We source premium materials and employ master craftsmen to ensure lasting value and durability.</span>
+                </div>
+              </li>
+              
+              <li className="flex items-start space-x-4">
+                <span className="text-[#1F5071] mt-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <div>
+                  <strong className="block text-gray-800 font-medium text-lg mb-1">Client-Centric Collaboration</strong>
+                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">Your vision is our blueprint. We guarantee 100% transparency from initial concept to final handover.</span>
+                </div>
+              </li>
+
+              <li className="flex items-start space-x-4">
+                <span className="text-[#1F5071] mt-1">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <div>
+                  <strong className="block text-gray-800 font-medium text-lg mb-1">On-Time & On-Budget</strong>
+                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">Streamlined workflows and rigorous project management ensure we consistently meet critical deadlines.</span>
+                </div>
+              </li>
+            </ul>
           </div>
 
           {/* Right: 3D Octagon Carousel 1 */}
           <div 
-            className="lg:w-1/2 relative h-[500px] md:h-[600px] w-full flex items-center justify-end mt-20 lg:mt-0" 
+            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full flex items-center justify-end mt-16 lg:mt-0" 
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the right edge */}
@@ -80,13 +120,13 @@ export default function WhyChooseUs() {
         </div>
 
         {/* ==============================
-            GRID 2: Bottom-Left Carousel 
+            GRID 2: Bottom-Left Carousel & Original Content
             ============================== */}
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between relative mt-24">
           
           {/* Left: 3D Octagon Carousel 2 */}
           <div 
-            className="lg:w-1/2 relative h-[500px] md:h-[600px] w-full flex items-center justify-start mt-20 lg:mt-0" 
+            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full flex items-center justify-start mt-16 lg:mt-0" 
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the left edge */}
@@ -95,14 +135,12 @@ export default function WhyChooseUs() {
                 className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
                 style={{ 
                   transformStyle: 'preserve-3d', 
-                  // Matching the exact same tilt for visual consistency
                   transform: 'rotateZ(-22deg) rotateX(-12deg) rotateY(15deg)',
                 }}
               >
                 <motion.div
                   className="w-full h-full absolute top-0 left-0"
                   style={{ transformStyle: 'preserve-3d' }}
-                  // Rotating in reverse for a dynamic complementary effect
                   animate={{ rotateY: -360 }}
                   transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
                 >
@@ -127,19 +165,66 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right: Paragraph & Button */}
-          <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-start lg:pl-16">
-            <p className="text-gray-600 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
-              For over 41 years, Fortune 500 companies and global innovators have trusted <span className="font-medium text-gray-900">Maskan</span> to design and build environments that inspire collaboration, accelerate productivity, and <span className="font-semibold text-gray-900">shape the future of business.</span>
-            </p>
+          {/* Right: Original Statistics & Content */}
+          <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-start lg:pl-16 space-y-12">
             
-            <Link 
-              href="/services" 
-              className="group inline-flex items-center space-x-3 text-cyan-600 font-medium tracking-wide pb-2 border-b-2 border-transparent hover:border-cyan-600 transition-colors"
-            >
-              <span className="text-xl leading-none transform group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">↘</span>
-              <span>Explore our Design Build approach</span>
-            </Link>
+            {/* Stats Grid from original WhyChooseUs */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
+              
+              {/* Selected Designers */}
+              <div className="space-y-3">
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">25+</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800">Selected designers</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Every project is led by experienced interior designers.</p>
+                </div>
+              </div>
+
+              {/* Happy Clients */}
+              <div className="space-y-3">
+                <div className="flex items-center space-x-[-12px] h-[48px]">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[3]">
+                    <Image src={Team1} alt="Client 1" fill className="object-cover" />
+                  </div>
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[2]">
+                    <Image src={Team2} alt="Client 2" fill className="object-cover" />
+                  </div>
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[1]">
+                    <Image src={Team3} alt="Client 3" fill className="object-cover" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800">2K+ happy clients</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Delivering excellence and building trust worldwide.</p>
+                </div>
+              </div>
+
+              {/* Satisfaction */}
+              <div className="space-y-3">
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">95%</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800">Satisfaction rate</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Clear workflows ensure the best design outcomes.</p>
+                </div>
+              </div>
+
+              {/* Reliable Delivery */}
+              <div className="space-y-3">
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">100%</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800">Reliable delivery</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Timelines, budgets, and expectations clearly defined.</p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
           
         </div>
