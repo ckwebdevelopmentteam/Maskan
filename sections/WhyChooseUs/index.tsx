@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useIsMobile } from "@/app/providers";
 import Img1 from "@/public/property-1.jpg";
 import Img2 from "@/public/property-2.jpg";
 import Img3 from "@/public/property-3.jpg";
@@ -21,12 +22,13 @@ const gallery1 = [Img1, Img2, Img3, Img4, Img5, Img6, Img1, Img2];
 const gallery2 = [Img4, Img5, Img6, Img1, Img2, Img3, Img4, Img5];
 
 export default function WhyChooseUs() {
+  const isMobile = useIsMobile();
   return (
     <section 
       id="why-choose-us" 
-      className="py-20 md:py-32 overflow-hidden bg-white border-b border-gray-200 px-4 md:px-10"
+      className="py-12 md:py-32 overflow-hidden bg-white border-b border-gray-200 px-4 md:px-10"
     >
-      <div className="max-w-[1440px] mx-auto space-y-32 md:space-y-48">
+      <div className="max-w-[1440px] mx-auto space-y-16 md:space-y-48">
         
         {/* ==============================
             GRID 1: Top-Right Carousel & Main Title
@@ -35,7 +37,7 @@ export default function WhyChooseUs() {
           
           {/* Left: Original Main Title */}
           <div className="lg:w-1/2 z-10 relative w-full space-y-5 text-center md:text-left flex flex-col items-center md:items-start">
-            <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
+            <h2 className="text-[40px] md:text-[56px] lg:text-[72px] font-light text-[#333333] leading-[1.1] tracking-tight">
               <span className="font-semibold text-[#1F5071]">Why Choose</span><br />
               <span className="text-[#4A5568]">Maskan?</span>
             </h2>
@@ -44,7 +46,7 @@ export default function WhyChooseUs() {
               For decades, we have set the standard in premium architectural and construction services by combining visionary design with flawless execution.
             </p>
 
-            <ul className="space-y-6 max-w-xl mt-4">
+            <ul className="space-y-6 max-w-xl mt-4 text-left">
               <li className="flex items-start space-x-4">
                 <span className="text-[#1F5071] mt-1">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -124,18 +126,18 @@ export default function WhyChooseUs() {
             ============================== */}
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between relative mt-24">
           
-          {/* Left: 3D Octagon Carousel 2 (Hidden on mobile) */}
+          {/* Left: 3D Octagon Carousel 2 */}
           <div 
-            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full hidden md:flex items-center justify-start mt-16 lg:mt-0" 
+            className="lg:w-1/2 relative h-[250px] md:h-[600px] w-full flex items-center justify-center md:justify-start mt-8 md:mt-16 lg:mt-0 overflow-hidden md:overflow-visible" 
             style={{ perspective: '1500px' }}
           >
-            {/* Bleeds off the left edge */}
-            <div className="-translate-x-[20%] lg:-translate-x-[35%]">
+            {/* Bleeds off the left edge only on desktop */}
+            <div className="md:-translate-x-[20%] lg:-translate-x-[35%] scale-75 md:scale-100">
               <div 
                 className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
                 style={{ 
                   transformStyle: 'preserve-3d', 
-                  transform: 'rotateZ(-22deg) rotateX(-12deg) rotateY(15deg)',
+                  transform: isMobile ? 'rotateY(0deg)' : 'rotateZ(-22deg) rotateX(-12deg) rotateY(15deg)',
                 }}
               >
                 <motion.div
@@ -151,7 +153,7 @@ export default function WhyChooseUs() {
                         key={index}
                         className="absolute top-0 left-0 w-full h-full overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
                         style={{
-                          transform: `rotateY(${angle}deg) translateZ(550px)`,
+                          transform: `rotateY(${angle}deg) translateZ(${isMobile ? 380 : 550}px)`,
                           backfaceVisibility: 'visible', 
                         }}
                       >
@@ -169,11 +171,11 @@ export default function WhyChooseUs() {
           <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-center md:items-start lg:pl-16 space-y-12 text-center md:text-left mt-16 md:mt-0">
             
             {/* Stats Grid from original WhyChooseUs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-8 w-full place-items-center md:place-items-start">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8 w-full place-items-center md:place-items-start">
               
               {/* Selected Designers */}
               <div className="space-y-3">
-                <div className="flex items-baseline space-x-2">
+                <div className="flex items-baseline justify-center md:justify-start space-x-2">
                   <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">25+</span>
                 </div>
                 <div>
@@ -184,7 +186,7 @@ export default function WhyChooseUs() {
 
               {/* Happy Clients */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-[-12px] h-[48px]">
+                <div className="flex items-center justify-center md:justify-start space-x-[-12px] h-[48px]">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[3]">
                     <Image src={Team1} alt="Client 1" fill className="object-cover" />
                   </div>
@@ -203,7 +205,7 @@ export default function WhyChooseUs() {
 
               {/* Satisfaction */}
               <div className="space-y-3">
-                <div className="flex items-baseline space-x-2">
+                <div className="flex items-baseline justify-center md:justify-start space-x-2">
                   <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">95%</span>
                 </div>
                 <div>
@@ -214,7 +216,7 @@ export default function WhyChooseUs() {
 
               {/* Reliable Delivery */}
               <div className="space-y-3">
-                <div className="flex items-baseline space-x-2">
+                <div className="flex items-baseline justify-center md:justify-start space-x-2">
                   <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">100%</span>
                 </div>
                 <div>

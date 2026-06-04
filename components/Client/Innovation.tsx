@@ -77,15 +77,6 @@ function Innovation() {
             );
           })}
       </motion.div>
-      {isMobile === false && (
-        <CustomCursor
-          {...cursorProps}
-          className="hidden md:flex -translate-x-1/2 translate-y-1/4 items-center justify-center gap-2 rounded-full px-5 py-2 text-[var(--text-white)]"
-        >
-          View Projects
-          <NavigateSVG style={{ fill: "white" }} className="size-2.5" />
-        </CustomCursor>
-      )}
     </div>
   );
 }

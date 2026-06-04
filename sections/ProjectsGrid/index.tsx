@@ -132,7 +132,7 @@ export default function ProjectsGrid() {
   return (
     <section
       id="portfolio"
-      className="bg-[var(--bg-primary)] px-4 py-16 text-[var(--fg-primary)] transition-colors duration-500 md:px-10 md:py-22"
+      className="bg-[var(--bg-primary)] px-4 py-10 text-[var(--fg-primary)] transition-colors duration-500 md:px-10 md:py-22"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-center text-center pb-10 md:pb-14">
         <span className="block text-xs font-semibold uppercase tracking-[0.32em] text-[var(--fg-primary)]/55 md:text-sm">
@@ -154,7 +154,7 @@ export default function ProjectsGrid() {
                 className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 hover:shadow-md transition-all duration-300"
                 initial={{ opacity: 0, y: 36 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{
                   duration: 0.75,
                   delay: index * 0.06,

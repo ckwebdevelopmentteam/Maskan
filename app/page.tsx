@@ -17,30 +17,30 @@ export default function Home() {
   return (
     <main>
       <ScrollReveal><Hero /></ScrollReveal>
-      <ScrollReveal className="my-8"><Introduction /></ScrollReveal>
-      <ScrollReveal className="my-8"><HowWeWork /></ScrollReveal>
-      <div className="my-8"><Innovation /></div>
-      <ScrollReveal className="my-8"><ProjectsGrid /></ScrollReveal>
+      <ScrollReveal><Introduction /></ScrollReveal>
+      <ScrollReveal><HowWeWork /></ScrollReveal>
+      <div><Innovation /></div>
+      <ScrollReveal><ProjectsGrid /></ScrollReveal>
 
       {/* Calculation */}
       {/* <SustainableRetreat /> */}
 
       {/* Why Choose Us */}
-      <ScrollReveal className="my-8"><WhyChooseUs /></ScrollReveal>
-      <ScrollReveal className="my-8"><ElementisStory /></ScrollReveal>
+      <ScrollReveal><WhyChooseUs /></ScrollReveal>
+      <ScrollReveal><ElementisStory /></ScrollReveal>
 
       {/* CTA */}
-      <ScrollReveal className="my-8"><Form /></ScrollReveal>
+      <ScrollReveal><Form /></ScrollReveal>
 
       {/* Testimonial */}
-      <ScrollReveal className="my-8"><Testimonials /></ScrollReveal>
+      <ScrollReveal><Testimonials /></ScrollReveal>
 
       {/* FAQ */}
-      <ScrollReveal className="my-8"><FAQ /></ScrollReveal>
-      <ScrollReveal className="my-8"><SeoContent /></ScrollReveal>
+      <ScrollReveal><FAQ /></ScrollReveal>
+      <ScrollReveal><SeoContent /></ScrollReveal>
 
       {/* Footer */}
-      <ScrollReveal className="my-8"><Footer /></ScrollReveal>
+      <ScrollReveal><Footer /></ScrollReveal>
       <NavBar />
     </main>
   );

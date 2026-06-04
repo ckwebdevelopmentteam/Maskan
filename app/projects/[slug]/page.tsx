@@ -161,8 +161,8 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
         </motion.div>
       </section>
 
-      {/* --- RICH PROJECT STORY (White Grid Layout 100vh) --- */}
-      <section className="w-full h-[100svh] bg-white text-black">
+      {/* --- RICH PROJECT STORY (White Grid Layout) --- */}
+      <section className="w-full h-auto lg:h-[100svh] bg-white text-black">
         <div className="w-full h-full max-w-[1920px] mx-auto border-y border-black/10 flex flex-col">
           
           {/* Top Row: Large Text & Button */}
@@ -207,7 +207,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
               className="p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-black/10"
             >
               <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">01</div>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-4 leading-tight">The Location</h3>
+              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Location</h3>
               <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
                 {project.story.theWhere}
               </p>
@@ -222,7 +222,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
               className="p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-black/10"
             >
               <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">02</div>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-4 leading-tight">The Methodology</h3>
+              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Methodology</h3>
               <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
                 {project.story.theHow}
               </p>
@@ -237,7 +237,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
               className="p-6 md:p-10 lg:p-16 flex flex-col justify-center"
             >
               <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">03</div>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-medium mb-4 leading-tight">The Details</h3>
+              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Details</h3>
               <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
                 {project.story.theDetails}
               </p>
@@ -248,7 +248,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
       </section>
 
       {/* --- SEAMLESS MASONRY GALLERY --- */}
-      <section className="w-full max-w-[1920px] mx-auto mb-32 md:mb-48 px-1 md:px-2">
+      <section className="w-full max-w-[1920px] mx-auto mb-16 md:mb-48 px-1 md:px-2 pt-16 md:pt-0">
         <div className="flex items-end justify-between mb-16 md:mb-24 px-4 md:px-14">
           <div className="flex items-center gap-4">
             <h2 className="text-sm font-mono tracking-[0.2em] uppercase opacity-50">Gallery</h2>

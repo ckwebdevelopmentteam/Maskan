@@ -11,7 +11,7 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
   return (
     <section id="about" className={`relative bg-[var(--bg-primary)] ${noTopPadding ? "pt-5" : "pt-20 md:pt-28"} pb-20 md:pb-32 px-6 md:px-16 w-full`}>
       <div className="max-w-[1400px] mx-auto w-full flex flex-col items-center justify-center text-center px-4">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,17 +29,9 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
-            We Are Your Trusted Partner in Finding the Perfect <span className="font-semibold italic">Architectural Solutions.</span>
+            We Are Your Trusted Partner in Finding the Perfect Architectural Solutions
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-[var(--fg-primary)]/70 leading-[1.6] font-light mb-12 max-w-3xl">
-            At Maskan, we specialize in delivering premium architectural and interior design services tailored to building, renovating, and styling properties. With a commitment to transparency and excellence, we help you navigate the construction journey with confidence and peace of mind. Whether you're an investor, a business owner, or a homeowner, we're here to build the perfect space for you.
-          </p>
-          <Link
-            href="/about"
-            className="w-fit px-10 py-4 border border-[var(--fg-primary)]/20 rounded-full text-[var(--fg-primary)] text-sm md:text-base uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)] hover:text-[var(--bg-primary)] transition-all duration-300 shadow-sm"
-          >
-            Discover More
-          </Link>
+
         </motion.div>
       </div>
 

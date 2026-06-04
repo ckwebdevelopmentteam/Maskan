@@ -34,7 +34,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First one open by default
 
   return (
-    <section id="faq" className="py-16 md:py-24 px-6 md:px-16 bg-[var(--bg-primary)] text-[var(--fg-primary)]">
+    <section id="faq" className="py-10 md:py-24 px-6 md:px-16 bg-[var(--bg-primary)] text-[var(--fg-primary)]">
       <div className="max-w-[1200px] mx-auto w-full">
         
         {/* Top Label */}

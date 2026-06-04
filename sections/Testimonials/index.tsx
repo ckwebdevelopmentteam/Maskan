@@ -86,7 +86,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <div id="testimonials" className="bg-[var(--bg-primary)] py-16 md:py-20 text-[var(--text-white)] border-t border-[var(--border-white-5)] relative overflow-hidden w-full">
+    <div id="testimonials" className="bg-[var(--bg-primary)] py-10 md:py-20 text-[var(--text-white)] border-t border-[var(--border-white-5)] relative overflow-hidden w-full">
       {/* Header Area */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div className="flex-1">

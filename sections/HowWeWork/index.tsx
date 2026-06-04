@@ -38,7 +38,7 @@ export default function HowWeWork() {
 
       <div className="relative z-10 h-px w-full bg-[var(--fg-primary)]/10" />
 
-      <div className="relative z-10 px-6 py-20 md:px-16 md:py-28">
+      <div className="relative z-10 px-6 py-12 md:px-16 md:py-28">
         <div className="mx-auto max-w-[1400px]">
           <div className="relative grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-0">
             <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-[var(--fg-primary)]/10 md:block" />

@@ -13,6 +13,7 @@ interface StyledLinkProps extends LinkProps {
   active?: boolean;
   href: string;
   onClick?: () => void;
+  showArrow?: boolean;
 }
 export default function StyledLink({
   children,
@@ -23,6 +24,7 @@ export default function StyledLink({
   className,
   style,
   onClick,
+  showArrow = true,
 }: StyledLinkProps) {
   return (
     <Link href={href} onClick={onClick}>
@@ -36,7 +38,7 @@ export default function StyledLink({
         style={style}
       >
         <span>{children}</span>
-        <NavigateSVG fill={arrowFill} />
+        {showArrow && <NavigateSVG fill={arrowFill} />}
         <MotionConfig
           transition={{
             duration: 0.4,
