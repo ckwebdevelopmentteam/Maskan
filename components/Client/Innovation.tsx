@@ -10,11 +10,6 @@ import {
   MotionValue,
   useMotionValueEvent,
   useScroll,
-import {
-  motion,
-  MotionValue,
-  useMotionValueEvent,
-  useScroll,
   useTransform,
 } from "motion/react";
 import { useDispatch } from "react-redux";
