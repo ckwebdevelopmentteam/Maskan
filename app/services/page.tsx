@@ -89,87 +89,54 @@ export default function ServicesPage() {
 
         {/* Row Entries Container */}
         <div className="flex flex-col border-t border-[var(--fg-primary)]/10">
-          {services.map((s) => (
-            <div
-              key={s.id}
-              className="border-b border-[var(--fg-primary)]/10 py-16 md:py-20"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-                
-                {/* 1. Left Column: Service info & Actions */}
-                <div className="lg:col-span-5 flex flex-col gap-6">
-                  <span className="font-mono text-lg font-medium text-[var(--accent)]">
-                    {s.id}
-                  </span>
-                  
-                  <h3 className="text-3xl md:text-[2.2rem] font-light leading-tight tracking-tight text-[var(--fg-primary)]">
-                    {s.title}
-                  </h3>
-                  
-                  <p className="text-sm md:text-base text-[var(--fg-primary)]/70 font-light leading-relaxed max-w-md">
-                    {s.desc}
-                  </p>
+          {services.map((s, index) => {
+            const isEven = index % 2 === 0;
 
-                  {/* Metadata Specs Footer */}
-                  <div className="flex gap-8 pt-4 border-t border-[var(--fg-primary)]/10 w-full text-[11px] md:text-xs">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[9px] text-[var(--accent)] font-semibold tracking-widest uppercase">Budget Frame</span>
-                      <span className="font-mono text-[var(--fg-primary)]/80 font-medium">{s.budget}</span>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[9px] text-[var(--accent)] font-semibold tracking-widest uppercase">Timeline</span>
-                      <span className="font-mono text-[var(--fg-primary)]/80 font-medium">{s.duration}</span>
-                    </div>
+            return (
+              <div
+                key={s.id}
+                className="py-16 md:py-24"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                  
+                  {/* TEXT CONTENT */}
+                  <div className={`flex flex-col gap-6 ${!isEven ? 'md:order-last' : ''}`}>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--fg-primary)] tracking-tight">
+                      {s.title}
+                    </h3>
+                    
+                    <p className="text-sm md:text-base text-[var(--fg-primary)]/80 font-light leading-relaxed">
+                      {s.desc}
+                    </p>
+
+                    <ul className="flex flex-col gap-3 mt-4">
+                      {s.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className="flex items-start gap-3 text-sm text-[var(--fg-primary)]/80 font-light leading-snug"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-[var(--fg-primary)]/60 flex-shrink-0 mt-1.5" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-[var(--fg-primary)] text-[var(--bg-primary)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] transition-all duration-300 w-fit text-[11px] font-bold tracking-widest uppercase rounded-sm mt-4 shadow-sm"
-                  >
-                    <span>LEARN MORE</span>
-                    <span className="text-sm">↗</span>
-                  </a>
-                </div>
-
-                {/* 2. Middle Column: Square Image Container */}
-                <div className="lg:col-span-4 w-full">
-                  <div className="relative aspect-square w-full overflow-hidden border border-[var(--fg-primary)]/10 bg-[var(--fg-primary)]/[0.02] shadow-md group">
+                  {/* IMAGE CONTENT */}
+                  <div className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden group">
                     <Image
                       src={s.image}
                       alt={s.title}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
                   </div>
-                </div>
 
-                {/* 3. Right Column: Bullet point checklist */}
-                <div className="lg:col-span-3 flex flex-col gap-5 lg:pl-4">
-                  <h4 className="text-sm font-semibold tracking-wider text-[var(--fg-primary)]/80 uppercase">
-                    Key Point
-                  </h4>
-                  
-                  <ul className="flex flex-col gap-4">
-                    {s.bullets.map((b) => (
-                      <li
-                        key={b}
-                        className="flex items-start gap-3.5 text-sm text-[var(--fg-primary)]/80 font-light leading-snug"
-                      >
-                        {/* Custom Circular Checkmark Icon */}
-                        <div className="w-5 h-5 rounded-full bg-[var(--fg-primary)] text-[var(--bg-primary)] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                          <span className="text-[10px] font-bold">✓</span>
-                        </div>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

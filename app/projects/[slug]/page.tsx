@@ -6,6 +6,9 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
+import FAQ from "@/sections/FAQ";
+import Form from "@/sections/Form";
+import ClientTestimonials from "@/sections/ClientTestimonials";
 
 // Legacy Images
 import Image1 from "@/public/property-3.jpg";
@@ -312,6 +315,15 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
           </motion.div>
         </div>
       </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <ClientTestimonials />
+
+      {/* ── FAQ ── */}
+      <FAQ />
+
+      {/* ── FORM ── */}
+      <Form />
 
       <Footer />
     </main>

@@ -18,70 +18,74 @@ const services: {
   {
     id: "01",
     name: "Residential Construction",
-    tagline: "Turnkey villas, premium homes, structure, finishes, and site execution.",
+    tagline: "We construct elite private homes and residential villas designed in harmony with universal architecture principles. Every phase is meticulously managed from deep foundations to custom architectural facades. Our turnkey solutions guarantee zero hassle, prioritizing premium materials and precision engineering to deliver spaces that reflect unparalleled elegance.",
     image: ImageRes,
     icon: Home,
-    tags: ["Villas", "Apartments", "Foundations"],
+    tags: ["Custom Villas", "Luxury Apartments", "Structural Foundations", "Premium Interiors"],
   },
   {
     id: "02",
     name: "Commercial Construction",
-    tagline: "High-rise offices, retail shells, structural systems, and MEP-ready spaces.",
+    tagline: "Our commercial division builds modern business complexes, multiplexes, trade towers, and retail plazas engineered for maximum spatial efficiency and commercial performance. We specialize in wide-span post-tensioned slabs, industrial steel framing, central HVAC systems, and high-performance glass facades.",
     image: ImageCom,
     icon: Building2,
-    tags: ["Plazas", "Offices", "Retail"],
+    tags: ["Retail Plazas", "High-Rise Offices", "MEP-Ready Spaces", "Industrial Framing"],
   },
 ];
 
 export default function ElementisStoryClient() {
   return (
     <div className="w-full relative">
-      {/* 2-Column Grid Container */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full px-4 md:px-0 py-4">
+      {/* Alternating Layout Container */}
+      <div className="flex flex-col gap-16 md:gap-24 w-full px-4 md:px-0 py-8">
         {services.map((service, index) => {
+          const isEven = index % 2 === 0;
+
           return (
             <Link
               href="/services"
               key={service.name}
-              className="group flex flex-col w-full overflow-hidden border border-[var(--fg-primary)]/10 shadow-[0_12px_36px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 rounded-none bg-white"
+              className="group flex flex-col w-full bg-white transition-all duration-500"
             >
-              {/* Card Image */}
-              <div className="relative w-full aspect-[4/5] md:aspect-[4/3] lg:aspect-[16/9] overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-black/10 z-[1] transition-opacity duration-500 group-hover:opacity-0" />
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                {/* Text Content */}
+                <div className={`flex flex-col gap-6 lg:px-6 ${isEven ? 'md:order-last' : ''}`}>
+                  <h3 className="text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight text-[var(--fg-primary)] group-hover:text-[var(--accent)] transition-colors duration-300">
+                    {service.name}
+                  </h3>
+                  
+                  <p className="text-base md:text-lg lg:text-xl text-[var(--fg-primary)]/80 font-light leading-relaxed">
+                    {service.tagline}
+                  </p>
 
-              {/* Card Content Below Image */}
-              <div className="flex flex-col gap-4 p-8 md:p-10 text-[var(--fg-primary)] bg-white flex-grow">
-                {/* Title */}
-                <h3 className="text-3xl md:text-4xl font-light uppercase tracking-wider mt-2 group-hover:text-[var(--accent)] transition-colors duration-300">
-                  {service.name}
-                </h3>
-
-                {/* Tagline description */}
-                <p className="text-sm md:text-base text-[var(--fg-primary)]/80 font-light leading-relaxed max-w-md mt-2 flex-grow">
-                  {service.tagline}
-                </p>
-
-                {/* Bottom tags & hover link icon */}
-                <div className="flex items-center justify-between pt-4 mt-4 border-t border-[var(--fg-primary)]/10">
-                  <div className="flex flex-wrap gap-2">
+                  <ul className="flex flex-col gap-4 mt-4">
                     {service.tags.map((tag) => (
-                      <span key={tag} className="border border-[var(--fg-primary)]/20 bg-[var(--fg-primary)]/5 px-3 py-1 text-[10px] md:text-xs uppercase tracking-wider text-[var(--fg-primary)]/80">
-                        {tag}
-                      </span>
+                      <li
+                        key={tag}
+                        className="flex items-center gap-4 text-sm md:text-base text-[var(--fg-primary)]/90 font-light"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-[var(--accent)] flex-shrink-0" />
+                        <span>{tag}</span>
+                      </li>
                     ))}
-                  </div>
-                  <div className="flex h-12 w-12 items-center justify-center border border-[var(--fg-primary)]/30 text-[var(--fg-primary)]/80 transition-all duration-300 group-hover:bg-[var(--accent)] group-hover:text-[var(--bg-primary)] group-hover:border-[var(--accent)] rounded-full shrink-0">
+                  </ul>
+                  
+                  <div className="mt-6 flex h-12 w-12 items-center justify-center border border-[var(--fg-primary)]/30 text-[var(--fg-primary)]/80 transition-all duration-300 group-hover:bg-[var(--accent)] group-hover:text-[var(--bg-primary)] group-hover:border-[var(--accent)] rounded-full shrink-0">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
+                </div>
+
+                {/* Image Content */}
+                <div className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-none shadow-[0_12px_36px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-shadow duration-500">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
               </div>
