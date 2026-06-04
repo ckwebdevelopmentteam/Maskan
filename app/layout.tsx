@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Jost, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";

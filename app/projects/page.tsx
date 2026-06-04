@@ -12,8 +12,6 @@ import MacMainImg from "@/public/property-1.jpg";
 import MaskaanMainImg from "@/public/modern_house_1.png";
 import MacDetailImg from "@/public/property-4.jpg";
 import MaskaanDetailImg from "@/public/celeste-riviera.png";
-import MacAbstractImg from "@/public/atmosphere.png";
-import MaskaanAbstractImg from "@/public/eleve-maison.png";
 
 export default function ProjectsPage() {
   return (

@@ -297,7 +297,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
               Ready to bring your vision to life?
             </h2>
             <p className="text-white/90 text-lg md:text-xl font-normal max-w-2xl leading-relaxed drop-shadow-md">
-              Let's collaborate to design and build extraordinary spaces that redefine the way you live, work, and experience the world.
+              Let&apos;s collaborate to design and build extraordinary spaces that redefine the way you live, work, and experience the world.
             </p>
             
             <Link 
