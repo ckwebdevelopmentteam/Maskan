@@ -28,7 +28,7 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
             <div className="w-12 h-[1px] bg-[var(--fg-primary)]/30" />
           </div>
 
-          <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
             We Are Your Trusted Partner in Finding the Perfect <span className="font-semibold italic">Architectural Solutions.</span>
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-[var(--fg-primary)]/70 leading-[1.6] font-light mb-12 max-w-3xl">

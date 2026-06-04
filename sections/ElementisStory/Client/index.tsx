@@ -50,7 +50,7 @@ export default function ElementisStoryClient() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
                 
                 {/* Text Content */}
-                <div className={`flex flex-col items-center text-center md:items-start md:text-left gap-6 lg:px-6 ${isEven ? 'md:order-last' : ''}`}>
+                <div className={`flex flex-col items-start text-left gap-6 lg:px-6 ${isEven ? 'md:order-last' : ''}`}>
                   <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight text-[var(--fg-primary)] group-hover:text-[var(--accent)] transition-colors duration-300">
                     {service.name}
                   </h3>
@@ -59,7 +59,7 @@ export default function ElementisStoryClient() {
                     {service.tagline}
                   </p>
 
-                  <ul className="flex flex-col items-center md:items-start gap-4 mt-4">
+                  <ul className="flex flex-col items-start gap-4 mt-4">
                     {service.tags.map((tag) => (
                       <li
                         key={tag}

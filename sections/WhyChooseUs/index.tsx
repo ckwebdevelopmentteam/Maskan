@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
           
           {/* Left: Original Main Title */}
           <div className="lg:w-1/2 z-10 relative w-full space-y-5 text-center md:text-left flex flex-col items-center md:items-start">
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
               <span className="font-semibold text-[#1F5071]">Why Choose</span><br />
               <span className="text-[#4A5568]">Maskan?</span>
             </h2>
@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">Uncompromising Quality</strong>
-                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">We source premium materials and employ master craftsmen to ensure lasting value and durability.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">We source premium materials and employ master craftsmen to ensure lasting value and durability.</span>
                 </div>
               </li>
               
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">Client-Centric Collaboration</strong>
-                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">Your vision is our blueprint. We guarantee 100% transparency from initial concept to final handover.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Your vision is our blueprint. We guarantee 100% transparency from initial concept to final handover.</span>
                 </div>
               </li>
 
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">On-Time & On-Budget</strong>
-                  <span className="text-gray-500 font-light text-sm md:text-base leading-relaxed block">Streamlined workflows and rigorous project management ensure we consistently meet critical deadlines.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Streamlined workflows and rigorous project management ensure we consistently meet critical deadlines.</span>
                 </div>
               </li>
             </ul>

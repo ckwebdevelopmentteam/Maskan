@@ -7,11 +7,7 @@ import Image from "next/image";
 export default function ElementisStoryServer() {
   const textLines = {
     mobile: [
-      <Fragment key="m-1">Turnkey residential estates,</Fragment>,
-      <Fragment key="m-2">luxury architectural finishes</Fragment>,
-      <Fragment key="m-3">delivered seamlessly under</Fragment>,
-      <Fragment key="m-4">the landmark 30/70 scheme</Fragment>,
-      <Fragment key="m-5">for supreme capital reach.</Fragment>,
+      <Fragment key="m-1">Turnkey residential estates, luxury architectural finishes delivered seamlessly under the landmark 30/70 scheme for supreme capital reach.</Fragment>,
     ],
     desktop: [
       <Fragment key="d-1">Turnkey residential estates, commercial</Fragment>,
@@ -24,12 +20,12 @@ export default function ElementisStoryServer() {
   return (
     <>
       {/* Description Column: Starts on Left */}
-      <div className="max-md:mt-12 md:col-span-6 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
+      <div className="max-md:mt-12 md:col-span-6 md:col-start-1 text-left flex flex-col items-start px-4 md:px-0 order-2 md:order-1">
         <ResponsiveMaskText
           {...textLines}
-          className="text-24 [line-height:1.2] md:text-40 text-center md:text-left w-full text-[var(--fg-primary)]"
+          className="text-5xl md:text-6xl lg:text-[4.5rem] whitespace-normal leading-[1.1] text-left w-full text-[var(--fg-primary)]"
         />
-        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-0 items-center md:items-start">
+        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-full md:max-w-md mx-auto md:ml-0 items-start">
           <StyledLink href="/services">
             Explore Services
           </StyledLink>
@@ -40,9 +36,9 @@ export default function ElementisStoryServer() {
       </div>
 
       {/* Section Title Column: Starts on Right */}
-      <div className="md:col-span-5 md:col-start-7 flex flex-col items-center md:items-end w-full order-1 md:order-2 gap-8 md:gap-10">
+      <div className="md:col-span-5 md:col-start-7 flex flex-col items-start md:items-end w-full order-1 md:order-2 gap-8 md:gap-10 px-4 md:px-0">
         <SectionTitle 
-          className="text-center md:text-right w-full md:justify-end"
+          className="text-left md:text-right w-full md:justify-end"
           titleClassName="text-xl md:text-3xl font-normal tracking-[0.2em]"
         >
           Maskan Services
