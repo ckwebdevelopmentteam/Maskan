@@ -48,7 +48,7 @@ function Innovation() {
   return (
     <div
       id="gallery"
-      className="relative h-[400vh] cursor-pointer overflow-clip bg-[var(--bg-primary)] border-t border-[var(--border-white-5)]"
+      className="relative h-[400vh] cursor-pointer bg-[var(--bg-primary)] border-t border-[var(--border-white-5)]"
       ref={ref}
     >
       <motion.div

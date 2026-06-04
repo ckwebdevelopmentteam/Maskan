@@ -19,7 +19,7 @@ export default function Home() {
       <ScrollReveal><Hero /></ScrollReveal>
       <ScrollReveal className="my-8"><Introduction /></ScrollReveal>
       <ScrollReveal className="my-8"><HowWeWork /></ScrollReveal>
-      <ScrollReveal className="my-8"><Innovation /></ScrollReveal>
+      <div className="my-8"><Innovation /></div>
       <ScrollReveal className="my-8"><ProjectsGrid /></ScrollReveal>
 
       {/* Calculation */}

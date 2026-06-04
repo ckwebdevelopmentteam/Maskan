@@ -111,7 +111,7 @@ export default function ClipImageCard({
     <motion.div
       initial="initial"
       whileInView="inView"
-      viewport={{ amount: 0.5, once: true }}
+      viewport={{ amount: 0.1, once: true }}
       style={{ ...style }}
       className={cn(
         "relative z-10 flex h-full flex-col items-center justify-between py-[8vh] text-[var(--fg-primary)] backdrop-brightness-[60%] md:flex-row md:px-16 md:py-[15vh]",
