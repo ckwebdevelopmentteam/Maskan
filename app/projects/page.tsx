@@ -182,7 +182,7 @@ export default function ProjectsPage() {
           className="text-center flex flex-col items-center gap-8"
         >
           <span className="text-xs font-mono tracking-[0.3em] text-white/40 uppercase">Ready to build?</span>
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter uppercase text-white">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter uppercase text-white">
             Start a project
           </h2>
           <a href="#contact" className="mt-8 px-12 py-5 bg-white text-black text-sm font-bold uppercase tracking-widest hover:bg-white/80 transition-colors">

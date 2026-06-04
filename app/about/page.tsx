@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <span className="text-[var(--accent)] text-xs uppercase tracking-[0.3em] font-semibold block font-mono">
                   Who We Are
                 </span>
-                <h1 className="text-5xl md:text-[85px] font-extralight tracking-tight text-white leading-[0.95]">
+                <h1 className="text-5xl md:text-[60px] lg:text-[70px] xl:text-[85px] font-extralight tracking-tight text-white leading-[0.95]">
                   About <br />
                   <span className="font-normal text-white">Studios.</span>
                 </h1>

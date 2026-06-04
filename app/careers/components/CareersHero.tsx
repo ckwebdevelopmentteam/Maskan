@@ -15,7 +15,7 @@ export default function CareersHero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-1"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-[100px] font-normal text-black leading-[1.1] tracking-tight uppercase">
+            <h1 className="text-5xl md:text-[50px] lg:text-[70px] xl:text-[100px] font-normal text-black leading-[1.1] tracking-tight uppercase">
               Open <br /> Positions
             </h1>
           </motion.div>

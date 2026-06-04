@@ -31,7 +31,7 @@ export default function HeroServer() {
           />
           <MaskText
             transition={{ delayChildren: 0.3 }}
-            className="max-w-4xl text-5xl font-light leading-[0.98] tracking-[-0.02em] md:text-7xl lg:text-[5.6rem]"
+            className="max-w-4xl text-5xl font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4rem] xl:text-[5.6rem]"
             lines={[
               <>Building Dreams, One</>,
               <>Brick at a Time</>,

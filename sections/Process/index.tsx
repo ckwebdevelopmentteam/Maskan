@@ -11,7 +11,7 @@ export default function Process() {
         
         {/* Typographic Heading */}
         <div className="mb-16 text-center">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-tight max-w-5xl mx-auto uppercase">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-tight max-w-5xl mx-auto uppercase">
             Simple <span className="font-serif italic text-[var(--accent)] font-normal lowercase">Process</span> Stunning <br className="hidden md:block" /> Transformations.
           </h2>
         </div>

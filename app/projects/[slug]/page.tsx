@@ -137,7 +137,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl sm:text-7xl md:text-[8vw] font-light leading-[0.9] tracking-tighter"
+            className="text-6xl sm:text-7xl lg:text-[4rem] xl:text-[5.5rem] font-light leading-[0.9] tracking-tighter"
           >
             {project.title}
           </motion.h1>
@@ -296,7 +296,7 @@ export default function ProjectDetailPremium({ params }: { params: Promise<{ slu
             transition={{ duration: 1, ease: "easeOut" }}
             className="flex flex-col gap-6 md:gap-8 max-w-4xl pointer-events-auto"
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl text-white font-normal leading-tight tracking-tight drop-shadow-lg">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-normal leading-tight tracking-tight drop-shadow-lg">
               Ready to bring your vision to life?
             </h2>
             <p className="text-white/90 text-lg md:text-xl font-normal max-w-2xl leading-relaxed drop-shadow-md">

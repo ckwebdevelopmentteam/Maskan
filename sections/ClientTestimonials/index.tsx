@@ -39,7 +39,7 @@ export default function ClientTestimonials() {
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)]">
               Testimonial
             </span>
-            <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-medium leading-[1.0] tracking-tight text-[var(--fg-primary)]">
+            <h2 className="text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-medium leading-[1.0] tracking-tight text-[var(--fg-primary)]">
               What our clients say.
             </h2>
           </motion.div>
