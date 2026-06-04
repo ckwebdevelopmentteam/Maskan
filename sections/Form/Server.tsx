@@ -25,11 +25,11 @@ export default function FormServer() {
         {/* Right Column - Form Card */}
         <div className="bg-white rounded-[2rem] p-6 md:p-8 lg:p-10 shadow-md flex flex-col justify-center border border-black/[0.03]">
 
-          <h2 className="text-2xl md:text-[2.25rem] font-semibold text-gray-900 leading-[1.15] tracking-tight">
+          <h2 className="text-3xl md:text-[2.25rem] font-semibold text-gray-900 leading-[1.15] tracking-tight text-center md:text-left">
             Your dream space is<br className="hidden md:inline" /> one message away
           </h2>
 
-          <p className="mt-3 mb-6 text-sm text-gray-500 font-light leading-relaxed">
+          <p className="mt-3 mb-6 text-base md:text-sm text-gray-500 font-light leading-relaxed text-center md:text-left">
             Have a project in mind or just want to say hello?<br className="hidden md:inline" />
             Fill out the form and our team will get back to you.
           </p>

@@ -34,13 +34,13 @@ export default function WhyChooseUs() {
         <div className="flex flex-col lg:flex-row items-center justify-between relative">
           
           {/* Left: Original Main Title */}
-          <div className="lg:w-1/2 z-10 relative w-full space-y-5">
-            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
+          <div className="lg:w-1/2 z-10 relative w-full space-y-5 text-center md:text-left flex flex-col items-center md:items-start">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-light text-[#333333] leading-[1.1] tracking-tight">
               <span className="font-semibold text-[#1F5071]">Why Choose</span><br />
               <span className="text-[#4A5568]">Maskan?</span>
             </h2>
             
-            <p className="text-gray-500 text-base md:text-lg font-light leading-relaxed max-w-xl pb-2">
+            <p className="text-gray-500 text-lg font-light leading-relaxed max-w-xl pb-2">
               For decades, we have set the standard in premium architectural and construction services by combining visionary design with flawless execution.
             </p>
 
@@ -77,9 +77,9 @@ export default function WhyChooseUs() {
             </ul>
           </div>
 
-          {/* Right: 3D Octagon Carousel 1 */}
+          {/* Right: 3D Octagon Carousel 1 (Hidden on mobile to prevent layout breaking) */}
           <div 
-            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full flex items-center justify-end mt-16 lg:mt-0" 
+            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full hidden md:flex items-center justify-end mt-16 lg:mt-0" 
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the right edge */}
@@ -124,9 +124,9 @@ export default function WhyChooseUs() {
             ============================== */}
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between relative mt-24">
           
-          {/* Left: 3D Octagon Carousel 2 */}
+          {/* Left: 3D Octagon Carousel 2 (Hidden on mobile) */}
           <div 
-            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full flex items-center justify-start mt-16 lg:mt-0" 
+            className="lg:w-1/2 relative h-[400px] md:h-[600px] w-full hidden md:flex items-center justify-start mt-16 lg:mt-0" 
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the left edge */}
@@ -166,10 +166,10 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right: Original Statistics & Content */}
-          <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-start lg:pl-16 space-y-12">
+          <div className="lg:w-1/2 z-10 relative lg:pr-12 w-full flex flex-col justify-center items-center md:items-start lg:pl-16 space-y-12 text-center md:text-left mt-16 md:mt-0">
             
             {/* Stats Grid from original WhyChooseUs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-8 w-full place-items-center md:place-items-start">
               
               {/* Selected Designers */}
               <div className="space-y-3">

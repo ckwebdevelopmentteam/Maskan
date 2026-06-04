@@ -43,7 +43,7 @@ export default function HowWeWork() {
           <div className="relative grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-0">
             <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-[var(--fg-primary)]/10 md:block" />
 
-            <div className="flex flex-col md:col-span-5 md:pr-16">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left md:col-span-5 md:pr-16">
               <motion.span
                 className="mb-5 text-xs italic tracking-wide text-[var(--fg-primary)]/50"
                 initial={{ opacity: 0, y: 12 }}

@@ -46,7 +46,7 @@ export default function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           
           {/* Left Column: Title & Image */}
-          <div className="space-y-8 lg:sticky lg:top-32">
+          <div className="space-y-8 lg:sticky lg:top-32 text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-tight text-[var(--fg-primary)] leading-[1.3] max-w-md">
               If you have more questions, feel free to email our team at <a href="mailto:hi@helloarchi.com" className="underline decoration-[var(--fg-primary)]/30 hover:decoration-[var(--fg-primary)] transition-colors underline-offset-4">hi@helloarchi.com</a> and we will be happy to help.
             </h2>

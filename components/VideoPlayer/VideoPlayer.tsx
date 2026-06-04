@@ -79,6 +79,8 @@ export default function VideoPlayer({
                   height="100%"
                   autoPlay={true}
                   loop={true}
+                  muted={true}
+                  playsInline={true}
                   onTimeUpdate={() => {
                     videoProgress.set(videoRef.current?.currentTime as number);
                   }}
