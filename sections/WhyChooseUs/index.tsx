@@ -26,9 +26,29 @@ export default function WhyChooseUs() {
   return (
     <section 
       id="why-choose-us" 
-      className="py-12 md:py-32 overflow-hidden bg-white border-b border-gray-200 px-4 md:px-10"
+      className="py-12 md:py-24 xl:py-32 overflow-hidden bg-white border-b border-gray-200 px-4 md:px-10"
     >
-      <div className="max-w-[1440px] mx-auto space-y-16 md:space-y-48">
+      <style>{`
+        #why-choose-us {
+          --radius: 380px;
+        }
+        @media (min-width: 768px) {
+          #why-choose-us {
+            --radius: 400px;
+          }
+        }
+        @media (min-width: 1024px) {
+          #why-choose-us {
+            --radius: 420px;
+          }
+        }
+        @media (min-width: 1440px) {
+          #why-choose-us {
+            --radius: 550px;
+          }
+        }
+      `}</style>
+      <div className="max-w-[1440px] mx-auto space-y-16 lg:space-y-24 xl:space-y-48">
         
         {/* ==============================
             GRID 1: Top-Right Carousel & Main Title
@@ -37,12 +57,12 @@ export default function WhyChooseUs() {
           
           {/* Left: Original Main Title */}
           <div className="lg:w-1/2 z-10 relative w-full space-y-5 text-center md:text-left flex flex-col items-center md:items-start">
-            <h2 className="text-[40px] md:text-[56px] lg:text-[72px] font-light text-[#333333] leading-[1.1] tracking-tight">
+            <h2 className="text-[40px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-light text-[#333333] leading-[1.1] tracking-tight">
               <span className="font-semibold text-[#1F5071]">Why Choose</span><br />
               <span className="text-[#4A5568]">Maskan?</span>
             </h2>
             
-            <p className="text-gray-500 text-lg font-light leading-relaxed max-w-xl pb-2">
+            <p className="text-gray-500 text-base lg:text-lg font-light leading-relaxed max-w-xl pb-2">
               For decades, we have set the standard in premium architectural and construction services by combining visionary design with flawless execution.
             </p>
 
@@ -85,7 +105,7 @@ export default function WhyChooseUs() {
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the right edge */}
-            <div className="translate-x-[20%] lg:translate-x-[35%]">
+            <div className="translate-x-[20%] xl:translate-x-[35%]">
               <div 
                 className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
                 style={{ 
@@ -106,7 +126,7 @@ export default function WhyChooseUs() {
                         key={index}
                         className="absolute top-0 left-0 w-full h-full overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
                         style={{
-                          transform: `rotateY(${angle}deg) translateZ(550px)`,
+                          transform: `rotateY(${angle}deg) translateZ(var(--radius))`,
                           backfaceVisibility: 'visible', 
                         }}
                       >
@@ -132,7 +152,7 @@ export default function WhyChooseUs() {
             style={{ perspective: '1500px' }}
           >
             {/* Bleeds off the left edge only on desktop */}
-            <div className="md:-translate-x-[20%] lg:-translate-x-[35%] scale-75 md:scale-100">
+            <div className="md:-translate-x-[20%] xl:-translate-x-[35%] scale-75 md:scale-100">
               <div 
                 className="relative w-[300px] md:w-[450px] h-[200px] md:h-[300px]" 
                 style={{ 
@@ -153,7 +173,7 @@ export default function WhyChooseUs() {
                         key={index}
                         className="absolute top-0 left-0 w-full h-full overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
                         style={{
-                          transform: `rotateY(${angle}deg) translateZ(${isMobile ? 380 : 550}px)`,
+                          transform: `rotateY(${angle}deg) translateZ(var(--radius))`,
                           backfaceVisibility: 'visible', 
                         }}
                       >
