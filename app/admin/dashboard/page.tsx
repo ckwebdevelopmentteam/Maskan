@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { LayoutDashboard, Briefcase, Tags, MapPin, LogOut, Plus, X, Eye, Trash2, Edit2 } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Tags, MapPin, Plus, X, Eye, Trash2 } from 'lucide-react';
 
 interface Category { _id: string; name: string; }
 interface Location { _id: string; name: string; }
@@ -86,6 +86,7 @@ export default function AdminDashboard() {
     router.push('/admin');
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const openEditModal = (type: string, item: any) => {
     setEditingId(item._id);
     if (type === 'category') {
