@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
@@ -17,6 +17,24 @@ const navLinks = [
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Hide if scrolling down and past 100px. Show if scrolling up.
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <>
@@ -25,9 +43,9 @@ export default function NavBar() {
         Using mix-blend-difference so the white logo turns black on white backgrounds 
         without needing any background boxes.
       */}
-      <div className="fixed -top-2 left-6 md:-top-4 md:left-10 z-[160] mix-blend-difference">
-        <Link 
-          href="/" 
+      <div className={`fixed -top-2 left-6 md:hidden z-[160] mix-blend-difference transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[150%]"}`}>
+        <Link
+          href="/"
           className="flex items-center hover:opacity-80 transition-opacity"
           onClick={() => setIsOpen(false)}
         >
@@ -40,9 +58,9 @@ export default function NavBar() {
         </Link>
       </div>
 
-      {/* Fixed Top Right Menu Button */}
-      <div className="fixed top-6 right-6 md:top-8 md:right-10 z-[160] mix-blend-difference">
-        <button 
+      {/* Fixed Top Right Menu Button (Mobile Only) */}
+      <div className={`fixed top-6 right-6 md:hidden z-[160] mix-blend-difference transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[200%]"}`}>
+        <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-3 md:gap-4 text-white hover:opacity-80 transition-all"
         >
@@ -50,20 +68,82 @@ export default function NavBar() {
             {isOpen ? "CLOSE" : "MENU"}
           </span>
           <div className="w-5 h-5 relative flex flex-col justify-center gap-[5px]">
-            <motion.span 
+            <motion.span
               animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 7 : 0 }}
               className="w-full h-[2px] bg-white block rounded-full"
             />
-            <motion.span 
+            <motion.span
               animate={{ opacity: isOpen ? 0 : 1 }}
               className="w-full h-[2px] bg-white block rounded-full"
             />
-            <motion.span 
+            <motion.span
               animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -7 : 0 }}
               className="w-full h-[2px] bg-white block rounded-full"
             />
           </div>
         </button>
+      </div>
+
+      {/* Desktop Solidroad-style Navbar */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        .solidroad-tab {
+          border-bottom-left-radius: 1.5rem;
+          border-bottom-right-radius: 1.5rem;
+        }
+        .solidroad-tab::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -1.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          background: transparent;
+          border-top-right-radius: 1.5rem;
+          box-shadow: 0.75rem -0.75rem 0 0 white;
+          pointer-events: none;
+        }
+        .solidroad-tab::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -1.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          background: transparent;
+          border-top-left-radius: 1.5rem;
+          box-shadow: -0.75rem -0.75rem 0 0 white;
+          pointer-events: none;
+        }
+      `}} />
+
+      <div className={`fixed top-0 left-0 w-full z-[160] hidden md:flex justify-center pointer-events-none px-6 transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[150%]"}`}>
+        <div className="solidroad-tab relative bg-white pointer-events-auto flex items-center justify-center gap-12 px-10 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] w-fit">
+
+          {/* Left Links */}
+          <div className="flex items-center gap-8">
+            <Link href="/services" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Services</Link>
+            <Link href="/projects" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Projects</Link>
+            <Link href="/about" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">About</Link>
+          </div>
+
+          {/* Center Logo */}
+          <div className="flex-shrink-0 flex items-center justify-center w-32 relative h-8">
+            <Link href="/" className="hover:opacity-80 transition-opacity absolute inset-0 flex items-center justify-center">
+              <Image src={MaskanLogo} alt="Maskan Logo" className="h-20 w-auto object-contain brightness-0 scale-[2.5] origin-center" />
+            </Link>
+          </div>
+
+          {/* Right Links & CTA */}
+          <div className="flex items-center gap-8">
+            <Link href="/careers" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Careers</Link>
+            <Link href="/admin" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Sign in</Link>
+            <Link href="#contact" className="bg-[#1F4F71] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#153a54] transition-colors flex items-center gap-2 shadow-sm">
+              Contact Us &rarr;
+            </Link>
+          </div>
+
+        </div>
       </div>
 
       {/* Full Screen Mega Menu Overlay */}
@@ -81,7 +161,7 @@ export default function NavBar() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-7xl w-full mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10 h-full overflow-y-auto pt-24 pb-12">
-              
+
               {/* Navigation Links */}
               <div className="md:col-span-7 flex flex-col gap-4 md:gap-6">
                 {navLinks.map((link, idx) => {
@@ -94,7 +174,7 @@ export default function NavBar() {
                         transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
                         className="flex flex-col"
                       >
-                        <button 
+                        <button
                           onClick={() => setProjectsOpen(!projectsOpen)}
                           className="group flex items-baseline gap-4 hover:opacity-100 transition-opacity text-left w-full"
                         >
@@ -116,7 +196,7 @@ export default function NavBar() {
                               className="overflow-hidden pl-4 md:pl-12 w-full"
                             >
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 pb-4">
-                                
+
                                 {/* MAC Builders Card */}
                                 <Link href="/projects/mac-builders" onClick={() => setIsOpen(false)} className="group/card flex flex-col gap-4">
                                   <div className="space-y-1">
@@ -124,11 +204,11 @@ export default function NavBar() {
                                     <p className="text-[10px] font-mono tracking-widest text-white/50 uppercase">Perinthalmanna, Kerala</p>
                                   </div>
                                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm border border-white/10">
-                                    <Image 
-                                      src="/property-1.jpg" 
-                                      alt="MAC Builders" 
-                                      fill 
-                                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105" 
+                                    <Image
+                                      src="/property-1.jpg"
+                                      alt="MAC Builders"
+                                      fill
+                                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/20 group-hover/card:bg-transparent transition-colors duration-500" />
                                   </div>
@@ -141,11 +221,11 @@ export default function NavBar() {
                                     <p className="text-[10px] font-mono tracking-widest text-white/50 uppercase">Ernakulam, Kerala</p>
                                   </div>
                                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm border border-white/10">
-                                    <Image 
-                                      src="/modern_house_1.png" 
-                                      alt="Maskaan" 
-                                      fill 
-                                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105" 
+                                    <Image
+                                      src="/modern_house_1.png"
+                                      alt="Maskaan"
+                                      fill
+                                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/20 group-hover/card:bg-transparent transition-colors duration-500" />
                                   </div>
@@ -169,7 +249,7 @@ export default function NavBar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
                     >
-                      <Link 
+                      <Link
                         href={link.href}
                         onClick={() => setIsOpen(false)}
                         className="group flex items-baseline gap-4 hover:opacity-100 transition-opacity w-fit"

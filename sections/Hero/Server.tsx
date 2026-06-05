@@ -37,6 +37,20 @@ export default function HeroServer() {
               <>Brick at a Time</>,
             ]}
           />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-8 md:mt-12"
+          >
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-3 bg-transparent border-3 border-white/77 text-white px-8 py-4 rounded-full text-sm md:text-base font-bold hover:bg-[#153a54] transition-all hover:scale-105 shadow-lg"
+            >
+              Contact Us
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid max-w-xl grid-cols-2 border border-white/25 bg-black/20 backdrop-blur-md md:justify-self-end">

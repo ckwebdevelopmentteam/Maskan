@@ -205,10 +205,17 @@ export default function ProjectsGrid() {
         </div>
       </div>
 
-      <div className="mt-10 flex justify-center">
-        <Link href="/projects">
+      <div className="mt-16 flex flex-col items-center justify-center gap-6 md:mt-24">
+        <Link 
+          href="#contact" 
+          className="inline-flex items-center gap-3 bg-[#1F4F71] text-white px-10 py-5 rounded-full text-base md:text-lg font-bold hover:bg-[#153a54] transition-all hover:scale-105 shadow-xl"
+        >
+          Start Your Project
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </Link>
+        <Link href="/projects" className="mt-4 hover:opacity-70 transition-opacity">
           <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.24em] text-[var(--fg-primary)]">
-            View All
+            View All Projects
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
           </span>
         </Link>

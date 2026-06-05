@@ -25,10 +25,10 @@ export default function MaskText({
     },
   };
   const variants = {
-    initial: { y: "100%", clipPath: "inset(0% 0% 100% 0%)" },
+    initial: { y: "100%", clipPath: "inset(0% -20% 100% -20%)" },
     inView: {
       y: "0%",
-      clipPath: "inset(0% 0% 0% 0%)",
+      clipPath: "inset(-20% -20% -20% -20%)",
       transition: {
         ease: [0.76, 0, 0.24, 1] as const,
         duration: 0.8,

@@ -48,7 +48,7 @@ export default function JobListings({ jobs }: JobListingsProps) {
   }, [filteredJobs]);
 
   return (
-    <section className="w-full bg-white pb-24">
+    <section id="job-listings" className="w-full bg-white pb-24 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-7xl">
         
         <JobFilters 
