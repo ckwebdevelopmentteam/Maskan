@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
     const application = await Application.create(body);
     
     return NextResponse.json({ success: true, data: application }, { status: 201 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 400 });
   }
 }
 
@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
     await dbConnect();
     const applications = await Application.find({}).select('-resumeData').sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: applications }, { status: 200 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/utils/dbConnect';
 import Application from '@/models/Application';
-import { verifyAuth } from '@/utils/auth';
 
-export async function GET(req: NextRequest, { params }: { params: any }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     // You can uncomment auth verification if you only want admins to see resumes
     // const auth = verifyAuth(req);
@@ -36,7 +35,7 @@ export async function GET(req: NextRequest, { params }: { params: any }) {
         'Content-Disposition': `inline; filename="${app.resumeName || 'resume.pdf'}"`,
       },
     });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    return new NextResponse((error as Error).message, { status: 500 });
   }
 }

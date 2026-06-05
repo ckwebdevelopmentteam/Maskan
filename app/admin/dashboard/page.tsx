@@ -203,7 +203,7 @@ export default function AdminDashboard() {
         const errorData = await res.json();
         alert('Failed to update status: ' + (errorData.error || 'Unknown error'));
       }
-    } catch (error) {
+    } catch {
       alert('Error updating status');
     }
   };
@@ -376,7 +376,7 @@ export default function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {filteredApplications.map((app, i) => (
+              {filteredApplications.map((app) => (
                 <tr key={app._id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors bg-white">
                   <td className="px-6 py-4 text-gray-900">{app.name}</td>
                   <td className="px-6 py-4">
@@ -434,7 +434,7 @@ export default function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {careers.map((career, i) => (
+            {careers.map((career) => (
               <tr key={career._id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors bg-white">
                 <td className="px-6 py-4 text-gray-900">{career.title}</td>
                 <td className="px-6 py-4">{career.category?.name || '-'}</td>
@@ -465,7 +465,7 @@ export default function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {categories.map((cat, i) => (
+            {categories.map((cat) => (
               <tr key={cat._id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors bg-white">
                 <td className="px-6 py-4 text-gray-900">{cat.name}</td>
                 <td className="px-6 py-4 text-right flex justify-end gap-2">
@@ -494,7 +494,7 @@ export default function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {locations.map((loc, i) => (
+            {locations.map((loc) => (
               <tr key={loc._id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors bg-white">
                 <td className="px-6 py-4 text-gray-900">{loc.name}</td>
                 <td className="px-6 py-4 text-right flex justify-end gap-2">

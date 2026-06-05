@@ -3,7 +3,7 @@ import dbConnect from '@/utils/dbConnect';
 import Application from '@/models/Application';
 import { verifyAuth } from '@/utils/auth';
 
-export async function PUT(req: NextRequest, { params }: { params: any }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const auth = verifyAuth(req);
     if (auth.error) {
@@ -26,12 +26,12 @@ export async function PUT(req: NextRequest, { params }: { params: any }) {
     }
 
     return NextResponse.json({ success: true, data: updatedApplication }, { status: 200 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: any }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const auth = verifyAuth(req);
     if (auth.error) {
@@ -48,7 +48,7 @@ export async function DELETE(req: NextRequest, { params }: { params: any }) {
     }
 
     return NextResponse.json({ success: true, data: {} }, { status: 200 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

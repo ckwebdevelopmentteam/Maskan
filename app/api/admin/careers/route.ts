@@ -16,8 +16,8 @@ export async function GET(req: NextRequest) {
       .populate('location', 'name')
       .sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: careers }, { status: 200 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
 
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const career = await Career.create(body);
     return NextResponse.json({ success: true, data: career }, { status: 201 });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+  } catch (error: unknown) {
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 400 });
   }
 }
