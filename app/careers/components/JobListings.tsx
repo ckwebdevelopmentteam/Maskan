@@ -83,7 +83,7 @@ export default function JobListings({ jobs }: JobListingsProps) {
                       {/* Job Description (Middle) */}
                       <div className="md:w-1/2">
                         <div className="prose prose-sm max-w-none text-black/70 prose-headings:text-black prose-headings:font-normal prose-h3:text-sm prose-h3:mt-0 prose-h3:mb-2 prose-p:mb-4 prose-p:leading-relaxed prose-ul:list-disc prose-ul:pl-5 prose-li:mb-1">
-                          <div dangerouslySetInnerHTML={{ __html: job.description }} />
+                          <div className="whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: job.description }} />
                         </div>
                       </div>
 

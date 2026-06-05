@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import fs from 'fs';
-import path from 'path';
+import dbConnect from '@/utils/dbConnect';
+import Career from '@/models/Career';
 import NavBar from '@/components/Client/NavBar';
 import Footer from '@/sections/Footer/Server';
 import CareersHero from './components/CareersHero';
@@ -15,12 +15,30 @@ export const metadata: Metadata = {
 
 async function getJobs(): Promise<Job[]> {
   try {
-    const filePath = path.join(process.cwd(), 'data', 'jobs.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const jobs = JSON.parse(fileContents);
-    return jobs;
+    await dbConnect();
+    const careers = await Career.find({ isActive: true })
+      .populate('category', 'name')
+      .populate('location', 'name')
+      .lean();
+
+    return careers.map((c: {
+      _id: { toString: () => string };
+      title: string;
+      category?: { name: string };
+      location?: { name: string };
+      description: string;
+      requirements?: string[];
+    }) => ({
+      id: c._id.toString(),
+      _id: c._id.toString(),
+      title: c.title,
+      category: c.category?.name || 'Uncategorized',
+      location: c.location?.name || 'Not Specified',
+      description: c.description,
+      requirements: c.requirements || [],
+    })) as Job[];
   } catch (error) {
-    console.error('Error reading jobs:', error);
+    console.error('Error fetching jobs:', error);
     return [];
   }
 }

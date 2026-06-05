@@ -13,7 +13,6 @@ interface ApplicationFormProps {
 
 export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () => { }, isInline = false }: ApplicationFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formSubmitUrl = "https://formsubmit.co/muhdyasir223@gmail.com"; // Placeholder email
 
   // Prevent background scrolling when modal is open
   useEffect(() => {
@@ -27,6 +26,61 @@ export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () 
     };
   }, [isOpen, isInline]);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const resumeFile = formData.get('Resume') as File;
+    
+    let base64Resume = '';
+    let resumeName = '';
+    
+    if (resumeFile && resumeFile.size > 0) {
+      resumeName = resumeFile.name;
+      // Convert to base64
+      base64Resume = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.readAsDataURL(resumeFile);
+      });
+    }
+
+    const data = {
+      name: formData.get('Name') as string,
+      email: formData.get('Email') as string,
+      phone: formData.get('Phone') as string,
+      jobTitle: jobTitle,
+      message: formData.get('Remarks') as string,
+      resumeName: resumeName,
+      resumeData: base64Resume
+    };
+
+    try {
+      const res = await fetch('/api/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      if (res.ok) {
+        // Redirect to WhatsApp
+        const waNumber = "9188693893";
+        const text = `Hi, I am applying for the ${jobTitle} position.\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nRemarks: ${data.message}\n\n*Note: My resume has been securely uploaded to your Admin Dashboard.*`;
+        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, '_blank');
+        onClose();
+      } else {
+        alert("Failed to submit application. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const innerFormContent = (
     <>
       <div className="flex items-center justify-between px-8 py-6 border-b border-black/10 shrink-0">
@@ -35,6 +89,7 @@ export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () 
         </h2>
         {!isInline && (
           <button
+            type="button"
             onClick={onClose}
             className="text-black/50 hover:text-black transition-colors"
           >
@@ -45,17 +100,9 @@ export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () 
 
       <div className="px-8 py-6 flex-grow overflow-y-auto">
         <form
-          action={formSubmitUrl}
-          method="POST"
-          encType="multipart/form-data"
           className="flex flex-col"
-          onSubmit={() => setIsSubmitting(true)}
+          onSubmit={handleSubmit}
         >
-          <input type="hidden" name="_subject" value={`New Job Application: ${jobTitle}`} />
-          <input type="hidden" name="_next" value="http://localhost:3000/careers" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="box" />
-          <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycbxFR5Tr_Ai9s-7Nr5eHDsrhviOyxqZrqPV5JSg-MYEMCaivbHUL2wJaeH3ZVELCWWrJ/exec" />
 
           <div className="space-y-5">
             {/* Position (Read-only) */}
