@@ -1,7 +1,10 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import type { Metadata } from 'next';
 import dbConnect from '@/utils/dbConnect';
 import Career from '@/models/Career';
+import '@/models/CareerCategory';
+import '@/models/CareerLocation';
 import NavBar from '@/components/Client/NavBar';
 import Footer from '@/sections/Footer/Server';
 import CareersHero from './components/CareersHero';
