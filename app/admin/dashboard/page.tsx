@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { LayoutDashboard, Briefcase, Tags, MapPin, Plus, X, Eye, Trash2 } from 'lucide-react';
 
 interface Category { _id: string; name: string; }
@@ -225,7 +226,7 @@ export default function AdminDashboard() {
   const renderSidebar = () => (
     <aside className="w-64 bg-white h-screen fixed left-0 top-0 border-r border-gray-100 flex flex-col z-10">
       <div className="p-8 flex items-center gap-3">
-        <img src="/Maskan Open File/PNG/Maskan-01.png" alt="Maskan Logo" className="h-24 scale-150 invert object-contain w-full object-left" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+        <Image src="/Maskan Open File/PNG/Maskan-01.png" alt="Maskan Logo" width={200} height={96} className="h-24 scale-150 invert object-contain w-full object-left" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
         <h1 className="text-2xl font-bold text-[#245171] tracking-tight hidden">Maskan</h1>
       </div>
       

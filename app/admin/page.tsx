@@ -38,43 +38,46 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh]">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-100">
-        <h2 className="text-2xl font-bold text-center mb-6">Admin Login</h2>
-        
+    <div className="flex items-center justify-center min-h-screen bg-[#FDFBF7]">
+      <div className="bg-white p-12 rounded-2xl shadow-xl w-full max-w-xl border border-gray-100 flex flex-col items-center">
+        <div className="mb-8 w-full flex justify-center">
+          <img src="/Maskan Open File/PNG/Maskan-01.png" alt="Maskan Logo" className="h-28 object-contain invert scale-125" />
+        </div>
+        <h2 className="text-3xl font-bold text-center mb-8 text-[#245171]">Admin Login</h2>
+
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-md mb-4 text-sm">
+          <div className="bg-red-50 text-red-600 p-4 rounded-xl mb-6 text-sm w-full text-center font-medium">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-6 w-full">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
-            <input 
-              type="text" 
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C52026]"
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+            <input
+              type="text"
+              className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#245171] text-base transition-all bg-gray-50 hover:bg-white"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input 
-              type="password" 
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C52026]"
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+            <input
+              type="password"
+              className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#245171] text-base transition-all bg-gray-50 hover:bg-white"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
-            className="w-full bg-[#C52026] text-white py-2 rounded-md hover:bg-red-800 transition-colors disabled:opacity-50"
+            className="w-full bg-[#245171] text-white py-4 mt-4 rounded-xl text-lg font-medium hover:bg-[#1C415B] transition-all disabled:opacity-50 shadow-lg shadow-[#245171]/20"
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? 'Authenticating...' : 'Login to Dashboard'}
           </button>
         </form>
       </div>
