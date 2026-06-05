@@ -43,6 +43,7 @@ export default function AdminDashboard() {
   const [catName, setCatName] = useState('');
   const [locName, setLocName] = useState('');
   const [jobTitle, setJobTitle] = useState('');
+  const [jobDesc, setJobDesc] = useState('');
   const [jobCat, setJobCat] = useState('');
   const [jobLoc, setJobLoc] = useState('');
 
