@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/utils/dbConnect';
 import CareerCategory from '@/models/CareerCategory';
@@ -33,3 +34,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: false, error: (error as Error).message }, { status: 400 });
   }
 }
+
