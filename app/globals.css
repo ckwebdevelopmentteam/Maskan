@@ -246,3 +246,17 @@ html.theme-mono-mixed main > :first-child {
 }
 
 /* Force Tailwind V4 rebuild for newly added components */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Global Image Border Radius as requested (24px ~ rounded-3xl) */
+img.object-cover {
+  border-radius: 24px !important;
+}
+
+div.overflow-hidden:has(img.object-cover) {
+  border-radius: 24px !important;
+}

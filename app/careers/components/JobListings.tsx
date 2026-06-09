@@ -48,7 +48,7 @@ export default function JobListings({ jobs }: JobListingsProps) {
   }, [filteredJobs]);
 
   return (
-    <section id="job-listings" className="w-full bg-white pb-24 scroll-mt-24">
+    <section id="job-listings" className="w-full bg-[var(--bg-primary)] pb-24 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-7xl">
         
         <JobFilters 
@@ -63,37 +63,37 @@ export default function JobListings({ jobs }: JobListingsProps) {
         {Object.keys(groupedJobs).length > 0 ? (
           <div className="space-y-16">
             {Object.keys(groupedJobs).map((category) => (
-              <div key={category} className="border-t border-black/10 pt-8">
+              <div key={category} className="border-t border-[var(--fg-primary)]/10 pt-8">
                 <div className="flex items-center gap-2 mb-8">
-                  <h2 className="text-xl font-normal text-[#C52026]">{category}</h2>
-                  <span className="text-black/50 text-sm">
+                  <h2 className="text-xl font-normal text-[var(--accent)]">{category}</h2>
+                  <span className="text-[var(--fg-primary)]/50 text-sm">
                     ({groupedJobs[category].length.toString().padStart(2, '0')})
                   </span>
                 </div>
 
                 <div className="space-y-12">
                   {groupedJobs[category].map((job) => (
-                    <div key={job.id} className="flex flex-col md:flex-row gap-8 md:gap-16 border-b border-black/10 pb-12 last:border-0 last:pb-0">
+                    <div key={job.id} className="flex flex-col md:flex-row gap-8 md:gap-16 border-b border-[var(--fg-primary)]/10 pb-12 last:border-0 last:pb-0">
                       
                       {/* Job Title */}
                       <div className="md:w-1/4 flex-shrink-0">
-                        <h3 className="text-lg font-normal text-black">{job.title}</h3>
+                        <h3 className="text-lg font-normal text-[var(--fg-primary)]">{job.title}</h3>
                       </div>
 
                       {/* Job Description (Middle) */}
                       <div className="md:w-1/2">
-                        <div className="prose prose-sm max-w-none text-black/70 prose-headings:text-black prose-headings:font-normal prose-h3:text-sm prose-h3:mt-0 prose-h3:mb-2 prose-p:mb-4 prose-p:leading-relaxed prose-ul:list-disc prose-ul:pl-5 prose-li:mb-1">
+                        <div className="prose prose-sm max-w-none text-[var(--fg-primary)]/70 prose-headings:text-[var(--fg-primary)] prose-headings:font-normal prose-h3:text-sm prose-h3:mt-0 prose-h3:mb-2 prose-p:mb-4 prose-p:leading-relaxed prose-ul:list-disc prose-ul:pl-5 prose-li:mb-1">
                           <div className="whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: job.description }} />
                         </div>
                       </div>
 
                       {/* Meta & Apply */}
-                      <div className="md:w-1/4 flex flex-row md:flex-row justify-between items-start text-sm text-black/70 font-light gap-4">
+                      <div className="md:w-1/4 flex flex-row md:flex-row justify-between items-start text-sm text-[var(--fg-primary)]/70 font-light gap-4">
                         <span className="whitespace-nowrap">{job.location}</span>
                         <span className="whitespace-nowrap hidden lg:block">Open Role</span>
                         <button 
                           onClick={() => handleApplyClick(job.title)}
-                          className="text-[#C52026] hover:text-black font-normal transition-colors whitespace-nowrap flex items-center gap-1"
+                          className="text-[var(--accent)] hover:opacity-70 font-normal transition-colors whitespace-nowrap flex items-center gap-1"
                         >
                           Apply Now <span>&gt;</span>
                         </button>
@@ -106,9 +106,9 @@ export default function JobListings({ jobs }: JobListingsProps) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 border-t border-black/10">
-            <h3 className="text-xl text-black font-normal mb-2">No jobs found</h3>
-            <p className="text-black/50">Try adjusting your filters to find more opportunities.</p>
+          <div className="text-center py-20 border-t border-[var(--fg-primary)]/10">
+            <h3 className="text-xl text-[var(--fg-primary)] font-normal mb-2">No jobs found</h3>
+            <p className="text-[var(--fg-primary)]/50">Try adjusting your filters to find more opportunities.</p>
           </div>
         )}
 

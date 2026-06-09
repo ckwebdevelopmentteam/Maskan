@@ -121,7 +121,7 @@ export default function NavBar() {
         <div className="solidroad-tab relative bg-white pointer-events-auto flex items-center justify-center gap-12 px-10 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] w-fit">
 
           {/* Left Links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 relative z-10">
             <Link href="/services" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Services</Link>
             <Link href="/projects" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Projects</Link>
             <Link href="/about" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">About</Link>
@@ -129,16 +129,16 @@ export default function NavBar() {
 
           {/* Center Logo */}
           <div className="flex-shrink-0 flex items-center justify-center w-32 relative h-8">
-            <Link href="/" className="hover:opacity-80 transition-opacity absolute inset-0 flex items-center justify-center">
-              <Image src={MaskanLogo} alt="Maskan Logo" className="h-20 w-auto object-contain brightness-0 scale-[2.5] origin-center" />
+            <Link href="/" className="hover:opacity-80 transition-opacity absolute inset-0 flex items-center justify-center z-0">
+              <Image src={MaskanLogo} alt="Maskan Logo" className="h-20 w-auto object-contain brightness-0 scale-[2.5] origin-center pointer-events-none" />
             </Link>
           </div>
 
           {/* Right Links & CTA */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 relative z-10">
             <Link href="/careers" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Careers</Link>
-            <Link href="/admin" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Sign in</Link>
-            <Link href="#contact" className="bg-[#1F4F71] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#153a54] transition-colors flex items-center gap-2 shadow-sm">
+            <Link href="/admin" className="text-[15px] font-bold text-[#3B4D5C] hover:text-[#244b6b] transition-colors">Sign in</Link>
+            <Link href="#contact" className="bg-[#244b6b] text-white px-6 py-2.5 rounded-full text-[15px] font-bold hover:bg-[#1a3852] transition-colors flex items-center gap-1.5 shadow-sm">
               Contact Us &rarr;
             </Link>
           </div>

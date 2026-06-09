@@ -53,7 +53,7 @@ export default function FAQ() {
             
             <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-xl overflow-hidden bg-[var(--bg-card)] shadow-xl group">
               <video 
-                src="/746c86c4-1c39-4fa9-8a6c-d82f468ff5fc" 
+                src="/2f8513be6ada613216512933aa4a7ea4519c1e7755d75a40a6a43440466b37d4.mp4" 
                 autoPlay 
                 loop 
                 muted 

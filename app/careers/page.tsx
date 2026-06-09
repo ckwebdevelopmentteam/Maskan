@@ -50,7 +50,7 @@ export default async function CareersPage() {
   const jobs = await getJobs();
 
   return (
-    <main className="bg-white min-h-screen text-black">
+    <main className="bg-[var(--bg-primary)] min-h-screen text-[var(--fg-primary)] overflow-x-hidden">
       <NavBar />
       
       <CareersHero />

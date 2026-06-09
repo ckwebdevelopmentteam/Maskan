@@ -6,29 +6,13 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
-import FAQ from "@/sections/FAQ";
-import Form from "@/sections/Form";
-import ClientTestimonials from "@/sections/ClientTestimonials";
+import FAQ from "@/sections/FAQ/index";
 
-// Legacy Images
-import Image1 from "@/public/property-3.jpg";
-import Image2 from "@/public/property-4.jpg";
-import Image3 from "@/public/property-1.jpg";
-import CelesteRivieraImg from "@/public/celeste-riviera.png";
-import AtmosphereImg from "@/public/atmosphere.png";
-import EleveMaisonImg from "@/public/eleve-maison.png";
-
-// Minimal White Images
+// Images
 import MinimalHouse from "@/public/white_minimal_house.png";
 import MinimalInterior from "@/public/white_minimal_interior.png";
 import MinimalFacade from "@/public/white_minimal_facade.png";
 import MinimalVilla from "@/public/white_minimal_villa.png";
-
-// Moody Aesthetic Images
-import AestheticNightSky from "@/public/aesthetic_night_sky.png";
-import AestheticCabin from "@/public/aesthetic_cabin_forest.png";
-import AestheticInterior from "@/public/aesthetic_moody_interior.png";
-import AestheticBuilding from "@/public/aesthetic_modern_building.png";
 
 const projectsData = {
   "mac-builders": {
@@ -37,23 +21,11 @@ const projectsData = {
     category: "Commercial",
     description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
     story: {
-      theWhere: "Situated in the rapidly evolving commercial hub of Perinthalmanna, the site posed unique spatial constraints that required an innovative vertical approach.",
-      theHow: "By employing a brutalist concrete exoskeleton paired with vast expanses of low-emissivity glass, the structure maximizes natural light while maintaining strict thermal efficiency.",
-      theDetails: "Every floor was designed as a fluid workspace. We integrated floating staircases, exposed structural elements, and minimalist white interior finishes to foster an environment of pure, undistracted creativity."
+      theWhere: "Situated in the rapidly evolving commercial hub of Perinthalmanna, the site posed unique spatial constraints.",
+      theHow: "By employing a brutalist concrete exoskeleton paired with vast expanses of low-emissivity glass.",
+      theDetails: "Every floor was designed as a fluid workspace with minimalist white interior finishes."
     },
-    heroImg: AestheticBuilding,
-    videoSrc: "https://room-studio.b-cdn.net/MAIN%20PAGE_final_2%20(1).mp4",
-    images: [
-      Image1, AestheticNightSky, MinimalHouse, AtmosphereImg, AestheticCabin, 
-      MinimalInterior, Image2, AestheticInterior, MinimalFacade, Image3, 
-      AestheticBuilding, MinimalVilla
-    ],
-    stats: {
-      "Scale": "45,000 Sq.Ft",
-      "Status": "On Going",
-      "Materials": "Grade 60 Steel, Travertine",
-      "Scope": "Architecture & Interiors"
-    }
+    images: [MinimalHouse, MinimalInterior, MinimalFacade, MinimalVilla, MinimalInterior, MinimalHouse, MinimalFacade]
   },
   "maskaan": {
     title: "Maskaan",
@@ -61,271 +33,219 @@ const projectsData = {
     category: "Residential",
     description: "Located in the bustling heart of Ernakulam, Maskaan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
     story: {
-      theWhere: "Nestled away from the chaotic urban sprawl of Ernakulam, the property sits on a densely wooded plot that provided a natural privacy screen and a stunning green canopy.",
-      theHow: "We adopted a highly minimalist, pavilion-style architecture. The home is broken down into interconnected volumes that weave around the existing ancient trees rather than displacing them.",
-      theDetails: "The interior features bespoke teak joinery, textured plaster walls, and a monochromatic palette. A central courtyard acts as the lungs of the house, drawing cool air and diffused light into every room."
+      theWhere: "Nestled away from the chaotic urban sprawl of Ernakulam on a densely wooded plot.",
+      theHow: "We adopted a highly minimalist, pavilion-style architecture to weave around existing trees.",
+      theDetails: "The interior features bespoke teak joinery, textured plaster walls, and a central courtyard."
     },
-    heroImg: AestheticCabin,
-    videoSrc: "https://room-studio.b-cdn.net/MAIN%20PAGE_final_2%20(1).mp4",
-    images: [
-      CelesteRivieraImg, AestheticBuilding, MinimalVilla, EleveMaisonImg, 
-      AestheticInterior, MinimalHouse, Image2, AestheticNightSky, 
-      MinimalInterior, Image3, AestheticCabin, MinimalFacade
-    ],
-    stats: {
-      "Scale": "12,500 Sq.Ft",
-      "Status": "Completed",
-      "Features": "Bespoke Teak, Smart HVAC",
-      "Scope": "Full Turnkey"
-    }
+    images: [MinimalVilla, MinimalHouse, MinimalInterior, MinimalFacade, MinimalHouse, MinimalVilla, MinimalInterior]
   }
 };
 
-export default function ProjectDetailPremium({ params }: { params: Promise<{ slug: string }> }) {
+export default function ProjectDetailWiselive({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug as keyof typeof projectsData;
   const project = projectsData[slug];
 
   if (!project) {
     return (
-      <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen flex items-center justify-center">
+      <main className="bg-[#FFFFFF] text-black min-h-screen flex items-center justify-center">
         <h1 className="text-3xl font-light tracking-widest uppercase">Project not found</h1>
       </main>
     );
   }
 
   return (
-    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen relative font-sans selection:bg-[var(--fg-primary)] selection:text-[var(--bg-primary)]">
-      
-      {/* NavBar Container to ensure it stays on top and visible */}
+    <main className="bg-[#FFFFFF] text-[#3B4D5C] min-h-screen relative font-sans selection:bg-[#244b6b] selection:text-white">
+
+      {/* NavBar Container */}
       <div className="absolute top-0 w-full z-50">
         <NavBar />
       </div>
 
-      {/* --- CINEMATIC VIDEO HERO --- */}
-      <section className="relative w-full h-[100svh] flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-24">
+      {/* --- HERO SECTION WITH VIDEO BACKGROUND --- */}
+      <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden">
         {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <video
-            autoPlay
-            muted
-            playsInline
-            loop
-            className="w-full h-full object-cover scale-105"
-          >
-            <source src={project.videoSrc} type="video/mp4" />
-          </video>
-          {/* Gradients to ensure text readability */}
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
-        </div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="https://room-studio.b-cdn.net/MAIN%20PAGE_final_2%20(1).mp4" type="video/mp4" />
+        </video>
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-[#244b6b]/40 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 bg-black/30 z-10" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 text-white w-full max-w-[1920px] mx-auto flex flex-col items-start gap-4">
-          <motion.div 
+        {/* Content overlay */}
+        <div className="relative z-20 flex flex-col items-center text-center max-w-5xl px-6 w-full mt-24">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="flex items-center gap-4 text-sm md:text-base font-mono tracking-widest uppercase opacity-80"
-          >
-            <span>{project.category}</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
-            <span>{project.location}</span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl sm:text-7xl lg:text-[4rem] xl:text-[5.5rem] font-light leading-[0.9] tracking-tighter"
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-8xl lg:text-[8rem] text-white font-bold tracking-tight uppercase mb-6 drop-shadow-xl"
           >
             {project.title}
           </motion.h1>
-        </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-8 right-6 md:right-16 text-white/50 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs font-mono tracking-widest uppercase -rotate-90 origin-bottom translate-y-[-2rem]">Scroll</span>
-          <div className="w-[1px] h-12 bg-white/30 overflow-hidden relative">
-             <motion.div 
-               animate={{ y: ["-100%", "100%"] }}
-               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-               className="w-full h-full bg-white"
-             />
-          </div>
-        </motion.div>
-      </section>
 
-      {/* --- RICH PROJECT STORY (White Grid Layout) --- */}
-      <section className="w-full h-auto lg:h-[100svh] bg-white text-black">
-        <div className="w-full h-full max-w-[1920px] mx-auto border-y border-black/10 flex flex-col">
-          
-          {/* Top Row: Large Text & Button */}
-          <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 border-b border-black/10">
-            
-            {/* Large Text */}
-            <div className="lg:col-span-2 p-6 md:p-10 lg:p-16 border-b lg:border-b-0 lg:border-r border-black/10 flex flex-col justify-center">
-              <motion.h2 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-xl md:text-3xl lg:text-[2.5vw] font-normal leading-[1.3] tracking-tight max-w-4xl"
-              >
-                {project.description}
-              </motion.h2>
-            </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed mb-10 drop-shadow"
+          >
+            {project.description}
+          </motion.p>
 
-            {/* Button Area */}
-            <div className="lg:col-span-1 p-6 md:p-10 flex items-center justify-start lg:justify-center">
-              <Link 
-                href="/careers" 
-                className="px-6 py-3 rounded-full border border-black/20 flex items-center gap-3 hover:bg-black hover:text-white transition-all duration-300"
-              >
-                <span className="text-sm font-medium">Get in touch</span>
-                <span className="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center group-hover:bg-white/20">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Bottom Row: 3 Columns (Where, How, Details) */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-3">
-            
-            {/* Column 01 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-black/10"
-            >
-              <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">01</div>
-              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Location</h3>
-              <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
-                {project.story.theWhere}
-              </p>
-            </motion.div>
-
-            {/* Column 02 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="p-6 md:p-10 lg:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-black/10"
-            >
-              <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">02</div>
-              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Methodology</h3>
-              <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
-                {project.story.theHow}
-              </p>
-            </motion.div>
-
-            {/* Column 03 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="p-6 md:p-10 lg:p-16 flex flex-col justify-center"
-            >
-              <div className="text-[#FFB800] font-medium text-sm md:text-base mb-6 md:mb-10">03</div>
-              <h3 className="text-3xl md:text-4xl lg:text-2xl font-medium mb-4 leading-tight">The Details</h3>
-              <p className="text-black/60 font-normal text-sm md:text-base leading-[1.6]">
-                {project.story.theDetails}
-              </p>
-            </motion.div>
-
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex items-center justify-center gap-4"
+          >
+            <button className="bg-white text-[#244b6b] px-8 py-3.5 rounded-full text-sm font-bold flex items-center gap-3 hover:bg-gray-100 transition-colors shadow-lg">
+              Get in touch
+              <span className="w-6 h-6 bg-[#244b6b] text-white rounded-full flex items-center justify-center text-sm font-bold">→</span>
+            </button>
+            <button className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center hover:bg-white/20 transition-colors backdrop-blur-sm">
+              <span className="text-lg text-white">↓</span>
+            </button>
+          </motion.div>
         </div>
       </section>
 
-      {/* --- SEAMLESS MASONRY GALLERY --- */}
-      <section className="w-full max-w-[1920px] mx-auto mb-16 md:mb-48 px-1 md:px-2 pt-16 md:pt-0">
-        <div className="flex items-end justify-between mb-16 md:mb-24 px-4 md:px-14">
-          <div className="flex items-center gap-4">
-            <h2 className="text-sm font-mono tracking-[0.2em] uppercase opacity-50">Gallery</h2>
+
+
+      {/* --- 3-COLUMN STORY SECTION --- */}
+      <section className="w-full max-w-[1800px] mx-auto px-4 md:px-8 py-24 lg:py-32">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-medium leading-[1.05] tracking-tight max-w-3xl">
+            Building in a better way is at the heart of everything we do
+          </h2>
+          <div className="flex items-center gap-4 hidden md:flex">
+            <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <span className="text-gray-400">←</span>
+            </button>
+            <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
+              <span className="text-[#3B4D5C]">→</span>
+            </button>
           </div>
-          <h3 className="text-2xl md:text-4xl font-light max-w-xl text-right">
-            Explore the intricate details and design methodology.
-          </h3>
         </div>
 
-        {/* Seamless Masonry Grid */}
-        <div className="w-full columns-1 md:columns-3 gap-1 md:gap-2 space-y-1 md:space-y-2">
-          {/* We duplicate the mixed images slightly to create a massive dense masonry feel */}
-          {[...project.images, ...project.images].map((img, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: (idx % 3) * 0.1 }}
-              className="w-full break-inside-avoid relative overflow-hidden group mb-0"
-            >
-              <Image 
-                src={img} 
-                alt={`Gallery image ${idx + 1}`} 
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-[2000ms] ease-out" 
-              />
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+          {project.images.slice(1, 7).map((img, idx) => (
+            <div key={idx} className="flex flex-col group cursor-pointer">
+              <div className="relative w-full aspect-square overflow-hidden bg-gray-100 rounded-sm">
+                <Image
+                  src={img}
+                  alt={`${project.title} Gallery Image ${idx + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* --- READY TO START CTA --- */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] flex flex-col items-center justify-center overflow-hidden">
-        {/* Crystal Clear Background Image (No Overlays) */}
-        <div className="absolute inset-0 w-full h-full scale-100 hover:scale-105 transition-transform duration-[3000ms] ease-out">
-          <Image src="/cta.webp" alt="Ready to start your project" fill className="object-cover" />
-        </div>
-        
-        {/* Content & Button overlay */}
-        <div className="relative z-10 w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 flex flex-col justify-end pb-16 md:pb-24 pointer-events-none">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col gap-6 md:gap-8 max-w-4xl pointer-events-auto"
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-normal leading-tight tracking-tight drop-shadow-lg">
-              Ready to bring your vision to life?
-            </h2>
-            <p className="text-white/90 text-lg md:text-xl font-normal max-w-2xl leading-relaxed drop-shadow-md">
-              Let&apos;s collaborate to design and build extraordinary spaces that redefine the way you live, work, and experience the world.
-            </p>
-            
-            <Link 
-              href="/careers" 
-              className="mt-4 px-8 py-4 bg-white text-black rounded-full font-medium flex items-center w-fit gap-4 hover:scale-105 transition-all duration-300 shadow-xl group"
-            >
-              Start a Conversation
-              <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center group-hover:bg-black/10 transition-colors">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </span>
-            </Link>
-          </motion.div>
+      {/* --- DARK SHOWCASE SECTION --- */}
+      <section className="w-full bg-[#244b6b] text-white py-24 lg:py-32">
+        <div className="w-full max-w-[1400px] mx-auto px-6">
+          <div className="flex justify-between items-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight">From vision to reality</h2>
+            <button className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/20 text-sm font-semibold hover:bg-white/10 transition-colors">
+              Discover all <span>→</span>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24 items-center">
+            <div className="flex flex-col">
+              <h3 className="text-3xl md:text-4xl font-medium mb-6">{project.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-12 max-w-md">
+                Experience unparalleled design and craftsmanship. Every corner of {project.title} is meticulously planned to offer the utmost luxury and comfort, blending seamlessly with its surroundings in {project.location}.
+              </p>
+
+              <div className="grid grid-cols-3 gap-6 mb-16">
+                <div>
+                  <span className="block text-gray-500 text-xs mb-2">Date</span>
+                  <span className="font-medium text-sm">Oct 2024</span>
+                </div>
+                <div>
+                  <span className="block text-gray-500 text-xs mb-2">Location</span>
+                  <span className="font-medium text-sm">{project.location}</span>
+                </div>
+                <div>
+                  <span className="block text-gray-500 text-xs mb-2">Client</span>
+                  <span className="font-medium text-sm">Private</span>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                  <span className="text-white">←</span>
+                </button>
+                <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+                  <span className="text-white">→</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image src={project.images[1]} alt={project.title} fill className="object-cover" />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <ClientTestimonials />
+      {/* --- GALLERY SECTION (Adapted from Articles) --- */}
+      <section className="w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
+        <div className="flex justify-between items-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight max-w-md">Browse our gallery</h2>
+          <button className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full border border-gray-200 text-sm font-semibold hover:bg-gray-50 transition-colors">
+            See all photos <span>→</span>
+          </button>
+        </div>
 
-      {/* ── FAQ ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {project.images.slice(0, 3).map((img, idx) => (
+            <div key={idx} className="flex flex-col group cursor-pointer">
+              <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden bg-gray-100">
+                <Image src={img} alt={`Gallery ${idx}`} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <span className="text-gray-400 text-xs mb-3">View Image</span>
+              <h3 className="text-xl font-medium mb-6 leading-snug">Detail view of {project.title}&apos;s immaculate design and spatial flow</h3>
+              <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:underline decoration-1 underline-offset-4 mt-auto">View Photo <span>↗</span></span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- DARK FOOTER CTA --- */}
+      <section className="w-full bg-[#244b6b] text-white pt-24 pb-16 lg:pt-32 lg:pb-24">
+        <div className="w-full max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
+          <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-medium leading-[1.05] tracking-tight">Let&apos;s work<br />together</h2>
+
+          <div className="flex flex-col max-w-sm mt-4 md:mt-0">
+            <p className="text-gray-400 text-sm leading-relaxed mb-8">
+              We&apos;re always looking for new challenges and opportunities. Whether you have a project in mind or just want to say hello, we&apos;d love to hear from you.
+            </p>
+            <button className="w-fit px-8 py-3.5 rounded-full border border-white/20 text-sm font-semibold flex items-center gap-3 hover:bg-white/10 transition-colors">
+              Get in touch <span>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FAQ SECTION --- */}
       <FAQ />
 
-      {/* ── FORM ── */}
-      <Form />
-
+      {/* --- FOOTER --- */}
       <Footer />
+
+
     </main>
   );
 }
