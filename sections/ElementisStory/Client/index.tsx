@@ -98,7 +98,7 @@ export default function ElementisStoryClient() {
       <div className="mt-12 flex items-center justify-end px-4 md:px-0 border-t border-[var(--border-white-5)] pt-6">
         <Link
           href="/services"
-          className="flex items-center gap-4 py-3 text-sm font-medium uppercase tracking-[0.25em] text-[var(--fg-primary)] transition-colors duration-300 hover:text-[var(--accent)]"
+          className="flex items-center gap-4 py-3 text-base font-medium uppercase tracking-[0.25em] text-[var(--fg-primary)] transition-colors duration-300 hover:text-[var(--accent)]"
         >
           <span className="h-px w-12 bg-current" />
           Explore All Services

@@ -6,13 +6,13 @@ export default function ElementisStoryServer() {
   return (
     <>
       {/* Description Column: Starts on Left */}
-      <div className="max-md:mt-12 md:mt-8 md:col-span-6 md:col-start-1 text-left flex flex-col items-start px-4 md:px-0 order-2 md:order-1">
-        <h2 className="text-[32px] md:text-[48px] font-light whitespace-normal leading-[1.1] text-left w-full text-[var(--fg-primary)]">
+      <div className="max-md:mt-12 md:mt-8 md:col-span-6 md:col-start-1 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0 order-2 md:order-1">
+        <h2 className="text-[24px] md:text-[48px] font-light whitespace-normal leading-[1.2] md:leading-[1.1] text-center md:text-left w-full text-[var(--fg-primary)]">
           Turnkey residential estates, commercial high-rises, and luxury architectural
           finishes engineered seamlessly under our landmark 30/70 payment scheme for
           unprecedented capital reach.
         </h2>
-        <div className="mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-fit items-start">
+        <div className="mt-8 md:mt-12 flex flex-col gap-1 max-md:mb-16 md:gap-4 w-fit items-center md:items-start">
           <StyledLink href="/services" showArrow={false} className="text-xl md:text-2xl font-light">
             Explore Services
           </StyledLink>

@@ -32,7 +32,7 @@ export default function ServicesHero() {
                 transition={{ duration: 0.8, ease: [0.24, 0.43, 0.15, 0.97] }}
                 className="space-y-4"
               >
-                <span className="text-white text-xs uppercase tracking-[0.3em] font-semibold block font-mono drop-shadow-md">
+                <span className="text-sm uppercase tracking-[0.3em] font-semibold block font-mono drop-shadow-md text-white">
                   What We Do
                 </span>
                 <h1 className="text-5xl md:text-[85px] font-extralight tracking-tight text-white leading-[0.95] drop-shadow-lg">
@@ -45,7 +45,7 @@ export default function ServicesHero() {
             {/* Right Column: Paragraph Context */}
             <div className="md:col-span-5 flex md:justify-end">
               <motion.p
-                className="text-sm md:text-base text-white/90 max-w-sm font-light leading-relaxed tracking-wide text-left drop-shadow-md"
+                className="text-base md:text-lg text-white/90 max-w-sm font-light leading-relaxed tracking-wide text-left drop-shadow-md"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.24, 0.43, 0.15, 0.97] }}
