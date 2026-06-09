@@ -2,7 +2,7 @@
 
 import React, { use } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// Removed unused Link import
 import { motion } from "motion/react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";

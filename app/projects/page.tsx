@@ -8,7 +8,7 @@ import Form from "@/sections/Form";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 // New Static imports (Contained styling)
 import MacMainImg from "@/public/commercial_complex_render.png";
