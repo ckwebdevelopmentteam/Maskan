@@ -3,7 +3,6 @@
 import React from "react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
-import Testimonials from "@/sections/Testimonials";
 import ServicesIntro from "@/sections/ServicesIntro";
 import ServicesHero from "@/sections/ServicesHero";
 import Process from "@/sections/Process";
