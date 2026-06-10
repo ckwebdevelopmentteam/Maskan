@@ -19,10 +19,10 @@ export default function CTA() {
 
         {/* Content Container */}
         <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-          <h2 className="text-3xl md:text-[2.75rem] font-bold text-[var(--text-white)] mb-4 leading-[1.2] uppercase tracking-tight">
+          <h2 className="text-3xl md:text-[2.75rem] font-bold text-white mb-4 leading-[1.2] uppercase tracking-tight">
             Your Dream Space<br />Starts Here
           </h2>
-          <p className="text-sm md:text-base text-[var(--text-white)]/90 font-light mb-8 max-w-lg leading-relaxed">
+          <p className="text-sm md:text-base text-white/90 font-light mb-8 max-w-lg leading-relaxed">
             Let&apos;s bring your vision to life with expert design, flawless execution, and a touch of creativity.
           </p>
           

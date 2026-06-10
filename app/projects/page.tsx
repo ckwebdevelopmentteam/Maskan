@@ -9,6 +9,8 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import CTA from "@/sections/CTA";
+
 
 // New Static imports (Contained styling)
 import MacMainImg from "@/public/commercial_complex_render.png";
@@ -47,24 +49,24 @@ export default function ProjectsPage() {
         {/* 1. Epic Image Header matching screenshot layout */}
         <section className="relative w-full h-[70vh] min-h-[600px] flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
           <div className="absolute inset-0 w-full h-full">
-            <Image 
-              src={ProjectsHeroImg} 
-              alt="Our Work Hero" 
-              fill 
+            <Image
+              src={ProjectsHeroImg}
+              alt="Our Work Hero"
+              fill
               className="object-contain object-right"
               priority
             />
           </div>
-          
+
           {/* Overlay gradient for text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
           <div className="absolute inset-0 bg-black/20 z-10" />
 
           {/* Content overlay */}
           <div className="relative z-20 w-full max-w-[1400px] mx-auto px-8 md:px-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mt-12">
-            
+
             {/* Left Title */}
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -72,10 +74,10 @@ export default function ProjectsPage() {
             >
               Our Work
             </motion.h1>
-            
+
             {/* Right Content */}
             <div className="flex flex-col gap-8 max-w-md">
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -83,8 +85,8 @@ export default function ProjectsPage() {
               >
                 We design spaces that elevate the human experience. Browse our curated selection of premium commercial and residential projects.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -116,13 +118,13 @@ export default function ProjectsPage() {
               className="group flex flex-col w-full bg-[var(--bg-primary)] transition-all duration-500"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
+
                 {/* Text Content */}
                 <div className={`flex flex-col items-start text-left gap-6 lg:px-6 ${isEven ? 'md:order-last' : ''}`}>
                   <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight text-[var(--fg-primary)] group-hover:text-[var(--accent)] transition-colors duration-300">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-lg lg:text-xl text-[var(--fg-primary)]/80 font-light leading-relaxed">
                     {project.description}
                   </p>
@@ -141,7 +143,7 @@ export default function ProjectsPage() {
                       <span>{project.scale} - {project.status}</span>
                     </li>
                   </ul>
-                  
+
                   <div className="mt-6 flex h-12 w-12 items-center justify-center border border-[var(--fg-primary)]/30 text-[var(--fg-primary)]/80 transition-all duration-300 group-hover:bg-[var(--accent)] group-hover:text-[var(--bg-primary)] group-hover:border-[var(--accent)] rounded-full shrink-0">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
@@ -168,21 +170,7 @@ export default function ProjectsPage() {
       {/* Spacer */}
       <div className="h-12 border-t border-[var(--fg-primary)]/10 max-w-[1200px] mx-auto w-full" />
 
-      {/* --- DARK FOOTER CTA --- */}
-      <section className="w-full bg-[#244b6b] text-white pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="w-full max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
-          <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-medium leading-[1.05] tracking-tight">Let&apos;s work<br />together</h2>
-
-          <div className="flex flex-col max-w-sm mt-4 md:mt-0">
-            <p className="text-white/70 text-sm leading-relaxed mb-8">
-              We&apos;re always looking for new challenges and opportunities. Whether you have a project in mind or just want to say hello, we&apos;d love to hear from you.
-            </p>
-            <button className="w-fit px-8 py-3.5 rounded-full border border-white/20 text-sm font-semibold flex items-center gap-3 hover:bg-white/10 transition-colors">
-              Get in touch <span>→</span>
-            </button>
-          </div>
-        </div>
-      </section>
+      <CTA />
 
       {/* --- FAQ SECTION --- */}
       <FAQ />

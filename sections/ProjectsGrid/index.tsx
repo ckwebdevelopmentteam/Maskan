@@ -93,39 +93,6 @@ const projects: Project[] = [
       { label: "Area", val: "6,000 Sq.ft." },
     ],
   },
-  {
-    name: "Minimalist Haven",
-    location: "Kochi City, Kerala",
-    type: "Luxury House",
-    status: "ON GOING",
-    img: ModernHouse3Img,
-    desc: "Urban minimalist luxury showcasing clean lines, exposed concrete, and minimalist aesthetics.",
-    stats: [
-      { label: "Area", val: "5,200 Sq.ft." },
-    ],
-  },
-  {
-    name: "Heritage Modern",
-    location: "Thrissur District",
-    type: "Family Home",
-    status: "ON GOING",
-    img: ModernHouse4Img,
-    desc: "A contemporary take on traditional local architecture, blending heritage motifs with modern functionality.",
-    stats: [
-      { label: "Area", val: "4,000 Sq.ft." },
-    ],
-  },
-  {
-    name: "Eco Pavilion",
-    location: "Palakkad, Kerala",
-    type: "Sustainable Retreat",
-    status: "COMPLETED",
-    img: ModernHouse5Img,
-    desc: "An eco-friendly sustainable pavilion built entirely with locally sourced materials and passive cooling.",
-    stats: [
-      { label: "Area", val: "2,500 Sq.ft." },
-    ],
-  },
 ];
 
 export default function ProjectsGrid() {

@@ -91,30 +91,6 @@ export default function NavBar() {
           border-bottom-left-radius: 1.5rem;
           border-bottom-right-radius: 1.5rem;
         }
-        .solidroad-tab::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -1.5rem;
-          width: 1.5rem;
-          height: 1.5rem;
-          background: transparent;
-          border-top-right-radius: 1.5rem;
-          box-shadow: 0.75rem -0.75rem 0 0 white;
-          pointer-events: none;
-        }
-        .solidroad-tab::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: -1.5rem;
-          width: 1.5rem;
-          height: 1.5rem;
-          background: transparent;
-          border-top-left-radius: 1.5rem;
-          box-shadow: -0.75rem -0.75rem 0 0 white;
-          pointer-events: none;
-        }
       `}} />
 
       <div className={`fixed top-0 left-0 w-full z-[160] hidden md:flex justify-center pointer-events-none px-6 transition-transform duration-500 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[150%]"}`}>
@@ -137,7 +113,6 @@ export default function NavBar() {
           {/* Right Links & CTA */}
           <div className="flex items-center gap-8 relative z-10">
             <Link href="/careers" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Careers</Link>
-            <Link href="/admin" className="text-[15px] font-bold text-[#3B4D5C] hover:text-[#244b6b] transition-colors">Sign in</Link>
             <Link href="#contact" className="bg-[#244b6b] text-white px-6 py-2.5 rounded-full text-[15px] font-bold hover:bg-[#1a3852] transition-colors flex items-center gap-1.5 shadow-sm">
               Contact Us &rarr;
             </Link>

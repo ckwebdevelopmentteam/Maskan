@@ -104,9 +104,9 @@ export default function FormServer() {
                   defaultValue=""
                 >
                   <option value="" disabled hidden>Select Your Project</option>
-                  <option value="residential">Residential Villa / Apartment</option>
-                  <option value="commercial">Commercial Space</option>
-                  <option value="renovation">Renovation</option>
+                  <option value="residential">Mac builders</option>
+                  <option value="commercial">Maskan Builders</option>
+                 
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

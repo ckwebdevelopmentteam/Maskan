@@ -4,7 +4,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="w-full bg-black text-white pt-12 pb-8 px-6 md:px-16 flex flex-col font-sans border-t border-white/5">
-      
+
       {/* Top 3 Columns */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8 mb-10 md:mb-12">
 
@@ -37,7 +37,7 @@ export default function Footer() {
             <Link href="/privacy-terms" className="hover:opacity-70 transition-opacity">Privacy Policy</Link>
             <Link href="/privacy-terms" className="hover:opacity-70 transition-opacity">Terms of Service</Link>
           </div>
-          
+
           <span className="text-xs text-white/50 font-medium">Follow us</span>
           <div className="flex items-center gap-4 text-sm mt-1">
             <a href="https://www.facebook.com/Maskan-builders-106170434940334" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity flex items-center justify-center bg-white/5 p-2 rounded-full border border-white/10 hover:bg-white/10">
@@ -64,10 +64,11 @@ export default function Footer() {
         </h1>
       </div>
 
-      {/* Bottom Bar */}
       <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/50 gap-4 font-medium">
         <p>© 2025 MASKAN®. All rights reserved.</p>
-        <p>Created by Yash Ostwal</p>
+        <a href="https://www.thynck.in" target="_blank" rel="noopener noreferrer" className="text-center md:text-right hover:text-white transition-colors">
+          Created by THYNCK<br />www.thynck.in
+        </a>
       </div>
 
     </footer>

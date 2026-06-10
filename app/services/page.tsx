@@ -8,7 +8,7 @@ import ServicesIntro from "@/sections/ServicesIntro";
 import ServicesHero from "@/sections/ServicesHero";
 import Process from "@/sections/Process";
 import ElementisStory from "@/sections/ElementisStory";
-
+import CTA from "@/sections/CTA";
 
 
 /* ─────────────────────────── PAGE ─────────────────────────── */
@@ -30,8 +30,8 @@ export default function ServicesPage() {
       {/* ── 4. SIMPLE PROCESS STUNNING TRANSFORMATIONS ── */}
       <Process />
 
-      {/* ── 5. TESTIMONIALS ── */}
-      <Testimonials />
+      {/* ── 6. CTA ── */}
+      <CTA />
 
       {/* ── 7. FOOTER ── */}
       <Footer />
