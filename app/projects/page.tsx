@@ -47,7 +47,7 @@ export default function ProjectsPage() {
 
       <div className="px-4 md:px-6 pt-4 pb-20">
         {/* 1. Epic Image Header matching screenshot layout */}
-        <section className="relative w-full h-[70vh] min-h-[600px] flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
+        <section className="relative w-full h-[55vh] min-h-[450px] md:h-[70vh] md:min-h-[600px] flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
           <div className="absolute inset-0 w-full h-full">
             <Image
               src={ProjectsHeroImg}
@@ -95,9 +95,6 @@ export default function ProjectsPage() {
                 <button className="bg-[#111111] text-white pl-6 pr-2 py-2 rounded-full text-sm font-medium flex items-center gap-4 hover:bg-black transition-colors shadow-lg">
                   Start exploring
                   <span className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-bold">→</span>
-                </button>
-                <button className="text-white/80 text-sm font-medium flex items-center gap-2 hover:text-white transition-colors">
-                  Contact Us <span>→</span>
                 </button>
               </motion.div>
             </div>

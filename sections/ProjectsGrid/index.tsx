@@ -102,7 +102,7 @@ export default function ProjectsGrid() {
       className="bg-[var(--bg-primary)] px-4 py-10 text-[var(--fg-primary)] transition-colors duration-500 md:px-10 md:py-22"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-center text-center pb-10 md:pb-14">
-        <span className="block text-xs font-semibold uppercase tracking-[0.32em] text-[var(--fg-primary)]/55 md:text-sm">
+        <span className="block text-sm font-semibold uppercase tracking-[0.32em] text-[var(--fg-primary)]/55 md:text-base">
           MASKAN
         </span>
         <h2 className="mt-4 text-4xl font-light uppercase leading-none tracking-wide md:text-6xl">
@@ -147,7 +147,7 @@ export default function ProjectsGrid() {
                   </h3>
                   
                   {/* Location & Area */}
-                  <div className="mt-2.5 flex items-center gap-4 text-xs text-gray-500">
+                  <div className="mt-2.5 flex items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-1.5">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                       <span className="truncate max-w-[120px]">{project.location.split(',')[0]}</span>
@@ -162,7 +162,7 @@ export default function ProjectsGrid() {
                   <div className="my-4 h-px w-full bg-black/10" />
 
                   {/* Description instead of Price/Action */}
-                  <p className="mt-4 text-xs md:text-sm text-gray-500 font-light leading-relaxed line-clamp-2">
+                  <p className="mt-4 text-sm md:text-base text-gray-500 font-light leading-relaxed line-clamp-2">
                     {project.desc}
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default function ProjectsGrid() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
         </Link>
         <Link href="/projects" className="mt-4 hover:opacity-70 transition-opacity">
-          <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.24em] text-[var(--fg-primary)]">
+          <span className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.24em] text-[var(--fg-primary)]">
             View All Projects
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
           </span>

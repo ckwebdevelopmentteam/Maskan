@@ -73,13 +73,13 @@ export default function Locations() {
         {/* Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[var(--border-white-10)] pb-8">
           <div className="space-y-4">
-            <span className="text-[var(--text-white)]/60 text-xs uppercase tracking-[0.25em] font-bold block">Regional Footprint</span>
+            <span className="text-[var(--text-white)]/60 text-xs md:text-sm uppercase tracking-[0.25em] font-bold block">Regional Footprint</span>
             <h2 className="text-3xl md:text-5xl font-light text-[var(--text-white)] leading-tight">
               Locations &amp; <br />
               <span className="font-normal border-b border-white/20 pb-1">Areas Served</span>
             </h2>
           </div>
-          <p className="max-w-md text-[var(--text-white)]/50 text-sm leading-relaxed">
+          <p className="max-w-md text-[var(--text-white)]/50 text-sm md:text-base leading-relaxed">
             Maskan's luxury construction engineering spans across Kerala's most premium metropolitan and scenic coastal/mountainous enclaves. Hover or tap to explore.
           </p>
         </div>
@@ -121,26 +121,26 @@ export default function Locations() {
                 <div className="p-8 space-y-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--text-white)]/40 font-semibold">
+                      <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-white)]/40 font-semibold">
                         {activeLoc.region}
                       </span>
                       <h3 className="text-2xl font-light text-[var(--text-white)] tracking-wide">
                         {activeLoc.projectName}
                       </h3>
                     </div>
-                    <p className="text-xs md:text-sm text-[var(--text-white)]/60 leading-relaxed font-light">
+                    <p className="text-sm md:text-base text-[var(--text-white)]/60 leading-relaxed font-light">
                       {activeLoc.description}
                     </p>
                   </div>
 
                   {/* Sectors list */}
                   <div className="pt-6 border-t border-[var(--border-white-5)] space-y-3">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--fg-primary)]/40 block font-bold">
+                    <span className="text-xs uppercase tracking-[0.2em] text-[var(--fg-primary)]/40 block font-bold">
                       Featured Sectors & Projects
                     </span>
                     <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                       {activeLoc.sectors.map((sec) => (
-                        <li key={sec} className="text-xs text-[var(--text-white)]/70 flex items-center gap-2">
+                        <li key={sec} className="text-sm text-[var(--text-white)]/70 flex items-center gap-2">
                           <span className="w-1 h-1 bg-white/40 rounded-full shrink-0" />
                           <span className="truncate">{sec}</span>
                         </li>

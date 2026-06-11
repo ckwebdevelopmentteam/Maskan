@@ -22,13 +22,13 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
           {/* Small Tagline */}
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-[1px] bg-[var(--fg-primary)]/30" />
-            <span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-[var(--fg-primary)]/70">
+            <span className="text-base md:text-lg font-medium tracking-[0.25em] uppercase text-[var(--fg-primary)]/70">
               Who We Are
             </span>
             <div className="w-12 h-[1px] bg-[var(--fg-primary)]/30" />
           </div>
 
-          <h2 className="text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
+          <h2 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
             We Are Your Trusted Partner in Finding the Perfect Architectural Solutions
           </h2>
 
@@ -46,7 +46,7 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
           transition={{ duration: 0.8, delay: 0.2 }}
           className="md:col-span-3 flex flex-col"
         >
-          <p className="text-sm md:text-15 text-[var(--fg-primary)]/80 font-light leading-relaxed mb-8">
+          <p className="text-base md:text-lg text-[var(--fg-primary)]/80 font-light leading-relaxed mb-8">
             At Maskan, we believe architecture is more than just constructing spaces—it's about crafting experiences, fostering connections, and leaving a lasting impact.
           </p>
           <div className="relative aspect-[3/5] w-full overflow-hidden bg-[var(--fg-primary)]/5 group rounded-none shadow-lg border border-[var(--fg-primary)]/5">
@@ -77,7 +77,7 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
-          <p className="text-xs md:text-sm text-[var(--fg-primary)]/70 font-light leading-relaxed">
+          <p className="text-sm md:text-base text-[var(--fg-primary)]/70 font-light leading-relaxed">
             With a deep commitment to creativity, sustainability, and functionality, our expert team transforms ideas into extraordinary built environments.
           </p>
         </motion.div>
@@ -99,14 +99,14 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <p className="text-xs md:text-sm text-[var(--fg-primary)]/70 font-light leading-relaxed mb-8">
+          <p className="text-sm md:text-base text-[var(--fg-primary)]/70 font-light leading-relaxed mb-8">
             From visionary residential designs to groundbreaking commercial spaces, we seamlessly blend artistry with practicality. Every project we undertake is a testament to our passion for design excellence, meticulous attention to detail, and client-centered approach.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="px-6 py-3 bg-[var(--fg-primary)] text-[var(--bg-primary)] text-xs uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)]/90 transition-all duration-300 rounded-full cursor-pointer shadow-sm">
+            <button className="px-6 py-3 bg-[var(--fg-primary)] text-[var(--bg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)]/90 transition-all duration-300 rounded-full cursor-pointer shadow-sm">
               MORE ABOUT US
             </button>
-            <button className="px-6 py-3 border-2 border-[var(--fg-primary)]/20 text-[var(--fg-primary)] text-xs uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)] hover:text-[var(--bg-primary)] transition-all duration-300 rounded-full flex items-center gap-2 group cursor-pointer shadow-sm">
+            <button className="px-6 py-3 border-2 border-[var(--fg-primary)]/20 text-[var(--fg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)] hover:text-[var(--bg-primary)] transition-all duration-300 rounded-full flex items-center gap-2 group cursor-pointer shadow-sm">
               OUR WORKS
             </button>
           </div>

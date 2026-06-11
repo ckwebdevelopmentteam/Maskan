@@ -49,7 +49,7 @@ export default function ServicesIntro() {
             {/* Primary dark button */}
             <Link href="/#contact">
               <motion.button
-                className="flex items-center gap-2 rounded-full font-semibold uppercase tracking-[0.12em] text-sm md:text-base px-6 py-3.5 transition-all duration-300 hover:opacity-80"
+                className="flex items-center gap-2 rounded-full font-semibold uppercase tracking-[0.12em] text-base md:text-lg px-6 py-3.5 transition-all duration-300 hover:opacity-80"
                 style={{ backgroundColor: "var(--fg-primary)", color: "var(--bg-primary)" }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -62,7 +62,7 @@ export default function ServicesIntro() {
             {/* Secondary text link */}
             <a
               href="tel:+925111162725"
-              className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--fg-primary)]/60 hover:text-[var(--fg-primary)] transition-colors duration-300"
+              className="flex items-center gap-1.5 text-base font-semibold uppercase tracking-[0.12em] text-[var(--fg-primary)]/60 hover:text-[var(--fg-primary)] transition-colors duration-300"
             >
               Call Us: +92 51 111 MASKAN
               <span className="text-base leading-none">↗</span>

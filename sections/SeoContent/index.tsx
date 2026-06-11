@@ -13,7 +13,7 @@ export default function SeoContent() {
           Best Architecture & Interior Design Firm in Kozhikode, Kerala
         </h2>
 
-        <div className="text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed flex flex-col gap-4">
+        <div className="text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed flex flex-col gap-4">
           <p>
             Maskan is a premium architecture and interior design firm based in Kozhikode (Calicut), Kerala. We combine creative vision with practical execution to help homeowners and ambitious businesses achieve real, measurable transformations — not just aesthetic upgrades.
           </p>
@@ -27,7 +27,7 @@ export default function SeoContent() {
 
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="self-start text-sm font-bold text-[var(--fg-primary)] underline underline-offset-4 decoration-[var(--fg-primary)]/50 hover:decoration-[var(--fg-primary)] transition-all mt-2 cursor-pointer"
+          className="self-start text-base font-bold text-[var(--fg-primary)] underline underline-offset-4 decoration-[var(--fg-primary)]/50 hover:decoration-[var(--fg-primary)] transition-all mt-2 cursor-pointer"
         >
           {isExpanded ? "Read Less" : "Read More"}
         </button>
@@ -44,7 +44,7 @@ export default function SeoContent() {
 
               <div className="flex flex-col gap-4 pt-6 border-t border-[var(--fg-primary)]/10">
                 <h3 className="text-xl md:text-2xl font-semibold">Why Choose Maskan as Your Design Partner in Kerala</h3>
-                <ul className="flex flex-col gap-4 text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed pl-5 list-disc marker:text-[var(--fg-primary)]/50">
+                <ul className="flex flex-col gap-4 text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed pl-5 list-disc marker:text-[var(--fg-primary)]/50">
                   <li><strong>A Compelling Portfolio:</strong> Our proven track record speaks for itself. We've helped businesses and homeowners of all sizes across Kozhikode, Malappuram, and all of Kerala achieve significant transformations.</li>
                   <li><strong>Experienced Team:</strong> Our team is comprised of passionate and experienced architects and designers. We stay ahead of the curve with the latest trends and technologies.</li>
                   <li><strong>Client-Centric:</strong> We take the time to understand your unique business needs and lifestyle, whether you're based in Kozhikode, Malappuram, or anywhere across Kerala.</li>
@@ -54,14 +54,14 @@ export default function SeoContent() {
 
               <div className="flex flex-col gap-4">
                 <h3 className="text-xl md:text-2xl font-semibold">Our Interior Design Services in Kerala</h3>
-                <p className="text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed">
+                <p className="text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed">
                   Looking for interior design services in Kerala that actually deliver results? Maskan's design team uses advanced space planning, strategic material selection, and premium furnishings to boost your property's value and appeal. From local residences in Kozhikode to state-wide commercial campaigns across all of Kerala, we build where it matters most.
                 </p>
               </div>
 
               <div className="flex flex-col gap-4">
                 <h3 className="text-xl md:text-2xl font-semibold">Architecture Company in Kerala</h3>
-                <p className="text-sm md:text-base font-light text-[var(--fg-primary)]/80 leading-relaxed">
+                <p className="text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed">
                   As a leading architecture company in Kerala, Maskan builds custom, high-performance structures using modern technologies and sustainable practices. Whether you need a commercial plaza, a corporate office, or a complex residential villa, our development team in Kozhikode delivers pixel-perfect, highly-functional solutions that turn visitors into long-term occupants. We also offer project management services in Malappuram and across Kerala.
                 </p>
               </div>

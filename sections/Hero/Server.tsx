@@ -22,7 +22,7 @@ export default function HeroServer() {
             lines={[
               <div
                 key="label"
-                className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/90 md:text-xs"
+                className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.14em] text-white/90 md:text-sm"
               >
                 <span className="h-2 w-2 bg-white" />
                 Best construction company in Kerala
@@ -31,7 +31,7 @@ export default function HeroServer() {
           />
           <MaskText
             transition={{ delayChildren: 0.3 }}
-            className="max-w-4xl text-5xl font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4rem] xl:text-[5.6rem]"
+            className="max-w-4xl text-[3.5rem] font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4.5rem] xl:text-[5.6rem]"
             lines={[
               <>Building Dreams, One</>,
               <>Brick at a Time</>,
