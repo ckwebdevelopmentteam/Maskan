@@ -3,6 +3,8 @@ import { Outfit, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
 import { WindowSizeProvider } from "./providers";
+import { StickyContactButtons } from "@/components/Client/StickyContactButtons";
+import { PopupProvider } from "@/components/Client/PopupProvider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -33,7 +35,12 @@ export default function RootLayout({
         <body
           className={`${outfit.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
         >
-          <WindowSizeProvider>{children}</WindowSizeProvider>
+          <WindowSizeProvider>
+            <PopupProvider>
+              {children}
+              <StickyContactButtons />
+            </PopupProvider>
+          </WindowSizeProvider>
         </body>
       </ReactLenis>
     </html>

@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
+import { usePopup } from "@/components/Client/PopupProvider";
 
 export default function CTA() {
+  const { openPopup } = usePopup();
+
   return (
     <section className="w-full bg-[var(--bg-primary)] py-16 md:py-24 flex justify-center items-center border-t border-[var(--border-white-5)]">
       {/* Centered Rounded Card with increased width/height */}
@@ -26,7 +29,10 @@ export default function CTA() {
             Let&apos;s bring your vision to life with expert design, flawless execution, and a touch of creativity.
           </p>
           
-          <button className="px-6 py-3 bg-white text-black font-semibold text-sm rounded-xl hover:bg-white/90 active:scale-95 transition-all duration-300 shadow-lg cursor-pointer">
+          <button 
+            onClick={openPopup}
+            className="px-6 py-3 bg-white text-black font-semibold text-sm rounded-xl hover:bg-white/90 active:scale-95 transition-all duration-300 shadow-lg cursor-pointer"
+          >
             Talk to us now
           </button>
         </div>

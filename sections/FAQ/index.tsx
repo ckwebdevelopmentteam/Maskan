@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
-import FaqImage from "@/public/faq-image.jpg";
 
 const faqs = [
   {
@@ -36,7 +34,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-10 md:py-24 px-6 md:px-16 bg-[var(--bg-primary)] text-[var(--fg-primary)]">
       <div className="max-w-[1200px] mx-auto w-full">
-        
+
         {/* Top Label */}
         <div className="flex items-center gap-3 mb-16 border-b border-[var(--fg-primary)] border-opacity-10 pb-10">
           <div className="w-1.5 h-1.5 rounded-full bg-[var(--fg-primary)]"></div>
@@ -44,25 +42,25 @@ export default function FAQ() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          
+
           {/* Left Column: Title & Image */}
           <div className="space-y-8 lg:sticky lg:top-32 text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-tight text-[var(--fg-primary)] leading-[1.3] max-w-md">
               If you have more questions, feel free to email our team at <a href="mailto:hi@helloarchi.com" className="underline decoration-[var(--fg-primary)]/30 hover:decoration-[var(--fg-primary)] transition-colors underline-offset-4">hi@helloarchi.com</a> and we will be happy to help.
             </h2>
-            
+
             <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-xl overflow-hidden bg-[var(--bg-card)] shadow-xl group">
-              <video 
-                src="/2f8513be6ada613216512933aa4a7ea4519c1e7755d75a40a6a43440466b37d4.mp4" 
-                autoPlay 
-                loop 
-                muted 
+              <video
+                src="/2f8513be6ada613216512933aa4a7ea4519c1e7755d75a40a6a43440466b37d4.mp4"
+                autoPlay
+                loop
+                muted
                 playsInline
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Black Overlay */}
               <div className="absolute inset-0 bg-black/40 pointer-events-none z-10 transition-opacity duration-500 group-hover:bg-black/20" />
-              
+
               {/* Logo (No delay, very large) */}
               <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none p-8">
                 <motion.div
@@ -71,9 +69,9 @@ export default function FAQ() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="w-full h-full flex items-center justify-center"
                 >
-                  <Image 
-                    src={MaskanLogo} 
-                    alt="Maskan Builders" 
+                  <Image
+                    src={MaskanLogo}
+                    alt="Maskan Builders"
                     className="w-[85%] max-w-[500px] h-auto object-contain drop-shadow-2xl"
                   />
                 </motion.div>
@@ -92,7 +90,7 @@ export default function FAQ() {
                   <span className={`text-sm md:text-base font-light pr-8 transition-colors duration-300 ${openIndex === idx ? 'text-[var(--fg-primary)]' : 'text-[var(--fg-primary)]/80 group-hover:text-[var(--fg-primary)]'}`}>
                     {faq.question}
                   </span>
-                  
+
                   {/* Circular Plus/Minus Icon */}
                   <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--fg-primary)] text-[var(--bg-primary)] flex items-center justify-center transition-transform duration-300">
                     {openIndex === idx ? <Minus size={12} strokeWidth={3} /> : <Plus size={12} strokeWidth={3} />}

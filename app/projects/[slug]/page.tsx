@@ -8,6 +8,7 @@ import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import FAQ from "@/sections/FAQ/index";
 import CTA from "@/sections/CTA";
+import SeoContent from "@/sections/SeoContent";
 
 
 // Images
@@ -272,32 +273,15 @@ export default function ProjectDetailWiselive({ params }: { params: Promise<{ sl
         </div>
       </section>
 
-      {/* --- GALLERY SECTION (Adapted from Articles) --- */}
-      <section className="w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
-        <div className="flex justify-between items-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight max-w-md">Browse our gallery</h2>
 
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {project.images.slice(0, 3).map((img, idx) => (
-            <div key={idx} className="flex flex-col group cursor-pointer">
-              <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden bg-gray-100">
-                <Image src={img} alt={`Gallery ${idx}`} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <span className="text-gray-400 text-xs mb-3">View Image</span>
-              <h3 className="text-xl font-medium mb-6 leading-snug">Detail view of {project.title}&apos;s immaculate design and spatial flow</h3>
-              <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:underline decoration-1 underline-offset-4 mt-auto">View Photo <span>↗</span></span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* --- DARK FOOTER CTA --- */}
       <CTA />
 
       {/* --- FAQ SECTION --- */}
       <FAQ />
+
+      <SeoContent />
 
       {/* --- FOOTER --- */}
       <Footer />
