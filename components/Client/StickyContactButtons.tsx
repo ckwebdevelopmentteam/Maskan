@@ -9,7 +9,7 @@ export const StickyContactButtons = () => {
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-4">
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/1234567890" // Replace with actual WhatsApp number
+        href="https://wa.me/917594033300" // Replace with actual WhatsApp number
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110"
@@ -20,7 +20,7 @@ export const StickyContactButtons = () => {
 
       {/* Call Button */}
       <a
-        href="tel:+1234567890" // Replace with actual phone number
+        href="tel:+918606002299" // Replace with actual phone number
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-lg transition-transform hover:scale-110"
         aria-label="Call Us"
       >

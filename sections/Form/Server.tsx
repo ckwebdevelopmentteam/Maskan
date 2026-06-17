@@ -104,8 +104,8 @@ export default function FormServer() {
                   defaultValue=""
                 >
                   <option value="" disabled hidden>Select Your Project</option>
-                  <option value="residential">Mac builders</option>
-                  <option value="commercial">Maskan Builders</option>
+                  <option value="commercial">Median Heights</option>
+                  <option value="residential">Avoria Heights</option>
                  
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">

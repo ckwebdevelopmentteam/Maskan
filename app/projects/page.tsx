@@ -19,8 +19,8 @@ import ProjectsHeroImg from "@/public/home.png";
 
 const projectsList = [
   {
-    id: "mac-builders",
-    title: "MAC Builders",
+    id: "median-heights",
+    title: "Median Heights",
     category: "Commercial",
     location: "Perinthalmanna",
     image: MacMainImg,
@@ -29,10 +29,10 @@ const projectsList = [
     description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire, it features vast open collaborative spaces tailored for future-forward enterprises.",
   },
   {
-    id: "maskaan",
-    title: "Maskan",
+    id: "avoria-heights",
+    title: "Avoria Heights",
     category: "Residential",
-    location: "Ernakulam",
+    location: "Marad",
     image: MaskaanMainImg,
     scale: "12,500 Sq.Ft",
     status: "Completed",

@@ -65,7 +65,7 @@ export default function ApplicationForm({ isOpen = true, jobTitle, onClose = () 
       
       if (res.ok) {
         // Redirect to WhatsApp
-        const waNumber = "9188693893";
+        const waNumber = "917594033300";
         const text = `Hi, I am applying for the ${jobTitle} position.\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nRemarks: ${data.message}\n\n*Note: My resume has been securely uploaded to your Admin Dashboard.*`;
         const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
         window.open(waUrl, '_blank');

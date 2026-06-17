@@ -18,8 +18,8 @@ import MinimalFacade from "@/public/white_minimal_facade.png";
 import MinimalVilla from "@/public/white_minimal_villa.png";
 
 const projectsData = {
-  "mac-builders": {
-    title: "MAC Builders",
+  "median-heights": {
+    title: "Median Heights",
     location: "Perinthalmanna",
     category: "Commercial",
     description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
@@ -37,9 +37,9 @@ const projectsData = {
     ],
     images: [MinimalHouse, MinimalInterior, MinimalFacade, MinimalVilla, MinimalInterior, MinimalHouse, MinimalFacade]
   },
-  "maskaan": {
-    title: "Maskaan",
-    location: "Ernakulam",
+  "avoria-heights": {
+    title: "Avoria Heights",
+    location: "Marad",
     category: "Residential",
     description: "Located in the bustling heart of Ernakulam, Maskaan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
     story: {
