@@ -40,7 +40,7 @@ function Innovation() {
     } else {
       dispatch(setNavOpacity(1));
     }
-    
+
     setState(Math.min(Math.floor(latest * imgs.length), imgs.length - 1));
   });
   return (
@@ -51,7 +51,7 @@ function Innovation() {
     >
       <motion.div
         {...handlers}
-        onClick={() => router.replace("https://maskan.pk/projects")}
+        onClick={() => router.push("/projects")}
         className="sticky -top-[5vh] h-[110vh] md:-top-[15vh] md:h-[130vh]"
       >
         <ClipImageCard

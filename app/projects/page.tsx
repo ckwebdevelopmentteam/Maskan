@@ -12,32 +12,108 @@ import { ArrowUpRight } from "lucide-react";
 import CTA from "@/sections/CTA";
 
 
-// New Static imports (Contained styling)
-import MacMainImg from "@/public/commercial_complex_render.png";
-import MaskaanMainImg from "@/public/residential_villa.png";
-import ProjectsHeroImg from "@/public/home.png";
 
 const projectsList = [
   {
-    id: "median-heights",
-    title: "Median Heights",
+    id: "commercial-muvatupuzha",
+    title: "Plaza Commercial Complex",
     category: "Commercial",
-    location: "Perinthalmanna",
-    image: MacMainImg,
-    scale: "45,000 Sq.Ft",
+    location: "Muvatupuzha, Kerala",
+    image: "/projects/project-1.webp",
+    scale: "Multi-storey",
     status: "On Going",
-    description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire, it features vast open collaborative spaces tailored for future-forward enterprises.",
+    description: "A landmark commercial plaza in Muvatupuzha featuring a striking vertical louvre façade with warm timber tones. Designed to accommodate modern retail and office spaces, the building blends contemporary aesthetics with practical commercial functionality.",
   },
   {
-    id: "avoria-heights",
-    title: "Avoria Heights",
+    id: "kovilakam-villa-manjeri",
+    title: "Kovilakam Villa",
+    category: "Residential Villa",
+    location: "Manjeri, Kerala",
+    image: "/projects/project-2.webp",
+    scale: "Premium Villa Community",
+    status: "On Going",
+    description: "An exclusive boutique villa community set against lush green hillsides in Manjeri. Features dark contemporary architecture with floor-to-ceiling glazing, a landscaped pool area, and natural stone accents — designed for discerning families who value privacy and elegance.",
+  },
+  {
+    id: "residential-flat-malappuram",
+    title: "Residential Flat",
     category: "Residential",
-    location: "Marad",
-    image: MaskaanMainImg,
-    scale: "12,500 Sq.Ft",
+    location: "Malappuram, Kerala",
+    image: "/projects/project-3.webp",
+    scale: "3 Storey",
+    status: "On Going",
+    description: "A thoughtfully designed three-storey residential apartment block in Malappuram, combining exposed brick textures with modern concrete elements. Featuring generous balconies with greenery, covered parking, and a rooftop terrace — offering comfortable urban family living.",
+  },
+  {
+    id: "commercial-veliyamcode",
+    title: "Plaza Commercial Building",
+    category: "Commercial",
+    location: "Veliyamcode, Kerala",
+    image: "/projects/project-4.webp",
+    scale: "Multi-storey",
+    status: "On Going",
+    description: "A bold commercial development at Veliyamcode featuring a distinctive terracotta-toned façade with geometric fin details and large glazed frontage. Designed in collaboration with Ecoleaf, this plaza sets a new benchmark for commercial architecture in the region.",
+  },
+  {
+    id: "ayush-villa-valancheri",
+    title: "Ayush Villa",
+    category: "Residential Villa",
+    location: "Valancheri, Kerala",
+    image: "/projects/project-5.webp",
+    scale: "Individual Villa",
+    status: "On Going",
+    description: "A heritage-inspired residential villa in Valancheri blending traditional Kerala sloped roof architecture with contemporary detailing. Natural brick, timber accents, and a lush tropical setting create a timeless home that honours local craftsmanship with modern comfort.",
+  },
+  {
+    id: "school-pattambi",
+    title: "School Project at Pattambi",
+    category: "Educational",
+    location: "Pattambi, Kerala",
+    image: "/projects/project-14.jpg",
+    scale: "Large Educational Complex",
+    status: "On Going",
+    description: "A massive school complex under construction in Pattambi. Spanning multiple wings with advanced formwork and structural framing, this state-of-the-art educational facility is designed to meet modern standards of academic environments.",
+  },
+  {
+    id: "commercial-edappal",
+    title: "Commercial Building at Edappal",
+    category: "Commercial",
+    location: "Edappal, Kerala",
+    image: "/projects/project-13.jpg",
+    scale: "Multi-storey Showroom",
+    status: "On Going",
+    description: "A stunning multi-storey commercial building in Edappal. Featuring a contemporary glazed curtain wall facade that integrates natural light and reflections, this structure combines aesthetic distinction with premium retail functionality.",
+  },
+  {
+    id: "commercial-areacode",
+    title: "Commercial Building at Areacode",
+    category: "Commercial",
+    location: "Areacode, Kerala",
+    image: "/projects/project-15.png",
+    scale: "Retail & Business Complex",
     status: "Completed",
-    description: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece. It elegantly balances urban sophistication with serene, nature-integrated living spaces.",
-  }
+    description: "A completed modern multi-storey commercial building in Areacode. Clad in premium composite metal panels and large glazed storefronts, the complex serves as a bustling business hub and host to top brands like AGL.",
+  },
+  {
+    id: "school-thirur",
+    title: "School Project at Thirur",
+    category: "Educational",
+    location: "Thirur, Kerala",
+    image: "/projects/project-16.png",
+    scale: "Institutional Campus",
+    status: "On Going",
+    description: "An expansive institutional campus under development in Thirur. Featuring a classic U-shaped configuration organized around a spacious open courtyard, the design facilitates excellent ventilation and easy student movement across wings.",
+  },
+  {
+    id: "mak-villa-perinthalmanna",
+    title: "Mak Villa Project at Perinthalmanna",
+    category: "Residential Villa",
+    location: "Perinthalmanna, Kerala",
+    image: "/projects/project-17.png",
+    scale: "Premium Villa Community",
+    status: "On Going",
+    description: "A luxury residential development in Perinthalmanna. This meticulously planned premium villa community includes modern architecture, dedicated private gardens, and custom layouts for upscale living.",
+  },
 ];
 
 export default function ProjectsPage() {
@@ -50,10 +126,10 @@ export default function ProjectsPage() {
         <section className="relative w-full h-[55vh] min-h-[450px] md:h-[70vh] md:min-h-[600px] flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
           <div className="absolute inset-0 w-full h-full">
             <Image
-              src={ProjectsHeroImg}
+              src="/projects/project-4.webp"
               alt="Our Work Hero"
               fill
-              className="object-contain object-right"
+              className="object-cover"
               priority
             />
           </div>
@@ -149,7 +225,7 @@ export default function ProjectsPage() {
                 {/* Image Content */}
                 <div className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-none shadow-[0_12px_36px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-shadow duration-500">
                   <Image
-                    src={project.image}
+                    src={typeof project.image === 'string' ? project.image : project.image}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"

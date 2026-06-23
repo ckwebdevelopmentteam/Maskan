@@ -62,12 +62,12 @@ export default function MaskTextClient({
           initial="initial"
           animate="animate"
           exit="exit"
-          className={cn("text-center whitespace-nowrap", rest.className)}
+          className={cn("text-center", rest.className)}
           style={{ ...rest.style }}
           variants={containerVariants}
         >
           {lines.map((eachLine, index) => (
-            <motion.div key={index + 1} variants={childVariants}>
+            <motion.div key={index + 1} variants={childVariants} className="w-full break-words">
               {eachLine}
             </motion.div>
           ))}

@@ -114,11 +114,11 @@ export default function ClipImageCard({
       viewport={{ amount: 0.1, once: true }}
       style={{ ...style }}
       className={cn(
-        "relative z-10 flex h-full flex-col items-center justify-between py-[8vh] text-[var(--fg-primary)] backdrop-brightness-[60%] md:flex-row md:px-16 md:py-[15vh]",
+        "relative z-10 flex h-full flex-col items-center justify-center gap-8 py-[8vh] text-[var(--fg-primary)] backdrop-brightness-[60%] md:flex-row md:gap-16 md:px-16 md:py-[15vh]",
         className,
       )}
     >
-      <SectionTitle className="">Featured Projects</SectionTitle>
+      <SectionTitle className="text-white" titleClassName="text-white">Featured Projects</SectionTitle>
       <motion.div
         variants={{
           initial: { y: "50%" },
@@ -171,12 +171,9 @@ export default function ClipImageCard({
         <AnimatedMaskText
           state={currentState}
           lines={data[currentState - 1].description["desktop"]}
-          className="text-center text-sm [line-height:1.25] md:text-base"
+          className="w-full text-center text-sm [line-height:1.25] md:text-base"
         />
       </motion.div>
-      <span className="text-base [line-height:1] md:text-xl">
-        ( Keep Scrolling ){" "}
-      </span>
     </motion.div>
   );
 }

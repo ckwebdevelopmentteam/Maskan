@@ -1,96 +1,93 @@
 "use client";
 
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
-import CelesteRivieraImg from "@/public/celeste-riviera.png";
-import ModernHouse1Img from "@/public/modern_house_1.png";
-import EleveMaisonImg from "@/public/eleve-maison.png";
-import LumiereResidencesImg from "@/public/lumiere-residences.png";
-import ModernHouse2Img from "@/public/modern_house_2.png";
-import SolariaHeightsImg from "@/public/property-4.jpg";
-import ModernHouse3Img from "@/public/modern_house_3.png";
-import ModernHouse4Img from "@/public/modern_house_4.png";
-import ModernHouse5Img from "@/public/property-3.jpg";
-
 interface Project {
+  id: string;
   name: string;
   location: string;
   type: string;
   status: "ON GOING" | "COMPLETED";
-  img: StaticImageData;
+  img: string;
   desc: string;
   stats: { label: string; val: string }[];
 }
 
 const projects: Project[] = [
   {
-    name: "Celeste Riviera",
+    id: "commercial-muvatupuzha",
+    name: "Plaza Commercial Complex",
+    location: "Muvatupuzha, Kerala",
+    type: "Commercial",
+    status: "ON GOING",
+    img: "/projects/project-1.webp",
+    desc: "A landmark commercial plaza in Muvatupuzha featuring a striking vertical louvre façade with warm timber tones.",
+    stats: [
+      { label: "Scale", val: "Multi-storey" },
+    ],
+  },
+  {
+    id: "kovilakam-villa-manjeri",
+    name: "Kovilakam Villa",
+    location: "Manjeri, Kerala",
+    type: "Residential Villa",
+    status: "ON GOING",
+    img: "/projects/project-2.webp",
+    desc: "An exclusive boutique villa community set against lush green hillsides in Manjeri, designed for privacy and elegance.",
+    stats: [
+      { label: "Scale", val: "Premium Villa" },
+    ],
+  },
+  {
+    id: "school-pattambi",
+    name: "School Project at Pattambi",
+    location: "Pattambi, Kerala",
+    type: "Educational",
+    status: "ON GOING",
+    img: "/projects/project-14.jpg",
+    desc: "A massive school complex under construction in Pattambi spanning multiple wings with advanced formwork.",
+    stats: [
+      { label: "Scale", val: "Large Complex" },
+    ],
+  },
+  {
+    id: "commercial-edappal",
+    name: "Commercial Building at Edappal",
+    location: "Edappal, Kerala",
+    type: "Commercial",
+    status: "ON GOING",
+    img: "/projects/project-13.jpg",
+    desc: "A stunning multi-storey commercial building in Edappal featuring a contemporary glazed curtain wall facade.",
+    stats: [
+      { label: "Scale", val: "Multi-storey" },
+    ],
+  },
+  {
+    id: "commercial-areacode",
+    name: "Commercial Building at Areacode",
+    location: "Areacode, Kerala",
+    type: "Commercial",
+    status: "COMPLETED",
+    img: "/projects/project-15.png",
+    desc: "A completed modern multi-storey commercial building in Areacode clad in premium composite metal panels.",
+    stats: [
+      { label: "Scale", val: "Business Hub" },
+    ],
+  },
+  {
+    id: "mak-villa-perinthalmanna",
+    name: "Mak Villa Project at Perinthalmanna",
     location: "Perinthalmanna, Kerala",
-    type: "Villa Project",
+    type: "Residential Villa",
     status: "ON GOING",
-    img: CelesteRivieraImg,
-    desc: "A stunning premium villa project focusing on wide open spaces and natural light integration.",
+    img: "/projects/project-17.png",
+    desc: "A luxury residential development in Perinthalmanna containing custom planned modern villa designs.",
     stats: [
-      { label: "Plot Scale", val: "18 Acres" },
-    ],
-  },
-  {
-    name: "Harmony Villa",
-    location: "Kozhikode Road, Manjeri",
-    type: "Modern House",
-    status: "ON GOING",
-    img: ModernHouse1Img,
-    desc: "Modern luxury living with bespoke interior styling and smart home automation features.",
-    stats: [
-      { label: "Area", val: "4,500 Sq.ft." },
-    ],
-  },
-  {
-    name: "Eleve Maison",
-    location: "Calicut Coastline, Kerala",
-    type: "Apartment",
-    status: "ON GOING",
-    img: EleveMaisonImg,
-    desc: "A boutique seaside apartment block featuring premium coastal views and airy layouts.",
-    stats: [
-      { label: "Area", val: "2,200 Sq.ft." },
-    ],
-  },
-  {
-    name: "Lumiere Residences",
-    location: "Patterkulam, Manjeri",
-    type: "Luxury Estate",
-    status: "COMPLETED",
-    img: LumiereResidencesImg,
-    desc: "A sprawling luxury estate with custom woodwork and double-height ceiling voids.",
-    stats: [
-      { label: "Scope", val: "10,000 Sq.ft." },
-    ],
-  },
-  {
-    name: "Serenity Home",
-    location: "Malappuram District",
-    type: "Suburban House",
-    status: "COMPLETED",
-    img: ModernHouse2Img,
-    desc: "A peaceful family residence with integrated natural cooling and locally sourced materials.",
-    stats: [
-      { label: "Area", val: "3,800 Sq.ft." },
-    ],
-  },
-  {
-    name: "Solaria Heights",
-    location: "Wayanad Hills, Kerala",
-    type: "Resort Estate",
-    status: "COMPLETED",
-    img: SolariaHeightsImg,
-    desc: "Mountain retreat estate designed to merge seamlessly with the surrounding lush landscape.",
-    stats: [
-      { label: "Area", val: "6,000 Sq.ft." },
+      { label: "Scale", val: "Premium Villa" },
     ],
   },
 ];
@@ -116,57 +113,65 @@ export default function ProjectsGrid() {
             const isCompleted = project.status === "COMPLETED";
 
             return (
-              <motion.article
-                key={project.name}
-                className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 36 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
-                transition={{
-                  duration: 0.75,
-                  delay: index * 0.06,
-                  ease: [0.24, 0.43, 0.15, 0.97],
-                }}
+              <Link
+                href={`/projects/${project.id}`}
+                key={project.id}
+                className="group block"
               >
-                {/* Image Section */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src={project.img}
-                    alt={project.name}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    priority={index < 4}
-                  />
-                </div>
-
-                {/* Content Section */}
-                <div className="flex flex-1 flex-col p-4 md:p-5 text-gray-900">
-                  <h3 className="text-sm font-semibold md:text-base line-clamp-1">
-                    {project.name}
-                  </h3>
-                  
-                  {/* Location & Area */}
-                  <div className="mt-2.5 flex items-center gap-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1.5">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                      <span className="truncate max-w-[120px]">{project.location.split(',')[0]}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 3L15 3M21 3L21 9M21 3L14 10M3 21L9 21M3 21L3 15M3 21L10 14"></path></svg>
-                      <span>{project.stats[0]?.val || "120 Sq.ft."}</span>
-                    </div>
+                <motion.article
+                  className="relative flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  initial={{ opacity: 0, y: 36 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{
+                    duration: 0.75,
+                    delay: index * 0.06,
+                    ease: [0.24, 0.43, 0.15, 0.97],
+                  }}
+                >
+                  {/* Image Section */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                    <Image
+                      src={project.img}
+                      alt={project.name}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      priority={index < 4}
+                    />
                   </div>
 
-                  {/* Divider */}
-                  <div className="my-4 h-px w-full bg-black/10" />
+                  {/* Content Section */}
+                  <div className="flex flex-1 flex-col p-4 md:p-5 text-gray-900">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-sm font-semibold md:text-base line-clamp-1 group-hover:text-[#1F4F71] transition-colors">
+                        {project.name}
+                      </h3>
+                      <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-[#1F4F71]" />
+                    </div>
+                    
+                    {/* Location & Area */}
+                    <div className="mt-2.5 flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span className="truncate max-w-[120px]">{project.location.split(',')[0]}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 3L15 3M21 3L21 9M21 3L14 10M3 21L9 21M3 21L3 15M3 21L10 14"></path></svg>
+                        <span>{project.stats[0]?.val || "N/A"}</span>
+                      </div>
+                    </div>
 
-                  {/* Description instead of Price/Action */}
-                  <p className="mt-4 text-sm md:text-base text-gray-500 font-light leading-relaxed line-clamp-2">
-                    {project.desc}
-                  </p>
-                </div>
-              </motion.article>
+                    {/* Divider */}
+                    <div className="my-4 h-px w-full bg-black/10" />
+
+                    {/* Description */}
+                    <p className="mt-2 text-sm text-gray-500 font-light leading-relaxed line-clamp-2">
+                      {project.desc}
+                    </p>
+                  </div>
+                </motion.article>
+              </Link>
             );
           })}
         </div>
