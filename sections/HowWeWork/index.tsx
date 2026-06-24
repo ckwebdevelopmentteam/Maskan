@@ -12,8 +12,8 @@ const steps = [
   },
   {
     num: "02",
-    title: "Plan, approvals & 30/70 schedule",
-    desc: "Our team coordinates drawings, approvals, structural planning, vendor selection, and the 30/70 payment scheme so site work can begin with financial clarity.",
+    title: "Plan, approvals & schedule",
+    desc: "Our team coordinates drawings, approvals, structural planning, vendor selection, and the payment scheme so site work can begin with financial clarity.",
   },
   {
     num: "03",
@@ -109,22 +109,7 @@ export default function HowWeWork() {
                 </div>
               </div>
 
-              <motion.div
-                className="mt-10 border border-[var(--fg-primary)]/15 bg-[var(--bg-card)]/70 p-5 text-[var(--fg-primary)]"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-              >
-                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-                  30/70 Payment Scheme
-                </span>
-                <p className="mt-3 text-sm font-light leading-relaxed text-[var(--fg-primary)]/65">
-                  Start construction with 30% booking support, then complete the
-                  remaining 70% through a planned tenure aligned with project
-                  progress.
-                </p>
-              </motion.div>
+
             </div>
 
             <div className="flex flex-col md:col-span-7 md:pl-16">

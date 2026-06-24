@@ -19,6 +19,8 @@ const CormorantGaramond = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Maskan Builders",
   description: "Premium architectural and construction services",

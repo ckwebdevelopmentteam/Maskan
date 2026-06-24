@@ -19,6 +19,30 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "median-heights",
+    name: "Median Heights",
+    location: "Perinthalmanna, Kerala",
+    type: "Commercial",
+    status: "ON GOING",
+    img: "/commercial_complex_render.png",
+    desc: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
+    stats: [
+      { label: "Scale", val: "45,000 Sq.Ft" },
+    ],
+  },
+  {
+    id: "avoria-heights",
+    name: "Avoria Heights",
+    location: "Marad, Ernakulam, Kerala",
+    type: "Residential Villa",
+    status: "COMPLETED",
+    img: "/residential_villa.png",
+    desc: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
+    stats: [
+      { label: "Scale", val: "12,500 Sq.Ft" },
+    ],
+  },
+  {
     id: "commercial-muvatupuzha",
     name: "Plaza Commercial Complex",
     location: "Muvatupuzha, Kerala",
@@ -42,30 +66,8 @@ const projects: Project[] = [
       { label: "Scale", val: "Premium Villa" },
     ],
   },
-  {
-    id: "school-pattambi",
-    name: "School Project at Pattambi",
-    location: "Pattambi, Kerala",
-    type: "Educational",
-    status: "ON GOING",
-    img: "/projects/project-14.jpg",
-    desc: "A massive school complex under construction in Pattambi spanning multiple wings with advanced formwork.",
-    stats: [
-      { label: "Scale", val: "Large Complex" },
-    ],
-  },
-  {
-    id: "commercial-edappal",
-    name: "Commercial Building at Edappal",
-    location: "Edappal, Kerala",
-    type: "Commercial",
-    status: "ON GOING",
-    img: "/projects/project-13.jpg",
-    desc: "A stunning multi-storey commercial building in Edappal featuring a contemporary glazed curtain wall facade.",
-    stats: [
-      { label: "Scale", val: "Multi-storey" },
-    ],
-  },
+
+
   {
     id: "commercial-areacode",
     name: "Commercial Building at Areacode",
@@ -149,7 +151,7 @@ export default function ProjectsGrid() {
                       </h3>
                       <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-[#1F4F71]" />
                     </div>
-                    
+
                     {/* Location & Area */}
                     <div className="mt-2.5 flex items-center gap-4 text-sm text-gray-500">
                       <div className="flex items-center gap-1.5">
@@ -178,8 +180,8 @@ export default function ProjectsGrid() {
       </div>
 
       <div className="mt-16 flex flex-col items-center justify-center gap-6 md:mt-24">
-        <Link 
-          href="#contact" 
+        <Link
+          href="#contact"
           className="inline-flex items-center gap-3 bg-[#1F4F71] text-white px-10 py-5 rounded-full text-base md:text-lg font-bold hover:bg-[#153a54] transition-all hover:scale-105 shadow-xl"
         >
           Start Your Project

@@ -28,13 +28,6 @@ async function getJobBySlug(slug: string): Promise<Job | null> {
   return job || null;
 }
 
-export async function generateStaticParams() {
-  const jobs = await getJobs();
-  return jobs.map((job) => ({
-    slug: job.slug,
-  }));
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const job = await getJobBySlug(resolvedParams.slug);

@@ -330,6 +330,65 @@ const projectsData = {
       "/projects/project-8.webp",
     ],
   },
+  "median-heights": {
+    title: "Median Heights",
+    location: "Perinthalmanna, Kerala",
+    category: "Commercial",
+    scale: "45,000 Sq.Ft",
+    status: "On Going",
+    description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
+    story: {
+      theWhere: "Situated in the rapidly evolving commercial hub of Perinthalmanna, the site posed unique spatial constraints.",
+      theHow: "By employing a brutalist concrete exoskeleton paired with vast expanses of low-emissivity glass.",
+      theDetails: "Every floor was designed as a fluid workplace with minimalist white interior finishes."
+    },
+    highlights: [
+      { title: "Smart Security", description: "24/7 advanced monitoring and access control." },
+      { title: "Executive Lounge", description: "Premium waiting and networking areas for clients." },
+      { title: "Conference Center", description: "State-of-the-art meeting rooms and auditoriums." },
+      { title: "High-Speed Elevators", description: "Express lifts for minimal wait times." },
+      { title: "Rooftop Cafeteria", description: "Panoramic views while you dine and relax." }
+    ],
+    images: [
+      "/commercial_complex_render.png",
+      "/white_minimal_house.png",
+      "/white_minimal_interior.png",
+      "/white_minimal_facade.png",
+      "/white_minimal_villa.png",
+      "/white_minimal_interior.png",
+      "/white_minimal_house.png",
+      "/white_minimal_facade.png"
+    ]
+  },
+  "avoria-heights": {
+    title: "Avoria Heights",
+    location: "Marad, Ernakulam, Kerala",
+    category: "Residential Villa",
+    scale: "12,500 Sq.Ft",
+    status: "Completed",
+    description: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
+    story: {
+      theWhere: "Nestled away from the chaotic urban sprawl of Ernakulam on a densely wooded plot.",
+      theHow: "We adopted a highly minimalist, pavilion-style architecture to weave around existing trees.",
+      theDetails: "The interior features bespoke teak joinery, textured plaster walls, and a central courtyard."
+    },
+    highlights: [
+      { title: "Infinity Pool", description: "Temperature-controlled swimming pool with skyline views." },
+      { title: "Zen Garden", description: "Landscaped lush green spaces for meditation and walking." },
+      { title: "Club House", description: "Exclusive access to recreation and community events." },
+      { title: "Gymnasium", description: "Fully-equipped modern fitness center." },
+      { title: "Concierge Services", description: "24/7 assistance for all your lifestyle needs." }
+    ],
+    images: [
+      "/white_minimal_villa.png",
+      "/white_minimal_house.png",
+      "/white_minimal_interior.png",
+      "/white_minimal_facade.png",
+      "/white_minimal_house.png",
+      "/white_minimal_villa.png",
+      "/white_minimal_interior.png"
+    ]
+  },
 };
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {

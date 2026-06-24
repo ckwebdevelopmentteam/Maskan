@@ -15,6 +15,26 @@ import CTA from "@/sections/CTA";
 
 const projectsList = [
   {
+    id: "median-heights",
+    title: "Median Heights",
+    category: "Commercial",
+    location: "Perinthalmanna, Kerala",
+    image: "/commercial_complex_render.png",
+    scale: "45,000 Sq.Ft",
+    status: "On Going",
+    description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
+  },
+  {
+    id: "avoria-heights",
+    title: "Avoria Heights",
+    category: "Residential Villa",
+    location: "Marad, Ernakulam, Kerala",
+    image: "/residential_villa.png",
+    scale: "12,500 Sq.Ft",
+    status: "Completed",
+    description: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
+  },
+  {
     id: "commercial-muvatupuzha",
     title: "Plaza Commercial Complex",
     category: "Commercial",
@@ -126,10 +146,10 @@ export default function ProjectsPage() {
         <section className="relative w-full h-[55vh] min-h-[450px] md:h-[70vh] md:min-h-[600px] flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
           <div className="absolute inset-0 w-full h-full">
             <Image
-              src="/projects/project-4.webp"
+              src="/home.png"
               alt="Our Work Hero"
               fill
-              className="object-cover"
+              className="object-contain object-right"
               priority
             />
           </div>

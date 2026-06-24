@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import NavBar from "@/components/Client/NavBar";
 import ScrollReveal from "@/components/Client/ScrollReveal";
 import ElementisStory from "@/sections/ElementisStory";

@@ -7,9 +7,11 @@ import ApplicationForm from './ApplicationForm';
 
 interface JobListingsProps {
   jobs: Job[];
+  categories: string[];
+  locations: string[];
 }
 
-export default function JobListings({ jobs }: JobListingsProps) {
+export default function JobListings({ jobs, categories, locations }: JobListingsProps) {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   
@@ -21,10 +23,6 @@ export default function JobListings({ jobs }: JobListingsProps) {
     setSelectedJobTitle(jobTitle);
     setIsModalOpen(true);
   };
-
-  // Extract unique filter options
-  const categories = useMemo(() => Array.from(new Set(jobs.map(job => job.category))), [jobs]);
-  const locations = useMemo(() => Array.from(new Set(jobs.map(job => job.location))), [jobs]);
 
   // Filter jobs based on selections
   const filteredJobs = useMemo(() => {
