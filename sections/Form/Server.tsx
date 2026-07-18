@@ -104,9 +104,19 @@ export default function FormServer() {
                   defaultValue=""
                 >
                   <option value="" disabled hidden>Select Your Project</option>
-                  <option value="commercial">Median Heights</option>
-                  <option value="residential">Avoria Heights</option>
-                 
+                  <option value="maskan-avoria">Maskan Avoria</option>
+                  <option value="meridian-heights">Meridian Heights</option>
+                  <option value="kakanad-commercial-hub">Kakanad Commercial Hub</option>
+                  <option value="plaza-commercial-complex">Plaza Commercial Complex</option>
+                  <option value="manjeri-white-field">Manjeri White Field</option>
+                  <option value="residential-flat">Residential Flat</option>
+                  <option value="plaza-commercial-building">Plaza Commercial Building</option>
+                  <option value="ayush-villa">Ayush Villa</option>
+                  <option value="school-project-pattambi">School Project (Pattambi)</option>
+                  <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
+                  <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
+                  <option value="school-project-thirur">School Project (Thirur)</option>
+                  <option value="other">Other</option>
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

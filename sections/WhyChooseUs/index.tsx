@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
             </h2>
             
             <p className="text-gray-500 text-base lg:text-lg font-light leading-relaxed max-w-xl pb-2">
-              For decades, we have set the standard in premium architectural and construction services by combining visionary design with flawless execution.
+              For 17+ years, we've set the standard in construction across Kerala by combining honest execution with premium quality, handling both small individual homes and large multi-unit developments with the same care. We have the capacity to take on 100+ projects at a time, wherever in Kerala you need us.
             </p>
 
             <ul className="space-y-6 max-w-xl mt-4 text-left">
@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">Uncompromising Quality</strong>
-                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">We source premium materials and employ master craftsmen to ensure lasting value and durability.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">We source premium materials and employ skilled craftsmen to ensure lasting value and durability, project after project.</span>
                 </div>
               </li>
               
@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">Client-Centric Collaboration</strong>
-                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Your vision is our blueprint. We guarantee 100% transparency from initial concept to final handover.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Your vision is our blueprint. We guarantee full transparency from initial concept to final handover.</span>
                 </div>
               </li>
 
@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
                 </span>
                 <div>
                   <strong className="block text-gray-800 font-medium text-lg mb-1">On-Time & On-Budget</strong>
-                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Streamlined workflows and rigorous project management ensure we consistently meet critical deadlines.</span>
+                  <span className="text-gray-500 font-light text-base md:text-lg leading-relaxed block">Streamlined workflows and rigorous site management ensure we consistently meet deadlines, on projects big and small.</span>
                 </div>
               </li>
             </ul>
@@ -193,44 +193,36 @@ export default function WhyChooseUs() {
             {/* Stats Grid from original WhyChooseUs */}
             <div className="grid grid-cols-2 gap-6 sm:gap-8 w-full place-items-center md:place-items-start">
               
-              {/* Selected Designers */}
+              {/* Projects Completed */}
+              <div className="space-y-3">
+                <div className="flex items-baseline justify-center md:justify-start space-x-2">
+                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">750+</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800">Projects Completed</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Residential and commercial builds across Kerala.</p>
+                </div>
+              </div>
+
+              {/* Ongoing Projects */}
               <div className="space-y-3">
                 <div className="flex items-baseline justify-center md:justify-start space-x-2">
                   <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">25+</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800">Selected designers</h3>
-                  <p className="text-sm text-gray-500 font-light mt-1">Every project is led by experienced interior designers.</p>
+                  <h3 className="text-lg font-medium text-gray-800">Ongoing Projects</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">Actively managed sites statewide.</p>
                 </div>
               </div>
 
-              {/* Happy Clients */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-center md:justify-start space-x-[-12px] h-[48px]">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[3]">
-                    <Image src={Team1} alt="Client 1" fill className="object-cover" />
-                  </div>
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[2]">
-                    <Image src={Team2} alt="Client 2" fill className="object-cover" />
-                  </div>
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md z-[1]">
-                    <Image src={Team3} alt="Client 3" fill className="object-cover" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium text-gray-800">2K+ happy clients</h3>
-                  <p className="text-sm text-gray-500 font-light mt-1">Delivering excellence and building trust worldwide.</p>
-                </div>
-              </div>
-
-              {/* Satisfaction */}
+              {/* Years in Business */}
               <div className="space-y-3">
                 <div className="flex items-baseline justify-center md:justify-start space-x-2">
-                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">95%</span>
+                  <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">17+</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800">Satisfaction rate</h3>
-                  <p className="text-sm text-gray-500 font-light mt-1">Clear workflows ensure the best design outcomes.</p>
+                  <h3 className="text-lg font-medium text-gray-800">Years in Business</h3>
+                  <p className="text-sm text-gray-500 font-light mt-1">A legacy of trust and quality construction.</p>
                 </div>
               </div>
 
@@ -240,7 +232,7 @@ export default function WhyChooseUs() {
                   <span className="text-4xl md:text-5xl font-light text-[#1F5071] font-mono leading-none">100%</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800">Reliable delivery</h3>
+                  <h3 className="text-lg font-medium text-gray-800">Reliable Delivery</h3>
                   <p className="text-sm text-gray-500 font-light mt-1">Timelines, budgets, and expectations clearly defined.</p>
                 </div>
               </div>

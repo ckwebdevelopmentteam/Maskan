@@ -8,23 +8,23 @@ import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 const faqs = [
   {
     question: "What types of projects does your studio work on?",
-    answer: "We specialize in high-end residential, commercial, and hospitality projects. Our focus is on crafting spaces that blend timeless design with modern functionality.",
+    answer: "As the best construction company in Kerala, we specialize in residential and commercial construction, from individual custom villas to large multi-unit developments like our 42-villa Meridian Heights project in Perinthalmanna and 112-unit Avoria development in Kochi.",
   },
   {
     question: "What is the first step to starting a project with your studio?",
-    answer: "It begins with an initial consultation where we discuss your vision, requirements, timeline, and budget. From there, we outline a clear design roadmap.",
+    answer: "We begin with a site survey and estimate, inspecting the land, soil conditions, and access before preparing a practical scope, schedule, and cost framework for your project.",
   },
   {
-    question: "How long does an architectural project typically take?",
-    answer: "Timelines vary depending on the scope. A standard residential project might take 6 to 12 months from concept to completion, while larger commercial projects take longer.",
+    question: "How long does a construction project typically take?",
+    answer: "Timelines depend on project size, a single villa moves faster than a multi-unit development. During your first consultation, we give you a clear schedule based on your specific site and scope.",
   },
   {
     question: "Can you help with renovations or existing buildings?",
-    answer: "Yes, we have extensive experience in renovations and adaptive reuse, transforming existing structures into modern, functional spaces while respecting their original character.",
+    answer: "Yes. Alongside new builds, as the best construction company in Kerala, our team can assess and take on renovation and extension work for existing homes and commercial buildings.",
   },
   {
     question: "Do you also assist during the construction phase?",
-    answer: "Absolutely. We offer full construction administration services, working closely with contractors to ensure the design is executed accurately and to the highest standards.",
+    answer: "Yes we manage the full build from foundation to finishing, including quality checks, safety, and timeline management, with regular updates through to a formal handover.",
   }
 ];
 
@@ -46,7 +46,7 @@ export default function FAQ() {
           {/* Left Column: Title & Image */}
           <div className="space-y-8 lg:sticky lg:top-32 text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-light tracking-tight text-[var(--fg-primary)] leading-[1.3] max-w-md">
-              If you have more questions, feel free to email our team at <a href="mailto:hi@helloarchi.com" className="underline decoration-[var(--fg-primary)]/30 hover:decoration-[var(--fg-primary)] transition-colors underline-offset-4">hi@helloarchi.com</a> and we will be happy to help.
+              If you have more questions, feel free to email our team at <a href="mailto:maskanplans@gmail.com" className="underline decoration-[var(--fg-primary)]/30 hover:decoration-[var(--fg-primary)] transition-colors underline-offset-4">maskanplans@gmail.com</a> and we will be happy to help.
             </h2>
 
             <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-xl overflow-hidden bg-[var(--bg-card)] shadow-xl group">

@@ -19,55 +19,65 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "median-heights",
-    name: "Median Heights",
-    location: "Perinthalmanna, Kerala",
-    type: "Commercial",
-    status: "ON GOING",
-    img: "/commercial_complex_render.png",
-    desc: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
-    stats: [
-      { label: "Scale", val: "45,000 Sq.Ft" },
-    ],
-  },
-  {
-    id: "avoria-heights",
-    name: "Avoria Heights",
-    location: "Marad, Ernakulam, Kerala",
-    type: "Residential Villa",
+    id: "maskan-avoria",
+    name: "Maskan Avoria",
+    location: "Kochi, Kerala",
+    type: "Residential",
     status: "COMPLETED",
     img: "/residential_villa.png",
-    desc: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
+    desc: "A landmark residential development in Kochi, 112 units plus a new tower, designed for modern urban living.",
     stats: [
-      { label: "Scale", val: "12,500 Sq.Ft" },
+      { label: "Scope", val: "112 units + new tower" },
     ],
   },
   {
-    id: "commercial-muvatupuzha",
+    id: "meridian-heights",
+    name: "Meridian Heights",
+    location: "Perinthalmanna, Kerala",
+    type: "Residential",
+    status: "ON GOING",
+    img: "/commercial_complex_render.png",
+    desc: "An exclusive residential villa project in Perinthalmanna, 42 villas designed for modern elegance and premium living.",
+    stats: [
+      { label: "Scope", val: "42 villas" },
+    ],
+  },
+  {
+    id: "kakanad-commercial-hub",
+    name: "Kakanad Commercial Hub",
+    location: "Kakanad, Kochi, Kerala",
+    type: "Commercial",
+    status: "ON GOING",
+    img: "/projects/project-1.webp",
+    desc: "Redefining business landscapes with a cutting-edge commercial building in Kakanad, Kochi.",
+    stats: [
+      { label: "Type", val: "Commercial building" },
+    ],
+  },
+  {
+    id: "manjeri-white-field",
+    name: "Manjeri White Field",
+    location: "Manjeri, Kerala",
+    type: "Residential",
+    status: "ON GOING",
+    img: "/projects/project-2.webp",
+    desc: "A premium residential development in Manjeri, built to the same quality standards across every unit.",
+    stats: [
+      { label: "Type", val: "Residential" },
+    ],
+  },
+  {
+    id: "plaza-commercial-complex",
     name: "Plaza Commercial Complex",
     location: "Muvatupuzha, Kerala",
     type: "Commercial",
     status: "ON GOING",
-    img: "/projects/project-1.webp",
-    desc: "A landmark commercial plaza in Muvatupuzha featuring a striking vertical louvre façade with warm timber tones.",
+    img: "/projects/project-3.webp",
+    desc: "A prime commercial complex in Muvatupuzha, built for retail and business spaces with strong footfall and long-term rental value.",
     stats: [
-      { label: "Scale", val: "Multi-storey" },
+      { label: "Type", val: "Commercial building" },
     ],
   },
-  {
-    id: "kovilakam-villa-manjeri",
-    name: "Kovilakam Villa",
-    location: "Manjeri, Kerala",
-    type: "Residential Villa",
-    status: "ON GOING",
-    img: "/projects/project-2.webp",
-    desc: "An exclusive boutique villa community set against lush green hillsides in Manjeri, designed for privacy and elegance.",
-    stats: [
-      { label: "Scale", val: "Premium Villa" },
-    ],
-  },
-
-
   {
     id: "commercial-areacode",
     name: "Commercial Building at Areacode",
@@ -75,21 +85,9 @@ const projects: Project[] = [
     type: "Commercial",
     status: "COMPLETED",
     img: "/projects/project-15.png",
-    desc: "A completed modern multi-storey commercial building in Areacode clad in premium composite metal panels.",
+    desc: "A functional, well-engineered commercial building in Areacode, designed to serve local business and retail needs.",
     stats: [
-      { label: "Scale", val: "Business Hub" },
-    ],
-  },
-  {
-    id: "mak-villa-perinthalmanna",
-    name: "Mak Villa Project at Perinthalmanna",
-    location: "Perinthalmanna, Kerala",
-    type: "Residential Villa",
-    status: "ON GOING",
-    img: "/projects/project-17.png",
-    desc: "A luxury residential development in Perinthalmanna containing custom planned modern villa designs.",
-    stats: [
-      { label: "Scale", val: "Premium Villa" },
+      { label: "Type", val: "Commercial building" },
     ],
   },
 ];

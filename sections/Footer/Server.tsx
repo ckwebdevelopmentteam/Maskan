@@ -27,7 +27,7 @@ export default function Footer() {
             <span className="text-[10px] uppercase tracking-widest text-white/40 font-semibold mb-1">Get in touch</span>
             <a href="tel:+917594033300" className="text-sm text-white/80 hover:text-white transition-colors">+91 75940 33300</a>
             <a href="mailto:maskanplans@gmail.com" className="text-sm text-white/80 hover:text-white transition-colors">maskanplans@gmail.com</a>
-            <p className="text-sm text-white/50">Kozhikode, Kerala, India</p>
+            <p className="text-sm text-white/50">Malappuram, Kerala, India</p>
           </div>
 
           {/* Navigation */}

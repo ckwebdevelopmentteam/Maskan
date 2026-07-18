@@ -56,18 +56,18 @@ export default function HeroServer() {
         <div className="grid max-w-xl grid-cols-2 border border-white/25 bg-black/20 backdrop-blur-md md:justify-self-end">
           <div className="flex min-h-[120px] flex-col items-center justify-center border-r border-white/20 px-6 text-center">
             <span className="text-4xl font-light leading-none md:text-5xl">
-              08+
+              17+
             </span>
             <span className="mt-3 text-xs font-semibold text-white/85 md:text-sm">
-              Years of experience
+              Years of Experience
             </span>
           </div>
           <div className="flex min-h-[120px] flex-col items-center justify-center px-6 text-center">
             <span className="text-4xl font-light leading-none md:text-5xl">
-              25+
+              750+
             </span>
             <span className="mt-3 text-xs font-semibold text-white/85 md:text-sm">
-              Completed projects
+              Projects Completed
             </span>
           </div>
         </div>

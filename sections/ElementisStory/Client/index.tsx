@@ -2,10 +2,12 @@
 
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Building2, Home } from "lucide-react";
+import { ArrowUpRight, Building2, Home, PenTool, Trees } from "lucide-react";
 
 import ImageRes from "@/public/residential_villa.png";
 import ImageCom from "@/public/commercial_plaza.png";
+import ImageDesign from "@/public/white_minimal_interior.png";
+import ImageLandscape from "@/public/aesthetic_cabin_forest.png";
 
 const services: {
   id: string;
@@ -30,6 +32,22 @@ const services: {
     image: ImageCom,
     icon: Building2,
     tags: ["Retail Plazas", "High-Rise Offices", "MEP-Ready Spaces", "Industrial Framing"],
+  },
+  {
+    id: "03",
+    name: "Architectural & Interior Design",
+    tagline: "From initial concept to finished interiors, our design team creates spaces that are as functional as they are beautiful — covering both new builds and interior fit-outs for completed spaces.",
+    image: ImageDesign,
+    icon: PenTool,
+    tags: ["Architectural Design", "Interior Design", "Interior Works", "Premium Interiors"],
+  },
+  {
+    id: "04",
+    name: "Landscape, Renovation & Turnkey Services",
+    tagline: "Beyond new construction, we help clients enhance and complete their spaces — from outdoor landscaping to full renovations and end-to-end turnkey delivery.",
+    image: ImageLandscape,
+    icon: Trees,
+    tags: ["Landscape Design", "Renovation", "Turnkey Construction", "Material Supply"],
   },
 ];
 

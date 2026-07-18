@@ -19,6 +19,7 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
     email: "",
     phone: "",
     message: "",
+    projectType: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
 
@@ -34,7 +35,7 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
     };
   }, [isOpen]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -58,13 +59,13 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
       // Whether success or mock fallback, redirect to thank-you page
       onClose();
       setStatus("idle");
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", projectType: "" });
       router.push("/thank-you");
     } catch {
       // Fallback for demo purposes
       onClose();
       setStatus("idle");
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", projectType: "" });
       router.push("/thank-you");
     }
   };
@@ -89,12 +90,23 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="w-full max-w-xl bg-white text-gray-900 rounded-[2.5rem] shadow-2xl overflow-y-auto max-h-[90vh] md:max-h-[95vh] pointer-events-auto border border-black/5 relative p-6 md:p-10 flex flex-col gap-6 scrollbar-thin"
+              className="w-full max-w-xl bg-white text-gray-900 rounded-[2.5rem] shadow-2xl overflow-y-auto max-h-[90vh] md:max-h-[95vh] pointer-events-auto border border-black/5 relative p-6 md:p-10 flex flex-col gap-6 scrollbar-thin overflow-hidden"
             >
+              {/* Decorative Background Elements */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[2.5rem] z-0">
+                <div className="absolute -top-[20%] -right-[10%] w-[70%] h-[50%] bg-gradient-to-br from-[#1F4F71]/10 to-transparent blur-[80px] rounded-full" />
+                <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-tr from-gray-200/50 to-transparent blur-[60px] rounded-full" />
+                {/* CSS Grid Pattern */}
+                <div 
+                  className="absolute inset-0 opacity-[0.015]" 
+                  style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+                />
+              </div>
+
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors z-20"
+                className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/50 backdrop-blur-md border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors z-20 shadow-sm"
                 aria-label="Close form"
               >
                 <X size={18} />
@@ -112,10 +124,10 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mt-6 leading-tight">
-                  Let&apos;s build the extraordinary.
+                  Your dream space is one message away
                 </h2>
                 <p className="text-sm text-gray-500 max-w-sm mt-2.5 font-light leading-relaxed">
-                  Fill out the form below and our strategy team will reach out to you within 24 hours.
+                  Have a project in mind or just want to say hello? Fill out the form and our team will get back to you.
                 </p>
               </div>
 
@@ -160,25 +172,62 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                       />
                     </div>
                   </div>
-                </div>
+                  {/* Email Field */}
+                  <div className="flex flex-col">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1.5 ml-1">
+                      Email Address *
+                    </span>
+                    <div className="flex items-center bg-gray-50 border border-gray-200/80 rounded-2xl focus-within:ring-2 focus-within:ring-[#1F4F71]/15 focus-within:border-[#1F4F71] transition-all px-4 py-3">
+                      <Mail size={16} className="text-gray-400 mr-2.5 shrink-0" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="bg-transparent border-0 outline-none p-0 w-full text-sm text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:outline-none"
+                        placeholder="name@company.com"
+                      />
+                    </div>
+                  </div>
 
-                {/* Email Field */}
-                <div className="flex flex-col">
-                  <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1.5 ml-1">
-                    Email Address *
-                  </span>
-                  <div className="flex items-center bg-gray-50 border border-gray-200/80 rounded-2xl focus-within:ring-2 focus-within:ring-[#1F4F71]/15 focus-within:border-[#1F4F71] transition-all px-4 py-3">
-                    <Mail size={16} className="text-gray-400 mr-2.5 shrink-0" />
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="bg-transparent border-0 outline-none p-0 w-full text-sm text-gray-900 placeholder:text-gray-400 focus:ring-0 focus:outline-none"
-                      placeholder="name@company.com"
-                    />
+                  {/* Type Of Project Field */}
+                  <div className="flex flex-col">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1.5 ml-1">
+                      Type Of Project
+                    </span>
+                    <div className="relative flex items-center bg-gray-50 border border-gray-200/80 rounded-2xl focus-within:ring-2 focus-within:ring-[#1F4F71]/15 focus-within:border-[#1F4F71] transition-all px-4 py-3">
+                      <svg className="w-4 h-4 text-gray-400 mr-2.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      <select
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="bg-transparent border-0 outline-none p-0 w-full text-sm text-gray-900 appearance-none cursor-pointer focus:ring-0 focus:outline-none"
+                      >
+                        <option value="" disabled hidden>Select Your Project</option>
+                        <option value="maskan-avoria">Maskan Avoria</option>
+                        <option value="meridian-heights">Meridian Heights</option>
+                        <option value="kakanad-commercial-hub">Kakanad Commercial Hub</option>
+                        <option value="plaza-commercial-complex">Plaza Commercial Complex</option>
+                        <option value="manjeri-white-field">Manjeri White Field</option>
+                        <option value="residential-flat">Residential Flat</option>
+                        <option value="plaza-commercial-building">Plaza Commercial Building</option>
+                        <option value="ayush-villa">Ayush Villa</option>
+                        <option value="school-project-pattambi">School Project (Pattambi)</option>
+                        <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
+                        <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
+                        <option value="school-project-thirur">School Project (Thirur)</option>
+                        <option value="other">Other</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

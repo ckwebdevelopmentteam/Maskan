@@ -36,12 +36,12 @@ export default function ServicesIntro() {
           <h2
             className="text-3xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.1] tracking-tight text-[var(--fg-primary)]"
           >
-            Transformative Construction Services: Crafting Your Vision, Shaping Timeless Spaces
+            End-to-End Construction & Development Solutions
           </h2>
 
           {/* Body */}
           <p className="text-base md:text-lg text-[var(--fg-primary)]/55 leading-relaxed font-light max-w-2xl">
-            Explore Maskan&apos;s transformative construction services, where architectural excellence meets curated interiors, sustainable solutions, and expert consultations. Our commitment to precision and innovation ensures every space we touch becomes a testament to timeless sophistication. Welcome to a world where your vision takes shape with Maskan&apos;s unparalleled expertise.
+            At Maskan Builders, our expertise spans across multiple divisions to bring your project to life from the ground up. Whether it is a single premium villa or a large-scale commercial high-rise, we deliver quality, transparency, and timely execution.
           </p>
 
           {/* CTAs */}
@@ -61,10 +61,10 @@ export default function ServicesIntro() {
 
             {/* Secondary text link */}
             <a
-              href="tel:+925111162725"
+              href="tel:+917594033300"
               className="flex items-center gap-1.5 text-base font-semibold uppercase tracking-[0.12em] text-[var(--fg-primary)]/60 hover:text-[var(--fg-primary)] transition-colors duration-300"
             >
-              Call Us: +92 51 111 MASKAN
+              Call Us: +91 75940 33300
               <span className="text-base leading-none">↗</span>
             </a>
           </div>

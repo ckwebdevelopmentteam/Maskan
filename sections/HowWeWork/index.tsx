@@ -8,17 +8,17 @@ const steps = [
   {
     num: "01",
     title: "Site survey & estimate",
-    desc: "We inspect the land, soil conditions, access, service lines, and project requirements before preparing a practical scope, schedule, and cost framework.",
+    desc: "We inspect the land, soil conditions, access, and service lines before preparing a practical scope, schedule, and cost framework for your project.",
   },
   {
     num: "02",
     title: "Plan, approvals & schedule",
-    desc: "Our team coordinates drawings, approvals, structural planning, vendor selection, and the payment scheme so site work can begin with financial clarity.",
+    desc: "Our team coordinates drawings, approvals, structural planning, and vendor selection so site work can begin with full financial clarity — no hidden costs, no surprises.",
   },
   {
     num: "03",
     title: "Build, inspect & handover",
-    desc: "From foundation to finishing, we manage execution, quality checks, safety, timelines, and final handover with clear updates at every stage.",
+    desc: "From foundation to finishing, we manage execution, quality checks, safety, and timelines, with clear updates at every stage through to final handover.",
   },
 ];
 

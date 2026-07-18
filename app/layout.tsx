@@ -22,8 +22,8 @@ const CormorantGaramond = Cormorant_Garamond({
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: "Maskan Builders",
-  description: "Premium architectural and construction services",
+  title: "Maskan Builders | Best Construction Company in Kerala | 17+ Years Experience",
+  description: "Maskan Builders is the best construction company in Kerala, with 17+ years and 750+ residential & commercial projects completed.",
 };
 
 export default function RootLayout({
@@ -48,3 +48,4 @@ export default function RootLayout({
     </html>
   );
 }
+// Trigger rebuild

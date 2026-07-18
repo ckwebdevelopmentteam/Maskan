@@ -9,17 +9,22 @@ export default function ServicesHero() {
     <div className="px-4 md:px-6 pt-4 pb-12">
       <section className="relative h-[50vh] md:h-[60vh] w-full flex items-center overflow-hidden rounded-[2.5rem] bg-gray-900">
         {/* Background Image with Dark Vignette Overlay */}
-        <div className="absolute inset-0 w-full h-full">
+        <motion.div 
+          className="absolute inset-0 w-full h-full"
+          initial={{ scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.5, ease: "easeOut" }}
+        >
           <Image
             src="/projects hero.avif"
             alt="maskan-services-banner"
             fill
             priority
-            className="object-cover brightness-[0.8] contrast-[1.05]"
+            className="object-cover brightness-[0.7] contrast-[1.1]"
           />
           {/* Black overlay to keep high contrast and neutralize bright parts */}
-          <div className="absolute inset-0 bg-black/30 z-[1]" />
-        </div>
+          <div className="absolute inset-0 bg-black/40 z-[1]" />
+        </motion.div>
 
         {/* Content Overlay */}
         <div className="relative z-10 w-full px-6 md:px-16 max-w-7xl mx-auto mt-8">

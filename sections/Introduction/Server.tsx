@@ -29,7 +29,7 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
           </div>
 
           <h2 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-light text-[var(--fg-primary)] leading-[1.1] mb-10 tracking-tight">
-            We Are Your Trusted Partner in Finding the Perfect Architectural Solutions
+            Kerala's Trusted Construction Partner for 17+ Years
           </h2>
 
         </motion.div>

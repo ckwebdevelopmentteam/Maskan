@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import NavBar from "@/components/Client/NavBar";
 import ScrollReveal from "@/components/Client/ScrollReveal";
-import ElementisStory from "@/sections/ElementisStory";
+import ServicesStickyScroll from "@/sections/ServicesStickyScroll";
 import Footer from "@/sections/Footer/Server";
 import Form from "@/sections/Form";
 import Innovation from "@/components/Client/Innovation";
@@ -19,6 +19,7 @@ export default function Home() {
     <main>
       <ScrollReveal><Hero /></ScrollReveal>
       <ScrollReveal><Introduction /></ScrollReveal>
+      <ScrollReveal><ServicesStickyScroll /></ScrollReveal>
       <ScrollReveal><HowWeWork /></ScrollReveal>
       <div><Innovation /></div>
       <ScrollReveal><ProjectsGrid /></ScrollReveal>
@@ -28,7 +29,7 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <ScrollReveal><WhyChooseUs /></ScrollReveal>
-      <ScrollReveal><ElementisStory /></ScrollReveal>
+
 
       {/* CTA */}
       <ScrollReveal><Form /></ScrollReveal>

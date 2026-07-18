@@ -23,7 +23,7 @@ export default function ServicesPage() {
       {/* ── 2. INTRO ── */}
       <ServicesIntro />
 
-      {/* ── 2. ROW-BASED EDITORIAL SERVICES REVEAL ── */}
+      {/* ── 3. ROW-BASED EDITORIAL SERVICES REVEAL ── */}
       <ElementisStory />
 
       {/* ── 4. SIMPLE PROCESS STUNNING TRANSFORMATIONS ── */}

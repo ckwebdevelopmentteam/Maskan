@@ -186,7 +186,13 @@ export default function Process() {
         </div>
 
         {/* Blueprint Grid Container */}
-        <div className="max-w-[1200px] mx-auto border border-dashed border-[var(--fg-primary)]/20 bg-[var(--bg-primary)] transition-colors duration-500 overflow-hidden">
+        <motion.div 
+          className="max-w-[1200px] mx-auto border border-dashed border-[var(--fg-primary)]/20 bg-[var(--bg-primary)] transition-colors duration-500 overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.24, 0.43, 0.15, 0.97] }}
+        >
           
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-3 border-b border-dashed border-[var(--fg-primary)]/20">
@@ -258,7 +264,7 @@ export default function Process() {
 
           </div>
 
-        </div>
+        </motion.div>
         
       </div>
     </section>
