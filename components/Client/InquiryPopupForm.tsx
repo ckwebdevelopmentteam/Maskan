@@ -128,6 +128,9 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                 </h2>
                 <p className="text-sm text-gray-500 max-w-sm mt-2.5 font-light leading-relaxed">
                   Have a project in mind or just want to say hello? Fill out the form and our team will get back to you.
+                  <span className="block mt-2 text-[14px] font-semibold text-[var(--fg-primary)]">
+                    &quot;നിങ്ങളുടെ സ്വപ്ന വീട് ഒരു സന്ദേശം അകലെ&quot;
+                  </span>
                 </p>
               </div>
 
