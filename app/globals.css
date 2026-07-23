@@ -5,11 +5,6 @@ html.lenis body {
   height: auto;
 }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
@@ -76,7 +71,7 @@ body::after {
   opacity: 0.035;
 }
 :root {
-  --multiplier: calc(100% / 375);
+  --multiplier: calc(100vw / 375);
   --basesvh: 812;
 
   /* Theme colors (Maskan Blue — default) */
@@ -102,7 +97,7 @@ body::after {
 }
 @media only screen and (min-width: 768px) {
   :root {
-    --multiplier: calc(100% / 1440);
+    --multiplier: calc(100vw / 1440);
   }
 }
 @theme {
