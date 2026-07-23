@@ -32,9 +32,7 @@ export default function FormServer() {
           <p className="mt-3 mb-6 text-base md:text-sm text-gray-500 font-light leading-relaxed text-center md:text-left">
             Have a project in mind or just want to say hello?<br className="hidden md:inline" />
             Fill out the form and our team will get back to you.
-            <span className="block mt-3 text-[15px] md:text-[14px] font-semibold text-[var(--fg-primary)]">
-              &quot;നിങ്ങളുടെ സ്വപ്ന വീട് ഒരു സന്ദേശം അകലെ&quot;
-            </span>
+
           </p>
 
           <Form action="" className="grid grid-cols-1 md:grid-cols-2 gap-4">
