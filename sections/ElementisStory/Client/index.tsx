@@ -63,7 +63,7 @@ export default function ElementisStoryClient() {
             <Link
               href="/services"
               key={service.name}
-              className="group flex flex-col w-full bg-white transition-all duration-500"
+              className="group flex flex-col w-full bg-[var(--bg-card)] border border-[var(--border-white-5)] p-6 md:p-10 transition-all duration-500"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
                 

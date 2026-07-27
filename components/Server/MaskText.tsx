@@ -25,22 +25,23 @@ export default function MaskText({
     },
   };
   const variants = {
-    initial: { y: "100%", clipPath: "inset(0% -20% 100% -20%)" },
+    initial: { opacity: 0, y: 15 },
     inView: {
-      y: "0%",
-      clipPath: "inset(-20% -20% -20% -20%)",
+      opacity: 1,
+      y: 0,
       transition: {
-        ease: [0.76, 0, 0.24, 1] as const,
-        duration: 0.8,
+        ease: [0.24, 0.43, 0.15, 0.97] as const,
+        duration: 0.6,
       },
     },
   };
   return (
     <motion.div
       initial="initial"
+      animate="inView"
       whileInView="inView"
       variants={containerVariants}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.05 }}
       style={{ ...style }}
       className={cn("", className)}
     >
