@@ -81,6 +81,8 @@ export default function VideoPlayer({
                   loop={true}
                   muted={true}
                   playsInline={true}
+                  preload="none"
+                  poster="/Hero/elementis-posterjpg.png"
                   onTimeUpdate={() => {
                     videoProgress.set(videoRef.current?.currentTime as number);
                   }}

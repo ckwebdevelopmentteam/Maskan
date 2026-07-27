@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
+import ScrollReveal from "@/components/Client/ScrollReveal";
 
 const AnimatedCalendar = () => {
   const [activeDate, setActiveDate] = useState(1);
@@ -186,12 +187,8 @@ export default function Process() {
         </div>
 
         {/* Blueprint Grid Container */}
-        <motion.div 
+        <ScrollReveal 
           className="max-w-[1200px] mx-auto border border-dashed border-[var(--fg-primary)]/20 bg-[var(--bg-primary)] transition-colors duration-500 overflow-hidden"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.24, 0.43, 0.15, 0.97] }}
         >
           
           {/* Row 1 */}
@@ -264,7 +261,7 @@ export default function Process() {
 
           </div>
 
-        </motion.div>
+        </ScrollReveal>
         
       </div>
     </section>

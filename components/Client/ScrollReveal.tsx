@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, MotionProps } from "framer-motion";
+import { motion, MotionProps } from "motion/react";
 import { useIsMobile } from "@/app/providers";
 
 type ScrollRevealProps = {

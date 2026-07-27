@@ -16,7 +16,7 @@ export default function ServicesHero() {
           transition={{ duration: 2.5, ease: "easeOut" }}
         >
           <Image
-            src="/projects hero.avif"
+            src="/projects-hero.avif"
             alt="maskan-services-banner"
             fill
             priority

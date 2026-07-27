@@ -15,7 +15,7 @@ import Form from "@/sections/Form";
 
 export default function AboutPage() {
   return (
-    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen overflow-x-hidden">
+    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen">
       <NavBar />
       
       {/* 1. Header Banner Redesigned to Immersive Rounded Layout */}

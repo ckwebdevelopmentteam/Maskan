@@ -9,6 +9,7 @@ export default function HeroMobileClient() {
         muted
         loop
         playsInline
+        preload="metadata"
       >
         <source src="/WBpOY8hrNdXiZ4GGR4RQTxf4R4.mp4" type="video/mp4" />
       </video>

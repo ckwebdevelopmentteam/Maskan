@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SocialLogos from "@/components/SVGComponents/socials";
 import Image from "next/image";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";

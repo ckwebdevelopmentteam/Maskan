@@ -138,7 +138,7 @@ const projectsList = [
 
 export default function ProjectsPage() {
   return (
-    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen relative overflow-x-hidden selection:bg-[var(--accent)] selection:text-[var(--bg-primary)] flex flex-col">
+    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen relative selection:bg-[var(--accent)] selection:text-[var(--bg-primary)] flex flex-col">
       <NavBar />
 
       <div className="px-4 md:px-6 pt-4 pb-20">

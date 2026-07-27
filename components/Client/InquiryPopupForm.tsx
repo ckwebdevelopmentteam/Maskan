@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, Send, User, Phone, Mail, MessageSquare } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";

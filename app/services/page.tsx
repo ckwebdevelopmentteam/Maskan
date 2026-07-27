@@ -14,7 +14,7 @@ import CTA from "@/sections/CTA";
 
 export default function ServicesPage() {
   return (
-    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen overflow-x-hidden">
+    <main className="bg-[var(--bg-primary)] text-[var(--fg-primary)] min-h-screen">
       <NavBar />
 
       {/* ── 1. HERO BANNER ── */}

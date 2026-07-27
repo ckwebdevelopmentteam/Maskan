@@ -74,7 +74,7 @@ export default async function CareersPage() {
   ]);
 
   return (
-    <main className="bg-[var(--bg-primary)] min-h-screen text-[var(--fg-primary)] overflow-x-hidden">
+    <main className="bg-[var(--bg-primary)] min-h-screen text-[var(--fg-primary)]">
       <NavBar />
       
       <CareersHero />

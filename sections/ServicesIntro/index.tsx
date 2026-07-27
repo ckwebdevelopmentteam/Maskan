@@ -3,19 +3,14 @@
 import React from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import ScrollReveal from "@/components/Client/ScrollReveal";
 
 export default function ServicesIntro() {
   return (
     <section className="w-full bg-[var(--bg-primary)] overflow-hidden">
       {/* ── Top Content Container ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 pt-16 md:pt-24 pb-4">
-        <motion.div
-          className="flex flex-col gap-6 max-w-3xl"
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-        >
+        <ScrollReveal className="flex flex-col gap-6 max-w-3xl">
           {/* Tag label */}
           <div className="flex items-center gap-2">
             <div
@@ -68,7 +63,7 @@ export default function ServicesIntro() {
               <span className="text-base leading-none">↗</span>
             </a>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );

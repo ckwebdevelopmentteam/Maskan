@@ -17,6 +17,7 @@ export default function FormServer() {
             muted
             loop
             playsInline
+            preload="metadata"
           >
             <source src="/c30b4c66.mp4" type="video/mp4" />
           </video>
