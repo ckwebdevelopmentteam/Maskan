@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image1 from "@/public/about 1.avif";
-import Image2 from "@/public/about 5.avif";
-import Image3 from "@/public/about 4.avif";
+import Image1 from "@/public/about 1.webp";
+import Image2 from "@/public/about 5.webp";
+import Image3 from "@/public/about 4.webp";
 
 export default function IntroductionServer({ noTopPadding = false }: { noTopPadding?: boolean }) {
   return (

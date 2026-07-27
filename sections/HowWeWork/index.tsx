@@ -27,7 +27,7 @@ export default function HowWeWork() {
     <section className="relative w-full overflow-hidden bg-[var(--bg-primary)] transition-colors duration-500">
       <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] opacity-[0.12] md:block">
         <Image
-          src="/build.avif"
+          src="/build.webp"
           alt=""
           fill
           className="object-cover"
@@ -124,7 +124,7 @@ export default function HowWeWork() {
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/about 4.avif"
+                    src="/about 4.webp"
                     alt="Construction site with excavation and concrete work in progress"
                     fill
                     className="object-cover"

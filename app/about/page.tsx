@@ -6,7 +6,7 @@ import Footer from "@/sections/Footer/Server";
 import Introduction from "@/sections/Introduction";
 import { motion } from "motion/react";
 import Image from "next/image";
-import BannerImage from "@/public/about.avif";
+import BannerImage from "@/public/about.webp";
 import HowWeWork from "@/sections/HowWeWork";
 import WhyChooseUs from "@/sections/WhyChooseUs";
 import FAQ from "@/sections/FAQ";

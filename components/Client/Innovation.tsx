@@ -1,10 +1,10 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import Image1 from "@/public/F1.avif";
-import Image2 from "@/public/F2.avif";
+import Image1 from "@/public/F1.webp";
+import Image2 from "@/public/F2.webp";
 import Image3 from "@/public/F3.webp";
-import Image4 from "@/public/F4.avif";
+import Image4 from "@/public/F4.webp";
 import {
   motion,
   MotionValue,

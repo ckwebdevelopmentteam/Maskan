@@ -33,7 +33,7 @@ export default function ElementisStoryServer() {
           className="relative w-full aspect-[16/10] overflow-hidden"
         >
           <Image
-            src="/drawing.avif"
+            src="/drawing.webp"
             alt="Architectural drawing plan"
             fill
             className="object-cover"

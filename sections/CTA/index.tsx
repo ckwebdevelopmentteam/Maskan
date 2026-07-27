@@ -14,7 +14,7 @@ export default function CTA() {
         {/* Parallax Background Image (UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif) */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed scale-105"
-          style={{ backgroundImage: `url('/UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif')` }}
+          style={{ backgroundImage: `url('/UOKG1WBP4iClBZMcV2ZS55S7Jyw.webp')` }}
         />
         
         {/* Dark Overlay for Text Contrast */}

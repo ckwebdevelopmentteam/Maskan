@@ -34,22 +34,22 @@ const testimonialsData = [
     location: "Bangalore",
   },
   {
-    image: "/S0kKRTM44yfHbhgnxbX3PNQlwE.avif",
-    quote: "Their commitment to sustainability and modern design is unparalleled. The finished project is not just a building; it's a piece of art.",
-    author: "Rahul Verma",
-    location: "Mumbai",
+    image: "/S0kKRTM44yfHbhgnxbX3PNQlwE.webp",
+    quote: "Maskan delivered our commercial project on time and within budget. Their structural engineering and project management are top tier in Kerala.",
+    author: "Faisal K.",
+    location: "Commercial Client, Perinthalmanna",
   },
   {
-    image: "/UOKG1WBP4iClBZMcV2ZS55S7Jyw.avif",
-    quote: "From planning to execution, everything was handled with utmost professionalism. I couldn't be happier with my new workspace.",
-    author: "Emily Chen",
-    location: "Pune",
+    image: "/UOKG1WBP4iClBZMcV2ZS55S7Jyw.webp",
+    quote: "From architectural design to turnkey handover, the transparency was remarkable. Daily site updates kept us completely at peace.",
+    author: "Dr. Ananya Nair",
+    location: "Villa Owner, Calicut",
   },
   {
-    image: "/Maskan 01_page-0026.jpg",
-    quote: "A seamless experience from start to finish. The team's dedication to quality and timely delivery is truly commendable.",
-    author: "Vikram Singh",
-    location: "Delhi",
+    image: "/S0kKRTM44yfHbhgnxbX3PNQlwE.webp",
+    quote: "Building our home while residing abroad seemed daunting, but Maskan managed everything seamlessly with absolute integrity.",
+    author: "Rashid Ali",
+    location: "NRI Client, Dubai / Malappuram",
   }
 ];
 
