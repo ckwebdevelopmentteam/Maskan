@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { MapPin, Navigation } from "lucide-react";
 
 // Import project images for the hover card
-import CelesteRivieraImg from "@/public/celeste-riviera.png";
-import AtmosphereImg from "@/public/atmosphere.png";
-import EleveMaisonImg from "@/public/eleve-maison.png";
+import CelesteRivieraImg from "@/public/celeste-riviera.webp";
+import AtmosphereImg from "@/public/atmosphere.webp";
+import EleveMaisonImg from "@/public/eleve-maison.webp";
 import VerdeVillaImg from "@/public/property-1.jpg";
 
 const locations = [

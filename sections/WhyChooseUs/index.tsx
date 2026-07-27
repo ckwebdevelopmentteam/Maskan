@@ -9,7 +9,7 @@ import Img1 from "@/public/property-1.jpg";
 import Img2 from "@/public/property-2.jpg";
 import Img3 from "@/public/property-3.jpg";
 import Img4 from "@/public/property-4.jpg";
-import Img5 from "@/public/why_choose_us_sofa.png";
+import Img5 from "@/public/why_choose_us_sofa.webp";
 import Img6 from "@/public/F1.avif";
 
 // Re-import avatars from original design

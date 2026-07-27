@@ -154,7 +154,7 @@ export default function ClientTestimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Image src="/ImageContainer/image-2.png" alt="Project interior" fill className="object-cover" />
+            <Image src="/ImageContainer/image-2.webp" alt="Project interior" fill className="object-cover" />
           </motion.div>
 
           {/* Card 7 — Off-white */}

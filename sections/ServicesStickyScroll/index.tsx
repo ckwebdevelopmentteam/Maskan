@@ -6,10 +6,10 @@ import { motion } from "motion/react";
 import { ArrowUpRight, Building2, Home, PenTool, Trees } from "lucide-react";
 import Link from "next/link";
 
-import ImageRes from "@/public/residential_villa.png";
-import ImageCom from "@/public/commercial_plaza.png";
-import ImageDesign from "@/public/white_minimal_interior.png";
-import ImageLandscape from "@/public/aesthetic_cabin_forest.png";
+import ImageRes from "@/public/residential_villa.webp";
+import ImageCom from "@/public/commercial_plaza.webp";
+import ImageDesign from "@/public/white_minimal_interior.webp";
+import ImageLandscape from "@/public/aesthetic_cabin_forest.webp";
 
 const services = [
   {

@@ -246,7 +246,7 @@ export default function Process() {
             {/* Wide Landscape Image Block (2 cols) */}
             <div className="relative md:col-span-2 min-h-[260px] md:min-h-full overflow-hidden group border-t border-dashed md:border-t-0 border-[var(--fg-primary)]/20">
               <Image
-                src="/why_choose_us_sofa.png"
+                src="/why_choose_us_sofa.webp"
                 alt="Beautiful Minimalist Living Room Architecture"
                 fill
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] rounded-none"

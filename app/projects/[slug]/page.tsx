@@ -350,14 +350,14 @@ const projectsData = {
       { title: "Rooftop Cafeteria", description: "Panoramic views while you dine and relax." }
     ],
     images: [
-      "/commercial_complex_render.png",
-      "/white_minimal_house.png",
-      "/white_minimal_interior.png",
-      "/white_minimal_facade.png",
-      "/white_minimal_villa.png",
-      "/white_minimal_interior.png",
-      "/white_minimal_house.png",
-      "/white_minimal_facade.png"
+      "/commercial_complex_render.webp",
+      "/white_minimal_house.webp",
+      "/white_minimal_interior.webp",
+      "/white_minimal_facade.webp",
+      "/white_minimal_villa.webp",
+      "/white_minimal_interior.webp",
+      "/white_minimal_house.webp",
+      "/white_minimal_facade.webp"
     ]
   },
   "avoria-heights": {
@@ -380,13 +380,13 @@ const projectsData = {
       { title: "Concierge Services", description: "24/7 assistance for all your lifestyle needs." }
     ],
     images: [
-      "/white_minimal_villa.png",
-      "/white_minimal_house.png",
-      "/white_minimal_interior.png",
-      "/white_minimal_facade.png",
-      "/white_minimal_house.png",
-      "/white_minimal_villa.png",
-      "/white_minimal_interior.png"
+      "/white_minimal_villa.webp",
+      "/white_minimal_house.webp",
+      "/white_minimal_interior.webp",
+      "/white_minimal_facade.webp",
+      "/white_minimal_house.webp",
+      "/white_minimal_villa.webp",
+      "/white_minimal_interior.webp"
     ]
   },
 };
