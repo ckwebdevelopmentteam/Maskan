@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactLenis root>
+      <ReactLenis root options={{ duration: 1.0, lerp: 0.1, smoothWheel: true }}>
         <body
           className={`${outfit.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
         >

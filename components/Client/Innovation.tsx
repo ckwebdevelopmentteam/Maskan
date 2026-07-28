@@ -34,14 +34,21 @@ function Innovation() {
     offset: ["15vh 0", "385vh end"],
   });
   const imgs = [Image1, Image2, Image3, Image4];
+  const lastNavOpacity = useRef<number | null>(null);
+  const lastState = useRef<number>(0);
+
   useMotionValueEvent(parentProgress, "change", (latest) => {
-    if (latest > 0 && latest < 1) {
-      dispatch(setNavOpacity(0));
-    } else {
-      dispatch(setNavOpacity(1));
+    const targetOpacity = latest > 0 && latest < 1 ? 0 : 1;
+    if (lastNavOpacity.current !== targetOpacity) {
+      lastNavOpacity.current = targetOpacity;
+      dispatch(setNavOpacity(targetOpacity));
     }
 
-    setState(Math.min(Math.floor(latest * imgs.length), imgs.length - 1));
+    const nextState = Math.min(Math.floor(latest * imgs.length), imgs.length - 1);
+    if (lastState.current !== nextState) {
+      lastState.current = nextState;
+      setState(nextState);
+    }
   });
   return (
     <div

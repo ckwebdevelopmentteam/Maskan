@@ -56,7 +56,9 @@ export default function FAQ() {
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="none"
+                disablePictureInPicture
+                disableRemotePlayback
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Black Overlay */}
