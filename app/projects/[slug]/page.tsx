@@ -226,8 +226,8 @@ const projectsData = {
       { title: "Multi-Block Campus", description: "Independent wings for elementary, secondary, and administrative offices." },
     ],
     images: [
-      "/projects/project-14.jpg",
       "/projects/project-6.webp",
+      "/projects/project-14.jpg",
       "/projects/project-7.webp",
       "/projects/project-8.webp",
       "/projects/project-9.webp",
@@ -468,12 +468,102 @@ const projectsData = {
       "/white_minimal_facade.webp"
     ]
   },
+  "kakanad-commercial-hub": {
+    title: "Veekay Signature",
+    location: "Kakanad, Kochi, Kerala",
+    category: "Commercial",
+    scale: "Commercial building",
+    status: "On Going",
+    description: "A cutting-edge commercial building in Kakanad, Kochi, redefining business landscapes in the IT and commercial hub of Kerala.",
+    story: {
+      theWhere: "Located strategically in Kakanad, Kochi, close to major IT parks and key transit arteries.",
+      theHow: "Designed with a modern glazed façade, efficient floor plans, and flexible space configurations suitable for corporate offices and modern retail.",
+      theDetails: "Features double-height entrance lobbies, high-speed elevator access, dedicated parking decks, and advanced energy-efficient lighting."
+    },
+    highlights: [
+      { title: "Prime Kakkanad Location", description: "Positioned in Kochi's premier IT and commercial corridor." },
+      { title: "Contemporary Glazed Façade", description: "Sleek architectural exterior maximising daylight and aesthetic appeal." },
+      { title: "Flexible Commercial Spaces", description: "Adaptable floor plates for corporate suites, retail, and tech offices." },
+      { title: "High-Speed Elevators & Parking", description: "Multi-level structured parking and fast vertical transport." }
+    ],
+    images: [
+      "/projects/Veekay Signature.jpeg",
+      "/projects/project-1.webp",
+      "/projects/project-6.webp",
+      "/projects/project-7.webp",
+      "/projects/project-8.webp"
+    ]
+  },
+  "veekay-signature": {
+    title: "Veekay Signature",
+    location: "Kakanad, Kochi, Kerala",
+    category: "Commercial",
+    scale: "Commercial building",
+    status: "On Going",
+    description: "A cutting-edge commercial building in Kakanad, Kochi, redefining business landscapes in the IT and commercial hub of Kerala.",
+    story: {
+      theWhere: "Located strategically in Kakanad, Kochi, close to major IT parks and key transit arteries.",
+      theHow: "Designed with a modern glazed façade, efficient floor plans, and flexible space configurations suitable for corporate offices and modern retail.",
+      theDetails: "Features double-height entrance lobbies, high-speed elevator access, dedicated parking decks, and advanced energy-efficient lighting."
+    },
+    highlights: [
+      { title: "Prime Kakkanad Location", description: "Positioned in Kochi's premier IT and commercial corridor." },
+      { title: "Contemporary Glazed Façade", description: "Sleek architectural exterior maximising daylight and aesthetic appeal." },
+      { title: "Flexible Commercial Spaces", description: "Adaptable floor plates for corporate suites, retail, and tech offices." },
+      { title: "High-Speed Elevators & Parking", description: "Multi-level structured parking and fast vertical transport." }
+    ],
+    images: [
+      "/projects/Veekay Signature.jpeg",
+      "/projects/project-1.webp",
+      "/projects/project-6.webp",
+      "/projects/project-7.webp",
+      "/projects/project-8.webp"
+    ]
+  },
+};
+
+// Aliases for slug compatibility across all pages
+projectsData["plaza-commercial-complex" as keyof typeof projectsData] = projectsData["commercial-muvatupuzha"];
+projectsData["manjeri-white-field" as keyof typeof projectsData] = projectsData["kovilakam-villa-manjeri"];
+projectsData["plaza-commercial-building" as keyof typeof projectsData] = projectsData["commercial-veliyamcode"];
+projectsData["ayush-villa" as keyof typeof projectsData] = projectsData["ayush-villa-valancheri"];
+projectsData["school-project-pattambi" as keyof typeof projectsData] = projectsData["school-pattambi"];
+projectsData["commercial-building-edappal" as keyof typeof projectsData] = projectsData["commercial-edappal"];
+projectsData["commercial-building-areacode" as keyof typeof projectsData] = projectsData["commercial-areacode"];
+(projectsData as Record<string, unknown>)["school-project-tirur"] = projectsData["school-thirur"];
+(projectsData as Record<string, unknown>)["school-project-thirur"] = projectsData["school-thirur"];
+(projectsData as Record<string, unknown>)["school-tirur"] = projectsData["school-thirur"];
+
+const getProjectBySlug = (rawSlug: string) => {
+  if (!rawSlug) return projectsData["maskan-avoria"];
+  const slug = decodeURIComponent(rawSlug).toLowerCase().trim();
+
+  if (slug in projectsData) {
+    return projectsData[slug as keyof typeof projectsData];
+  }
+
+  const cleanTarget = slug.replace(/[^a-z0-9]/g, "");
+  for (const [key, data] of Object.entries(projectsData)) {
+    const cleanKey = key.replace(/[^a-z0-9]/g, "");
+    if (cleanKey === cleanTarget) {
+      return data;
+    }
+  }
+
+  for (const [key, data] of Object.entries(projectsData)) {
+    const cleanKey = key.replace(/[^a-z0-9]/g, "");
+    if (cleanTarget && (cleanTarget.includes(cleanKey) || cleanKey.includes(cleanTarget))) {
+      return data;
+    }
+  }
+
+  // Robust fallback to guarantee a project page always loads cleanly
+  return projectsData["maskan-avoria"];
 };
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
-  const slug = resolvedParams.slug as keyof typeof projectsData;
-  const project = projectsData[slug];
+  const project = getProjectBySlug(resolvedParams.slug);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -587,10 +677,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {project.images.slice(1).map((img, idx) => (
-            <div key={idx} className="flex flex-col group cursor-pointer">
-              <div className="relative w-full aspect-square overflow-hidden bg-gray-100 rounded-sm">
+            <div key={idx} className="flex flex-col">
+              <div className="relative w-full aspect-[16/10] min-h-[300px] md:min-h-[400px] overflow-hidden bg-gray-100 rounded-lg shadow-md">
                 <Image
                   src={img}
                   alt={`${project.title} Gallery ${idx + 1}`}

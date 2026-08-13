@@ -97,9 +97,9 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                 <div className="absolute -top-[20%] -right-[10%] w-[70%] h-[50%] bg-gradient-to-br from-[#1F4F71]/10 to-transparent blur-[80px] rounded-full" />
                 <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-tr from-gray-200/50 to-transparent blur-[60px] rounded-full" />
                 {/* CSS Grid Pattern */}
-                <div 
-                  className="absolute inset-0 opacity-[0.015]" 
-                  style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+                <div
+                  className="absolute inset-0 opacity-[0.015]"
+                  style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
                 />
               </div>
 
@@ -222,7 +222,7 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                         <option value="school-project-pattambi">School Project (Pattambi)</option>
                         <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
                         <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
-                        <option value="school-project-thirur">School Project (Thirur)</option>
+                        <option value="school-project-tirur">School Project (Tirur)</option>
                         <option value="other">Other</option>
                       </select>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">

@@ -44,11 +44,11 @@ const projects: Project[] = [
   },
   {
     id: "kakanad-commercial-hub",
-    name: "Kakanad Commercial Hub",
+    name: "Veekay Signature",
     location: "Kakanad, Kochi, Kerala",
     type: "Commercial",
     status: "ON GOING",
-    img: "/projects/project-1.webp",
+    img: "/projects/Veekay Signature.jpeg",
     desc: "Redefining business landscapes with a cutting-edge commercial building in Kakanad, Kochi.",
     stats: [
       { label: "Type", val: "Commercial building" },
@@ -108,7 +108,7 @@ export default function ProjectsGrid() {
       </div>
 
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
           {projects.map((project, index) => {
             const isCompleted = project.status === "COMPLETED";
 
@@ -116,10 +116,10 @@ export default function ProjectsGrid() {
               <Link
                 href={`/projects/${project.id}`}
                 key={project.id}
-                className="group block"
+                className="block"
               >
                 <motion.article
-                  className="relative flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  className="relative flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 cursor-pointer"
                   initial={{ opacity: 0, y: 36 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "0px" }}
@@ -130,24 +130,24 @@ export default function ProjectsGrid() {
                   }}
                 >
                   {/* Image Section */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                  <div className="relative aspect-[16/10] min-h-[280px] sm:min-h-[340px] md:min-h-[380px] w-full overflow-hidden bg-gray-100">
                     <Image
                       src={project.img}
                       alt={project.name}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
                       priority={index < 4}
                     />
                   </div>
 
                   {/* Content Section */}
-                  <div className="flex flex-1 flex-col p-4 md:p-5 text-gray-900">
+                  <div className="flex flex-1 flex-col p-5 md:p-6 text-gray-900">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-sm font-semibold md:text-base line-clamp-1 group-hover:text-[#1F4F71] transition-colors">
+                      <h3 className="text-base font-semibold md:text-lg text-gray-900">
                         {project.name}
                       </h3>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-[#1F4F71]" />
+                      <ArrowUpRight className="h-5 w-5 shrink-0 text-[#1F4F71]" />
                     </div>
 
                     {/* Location & Area */}

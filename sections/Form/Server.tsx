@@ -117,7 +117,7 @@ export default function FormServer() {
                   <option value="school-project-pattambi">School Project (Pattambi)</option>
                   <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
                   <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
-                  <option value="school-project-thirur">School Project (Thirur)</option>
+                  <option value="school-project-tirur">School Project (Tirur)</option>
                   <option value="other">Other</option>
                 </select>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">

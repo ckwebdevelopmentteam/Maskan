@@ -99,7 +99,7 @@ const projectsList = [
     title: "School Project at Pattambi",
     category: "Educational",
     location: "Pattambi, Kerala",
-    image: "/projects/project-14.jpg",
+    image: "/projects/project-6.webp",
     scale: "Large Educational Complex",
     status: "Ongoing",
     description: "A large-scale school complex under construction in Pattambi, spanning multiple wings and built to modern academic-facility standards.",
@@ -125,14 +125,14 @@ const projectsList = [
     description: "A completed multi-storey commercial building in Areacode, clad in premium composite metal panels with large glazed storefronts, home to leading brands like AGL.",
   },
   {
-    id: "school-project-thirur",
-    title: "School Project at Thirur",
+    id: "school-project-tirur",
+    title: "School Project at Tirur",
     category: "Educational",
-    location: "Thirur, Kerala",
+    location: "Tirur, Kerala",
     image: "/projects/project-16.png",
     scale: "Institutional Campus",
     status: "Ongoing",
-    description: "An expansive institutional campus under development in Thirur, built around a classic U-shaped courtyard layout for excellent ventilation and easy movement between wings.",
+    description: "An expansive institutional campus under development in Tirur, built around a classic U-shaped courtyard layout for excellent ventilation and easy movement between wings.",
   },
 ];
 
@@ -243,15 +243,14 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Image Content */}
-                <div className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-none shadow-[0_12px_36px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-shadow duration-500">
+                <div className="relative w-full aspect-[16/10] min-h-[320px] sm:min-h-[420px] md:min-h-[480px] lg:min-h-[540px] overflow-hidden rounded-lg shadow-lg">
                   <Image
                     src={typeof project.image === 'string' ? project.image : project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
               </div>
