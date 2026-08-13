@@ -111,7 +111,7 @@ export default function FormServer() {
                   <option value="kakanad-commercial-hub">Kakanad Commercial Hub</option>
                   <option value="plaza-commercial-complex">Plaza Commercial Complex</option>
                   <option value="manjeri-white-field">Manjeri White Field</option>
-                  <option value="residential-flat">Residential Flat</option>
+                  <option value="residential-flat">Apartments</option>
                   <option value="plaza-commercial-building">Plaza Commercial Building</option>
                   <option value="ayush-villa">Ayush Villa</option>
                   <option value="school-project-pattambi">School Project (Pattambi)</option>

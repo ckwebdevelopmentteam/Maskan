@@ -24,7 +24,7 @@ const projects: Project[] = [
     location: "Kochi, Kerala",
     type: "Residential",
     status: "COMPLETED",
-    img: "/residential_villa.webp",
+    img: "/projects/Avoria Heights.jpeg",
     desc: "A landmark residential development in Kochi, 112 units plus a new tower, designed for modern urban living.",
     stats: [
       { label: "Scope", val: "112 units + new tower" },
@@ -36,7 +36,7 @@ const projects: Project[] = [
     location: "Perinthalmanna, Kerala",
     type: "Residential",
     status: "ON GOING",
-    img: "/commercial_complex_render.webp",
+    img: "/projects/Meridian Heights.jpeg",
     desc: "An exclusive residential villa project in Perinthalmanna, 42 villas designed for modern elegance and premium living.",
     stats: [
       { label: "Scope", val: "42 villas" },

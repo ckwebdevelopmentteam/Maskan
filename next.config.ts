@@ -10,7 +10,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "standalone",
-  // basePath: "", // uncomment and set if you deploy under a sub‑path
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 3600,
+    qualities: [75, 100],
+  },
 };
 
 export default nextConfig;

@@ -74,8 +74,8 @@ const projectsData = {
       "/projects/project-10.webp",
     ],
   },
-  "residential-flat-malappuram": {
-    title: "Residential Flat",
+  "residential-flat": {
+    title: "Apartments",
     location: "Malappuram, Kerala",
     category: "Residential",
     scale: "3 Storey",
@@ -98,7 +98,39 @@ const projectsData = {
       { title: "Efficient Floor Plan", description: "Compact, well-organised floor plates maximise usable living space." },
     ],
     images: [
-      "/projects/project-3.webp",
+      "/projects/Apartments.jpeg",
+      "/projects/project-6.webp",
+      "/projects/project-7.webp",
+      "/projects/project-8.webp",
+      "/projects/project-9.webp",
+      "/projects/project-10.webp",
+    ],
+  },
+  "residential-flat-malappuram": {
+    title: "Apartments",
+    location: "Malappuram, Kerala",
+    category: "Residential",
+    scale: "3 Storey",
+    status: "On Going",
+    description:
+      "A thoughtfully designed three-storey residential apartment block in Malappuram, combining exposed brick textures with modern concrete elements. Featuring generous balconies with greenery, covered parking, and a rooftop terrace — offering comfortable urban family living.",
+    story: {
+      theWhere:
+        "Situated in a growing residential neighbourhood in Malappuram, the site demanded a design that maximises usable floor area while maintaining a human scale and connection to the street.",
+      theHow:
+        "The building uses exposed red brick as the primary façade material, paired with smooth concrete balcony slabs and metal railings. Lush balcony planting softens the façade and brings greenery to each floor.",
+      theDetails:
+        "The three-storey block includes a covered ground-level car park, spacious family apartments on each floor, and a rooftop terrace with an elevated pool and panoramic views. The top view reveals a compact, efficient floor plate.",
+    },
+    highlights: [
+      { title: "Exposed Brick Façade", description: "Rich red brick textures give the building a warm, grounded residential character." },
+      { title: "Green Balconies", description: "Each floor features generous balconies planted with tropical greenery." },
+      { title: "Rooftop Pool & Terrace", description: "A private rooftop pool and terrace offer elevated outdoor living." },
+      { title: "Covered Parking", description: "Ground-level covered parking ensures convenient and secure vehicle access." },
+      { title: "Efficient Floor Plan", description: "Compact, well-organised floor plates maximise usable living space." },
+    ],
+    images: [
+      "/projects/Apartments.jpeg",
       "/projects/project-6.webp",
       "/projects/project-7.webp",
       "/projects/project-8.webp",
@@ -330,41 +362,90 @@ const projectsData = {
       "/projects/project-8.webp",
     ],
   },
-  "median-heights": {
-    title: "Median Heights",
+  "meridian-heights": {
+    title: "Meridian Heights",
     location: "Perinthalmanna, Kerala",
-    category: "Commercial",
-    scale: "45,000 Sq.Ft",
+    category: "Residential Villa",
+    scale: "42 Villas",
     status: "On Going",
-    description: "A monumental architectural achievement representing the pinnacle of modern commercial design. Designed to inspire and facilitate, it features vast open collaborative spaces that redefine the urban workplace.",
+    description: "An exclusive residential villa project in Perinthalmanna, 42 villas designed for modern elegance and premium family living.",
     story: {
-      theWhere: "Situated in the rapidly evolving commercial hub of Perinthalmanna, the site posed unique spatial constraints.",
-      theHow: "By employing a brutalist concrete exoskeleton paired with vast expanses of low-emissivity glass.",
-      theDetails: "Every floor was designed as a fluid workplace with minimalist white interior finishes."
+      theWhere: "Situated in the rapidly evolving residential hub of Perinthalmanna.",
+      theHow: "Designed with modern architectural elegance, expansive glass facades, and private garden spaces.",
+      theDetails: "Every villa features premium finishes, dedicated parking, and custom interior layouts."
     },
     highlights: [
       { title: "Smart Security", description: "24/7 advanced monitoring and access control." },
-      { title: "Executive Lounge", description: "Premium waiting and networking areas for clients." },
-      { title: "Conference Center", description: "State-of-the-art meeting rooms and auditoriums." },
-      { title: "High-Speed Elevators", description: "Express lifts for minimal wait times." },
-      { title: "Rooftop Cafeteria", description: "Panoramic views while you dine and relax." }
+      { title: "Gated Enclave", description: "Private gated community with wide paved access roads." },
+      { title: "Landscaped Gardens", description: "Lush green lawns and private garden spaces." },
+      { title: "Premium Finishes", description: "High-end fixtures and bespoke interior finishes." },
+      { title: "Club House", description: "Recreational facilities for residents." }
     ],
     images: [
-      "/commercial_complex_render.webp",
+      "/projects/Meridian Heights.jpeg",
       "/white_minimal_house.webp",
       "/white_minimal_interior.webp",
       "/white_minimal_facade.webp",
-      "/white_minimal_villa.webp",
-      "/white_minimal_interior.webp",
+      "/white_minimal_villa.webp"
+    ]
+  },
+  "median-heights": {
+    title: "Meridian Heights",
+    location: "Perinthalmanna, Kerala",
+    category: "Residential Villa",
+    scale: "42 Villas",
+    status: "On Going",
+    description: "An exclusive residential villa project in Perinthalmanna, 42 villas designed for modern elegance and premium family living.",
+    story: {
+      theWhere: "Situated in the rapidly evolving residential hub of Perinthalmanna.",
+      theHow: "Designed with modern architectural elegance, expansive glass facades, and private garden spaces.",
+      theDetails: "Every villa features premium finishes, dedicated parking, and custom interior layouts."
+    },
+    highlights: [
+      { title: "Smart Security", description: "24/7 advanced monitoring and access control." },
+      { title: "Gated Enclave", description: "Private gated community with wide paved access roads." },
+      { title: "Landscaped Gardens", description: "Lush green lawns and private garden spaces." },
+      { title: "Premium Finishes", description: "High-end fixtures and bespoke interior finishes." },
+      { title: "Club House", description: "Recreational facilities for residents." }
+    ],
+    images: [
+      "/projects/Meridian Heights.jpeg",
       "/white_minimal_house.webp",
+      "/white_minimal_interior.webp",
+      "/white_minimal_facade.webp",
+      "/white_minimal_villa.webp"
+    ]
+  },
+  "maskan-avoria": {
+    title: "Maskan Avoria",
+    location: "Marad, Ernakulam, Kerala",
+    category: "Residential",
+    scale: "112 units + new tower",
+    status: "Completed",
+    description: "A landmark residential development in the heart of Ernakulam, 112 units plus a new tower, balancing urban convenience with quality-built, well-integrated living spaces.",
+    story: {
+      theWhere: "Nestled in Marad, Ernakulam, offering convenient access to Kochi's major commercial and transport nodes.",
+      theHow: "Designed with modern high-rise architecture, optimal space utilization, and durable facade materials.",
+      theDetails: "The complex features 112 residential units plus a modern new tower, landscaped common areas, and full facility management."
+    },
+    highlights: [
+      { title: "112 Units + New Tower", description: "Large-scale residential development with modern amenities." },
+      { title: "Prime Kochi Location", description: "Positioned in Marad with seamless urban connectivity." },
+      { title: "Club House & Recreation", description: "Exclusive access to community facilities and green spaces." },
+      { title: "24/7 Security", description: "Comprehensive perimeter security and access control." }
+    ],
+    images: [
+      "/projects/Avoria Heights.jpeg",
+      "/white_minimal_house.webp",
+      "/white_minimal_interior.webp",
       "/white_minimal_facade.webp"
     ]
   },
   "avoria-heights": {
     title: "Avoria Heights",
     location: "Marad, Ernakulam, Kerala",
-    category: "Residential Villa",
-    scale: "12,500 Sq.Ft",
+    category: "Residential",
+    scale: "112 units + new tower",
     status: "Completed",
     description: "Located in the bustling heart of Ernakulam, Maskan is a luxury residential masterpiece that elegantly balances urban sophistication with serene, nature-integrated living spaces.",
     story: {
@@ -380,13 +461,11 @@ const projectsData = {
       { title: "Concierge Services", description: "24/7 assistance for all your lifestyle needs." }
     ],
     images: [
+      "/projects/Avoria Heights.jpeg",
       "/white_minimal_villa.webp",
       "/white_minimal_house.webp",
       "/white_minimal_interior.webp",
-      "/white_minimal_facade.webp",
-      "/white_minimal_house.webp",
-      "/white_minimal_villa.webp",
-      "/white_minimal_interior.webp"
+      "/white_minimal_facade.webp"
     ]
   },
 };
@@ -516,9 +595,8 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   src={img}
                   alt={`${project.title} Gallery ${idx + 1}`}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
               </div>
             </div>
           ))}
