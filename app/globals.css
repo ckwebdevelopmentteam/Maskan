@@ -266,8 +266,3 @@ html.theme-mono-mixed main > :first-child {
   100% { transform: translateX(-50%); }
 }
 
-/* Global Image Border Radius */
-img.object-cover {
-  border-radius: 24px;
-}
-

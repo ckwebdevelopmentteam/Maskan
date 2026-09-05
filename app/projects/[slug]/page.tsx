@@ -3,13 +3,36 @@
 import React, { use, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import FAQ from "@/sections/FAQ/index";
 import CTA from "@/sections/CTA";
 import SeoContent from "@/sections/SeoContent";
 
-const projectsData = {
+type ProjectData = {
+  title: string;
+  location: string;
+  category: string;
+  scale: string;
+  status: string;
+  description: string;
+  story: { theWhere: string; theHow: string; theDetails: string };
+  highlights: { title: string; description: string }[];
+  images: string[];
+  galleryImages?: string[];
+  galleryAspectRatio?: number;
+  highlightImages?: string[];
+};
+
+const meridianShowcaseImages = [
+  "/projects/meridian-gallery-1-3x2-v2.webp",
+  "/projects/meridian-gallery-2-3x2-v2.webp",
+  "/projects/meridian-gallery-3-3x2.webp",
+  "/projects/meridian-gallery-4-3x2.webp",
+];
+
+const projectsData: Record<string, ProjectData> = {
   "commercial-muvatupuzha": {
     title: "Plaza Commercial Complex",
     location: "Muvatupuzha, Kerala",
@@ -375,19 +398,21 @@ const projectsData = {
       theDetails: "Every villa features premium finishes, dedicated parking, and custom interior layouts."
     },
     highlights: [
-      { title: "Smart Security", description: "24/7 advanced monitoring and access control." },
-      { title: "Gated Enclave", description: "Private gated community with wide paved access roads." },
-      { title: "Landscaped Gardens", description: "Lush green lawns and private garden spaces." },
-      { title: "Premium Finishes", description: "High-end fixtures and bespoke interior finishes." },
-      { title: "Club House", description: "Recreational facilities for residents." }
+      { title: "Club House & Recreation", description: "A dedicated clubhouse and outdoor court surrounded by lush greenery." },
+      { title: "Premium Villa Design", description: "Contemporary elevations with generous glazing and refined material finishes." },
+      { title: "Landscaped Gardens", description: "Lush private planting complements every villa and shared streetscape." },
+      { title: "Gated Enclave", description: "A private villa community with controlled access and wide paved roads." }
     ],
     images: [
-      "/projects/Meridian Heights.jpeg",
+      "/projects/meridian-banner.webp",
       "/white_minimal_house.webp",
       "/white_minimal_interior.webp",
       "/white_minimal_facade.webp",
       "/white_minimal_villa.webp"
-    ]
+    ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "median-heights": {
     title: "Meridian Heights",
@@ -402,19 +427,21 @@ const projectsData = {
       theDetails: "Every villa features premium finishes, dedicated parking, and custom interior layouts."
     },
     highlights: [
-      { title: "Smart Security", description: "24/7 advanced monitoring and access control." },
-      { title: "Gated Enclave", description: "Private gated community with wide paved access roads." },
-      { title: "Landscaped Gardens", description: "Lush green lawns and private garden spaces." },
-      { title: "Premium Finishes", description: "High-end fixtures and bespoke interior finishes." },
-      { title: "Club House", description: "Recreational facilities for residents." }
+      { title: "Club House & Recreation", description: "A dedicated clubhouse and outdoor court surrounded by lush greenery." },
+      { title: "Premium Villa Design", description: "Contemporary elevations with generous glazing and refined material finishes." },
+      { title: "Landscaped Gardens", description: "Lush private planting complements every villa and shared streetscape." },
+      { title: "Gated Enclave", description: "A private villa community with controlled access and wide paved roads." }
     ],
     images: [
-      "/projects/Meridian Heights.jpeg",
+      "/projects/meridian-banner.webp",
       "/white_minimal_house.webp",
       "/white_minimal_interior.webp",
       "/white_minimal_facade.webp",
       "/white_minimal_villa.webp"
-    ]
+    ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "maskan-avoria": {
     title: "Maskan Avoria",
@@ -435,10 +462,22 @@ const projectsData = {
       { title: "24/7 Security", description: "Comprehensive perimeter security and access control." }
     ],
     images: [
-      "/projects/Avoria Heights.jpeg",
+      "/projects/avoria-banner.webp",
       "/white_minimal_house.webp",
       "/white_minimal_interior.webp",
       "/white_minimal_facade.webp"
+    ],
+    galleryImages: [
+      "/projects/avoria-gallery-1.jpeg",
+      "/projects/avoria-gallery-2.jpeg",
+      "/projects/avoria-gallery-3.jpeg",
+      "/projects/avoria-gallery-4.jpeg"
+    ],
+    highlightImages: [
+      "/projects/avoria-highlight-pool-3x2.webp",
+      "/projects/avoria-highlight-2.webp",
+      "/projects/avoria-highlight-3.webp",
+      "/projects/avoria-highlight-4.webp"
     ]
   },
   "avoria-heights": {
@@ -593,6 +632,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     );
   }
 
+  const [heroTitleLead, ...heroTitleRemainder] = project.title.trim().split(/\s+/);
+  const heroTitleTail = heroTitleRemainder.join(" ");
+  const projectHighlightImages = project.highlightImages ?? project.images;
+
   return (
     <main className="bg-[#FFFFFF] text-[#3B4D5C] min-h-screen relative font-sans selection:bg-[#244b6b] selection:text-white">
 
@@ -610,10 +653,9 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           className="absolute inset-0 w-full h-full object-cover z-0"
           priority
         />
-        <div className="absolute inset-0 bg-[#244b6b]/40 mix-blend-multiply z-10" />
-        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
 
-        <div className="relative z-20 flex flex-col items-center text-center max-w-5xl px-6 w-full mt-24">
+        <div className="relative z-20 mt-24 flex w-full max-w-none flex-col items-start px-6 text-left md:px-10 lg:px-14">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -626,9 +668,12 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl md:text-8xl lg:text-[7rem] text-white font-bold tracking-tight uppercase mb-6 drop-shadow-xl"
+            className="mb-6 text-5xl font-bold uppercase leading-[0.92] tracking-tight text-white drop-shadow-xl md:text-7xl lg:text-[5.75rem]"
           >
-            {project.title}
+            <span className="block bg-gradient-to-r from-[#fff2c7] via-[#d6aa5d] to-[#f5dca7] bg-clip-text text-transparent">
+              {heroTitleLead}
+            </span>
+            {heroTitleTail && <span className="block text-white">{heroTitleTail}</span>}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -678,14 +723,19 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {project.images.slice(1).map((img, idx) => (
+          {(project.galleryImages ?? project.images.slice(1)).map((img, idx) => (
             <div key={idx} className="flex flex-col">
-              <div className="relative w-full aspect-[16/10] min-h-[300px] md:min-h-[400px] overflow-hidden bg-gray-100 rounded-lg shadow-md">
+              <div
+                className={`relative w-full overflow-hidden bg-white shadow-md ${project.galleryAspectRatio ? "" : "aspect-[16/10] min-h-[300px] md:min-h-[400px]"}`}
+                style={project.galleryAspectRatio ? { aspectRatio: project.galleryAspectRatio } : undefined}
+              >
                 <Image
                   src={img}
                   alt={`${project.title} Gallery ${idx + 1}`}
                   fill
                   className="object-cover"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -699,10 +749,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
           {/* Left: Highlights list */}
           <div className="w-full lg:w-1/3 flex flex-col justify-center">
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-16">
+            <h2 className="mb-16 max-w-3xl text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl lg:text-[4rem]">
               Project<br />Highlights.
             </h2>
-            <div className="flex flex-col gap-6 relative border-l border-gray-300 pl-6">
+            <div className="flex flex-col gap-6 relative pl-6">
               {project.highlights.map((item, idx) => (
                 <div
                   key={idx}
@@ -737,42 +787,51 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
 
-            <div className="flex gap-4 mt-16">
-              <button onClick={handlePrev} className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <span className="text-gray-600">←</span>
+            <div className="mt-16 flex gap-3">
+              <button
+                type="button"
+                onClick={handlePrev}
+                aria-label="Previous project highlight"
+                className="group flex h-11 w-11 items-center justify-center text-[#244b6b] transition-colors hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#244b6b]"
+              >
+                <ChevronLeft aria-hidden="true" className="h-7 w-7 transition-transform group-hover:-translate-x-0.5" strokeWidth={1.5} />
               </button>
-              <button onClick={handleNext} className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <span className="text-gray-600">→</span>
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next project highlight"
+                className="group flex h-11 w-11 items-center justify-center text-[#244b6b] transition-colors hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#244b6b]"
+              >
+                <ChevronRight aria-hidden="true" className="h-7 w-7 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
               </button>
             </div>
           </div>
 
           {/* Right: Image */}
-          <div className="w-full lg:w-2/3 relative aspect-[4/3] lg:aspect-auto lg:h-[700px] rounded-[2rem] overflow-hidden shadow-2xl">
-            <AnimatePresence mode="wait">
+          <div className="relative aspect-[3/2] w-full self-start overflow-hidden rounded-[2rem] shadow-2xl lg:w-2/3">
+            {projectHighlightImages.map((img, idx) => (
               <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                key={img}
+                initial={false}
+                animate={{
+                  opacity: currentIndex === idx ? 1 : 0,
+                }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0"
+                aria-hidden={currentIndex !== idx}
               >
                 <Image
-                  src={project.images[currentIndex % project.images.length]}
-                  alt={project.highlights[currentIndex].title}
+                  src={img}
+                  alt={currentIndex === idx ? project.highlights[idx]?.title ?? project.title : ""}
                   fill
                   className="object-cover"
+                  sizes="(min-width: 1024px) 67vw, 100vw"
+                  priority={idx === 0}
+                  loading={idx === 0 ? undefined : "eager"}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
-                <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-auto md:w-96 p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
-                  <span className="text-xs uppercase tracking-widest text-white/70 font-semibold block mb-2">Project Highlight</span>
-                  <p className="text-lg font-medium leading-snug drop-shadow-md">
-                    {project.highlights[currentIndex].title}
-                  </p>
-                </div>
               </motion.div>
-            </AnimatePresence>
+            ))}
           </div>
         </div>
       </section>

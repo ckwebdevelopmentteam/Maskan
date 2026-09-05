@@ -59,7 +59,7 @@ function Innovation() {
       <motion.div
         {...handlers}
         onClick={() => router.push("/projects")}
-        className="sticky -top-[5vh] h-[110vh] md:-top-[15vh] md:h-[130vh]"
+        className="sticky -top-[5vh] h-[110vh] overflow-hidden md:-top-[15vh] md:h-[130vh]"
       >
         <ClipImageCard
           scrollYProgress={parentProgress}

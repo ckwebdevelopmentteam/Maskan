@@ -130,7 +130,7 @@ export default function ProjectsGrid() {
                   }}
                 >
                   {/* Image Section */}
-                  <div className="relative aspect-[16/10] min-h-[280px] sm:min-h-[340px] md:min-h-[380px] w-full overflow-hidden bg-gray-100">
+                  <div className="relative aspect-[16/10] min-h-[280px] sm:min-h-[340px] md:min-h-[380px] w-full overflow-hidden bg-white">
                     <Image
                       src={project.img}
                       alt={project.name}
