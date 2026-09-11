@@ -326,7 +326,7 @@ const projectsData: Record<string, ProjectData> = {
     galleryAspectRatio: 3 / 2,
     highlightImages: avoriaHighlightImages,
   },
-  "school-thirur": {
+  "school-tirur": {
     title: "School Project at Tirur",
     location: "Tirur, Kerala",
     category: "Educational",
@@ -574,9 +574,9 @@ projectsData["commercial-building-edappal" as keyof typeof projectsData] = proje
 projectsData["commercial-building-areacode" as keyof typeof projectsData] = projectsData["commercial-areacode"];
 projectsData["commercial-building-areekode" as keyof typeof projectsData] = projectsData["commercial-areacode"];
 (projectsData as Record<string, unknown>)["commercial-areekode"] = projectsData["commercial-areacode"];
-(projectsData as Record<string, unknown>)["school-project-tirur"] = projectsData["school-thirur"];
-(projectsData as Record<string, unknown>)["school-project-thirur"] = projectsData["school-thirur"];
-(projectsData as Record<string, unknown>)["school-tirur"] = projectsData["school-thirur"];
+(projectsData as Record<string, unknown>)["school-project-tirur"] = projectsData["school-tirur"];
+(projectsData as Record<string, unknown>)["school-project-tirur"] = projectsData["school-tirur"];
+(projectsData as Record<string, unknown>)["school-tirur"] = projectsData["school-tirur"];
 
 const getProjectBySlug = (rawSlug: string) => {
   if (!rawSlug) return projectsData["maskan-avoria"];
@@ -762,9 +762,8 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <div
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`cursor-pointer transition-all duration-300 relative ${
-                    currentIndex === idx ? "opacity-100 translate-x-2" : "opacity-40 hover:opacity-70"
-                  }`}
+                  className={`cursor-pointer transition-all duration-300 relative ${currentIndex === idx ? "opacity-100 translate-x-2" : "opacity-40 hover:opacity-70"
+                    }`}
                 >
                   {currentIndex === idx && (
                     <motion.div
