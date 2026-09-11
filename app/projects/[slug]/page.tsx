@@ -32,6 +32,20 @@ const meridianShowcaseImages = [
   "/projects/meridian-gallery-4-3x2.webp",
 ];
 
+const avoriaShowcaseImages = [
+  "/projects/avoria-gallery-1.jpeg",
+  "/projects/avoria-gallery-2.jpeg",
+  "/projects/avoria-gallery-3.jpeg",
+  "/projects/avoria-highlight-pool-3x2.webp",
+];
+
+const avoriaHighlightImages = [
+  "/projects/avoria-highlight-pool-3x2.webp",
+  "/projects/avoria-highlight-2.webp",
+  "/projects/avoria-highlight-3.webp",
+  "/projects/avoria-highlight-4.webp",
+];
+
 const projectsData: Record<string, ProjectData> = {
   "commercial-muvatupuzha": {
     title: "Plaza Commercial Complex",
@@ -58,12 +72,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-1.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "kovilakam-villa-manjeri": {
     title: "Kovilakam Villa",
@@ -90,12 +103,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-2.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "residential-flat": {
     title: "Apartments",
@@ -122,12 +134,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/Apartments.jpeg",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...avoriaShowcaseImages,
     ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
   "residential-flat-malappuram": {
     title: "Apartments",
@@ -154,12 +165,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/Apartments.jpeg",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...avoriaShowcaseImages,
     ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
   "commercial-veliyamcode": {
     title: "Plaza Commercial Building",
@@ -186,12 +196,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-4.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "ayush-villa-valancheri": {
     title: "Ayush Villa",
@@ -218,12 +227,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-5.webp",
-      "/projects/project-11.webp",
-      "/projects/project-12.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "school-pattambi": {
     title: "School Project at Pattambi",
@@ -250,12 +258,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-6.webp",
-      "/projects/project-14.jpg",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...avoriaShowcaseImages,
     ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
   "commercial-edappal": {
     title: "Commercial Building at Edappal",
@@ -282,24 +289,23 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-13.jpg",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "commercial-areacode": {
-    title: "Commercial Building at Areacode",
-    location: "Areacode, Kerala",
+    title: "Commercial Building at Areekode",
+    location: "Areekode, Kerala",
     category: "Commercial",
     scale: "Retail & Business Complex",
     status: "Completed",
     description:
-      "A completed modern multi-storey commercial building in Areacode. Clad in premium composite metal panels and large glazed storefronts, the complex serves as a bustling business hub and host to top brands like AGL.",
+      "A completed modern multi-storey commercial building in Areekode. Clad in premium composite metal panels and large glazed storefronts, the complex serves as a bustling business hub and host to top brands like AGL.",
     story: {
       theWhere:
-        "Situated in the business district of Areacode, this building commands a prominent spot along the main commercial strip.",
+        "Situated in the business district of Areekode, this building commands a prominent spot along the main commercial strip.",
       theHow:
         "We used premium metal composite cladding in sleek grey tones, contrasted with warm wood-textured panels and clean glazing. Energy-efficient lighting highlights the facade at night.",
       theDetails:
@@ -314,24 +320,23 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-15.png",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...avoriaShowcaseImages,
     ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
   "school-thirur": {
-    title: "School Project at Thirur",
-    location: "Thirur, Kerala",
+    title: "School Project at Tirur",
+    location: "Tirur, Kerala",
     category: "Educational",
     scale: "Institutional Campus",
     status: "On Going",
     description:
-      "An expansive institutional campus under development in Thirur. Featuring a classic U-shaped configuration organized around a spacious open courtyard, the design facilitates excellent ventilation and easy student movement across wings.",
+      "An expansive institutional campus under development in Tirur. Featuring a classic U-shaped configuration organized around a spacious open courtyard, the design facilitates excellent ventilation and easy student movement across wings.",
     story: {
       theWhere:
-        "Located on a tranquil, scenic site in Thirur, chosen specifically to provide a quiet, distraction-free environment for student learning.",
+        "Located on a tranquil, scenic site in Tirur, chosen specifically to provide a quiet, distraction-free environment for student learning.",
       theHow:
         "The architecture relies on a U-shaped layout enclosing a central green plaza. This configuration promotes natural cross-breezes and offers a secure playground.",
       theDetails:
@@ -346,12 +351,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-16.png",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
-      "/projects/project-9.webp",
-      "/projects/project-10.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "mak-villa-perinthalmanna": {
     title: "Mak Villa Project at Perinthalmanna",
@@ -378,12 +382,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/project-17.png",
-      "/projects/project-11.webp",
-      "/projects/project-12.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp",
+      ...meridianShowcaseImages,
     ],
+    galleryImages: meridianShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: meridianShowcaseImages,
   },
   "meridian-heights": {
     title: "Meridian Heights",
@@ -527,11 +530,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/Veekay Signature.jpeg",
-      "/projects/project-1.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp"
-    ]
+      ...avoriaShowcaseImages,
+    ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
   "veekay-signature": {
     title: "Veekay Signature",
@@ -553,11 +556,11 @@ const projectsData: Record<string, ProjectData> = {
     ],
     images: [
       "/projects/Veekay Signature.jpeg",
-      "/projects/project-1.webp",
-      "/projects/project-6.webp",
-      "/projects/project-7.webp",
-      "/projects/project-8.webp"
-    ]
+      ...avoriaShowcaseImages,
+    ],
+    galleryImages: avoriaShowcaseImages,
+    galleryAspectRatio: 3 / 2,
+    highlightImages: avoriaHighlightImages,
   },
 };
 
@@ -569,6 +572,8 @@ projectsData["ayush-villa" as keyof typeof projectsData] = projectsData["ayush-v
 projectsData["school-project-pattambi" as keyof typeof projectsData] = projectsData["school-pattambi"];
 projectsData["commercial-building-edappal" as keyof typeof projectsData] = projectsData["commercial-edappal"];
 projectsData["commercial-building-areacode" as keyof typeof projectsData] = projectsData["commercial-areacode"];
+projectsData["commercial-building-areekode" as keyof typeof projectsData] = projectsData["commercial-areacode"];
+(projectsData as Record<string, unknown>)["commercial-areekode"] = projectsData["commercial-areacode"];
 (projectsData as Record<string, unknown>)["school-project-tirur"] = projectsData["school-thirur"];
 (projectsData as Record<string, unknown>)["school-project-thirur"] = projectsData["school-thirur"];
 (projectsData as Record<string, unknown>)["school-tirur"] = projectsData["school-thirur"];

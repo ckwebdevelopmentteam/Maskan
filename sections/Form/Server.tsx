@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Form from "next/form";
 import { motion } from "motion/react";
 
@@ -9,18 +10,16 @@ export default function FormServer() {
     <div id="contact" className="w-full py-12 md:py-20 bg-[var(--bg-primary)] flex justify-center items-center">
       <div className="w-[95%] max-w-[1600px] bg-white rounded-[3rem] p-5 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
 
-        {/* Left Column - Video Card */}
-        <div className="relative w-full min-h-[350px] lg:min-h-[520px] rounded-[2rem] overflow-hidden shadow-sm">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/c30b4c66.mp4" type="video/mp4" />
-          </video>
+        {/* Left Column - Image Card */}
+        <div className="relative w-full min-h-[350px] lg:min-h-[520px] rounded-[2rem] overflow-hidden shadow-sm bg-gray-100">
+          <Image
+            src="/residential_villa.webp"
+            alt="Your Dream Space by Maskan Builders"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+          />
         </div>
 
         {/* Right Column - Form Card */}
@@ -116,7 +115,7 @@ export default function FormServer() {
                   <option value="ayush-villa">Ayush Villa</option>
                   <option value="school-project-pattambi">School Project (Pattambi)</option>
                   <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
-                  <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
+                  <option value="commercial-building-areekode">Commercial Building (Areekode)</option>
                   <option value="school-project-tirur">School Project (Tirur)</option>
                   <option value="other">Other</option>
                 </select>

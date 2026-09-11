@@ -47,7 +47,16 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
           className="md:col-span-3 flex flex-col"
         >
           <p className="text-base md:text-lg text-[var(--fg-primary)]/80 font-light leading-relaxed mb-8">
-            At Maskan, we believe architecture is more than just constructing spaces—it's about crafting experiences, fostering connections, and leaving a lasting impact.
+            At{" "}
+            <a
+              href="https://www.instagram.com/maskanbuildersanddevelopers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
+            >
+              Maskan
+            </a>
+            , we believe architecture is more than just constructing spaces—it's about crafting experiences, fostering connections, and leaving a lasting impact.
           </p>
           <div className="relative aspect-[3/5] w-full overflow-hidden bg-[var(--fg-primary)]/5 group rounded-none shadow-lg border border-[var(--fg-primary)]/5">
             <Image
@@ -103,12 +112,18 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
             From visionary residential designs to groundbreaking commercial spaces, we seamlessly blend artistry with practicality. Every project we undertake is a testament to our passion for design excellence, meticulous attention to detail, and client-centered approach.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="px-6 py-3 bg-[var(--fg-primary)] text-[var(--bg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)]/90 transition-all duration-300 rounded-full cursor-pointer shadow-sm">
+            <Link
+              href="/about"
+              className="px-6 py-3 bg-[var(--fg-primary)] text-[var(--bg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)]/90 transition-all duration-300 rounded-full cursor-pointer shadow-sm inline-flex items-center justify-center"
+            >
               MORE ABOUT US
-            </button>
-            <button className="px-6 py-3 border-2 border-[var(--fg-primary)]/20 text-[var(--fg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)] hover:text-[var(--bg-primary)] transition-all duration-300 rounded-full flex items-center gap-2 group cursor-pointer shadow-sm">
+            </Link>
+            <Link
+              href="/projects"
+              className="px-6 py-3 border-2 border-[var(--fg-primary)]/20 text-[var(--fg-primary)] text-sm uppercase tracking-widest font-semibold hover:bg-[var(--fg-primary)] hover:text-[var(--bg-primary)] transition-all duration-300 rounded-full inline-flex items-center gap-2 group cursor-pointer shadow-sm"
+            >
               OUR WORKS
-            </button>
+            </Link>
           </div>
         </motion.div>
 

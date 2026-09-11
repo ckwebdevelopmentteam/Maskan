@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { LayoutDashboard, Briefcase, Tags, MapPin, Plus, X, Eye, Trash2 } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Tags, MapPin, Plus, X, Eye, Trash2, BookOpen, ExternalLink } from 'lucide-react';
 
 interface Category { _id: string; name: string; }
 interface Location { _id: string; name: string; }
@@ -26,8 +26,24 @@ interface Application {
   resumeData?: string;
 }
 
+interface BlogAdminItem {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  coverImage: string;
+  category: string;
+  author?: { name: string; role?: string; avatar?: string };
+  readingTime?: string;
+  tags?: string[];
+  isPublished: boolean;
+  featured?: boolean;
+  createdAt: string;
+}
+
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<'applications' | 'careers' | 'categories' | 'locations'>('applications');
+  const [activeTab, setActiveTab] = useState<'applications' | 'careers' | 'categories' | 'locations' | 'blogs'>('applications');
   const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
 
@@ -35,6 +51,20 @@ export default function AdminDashboard() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [careers, setCareers] = useState<Career[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
+  const [blogs, setBlogs] = useState<BlogAdminItem[]>([]);
+
+  // Blog Form states
+  const [blogTitle, setBlogTitle] = useState('');
+  const [blogSlug, setBlogSlug] = useState('');
+  const [blogExcerpt, setBlogExcerpt] = useState('');
+  const [blogContent, setBlogContent] = useState('');
+  const [blogCoverImage, setBlogCoverImage] = useState('');
+  const [blogCategory, setBlogCategory] = useState('Architecture');
+  const [blogAuthorName, setBlogAuthorName] = useState('Maskan Editorial Team');
+  const [blogAuthorRole, setBlogAuthorRole] = useState('Architecture & Design Lead');
+  const [blogTags, setBlogTags] = useState('');
+  const [blogIsPublished, setBlogIsPublished] = useState(true);
+  const [blogFeatured, setBlogFeatured] = useState(false);
 
   // Modal states
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,21 +93,24 @@ export default function AdminDashboard() {
 
   const fetchData = async (t: string) => {
     try {
-      const [catRes, locRes, carRes, appRes] = await Promise.all([
+      const [catRes, locRes, carRes, appRes, blogRes] = await Promise.all([
         fetch('/api/admin/career-categories', { headers: { Authorization: `Bearer ${t}` } }),
         fetch('/api/admin/career-locations', { headers: { Authorization: `Bearer ${t}` } }),
         fetch('/api/admin/careers', { headers: { Authorization: `Bearer ${t}` } }),
         fetch('/api/applications', { headers: { Authorization: `Bearer ${t}` } }),
+        fetch('/api/admin/blogs', { headers: { Authorization: `Bearer ${t}` } }),
       ]);
       const catData = await catRes.json();
       const locData = await locRes.json();
       const carData = await carRes.json();
       const appData = await appRes.json();
+      const blogData = await blogRes.json();
 
       if (catData.success) setCategories(catData.data);
       if (locData.success) setLocations(locData.data);
       if (carData.success) setCareers(carData.data);
       if (appData.success) setApplications(appData.data);
+      if (blogData.success) setBlogs(blogData.data);
     } catch (e) {
       console.error(e);
     }
@@ -100,6 +133,18 @@ export default function AdminDashboard() {
       setJobDesc(item.description);
       setJobCat(item.category?._id || '');
       setJobLoc(item.location?._id || '');
+    } else if (type === 'blog') {
+      setBlogTitle(item.title || '');
+      setBlogSlug(item.slug || '');
+      setBlogExcerpt(item.excerpt || '');
+      setBlogContent(item.content || '');
+      setBlogCoverImage(item.coverImage || '');
+      setBlogCategory(item.category || 'Architecture');
+      setBlogAuthorName(item.author?.name || 'Maskan Editorial Team');
+      setBlogAuthorRole(item.author?.role || 'Architecture & Design Lead');
+      setBlogTags(Array.isArray(item.tags) ? item.tags.join(', ') : '');
+      setBlogIsPublished(Boolean(item.isPublished));
+      setBlogFeatured(Boolean(item.featured));
     }
     setIsModalOpen(true);
   };
@@ -112,6 +157,17 @@ export default function AdminDashboard() {
     setJobDesc('');
     setJobCat('');
     setJobLoc('');
+    setBlogTitle('');
+    setBlogSlug('');
+    setBlogExcerpt('');
+    setBlogContent('');
+    setBlogCoverImage('');
+    setBlogCategory('Architecture');
+    setBlogAuthorName('Maskan Editorial Team');
+    setBlogAuthorRole('Architecture & Design Lead');
+    setBlogTags('');
+    setBlogIsPublished(true);
+    setBlogFeatured(false);
     setIsModalOpen(true);
   };
 
@@ -153,6 +209,46 @@ export default function AdminDashboard() {
     }
   };
 
+  const createOrUpdateBlog = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!token) return;
+    const url = editingId ? `/api/admin/blogs/${editingId}` : '/api/admin/blogs';
+    const method = editingId ? 'PUT' : 'POST';
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          title: blogTitle,
+          slug: blogSlug || undefined,
+          excerpt: blogExcerpt,
+          content: blogContent,
+          coverImage: blogCoverImage,
+          category: blogCategory,
+          author: {
+            name: blogAuthorName,
+            role: blogAuthorRole,
+          },
+          tags: blogTags ? blogTags.split(',').map(t => t.trim()).filter(Boolean) : [],
+          isPublished: blogIsPublished,
+          featured: blogFeatured,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setEditingId(null);
+        setIsModalOpen(false);
+        fetchData(token);
+      } else {
+        alert(data.error || 'Failed to save blog post');
+      }
+    } catch {
+      alert('Error saving blog post');
+    }
+  };
+
   const createCareer = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!token) return;
@@ -184,7 +280,7 @@ export default function AdminDashboard() {
     if (!token) return;
     if (!confirm('Are you sure you want to delete this item?')) return;
     
-    const endpoint = type === 'career' ? 'careers' : type === 'category' ? 'career-categories' : 'career-locations';
+    const endpoint = type === 'career' ? 'careers' : type === 'category' ? 'career-categories' : type === 'blog' ? 'blogs' : 'career-locations';
     const res = await fetch(`/api/admin/${endpoint}/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
@@ -262,6 +358,16 @@ export default function AdminDashboard() {
           <MapPin className="w-5 h-5" />
           <span>Locations</span>
         </button>
+        <button 
+          onClick={() => setActiveTab('blogs')} 
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm ${activeTab === 'blogs' ? 'bg-[#245171] text-white shadow-md shadow-[#245171]/20' : 'text-gray-500 hover:bg-gray-50'}`}
+        >
+          <BookOpen className="w-5 h-5" />
+          <span>Blogs</span>
+          {blogs.length > 0 && (
+            <span className={`ml-auto py-0.5 px-2 rounded-full text-[10px] ${activeTab === 'blogs' ? 'bg-white/20 text-white' : 'bg-slate-100 text-[#245171]'}`}>{blogs.length}</span>
+          )}
+        </button>
       </nav>
     </aside>
   );
@@ -328,6 +434,154 @@ export default function AdminDashboard() {
                 <textarea value={jobDesc} onChange={e => setJobDesc(e.target.value)} required className="w-full border border-gray-300 px-4 py-4 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none h-96 resize-none text-sm" />
               </div>
               <button type="submit" className="w-full bg-[#245171] hover:bg-[#1C415B] text-white py-3 mt-4 rounded-lg font-medium transition-colors text-sm">{editingId ? 'Update' : 'Save'} Career</button>
+            </form>
+          )}
+
+          {activeTab === 'blogs' && (
+            <form onSubmit={createOrUpdateBlog} className="space-y-4 max-h-[80vh] overflow-y-auto pr-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Article Title *</label>
+                  <input
+                    type="text"
+                    value={blogTitle}
+                    onChange={(e) => {
+                      setBlogTitle(e.target.value);
+                      if (!editingId && !blogSlug) {
+                        setBlogSlug(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, ''));
+                      }
+                    }}
+                    placeholder="e.g. Contemporary Kerala Architecture"
+                    required
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">URL Slug (e.g. contemporary-kerala-architecture)</label>
+                  <input
+                    type="text"
+                    value={blogSlug}
+                    onChange={(e) => setBlogSlug(e.target.value)}
+                    placeholder="auto-generated from title"
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm font-mono text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+                  <select
+                    value={blogCategory}
+                    onChange={(e) => setBlogCategory(e.target.value)}
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                  >
+                    <option value="Architecture">Architecture</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="Sustainability">Sustainability</option>
+                    <option value="News">News</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Author Name *</label>
+                  <input
+                    type="text"
+                    value={blogAuthorName}
+                    onChange={(e) => setBlogAuthorName(e.target.value)}
+                    placeholder="Maskan Editorial Team"
+                    required
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Author Role</label>
+                  <input
+                    type="text"
+                    value={blogAuthorRole}
+                    onChange={(e) => setBlogAuthorRole(e.target.value)}
+                    placeholder="Principal Architect"
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Cover Image URL *</label>
+                <input
+                  type="text"
+                  value={blogCoverImage}
+                  onChange={(e) => setBlogCoverImage(e.target.value)}
+                  placeholder="/projects/meridian-gallery-1-3x2-v2.webp or https://..."
+                  required
+                  className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Brief Excerpt *</label>
+                <textarea
+                  value={blogExcerpt}
+                  onChange={(e) => setBlogExcerpt(e.target.value)}
+                  placeholder="A compelling 1-2 sentence summary of this article..."
+                  required
+                  rows={2}
+                  className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm resize-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Article Content (Markdown / paragraphs supported) *</label>
+                <textarea
+                  value={blogContent}
+                  onChange={(e) => setBlogContent(e.target.value)}
+                  placeholder="Write article here. Use ### for subheadings, - for bullet lists, > for quotes..."
+                  required
+                  rows={10}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm font-mono leading-relaxed"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Tags (comma-separated)</label>
+                  <input
+                    type="text"
+                    value={blogTags}
+                    onChange={(e) => setBlogTags(e.target.value)}
+                    placeholder="Architecture, Kerala, Luxury"
+                    className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#245171] outline-none text-sm"
+                  />
+                </div>
+                <div className="flex items-center gap-6 pt-6">
+                  <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 font-medium">
+                    <input
+                      type="checkbox"
+                      checked={blogIsPublished}
+                      onChange={(e) => setBlogIsPublished(e.target.checked)}
+                      className="w-4 h-4 rounded text-[#245171] focus:ring-[#245171]"
+                    />
+                    <span>Publish live on site</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-700 font-medium">
+                    <input
+                      type="checkbox"
+                      checked={blogFeatured}
+                      onChange={(e) => setBlogFeatured(e.target.checked)}
+                      className="w-4 h-4 rounded text-[#245171] focus:ring-[#245171]"
+                    />
+                    <span>Featured Hero Story</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#245171] hover:bg-[#1C415B] text-white py-3 rounded-lg font-medium transition-colors text-sm shadow-md"
+              >
+                {editingId ? 'Update' : 'Publish'} Blog Article
+              </button>
             </form>
           )}
         </div>
@@ -515,6 +769,85 @@ export default function AdminDashboard() {
         </table>
       );
     }
+
+    if (activeTab === 'blogs') {
+      return (
+        <table className="w-full text-left text-[13px] text-gray-600">
+          <thead className="text-[13px] text-gray-800 bg-white border-b border-gray-100 font-medium">
+            <tr>
+              <th className="px-6 py-4 font-normal">Article</th>
+              <th className="px-6 py-4 font-normal">Category</th>
+              <th className="px-6 py-4 font-normal">Author</th>
+              <th className="px-6 py-4 font-normal">Status</th>
+              <th className="px-6 py-4 font-normal">Date</th>
+              <th className="px-6 py-4 font-normal text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {blogs.map((b) => (
+              <tr key={b._id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors bg-white">
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-9 rounded bg-gray-100 overflow-hidden relative shrink-0">
+                      <img src={b.coverImage} alt={b.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900 line-clamp-1 block max-w-xs">{b.title}</span>
+                      <span className="text-gray-400 text-xs font-mono">/blog/{b.slug}</span>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-6 py-4">
+                  <span className="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">
+                    {b.category}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-gray-900">{b.author?.name || 'Maskan Team'}</td>
+                <td className="px-6 py-4">
+                  <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${
+                    b.isPublished ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-amber-50 text-amber-700 border border-amber-200'
+                  }`}>
+                    {b.isPublished ? 'Published' : 'Draft'}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-gray-500 text-xs">{new Date(b.createdAt).toLocaleDateString()}</td>
+                <td className="px-6 py-4 text-right flex justify-end gap-2 items-center">
+                  <a
+                    href={`/blog/${b.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-gray-400 hover:text-[#245171] hover:bg-gray-50 rounded transition-colors"
+                    title="Preview on live site"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  <button
+                    onClick={() => openEditModal('blog', b)}
+                    className="bg-gray-800 text-white hover:bg-gray-900 px-3 py-1.5 rounded flex items-center gap-1 text-xs transition-colors"
+                  >
+                    <Eye className="w-3 h-3" /> Edit
+                  </button>
+                  <button
+                    onClick={() => deleteItem('blog', b._id)}
+                    className="bg-red-50 text-red-600 hover:bg-red-100 px-3 py-1.5 rounded flex items-center gap-1 text-xs transition-colors"
+                  >
+                    <Trash2 className="w-3 h-3" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+            {blogs.length === 0 && (
+              <tr>
+                <td colSpan={6} className="px-6 py-12 text-center text-gray-400">
+                  <BookOpen className="w-8 h-8 text-gray-300 mx-auto mb-2" />
+                  <p>No blog posts created yet. Click &quot;Add Blog&quot; above to create your first article.</p>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      );
+    }
   };
 
   return (
@@ -527,7 +860,7 @@ export default function AdminDashboard() {
             <h1 className="text-2xl font-bold text-gray-800 capitalize flex items-center gap-3">
               {activeTab}
               <span className="text-xs px-3 py-1 bg-gray-100 rounded-full font-normal border border-gray-200">
-                {activeTab === 'applications' ? applications.length : activeTab === 'careers' ? careers.length : activeTab === 'categories' ? categories.length : locations.length}
+                {activeTab === 'applications' ? applications.length : activeTab === 'careers' ? careers.length : activeTab === 'categories' ? categories.length : activeTab === 'blogs' ? blogs.length : locations.length}
               </span>
             </h1>
           </div>
@@ -539,7 +872,7 @@ export default function AdminDashboard() {
                 className="bg-[#245171] hover:bg-[#1C415B] shadow-md shadow-[#245171]/20 text-white px-5 py-2.5 rounded-lg text-sm transition-all flex items-center gap-2"
               >
                 <Plus className="w-4 h-4" />
-                Add {activeTab.slice(0, -1)}
+                Add {activeTab === 'blogs' ? 'Blog' : activeTab.slice(0, -1)}
               </button>
             )}
             <div className="flex items-center gap-3 pl-6 border-l border-gray-100">

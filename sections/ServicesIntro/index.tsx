@@ -42,7 +42,16 @@ export default function ServicesIntro() {
 
           {/* Body */}
           <p className="text-base sm:text-lg text-[var(--fg-primary)]/70 leading-relaxed font-light max-w-3xl">
-            At Maskan Builders, our expertise spans across multiple divisions to bring your project to life from the ground up. Whether it is a single premium villa or a large-scale commercial high-rise, we deliver quality, transparency, and timely execution.
+            At{" "}
+            <a
+              href="https://www.instagram.com/maskanbuildersanddevelopers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-normal text-[var(--fg-primary)] transition-colors"
+            >
+              Maskan Builders
+            </a>
+            , our expertise spans across multiple divisions to bring your project to life from the ground up. Whether it is a single premium villa or a large-scale commercial high-rise, we deliver quality, transparency, and timely execution.
           </p>
 
           {/* CTAs */}

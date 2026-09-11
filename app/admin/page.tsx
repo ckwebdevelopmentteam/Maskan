@@ -41,29 +41,25 @@ export default function AdminLogin() {
   return (
     <div className="flex min-h-screen bg-white">
       
-      {/* Video Side - Hidden on smaller screens */}
-      <div className="hidden lg:flex w-1/2 relative bg-black">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/2f8513be6ada613216512933aa4a7ea4519c1e7755d75a40a6a43440466b37d4.mp4" type="video/mp4" />
-        </video>
+      {/* Image Side - Hidden on smaller screens */}
+      <div className="hidden lg:flex w-1/2 relative bg-black overflow-hidden">
+        <img 
+          src="/projects/avoria-banner.webp" 
+          alt="Maskan Avoria" 
+          className="absolute inset-0 w-full h-full object-cover object-center" 
+        />
         {/* Subtle overlay for a premium feel */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
         
         {/* Logo at top center */}
         <div className="absolute top-12 left-0 w-full flex justify-center z-20 pointer-events-none">
-          <img src="/Maskan Open File/PNG/Maskan-01.png" alt="Maskan Logo" className="h-64 scale-150 object-contain drop-shadow-[0_10px_35px_rgba(0,0,0,0.5)]" />
+          <img src="/Maskan Open File/PNG/Maskan-01.png" alt="Maskan Logo" className="h-44 object-contain drop-shadow-[0_10px_35px_rgba(0,0,0,0.5)]" />
         </div>
         
         <div className="absolute bottom-16 left-16 text-white z-10 pr-16">
           <h2 className="text-4xl font-bold mb-4 tracking-tight">Manage Maskan</h2>
-          <p className="text-lg text-white/80">Access your dashboard to manage career listings, track applications, and oversee locations.</p>
+          <p className="text-lg text-white/80">Access your dashboard to manage blog articles, career listings, track applications, and oversee operations.</p>
         </div>
       </div>
 

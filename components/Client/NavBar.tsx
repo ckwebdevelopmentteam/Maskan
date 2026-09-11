@@ -11,7 +11,8 @@ const navLinks = [
   { name: "ABOUT", href: "/about" },
   { name: "SERVICES", href: "/services" },
   { name: "PROJECTS", href: "/projects" },
-  { name: "CAREERS", href: "/careers" }
+  { name: "CAREERS", href: "/careers" },
+  { name: "BLOG", href: "/blog" }
 ];
 
 export default function NavBar() {
@@ -112,6 +113,7 @@ export default function NavBar() {
           {/* Right Links & CTA */}
           <div className="flex items-center gap-8 relative z-10">
             <Link href="/careers" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Careers</Link>
+            <Link href="/blog" className="text-sm font-semibold text-gray-700 hover:text-black transition-colors">Blog</Link>
             <Link href="#contact" className="bg-[#244b6b] text-white px-6 py-2.5 rounded-full text-[15px] font-bold hover:bg-[#1a3852] transition-colors flex items-center gap-1.5 shadow-sm">
               Contact Us &rarr;
             </Link>

@@ -28,9 +28,9 @@ export const StickyContactButtons = () => {
 
       {/* Call Button */}
       <a
-        href="tel:+918606002299" // Replace with actual phone number
+        href="tel:+917594033300"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-lg transition-transform hover:scale-110"
-        aria-label="Call Us"
+        aria-label="Call Maskan Builders"
       >
         <Phone size={24} color="var(--bg-primary)" />
       </a>

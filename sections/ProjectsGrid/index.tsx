@@ -79,13 +79,13 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "commercial-areacode",
-    name: "Commercial Building at Areacode",
-    location: "Areacode, Kerala",
+    id: "commercial-building-areekode",
+    name: "Commercial Building at Areekode",
+    location: "Areekode, Kerala",
     type: "Commercial",
     status: "COMPLETED",
     img: "/projects/project-15.png",
-    desc: "A functional, well-engineered commercial building in Areacode, designed to serve local business and retail needs.",
+    desc: "A functional, well-engineered commercial building in Areekode, designed to serve local business and retail needs.",
     stats: [
       { label: "Type", val: "Commercial building" },
     ],

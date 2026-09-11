@@ -5,13 +5,38 @@ import { Plus, Minus } from "lucide-react";
 import Image from "next/image";
 import MaskanLogo from "@/public/Maskan Open File/PNG/Maskan-01.png";
 
-const faqs = [
+import Link from "next/link";
+
+interface FAQItem {
+  question: string;
+  answer: React.ReactNode;
+}
+
+const faqs: FAQItem[] = [
   {
-    question: "What types of projects does your studio work on?",
-    answer: "As the best construction company in Kerala, we specialize in residential and commercial construction, from individual custom villas to large multi-unit developments like our 42-villa Meridian Heights project in Perinthalmanna and 112-unit Avoria development in Kochi.",
+    question: "What types of projects does your company work on?",
+    answer: (
+      <>
+        As the best construction company in Kerala, we specialize in residential and commercial construction, from individual custom villas to large multi-unit developments like our 42-villa{" "}
+        <Link
+          href="/projects/meridian-heights"
+          className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-normal text-[var(--fg-primary)] transition-colors"
+        >
+          Meridian Heights
+        </Link>{" "}
+        project in Perinthalmanna and 112-unit{" "}
+        <Link
+          href="/projects/maskan-avoria"
+          className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-normal text-[var(--fg-primary)] transition-colors"
+        >
+          Avoria
+        </Link>{" "}
+        development in Kochi.
+      </>
+    ),
   },
   {
-    question: "What is the first step to starting a project with your studio?",
+    question: "What is the first step to starting a project with Maskan Builders?",
     answer: "We begin with a site survey and estimate, inspecting the land, soil conditions, and access before preparing a practical scope, schedule, and cost framework for your project.",
   },
   {
@@ -50,16 +75,12 @@ export default function FAQ() {
             </h2>
 
             <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-xl overflow-hidden bg-[var(--bg-card)] shadow-xl group">
-              <video
-                src="/2f8513be6ada613216512933aa4a7ea4519c1e7755d75a40a6a43440466b37d4.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"
-                disablePictureInPicture
-                disableRemotePlayback
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              <Image
+                src="/projects/meridian-banner.webp"
+                alt="Maskan Builders"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(min-width: 1024px) 500px, 100vw"
               />
               {/* Black Overlay */}
               <div className="absolute inset-0 bg-black/40 pointer-events-none z-10 transition-opacity duration-500 group-hover:bg-black/20" />

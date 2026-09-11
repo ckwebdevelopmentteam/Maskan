@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+import Link from "next/link";
+
 export default function SeoContent() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -15,21 +17,44 @@ export default function SeoContent() {
 
         <div className="text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed flex flex-col gap-4">
           <p>
-            Maskan Builders is one of the best builders in Kerala, with 17+ years of experience delivering residential and commercial projects across the state. We handle projects of every scale, from individual custom villas to large multi-unit developments and commercial complexes, with the same commitment to quality and on-time delivery, and the capacity to take on 100+ projects at a time.
+            <a
+              href="https://www.instagram.com/maskanbuildersanddevelopers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
+            >
+              Maskan Builders
+            </a>{" "}
+            is one of the best builders in Kerala, with 17+ years of experience delivering residential and commercial projects across the state. We handle projects of every scale, from individual custom villas to large multi-unit developments and commercial complexes, with the same commitment to quality and on-time delivery, and the capacity to take on 100+ projects at a time.
           </p>
           <p>
             As one of the best builders in Kerala, we offer end-to-end services including residential construction, commercial construction, structural work, and project management — all focused on delivering real, lasting value for our clients.
           </p>
           <p>
-            To date, we've completed 750+ projects for clients across Kerala, including our ongoing developments at Meridian Heights (Perinthalmanna) and Kakanad Commercial Hub — with 25+ projects currently in progress statewide.
+            To date, we've completed 750+ projects for clients across Kerala, including our ongoing developments at{" "}
+            <Link
+              href="/projects/meridian-heights"
+              className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
+            >
+              Meridian Heights
+            </Link>{" "}
+            (Perinthalmanna) and{" "}
+            <Link
+              href="/projects/kakanad-commercial-hub"
+              className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
+            >
+              Kakkanad Commercial Hub
+            </Link>{" "}
+            — with 25+ projects currently in progress statewide.
           </p>
         </div>
 
         <button
           onClick={() => setIsExpanded(!isExpanded)}
+          aria-label={isExpanded ? "Read Less" : "Read More About Maskan Builders"}
           className="self-start text-base font-bold text-[var(--fg-primary)] underline underline-offset-4 decoration-[var(--fg-primary)]/50 hover:decoration-[var(--fg-primary)] transition-all mt-2 cursor-pointer"
         >
-          {isExpanded ? "Read Less" : "Read More"}
+          {isExpanded ? "Read Less" : "Read More About Maskan Builders"}
         </button>
 
         <AnimatePresence>

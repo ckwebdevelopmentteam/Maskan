@@ -115,14 +115,14 @@ const projectsList = [
     description: "A multi-storey commercial building in Edappal featuring a contemporary glazed curtain-wall façade that brings in natural light for premium retail use.",
   },
   {
-    id: "commercial-building-areacode",
-    title: "Commercial Building at Areacode",
+    id: "commercial-building-areekode",
+    title: "Commercial Building at Areekode",
     category: "Commercial",
-    location: "Areacode, Kerala",
+    location: "Areekode, Kerala",
     image: "/projects/project-15.png",
     scale: "Retail & Business Complex",
     status: "Completed",
-    description: "A completed multi-storey commercial building in Areacode, clad in premium composite metal panels with large glazed storefronts, home to leading brands like AGL.",
+    description: "A completed multi-storey commercial building in Areekode, clad in premium composite metal panels with large glazed storefronts, home to leading brands like AGL.",
   },
   {
     id: "school-project-tirur",
@@ -179,7 +179,16 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-base md:text-lg text-white/90 leading-relaxed drop-shadow"
               >
-                Browse some of the best construction projects in Kerala, a curated selection of premium residential, commercial, and institutional builds by Maskan Builders across the state.
+                Browse some of the best construction projects in Kerala, a curated selection of premium residential, commercial, and institutional builds by{" "}
+                <a
+                  href="https://www.instagram.com/maskanbuildersanddevelopers/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 decoration-white/40 hover:decoration-white font-medium text-white transition-colors"
+                >
+                  Maskan Builders
+                </a>{" "}
+                across the state.
               </motion.p>
 
               <motion.div
@@ -188,10 +197,13 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="flex items-center gap-6"
               >
-                <button className="bg-[#111111] text-white pl-6 pr-2 py-2 rounded-full text-sm font-medium flex items-center gap-4 hover:bg-black transition-colors shadow-lg">
+                <Link
+                  href="/#contact"
+                  className="bg-[#111111] text-white pl-6 pr-2 py-2 rounded-full text-sm font-medium flex items-center gap-4 hover:bg-black transition-colors shadow-lg"
+                >
                   Start exploring
                   <span className="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-bold">→</span>
-                </button>
+                </Link>
               </motion.div>
             </div>
 

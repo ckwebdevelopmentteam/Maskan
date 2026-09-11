@@ -221,7 +221,7 @@ export default function InquiryPopupForm({ isOpen, onClose }: InquiryPopupFormPr
                         <option value="ayush-villa">Ayush Villa</option>
                         <option value="school-project-pattambi">School Project (Pattambi)</option>
                         <option value="commercial-building-edappal">Commercial Building (Edappal)</option>
-                        <option value="commercial-building-areacode">Commercial Building (Areacode)</option>
+                        <option value="commercial-building-areekode">Commercial Building (Areekode)</option>
                         <option value="school-project-tirur">School Project (Tirur)</option>
                         <option value="other">Other</option>
                       </select>

@@ -10,17 +10,17 @@ import { PopupProvider } from "@/components/Client/PopupProvider";
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const CormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "600"],
   style: ["normal", "italic"],
+  display: "swap",
 });
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Maskan Builders | Best Construction Company in Kerala | 17+ Years Experience",
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script id="google-tag-manager" strategy="beforeInteractive">
+        <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

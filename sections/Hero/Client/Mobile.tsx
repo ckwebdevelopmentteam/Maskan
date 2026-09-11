@@ -10,6 +10,7 @@ export default function HeroMobileClient() {
         loop
         playsInline
         preload="metadata"
+        poster="/projects-hero.webp"
       >
         <source src="/WBpOY8hrNdXiZ4GGR4RQTxf4R4.mp4" type="video/mp4" />
       </video>

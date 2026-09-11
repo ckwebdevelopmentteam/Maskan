@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 import NavBar from "@/components/Client/NavBar";
 import ScrollReveal from "@/components/Client/ScrollReveal";
 import ServicesStickyScroll from "@/sections/ServicesStickyScroll";
@@ -13,6 +13,7 @@ import ProjectsGrid from "@/sections/ProjectsGrid";
 import FAQ from "@/sections/FAQ";
 import SeoContent from "@/sections/SeoContent";
 import HowWeWork from "@/sections/HowWeWork";
+import BlogCarousel from "@/sections/BlogCarousel";
 
 export default function Home() {
   return (
@@ -23,9 +24,6 @@ export default function Home() {
       <ScrollReveal><HowWeWork /></ScrollReveal>
       <div><Innovation /></div>
       <ScrollReveal><ProjectsGrid /></ScrollReveal>
-
-      {/* Calculation */}
-      {/* <SustainableRetreat /> */}
 
       {/* Why Choose Us */}
       <ScrollReveal><WhyChooseUs /></ScrollReveal>
@@ -39,6 +37,10 @@ export default function Home() {
 
       {/* FAQ */}
       <ScrollReveal><FAQ /></ScrollReveal>
+
+      {/* Blog Carousel */}
+      <ScrollReveal><BlogCarousel /></ScrollReveal>
+
       <ScrollReveal><SeoContent /></ScrollReveal>
 
       {/* Footer */}
