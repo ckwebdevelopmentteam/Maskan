@@ -57,13 +57,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
         {/* Header & Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="flex flex-col gap-3 max-w-2xl">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#245171]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#245171]">
-                From Our Journal
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight leading-[1.1]">
+            <h2 className="text-3xl md:text-5xl font-normal text-gray-900 tracking-tight leading-[1.1]">
               Architectural Insights & News
             </h2>
             <p className="text-base text-gray-600 font-light max-w-xl">
@@ -74,7 +68,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
           <div className="flex items-center gap-4">
             <Link
               href="/blog"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#245171] hover:text-[#183a54] transition-colors mr-2"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-[#245171] hover:text-[#183a54] transition-colors mr-2"
             >
               <span>View All Articles</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -124,7 +118,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
                   className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   sizes="(min-width: 768px) 400px, 300px"
                 />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-semibold uppercase tracking-wider">
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-normal uppercase tracking-wider">
                   {blog.category}
                 </span>
               </Link>
@@ -132,7 +126,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-2.5 font-medium">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-2.5 font-normal">
                     <span>{formatDate(blog.createdAt)}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
@@ -142,7 +136,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
                   </div>
 
                   <Link href={`/blog/${blog.slug}`}>
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-[#245171] transition-colors leading-snug line-clamp-2 mb-3">
+                    <h3 className="text-lg md:text-xl font-normal text-gray-900 group-hover:text-[#245171] transition-colors leading-snug line-clamp-2 mb-3">
                       {blog.title}
                     </h3>
                   </Link>
@@ -154,7 +148,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
 
                 <div className="pt-4 border-t border-gray-200/60 flex items-center justify-between mt-auto">
                   <div>
-                    <span className="font-semibold text-xs text-gray-900 block">{blog.author.name}</span>
+                    <span className="font-normal text-xs text-gray-900 block">{blog.author.name}</span>
                     {blog.author.role && (
                       <span className="text-gray-400 text-[11px] block">{blog.author.role}</span>
                     )}
@@ -162,7 +156,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
 
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#245171] group-hover:translate-x-1 transition-transform"
+                    className="inline-flex items-center gap-1 text-xs font-normal text-[#245171] group-hover:translate-x-1 transition-transform"
                   >
                     <span>Read</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -177,7 +171,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
         <div className="sm:hidden text-center pt-2">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#245171] text-white text-xs font-bold uppercase tracking-wider shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#245171] text-white text-xs font-normal uppercase tracking-wider shadow-md"
           >
             <span>Explore All Blog Articles</span>
             <ArrowRight className="w-4 h-4" />

@@ -75,23 +75,6 @@ export default async function BlogPage() {
       {/* NavBar */}
       <NavBar />
 
-      {/* Hero Header */}
-      <section className="relative w-full pt-36 md:pt-44 pb-16 md:pb-20 bg-gradient-to-b from-[#f5f8fa] via-[#edf3f7] to-white border-b border-gray-100">
-        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="max-w-3xl">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-[#245171] mb-4 px-3.5 py-1.5 rounded-full bg-[#245171]/10 border border-[#245171]/15">
-              The Maskan Journal
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 leading-[1.08] mb-6">
-              Insights, Craft & Modern Architecture.
-            </h1>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light">
-              Explore in-depth articles on contemporary residential architecture, sustainable tropical engineering, luxury finishes, and innovative commercial developments across Kerala.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Main Blog Listing */}
       <BlogListingClient initialBlogs={blogs} categories={categories} />
 

@@ -80,19 +80,19 @@ export default function BlogListingClient({
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 py-12">
+    <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 pt-36 md:pt-44 pb-16">
       {/* Search & Category Filter Bar */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 mb-12 pb-8 border-b border-gray-200/80">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 mb-12 pb-6 border-b border-gray-200/80">
         {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+        <div className="flex items-center gap-2.5 overflow-x-auto py-2.5 px-1 scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all whitespace-nowrap ${
+              className={`flex-shrink-0 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap ${
                 selectedCategory.toLowerCase() === cat.toLowerCase()
-                  ? "bg-[#245171] text-white shadow-md shadow-[#245171]/20 scale-105"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
+                  ? "bg-[#245171] text-white shadow-md shadow-[#245171]/25 ring-2 ring-[#245171]/20"
+                  : "bg-gray-100/90 text-gray-600 hover:bg-gray-200 hover:text-gray-900 active:scale-95"
               }`}
             >
               {cat}
