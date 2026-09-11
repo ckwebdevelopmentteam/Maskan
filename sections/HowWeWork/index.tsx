@@ -44,51 +44,24 @@ export default function HowWeWork() {
             <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-[var(--fg-primary)]/10 md:block" />
 
             <div className="flex flex-col items-center text-center md:items-start md:text-left md:col-span-5 md:pr-16">
-              <motion.span
-                className="mb-5 text-xs italic tracking-wide text-[var(--fg-primary)]/50"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
+              <span className="mb-5 text-xs italic tracking-wide text-[var(--fg-primary)]/50">
                 // How we build
-              </motion.span>
+              </span>
 
-              <motion.h2
-                className="mb-12 text-[2.5rem] font-light leading-[1.1] tracking-tight text-[var(--fg-primary)] md:mb-16 md:text-[3rem] lg:text-[3.5rem]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.05 }}
-              >
+              <h2 className="mb-12 text-[2.5rem] font-light leading-[1.1] tracking-tight text-[var(--fg-primary)] md:mb-16 md:text-[3rem] lg:text-[3.5rem]">
                 A clear construction
                 <br />
                 process
-              </motion.h2>
+              </h2>
 
               <div className="relative pl-10">
-                <motion.div
-                  className="absolute bottom-[18px] left-[15px] top-[18px] w-[3px] bg-[var(--fg-primary)]"
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.3,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  style={{ transformOrigin: "top" }}
-                />
+                <div className="absolute bottom-[18px] left-[15px] top-[18px] w-[3px] bg-[var(--fg-primary)]" />
 
                 <div className="flex flex-col gap-8">
-                  {steps.map((step, index) => (
-                    <motion.div
+                  {steps.map((step) => (
+                    <div
                       key={step.num}
                       className="relative flex items-start gap-5"
-                      initial={{ opacity: 0, x: -15 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.2 + index * 0.12 }}
                     >
                       <div className="absolute -left-10 top-0 z-10 flex h-[33px] w-[33px] shrink-0 items-center justify-center rounded-full bg-[var(--fg-primary)] text-[var(--bg-primary)] shadow-sm">
                         <span className="font-mono text-[10px] font-bold leading-none">
@@ -104,7 +77,7 @@ export default function HowWeWork() {
                           {step.desc}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -115,13 +88,7 @@ export default function HowWeWork() {
             <div className="flex flex-col md:col-span-7 md:pl-16">
               <div className="hidden h-[140px] md:block lg:h-[160px]" />
 
-              <motion.div
-                className="relative w-full overflow-hidden"
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-              >
+              <div className="relative w-full overflow-hidden">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src="/about 4.webp"
@@ -131,7 +98,7 @@ export default function HowWeWork() {
                     sizes="(max-width: 768px) 100vw, 58vw"
                   />
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

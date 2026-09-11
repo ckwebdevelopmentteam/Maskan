@@ -96,12 +96,8 @@ export default function ServicesStickyScroll() {
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <div
                 key={service.id}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
                 className="group flex flex-col gap-5 p-5 sm:p-6 md:p-8 rounded-3xl bg-white border border-gray-200/90 hover:border-[var(--fg-primary)]/30 transition-all duration-500 shadow-sm"
               >
                 {/* Visual Image Card with Resilient Fallback */}
@@ -170,7 +166,7 @@ export default function ServicesStickyScroll() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -118,17 +118,7 @@ export default function ProjectsGrid() {
                 key={project.id}
                 className="block"
               >
-                <motion.article
-                  className="relative flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 cursor-pointer"
-                  initial={{ opacity: 0, y: 36 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "0px" }}
-                  transition={{
-                    duration: 0.75,
-                    delay: index * 0.06,
-                    ease: [0.24, 0.43, 0.15, 0.97],
-                  }}
-                >
+                <article className="relative flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-sm border border-black/10 cursor-pointer hover:shadow-md transition-shadow">
                   {/* Image Section */}
                   <div className="relative aspect-[16/10] min-h-[280px] sm:min-h-[340px] md:min-h-[380px] w-full overflow-hidden bg-white">
                     <Image
@@ -170,7 +160,7 @@ export default function ProjectsGrid() {
                       {project.desc}
                     </p>
                   </div>
-                </motion.article>
+                </article>
               </Link>
             );
           })}

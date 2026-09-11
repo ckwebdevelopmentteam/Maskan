@@ -97,13 +97,9 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
           className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-6 -mx-6 px-6 md:-mx-12 md:px-12 snap-x snap-mandatory"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {blogs.map((blog, idx) => (
-            <motion.article
+          {blogs.map((blog) => (
+            <article
               key={blog._id || blog.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
               className="w-[300px] sm:w-[360px] md:w-[400px] shrink-0 snap-start bg-[#F9FAFB] rounded-2xl overflow-hidden border border-gray-100 flex flex-col justify-between group hover:shadow-xl hover:bg-white hover:-translate-y-1 transition-all duration-300"
             >
               {/* Cover Image */}
@@ -163,7 +159,7 @@ export default function BlogCarouselClient({ blogs }: BlogCarouselClientProps) {
                   </Link>
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 

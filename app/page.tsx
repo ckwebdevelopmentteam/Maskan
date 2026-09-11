@@ -1,6 +1,5 @@
 export const revalidate = 60;
 import NavBar from "@/components/Client/NavBar";
-import ScrollReveal from "@/components/Client/ScrollReveal";
 import ServicesStickyScroll from "@/sections/ServicesStickyScroll";
 import Footer from "@/sections/Footer/Server";
 import Form from "@/sections/Form";
@@ -18,33 +17,19 @@ import BlogCarousel from "@/sections/BlogCarousel";
 export default function Home() {
   return (
     <main>
-      <ScrollReveal><Hero /></ScrollReveal>
-      <ScrollReveal><Introduction /></ScrollReveal>
-      <ScrollReveal><ServicesStickyScroll /></ScrollReveal>
-      <ScrollReveal><HowWeWork /></ScrollReveal>
-      <div><Innovation /></div>
-      <ScrollReveal><ProjectsGrid /></ScrollReveal>
-
-      {/* Why Choose Us */}
-      <ScrollReveal><WhyChooseUs /></ScrollReveal>
-
-
-      {/* CTA */}
-      <ScrollReveal><Form /></ScrollReveal>
-
-      {/* Testimonial */}
-      <ScrollReveal><Testimonials /></ScrollReveal>
-
-      {/* FAQ */}
-      <ScrollReveal><FAQ /></ScrollReveal>
-
-      {/* Blog Carousel */}
-      <ScrollReveal><BlogCarousel /></ScrollReveal>
-
-      <ScrollReveal><SeoContent /></ScrollReveal>
-
-      {/* Footer */}
-      <ScrollReveal><Footer /></ScrollReveal>
+      <Hero />
+      <Introduction />
+      <ServicesStickyScroll />
+      <HowWeWork />
+      <Innovation />
+      <ProjectsGrid />
+      <WhyChooseUs />
+      <Form />
+      <Testimonials />
+      <FAQ />
+      <BlogCarousel />
+      <SeoContent />
+      <Footer />
       <NavBar />
     </main>
   );
