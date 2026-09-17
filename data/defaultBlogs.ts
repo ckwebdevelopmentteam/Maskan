@@ -3,7 +3,7 @@ export interface DefaultBlogPost {
   title: string;
   slug: string;
   excerpt: string;
-  content: string;
+  content: string | any;
   coverImage: string;
   category: string;
   author: {

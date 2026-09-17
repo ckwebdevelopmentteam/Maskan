@@ -4,7 +4,47 @@ import Blog from "@/models/Blog";
 import { defaultBlogs } from "@/data/defaultBlogs";
 import BlogCarouselClient, { BlogCarouselItem } from "./Client";
 
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+
 async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
+  try {
+    const sanityPosts = await client.fetch<any[]>(
+      `*[_type == "post"] | order(publishedAt desc, _createdAt desc)[0...8] {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        mainImage,
+        "category": coalesce(categories[0]->title, "Journal"),
+        "author": author->{ name, image },
+        readingTime,
+        publishedAt,
+        _createdAt
+      }`
+    );
+
+    if (sanityPosts && sanityPosts.length > 0) {
+      return sanityPosts.map((p) => ({
+        _id: p._id,
+        title: p.title || "Untitled Post",
+        slug: p.slug || p._id,
+        excerpt: p.excerpt || "",
+        coverImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
+        category: p.category || "Journal",
+        author: {
+          name: p.author?.name || "Maskan Team",
+          role: "Architectural Advisory",
+          avatar: urlForImage(p.author?.image) || "",
+        },
+        readingTime: p.readingTime || "4 min read",
+        createdAt: p.publishedAt || p._createdAt || new Date().toISOString(),
+      }));
+    }
+  } catch (error) {
+    console.error("Error fetching Sanity posts for carousel:", error);
+  }
+
   try {
     await dbConnect();
     const blogs = await Blog.find({ isPublished: true })

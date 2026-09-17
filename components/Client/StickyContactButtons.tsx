@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 export const StickyContactButtons = () => {
   const pathname = usePathname();
 
-  // Hide on admin dashboard
-  if (pathname?.startsWith("/admin")) {
+  // Hide on admin dashboard and Sanity Studio
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/studio")) {
     return null;
   }
 

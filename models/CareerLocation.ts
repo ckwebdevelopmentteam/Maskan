@@ -12,7 +12,7 @@ const CareerLocationSchema = new mongoose.Schema({
     trim: true,
   },
 }, {
-  timestamps: true,
+  timestamps: true,  
 });
 
 export default mongoose.models.CareerLocation || mongoose.model('CareerLocation', CareerLocationSchema);

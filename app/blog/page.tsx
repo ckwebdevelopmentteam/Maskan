@@ -15,7 +15,49 @@ export const metadata: Metadata = {
     "Explore perspectives on contemporary architecture, sustainable construction, luxury residential design, and commercial landmark developments in Kerala.",
 };
 
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+
 async function getBlogsData(): Promise<BlogItem[]> {
+  try {
+    const sanityPosts = await client.fetch<any[]>(
+      `*[_type == "post"] | order(publishedAt desc, _createdAt desc) {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        mainImage,
+        "category": coalesce(categories[0]->title, "Journal"),
+        "author": author->{ name, image },
+        readingTime,
+        publishedAt,
+        _createdAt
+      }`
+    );
+
+    if (sanityPosts && sanityPosts.length > 0) {
+      return sanityPosts.map((p, index) => ({
+        _id: p._id,
+        title: p.title || "Untitled Post",
+        slug: p.slug || p._id,
+        excerpt: p.excerpt || "",
+        coverImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
+        category: p.category || "Journal",
+        author: {
+          name: p.author?.name || "Maskan Editorial Team",
+          role: "Architectural Advisory",
+          avatar: urlForImage(p.author?.image) || "",
+        },
+        readingTime: p.readingTime || "5 min read",
+        tags: [p.category || "Journal"],
+        createdAt: p.publishedAt || p._createdAt || new Date().toISOString(),
+        featured: index === 0,
+      }));
+    }
+  } catch (error) {
+    console.error("Error fetching Sanity posts for /blog:", error);
+  }
+
   try {
     await dbConnect();
     const blogs = await Blog.find({ isPublished: true }).sort({ createdAt: -1 }).lean();

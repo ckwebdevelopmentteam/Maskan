@@ -30,9 +30,14 @@ html.lenis body {
   background: var(--accent);
   color: var(--bg-primary);
 }
-div::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
+}
+
+#sanity,
+#sanity * {
+  overscroll-behavior: auto;
 }
 body {
   /* Using Outfit (mapped to --font-sans) to match the sleek geometric style */

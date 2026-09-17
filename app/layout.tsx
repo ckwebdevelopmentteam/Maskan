@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { ReactLenis } from "@/utils/lenis";
+import { SmoothScrollProvider } from "@/components/Client/SmoothScrollProvider";
 import { WindowSizeProvider } from "./providers";
 import { StickyContactButtons } from "@/components/Client/StickyContactButtons";
 import { PopupProvider } from "@/components/Client/PopupProvider";
@@ -46,7 +46,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-55BZPFMC');`}
         </Script>
       </head>
-      <ReactLenis root options={{ duration: 1.0, lerp: 0.1, smoothWheel: true }}>
         <body
           className={`${outfit.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
         >
@@ -71,12 +70,13 @@ gtag('config', 'G-HLDCV33ZJ7');`}
           </Script>
           <WindowSizeProvider>
             <PopupProvider>
-              {children}
+              <SmoothScrollProvider>
+                {children}
+              </SmoothScrollProvider>
               <StickyContactButtons />
             </PopupProvider>
           </WindowSizeProvider>
         </body>
-      </ReactLenis>
     </html>
   );
 }

@@ -12,6 +12,9 @@ import CTA from "@/sections/CTA";
 import dbConnect from "@/utils/dbConnect";
 import Blog from "@/models/Blog";
 import { defaultBlogs, DefaultBlogPost } from "@/data/defaultBlogs";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
 
 interface BlogPageProps {
   params: Promise<{ slug: string }>;
@@ -19,6 +22,50 @@ interface BlogPageProps {
 
 async function getBlogBySlug(slug: string): Promise<DefaultBlogPost | null> {
   const cleanSlug = decodeURIComponent(slug).toLowerCase().trim();
+
+  // Try Sanity first
+  try {
+    const sanityPost = await client.fetch<any>(
+      `*[_type == "post" && slug.current == $slug][0] {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        body,
+        mainImage,
+        "category": coalesce(categories[0]->title, "Journal"),
+        "author": author->{ name, image },
+        readingTime,
+        publishedAt,
+        _createdAt
+      }`,
+      { slug: cleanSlug }
+    );
+
+    if (sanityPost) {
+      return {
+        _id: sanityPost._id,
+        title: sanityPost.title || "Untitled Post",
+        slug: sanityPost.slug || cleanSlug,
+        excerpt: sanityPost.excerpt || "",
+        content: sanityPost.body || "",
+        coverImage: urlForImage(sanityPost.mainImage) || "/projects/project-1.webp",
+        category: sanityPost.category || "Journal",
+        author: {
+          name: sanityPost.author?.name || "Maskan Editorial Team",
+          role: "Architectural Advisory",
+          avatar: urlForImage(sanityPost.author?.image) || "",
+        },
+        readingTime: sanityPost.readingTime || "5 min read",
+        tags: [sanityPost.category || "Journal"],
+        isPublished: true,
+        featured: false,
+        createdAt: sanityPost.publishedAt || sanityPost._createdAt || new Date().toISOString(),
+      };
+    }
+  } catch (error) {
+    console.error("Error finding blog by slug from Sanity:", error);
+  }
 
   try {
     await dbConnect();
@@ -57,6 +104,49 @@ async function getBlogBySlug(slug: string): Promise<DefaultBlogPost | null> {
 }
 
 async function getRelatedBlogs(currentSlug: string, category: string): Promise<DefaultBlogPost[]> {
+  // Try Sanity
+  try {
+    const sanityRelated = await client.fetch<any[]>(
+      `*[_type == "post" && slug.current != $slug] | order(publishedAt desc, _createdAt desc)[0...3] {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        mainImage,
+        "category": coalesce(categories[0]->title, "Journal"),
+        "author": author->{ name, image },
+        readingTime,
+        publishedAt,
+        _createdAt
+      }`,
+      { slug: currentSlug }
+    );
+
+    if (sanityRelated && sanityRelated.length > 0) {
+      return sanityRelated.map((p) => ({
+        _id: p._id,
+        title: p.title || "Untitled Post",
+        slug: p.slug,
+        excerpt: p.excerpt || "",
+        content: "",
+        coverImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
+        category: p.category || "Journal",
+        author: {
+          name: p.author?.name || "Maskan Editorial Team",
+          role: "Architectural Advisory",
+          avatar: urlForImage(p.author?.image) || "",
+        },
+        readingTime: p.readingTime || "5 min read",
+        tags: [p.category || "Journal"],
+        isPublished: true,
+        featured: false,
+        createdAt: p.publishedAt || p._createdAt || new Date().toISOString(),
+      }));
+    }
+  } catch (error) {
+    console.error("Error fetching related posts from Sanity:", error);
+  }
+
   try {
     await dbConnect();
     const related = await Blog.find({
@@ -315,7 +405,39 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
           {/* Article Body Content */}
           <div className="w-full prose prose-lg max-w-none text-gray-800">
-            {renderFormattedContent(blog.content)}
+            {Array.isArray(blog.content) ? (
+              <PortableText
+                value={blog.content}
+                components={{
+                  types: {
+                    image: ({ value }: { value: any }) => {
+                      const imgUrl = urlForImage(value);
+                      if (!imgUrl) return null;
+                      return (
+                        <figure className="my-8">
+                          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gray-100 shadow-md">
+                            <Image
+                              src={imgUrl}
+                              alt={value.alt || "Article illustration"}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 1000px) 100vw, 1000px"
+                            />
+                          </div>
+                          {value.alt && (
+                            <figcaption className="mt-2 text-center text-xs text-gray-500 italic">
+                              {value.alt}
+                            </figcaption>
+                          )}
+                        </figure>
+                      );
+                    },
+                  },
+                }}
+              />
+            ) : (
+              renderFormattedContent(typeof blog.content === "string" ? blog.content : "")
+            )}
           </div>
 
           {/* Tags */}
