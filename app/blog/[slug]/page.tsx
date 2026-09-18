@@ -23,6 +23,42 @@ interface BlogPageProps {
 async function getBlogBySlug(slug: string): Promise<DefaultBlogPost | null> {
   const cleanSlug = decodeURIComponent(slug).toLowerCase().trim();
 
+  if (cleanSlug === "how-to-choose-the-best-builders-in-kerala-2026") {
+    return {
+      _id: "dummy-blog-0",
+      title: "How to Choose the Best Builders in Kerala for Your Dream Home in 2026",
+      slug: cleanSlug,
+      excerpt: "A practical guide to finding a reliable Kerala builder who understands quality, climate, design, and the way you want to live.",
+      content: `
+Choosing the right builder is one of the most important decisions you will make when creating a home. The right team brings together design thinking, technical knowledge, clear communication, and dependable execution.
+
+## Start with experience that fits your project
+
+Look for a builder who has completed projects similar to yours and understands the character of Kerala. A good portfolio should show thoughtful planning, durable materials, and homes that respond to local light, rain, and heat.
+
+## Ask about the complete process
+
+The best builders explain each stage clearly, from the first consultation and design coordination to approvals, construction, finishes, and handover. Clear milestones and regular updates make the journey easier to trust.
+
+## Choose quality over shortcuts
+
+Materials, site supervision, workmanship, and aftercare all shape the long-term value of a home. Ask how the team manages quality on site and how they handle changes when the project develops.
+
+## Build with confidence
+
+Your builder should listen carefully, answer honestly, and help turn your priorities into a home that feels considered from the first sketch to the final detail. At Maskan, we bring design and execution together to make that process feel clear and personal.
+      `.trim(),
+      coverImage: "/projects/blog1-detail.png",
+      category: "Home Building",
+      author: { name: "Maskan Editorial Team", role: "Architectural Advisory", avatar: "" },
+      readingTime: "6 min read",
+      tags: ["Home Building", "Kerala", "Construction"],
+      isPublished: true,
+      featured: true,
+      createdAt: new Date().toISOString(),
+    };
+  }
+
   // Try Sanity first
   try {
     const sanityPost = await client.fetch<any>(
@@ -324,25 +360,25 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   };
 
   return (
-    <main className="bg-[#FFFFFF] text-[#3B4D5C] min-h-screen relative font-sans selection:bg-[#244b6b] selection:text-white">
+    <main className="min-h-screen relative bg-[#f7f4f1] font-sans text-[#251a23] selection:bg-[#e36f2d] selection:text-white">
       {/* NavBar */}
       <NavBar />
 
       {/* Article Header */}
-      <article className="w-full pt-36 md:pt-44 pb-20">
-        <div className="w-full max-w-[1000px] mx-auto px-6 md:px-12">
+      <article className="w-full pb-20 pt-36 md:pt-44">
+        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12">
           {/* Back link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#245171] font-bold hover:gap-3 transition-all mb-8"
+            className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#e36f2d] transition-all hover:gap-3"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to all stories</span>
           </Link>
 
           {/* Meta bar */}
-          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">
-            <span className="px-3.5 py-1 rounded-full bg-[#245171] text-white">
+          <div className="mb-6 flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-wider text-[#8d8181]">
+            <span className="border-b border-[#e36f2d] pb-1 text-[#e36f2d]">
               {blog.category}
             </span>
             <span className="flex items-center gap-1.5">
@@ -357,24 +393,24 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
+          <h1 className="mb-6 max-w-[1000px] text-4xl font-medium leading-[0.98] tracking-[-0.055em] text-[#251a23] sm:text-6xl md:text-7xl">
             {blog.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-10 pb-8 border-b border-gray-100">
+          <p className="mb-10 max-w-[720px] border-b border-[#ded7d2] pb-8 text-lg font-light leading-relaxed text-[#766d70] md:text-xl">
             {blog.excerpt}
           </p>
 
           {/* Author info */}
-          <div className="flex items-center justify-between gap-4 mb-10">
+          <div className="mb-10 flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#245171] text-white font-bold flex items-center justify-center text-sm shadow-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#24151f] text-sm font-bold text-white shadow-md">
                 {blog.author.name.slice(0, 2).toUpperCase()}
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-900">{blog.author.name}</p>
-                <p className="text-xs text-gray-500">{blog.author.role || "Maskan Editorial"}</p>
+                <p className="text-sm font-bold text-[#251a23]">{blog.author.name}</p>
+                <p className="text-xs text-[#8d8181]">{blog.author.role || "Maskan Editorial"}</p>
               </div>
             </div>
 
@@ -383,7 +419,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               href={`https://wa.me/?text=${encodeURIComponent(`${blog.title} - Read more on Maskan Builders`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold tracking-wider transition-colors"
+              className="inline-flex items-center gap-2 border border-[#cfc4bd] px-4 py-2 text-xs font-semibold tracking-wider text-[#251a23] transition-colors hover:bg-[#ece5df]"
               title="Share on WhatsApp"
             >
               <Share2 className="w-3.5 h-3.5" />
@@ -392,7 +428,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* Featured Cover Image */}
-          <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mb-14 bg-gray-100">
+          <div className="relative mb-14 aspect-[1.38/1] w-full overflow-hidden bg-[#d9d0ca] shadow-2xl">
             <Image
               src={blog.coverImage}
               alt={blog.title}
@@ -404,7 +440,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* Article Body Content */}
-          <div className="w-full prose prose-lg max-w-none text-gray-800">
+          <div className="prose prose-lg mx-auto w-full max-w-[860px] text-[#3b3034]">
             {Array.isArray(blog.content) ? (
               <PortableText
                 value={blog.content}
@@ -442,12 +478,12 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
           {/* Tags */}
           {blog.tags && blog.tags.length > 0 && (
-            <div className="mt-14 pt-8 border-t border-gray-200 flex flex-wrap items-center gap-2">
-              <Tag className="w-4 h-4 text-gray-400 mr-2" />
+            <div className="mt-14 flex flex-wrap items-center gap-2 border-t border-[#ded7d2] pt-8">
+              <Tag className="mr-2 h-4 w-4 text-[#e36f2d]" />
               {blog.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-medium"
+                  className="border border-[#cfc4bd] px-3.5 py-1.5 text-xs font-medium text-[#766d70]"
                 >
                   #{tag}
                 </span>
@@ -456,72 +492,6 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           )}
         </div>
       </article>
-
-      {/* Related Stories Section */}
-      {relatedBlogs.length > 0 && (
-        <section className="w-full bg-[#f8f9fa] py-20 border-t border-gray-200/80">
-          <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <span className="text-xs uppercase tracking-widest text-[#245171] font-bold block mb-2">
-                  Continue Reading
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  Related Architecture Stories
-                </h2>
-              </div>
-              <Link
-                href="/blog"
-                className="hidden md:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#245171] hover:gap-3 transition-all"
-              >
-                <span>View all stories</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {relatedBlogs.map((related) => (
-                <article
-                  key={related.slug}
-                  className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
-                >
-                  <Link href={`/blog/${related.slug}`} className="relative aspect-[16/10] block overflow-hidden">
-                    <Image
-                      src={related.coverImage}
-                      alt={related.title}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-semibold uppercase tracking-wider">
-                      {related.category}
-                    </span>
-                  </Link>
-
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span className="text-xs text-gray-400 block mb-2">{formatDate(related.createdAt)}</span>
-                      <Link href={`/blog/${related.slug}`}>
-                        <h3 className="text-lg font-bold text-gray-900 hover:text-[#245171] transition-colors line-clamp-2 mb-3">
-                          {related.title}
-                        </h3>
-                      </Link>
-                      <p className="text-gray-600 text-sm line-clamp-2 mb-4">{related.excerpt}</p>
-                    </div>
-
-                    <Link
-                      href={`/blog/${related.slug}`}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#245171] mt-auto"
-                    >
-                      <span>Read Article</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* CTA Section */}
       <CTA />

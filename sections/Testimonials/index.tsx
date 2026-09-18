@@ -55,8 +55,11 @@ const defaultTestimonialsData: TestimonialItem[] = [
 ];
 
 async function getTestimonials(): Promise<TestimonialItem[]> {
+  const fallbackTestimonials = defaultTestimonialsData;
+  const sanityTestimonials: TestimonialItem[] = [];
+
   try {
-    const sanityTestimonials = await client.fetch<any[]>(
+    const testimonials = await client.fetch<any[]>(
       `*[_type == "testimonial"] | order(order asc, _createdAt desc) {
         _id,
         author,
@@ -66,19 +69,21 @@ async function getTestimonials(): Promise<TestimonialItem[]> {
       }`
     );
 
-    if (sanityTestimonials && sanityTestimonials.length > 0) {
-      return sanityTestimonials.map((t) => ({
+    testimonials.forEach((t) => {
+      sanityTestimonials.push({
         author: t.author || "Client",
         location: t.location || "",
         quote: t.quote || "",
         image: urlForImage(t.image) || "/IrsyMMpxpY0yqVMutVpGtcoOSx4.webp",
-      }));
-    }
+      });
+    });
   } catch (error) {
     console.error("Error fetching testimonials from Sanity:", error);
   }
 
-  return defaultTestimonialsData;
+  return [...fallbackTestimonials, ...sanityTestimonials].filter(
+    (testimonial, index, arr) => arr.findIndex((entry) => entry.author === testimonial.author && entry.quote === testimonial.quote) === index,
+  );
 }
 
 export default async function Testimonials() {

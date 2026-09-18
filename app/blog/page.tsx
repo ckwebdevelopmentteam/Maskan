@@ -2,7 +2,6 @@ export const revalidate = 60;
 
 import React from "react";
 import type { Metadata } from "next";
-import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import dbConnect from "@/utils/dbConnect";
 import Blog from "@/models/Blog";
@@ -18,10 +17,33 @@ export const metadata: Metadata = {
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 
+const getBlogTimestamp = (value?: string | Date) => {
+  if (!value) return 0;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+};
+
 async function getBlogsData(): Promise<BlogItem[]> {
+  const fallbackBlogs: BlogItem[] = defaultBlogs.map((b) => ({
+    _id: b._id,
+    title: b.title,
+    slug: b.slug,
+    excerpt: b.excerpt,
+    coverImage: b.coverImage,
+    cardImage: b.cardImage || b.coverImage,
+    category: b.category,
+    author: b.author,
+    readingTime: b.readingTime,
+    tags: b.tags,
+    createdAt: b.createdAt,
+    featured: b.featured,
+  }));
+
+  const sanityPosts: BlogItem[] = [];
+
   try {
-    const sanityPosts = await client.fetch<any[]>(
-      `*[_type == "post"] | order(publishedAt desc, _createdAt desc) {
+    const posts = await client.fetch<any[]>(
+      `*[_type == "post"] | order(_createdAt desc) {
         _id,
         title,
         "slug": slug.current,
@@ -35,13 +57,14 @@ async function getBlogsData(): Promise<BlogItem[]> {
       }`
     );
 
-    if (sanityPosts && sanityPosts.length > 0) {
-      return sanityPosts.map((p, index) => ({
+    posts.forEach((p, index) => {
+      sanityPosts.push({
         _id: p._id,
         title: p.title || "Untitled Post",
         slug: p.slug || p._id,
         excerpt: p.excerpt || "",
         coverImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
+        cardImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
         category: p.category || "Journal",
         author: {
           name: p.author?.name || "Maskan Editorial Team",
@@ -50,26 +73,28 @@ async function getBlogsData(): Promise<BlogItem[]> {
         },
         readingTime: p.readingTime || "5 min read",
         tags: [p.category || "Journal"],
-        createdAt: p.publishedAt || p._createdAt || new Date().toISOString(),
+        createdAt: p._createdAt || p.publishedAt || new Date().toISOString(),
         featured: index === 0,
-      }));
-    }
+      });
+    });
   } catch (error) {
     console.error("Error fetching Sanity posts for /blog:", error);
   }
+
+  const dbBlogs: BlogItem[] = [];
 
   try {
     await dbConnect();
     const blogs = await Blog.find({ isPublished: true }).sort({ createdAt: -1 }).lean();
 
-    if (blogs && blogs.length > 0) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return blogs.map((b: any) => ({
+    blogs.forEach((b: any) => {
+      dbBlogs.push({
         _id: b._id.toString(),
         title: b.title,
         slug: b.slug,
         excerpt: b.excerpt,
         coverImage: b.coverImage,
+        cardImage: b.cardImage || b.coverImage,
         category: b.category,
         author: {
           name: b.author?.name || "Maskan Editorial Team",
@@ -80,26 +105,21 @@ async function getBlogsData(): Promise<BlogItem[]> {
         tags: b.tags || [],
         createdAt: b.createdAt ? new Date(b.createdAt).toISOString() : new Date().toISOString(),
         featured: Boolean(b.featured),
-      }));
-    }
+      });
+    });
   } catch (error) {
     console.error("Error fetching blogs from DB, using fallback defaults:", error);
   }
 
-  // Fallback defaults
-  return defaultBlogs.map((b) => ({
-    _id: b._id,
-    title: b.title,
-    slug: b.slug,
-    excerpt: b.excerpt,
-    coverImage: b.coverImage,
-    category: b.category,
-    author: b.author,
-    readingTime: b.readingTime,
-    tags: b.tags,
-    createdAt: b.createdAt,
-    featured: b.featured,
-  }));
+  const sanityPostsSorted = [...sanityPosts].sort(
+    (a, b) => getBlogTimestamp(b.createdAt) - getBlogTimestamp(a.createdAt),
+  );
+
+  const mergedBlogs = [...sanityPostsSorted, ...dbBlogs, ...fallbackBlogs];
+
+  return mergedBlogs.filter(
+    (blog, index, arr) => arr.findIndex((entry) => entry.slug === blog.slug) === index,
+  );
 }
 
 export default async function BlogPage() {
@@ -114,9 +134,6 @@ export default async function BlogPage() {
 
   return (
     <main className="bg-[#FFFFFF] text-[#3B4D5C] min-h-screen relative font-sans selection:bg-[#244b6b] selection:text-white">
-      {/* NavBar */}
-      <NavBar />
-
       {/* Main Blog Listing */}
       <BlogListingClient initialBlogs={blogs} categories={categories} />
 

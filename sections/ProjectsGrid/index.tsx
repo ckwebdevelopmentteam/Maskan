@@ -79,8 +79,11 @@ const defaultProjects: ProjectGridItem[] = [
 ];
 
 async function getFeaturedProjects(): Promise<ProjectGridItem[]> {
+  const fallbackProjects = defaultProjects;
+  const sanityProjects: ProjectGridItem[] = [];
+
   try {
-    const sanityProjects = await client.fetch<any[]>(
+    const projects = await client.fetch<any[]>(
       `*[_type == "project"] | order(order asc, _createdAt desc)[0...6] {
         _id,
         title,
@@ -94,8 +97,8 @@ async function getFeaturedProjects(): Promise<ProjectGridItem[]> {
       }`
     );
 
-    if (sanityProjects && sanityProjects.length > 0) {
-      return sanityProjects.map((p) => ({
+    projects.forEach((p) => {
+      sanityProjects.push({
         id: p.slug || p._id,
         name: p.title || "Untitled Project",
         location: p.location || "Kerala",
@@ -104,13 +107,15 @@ async function getFeaturedProjects(): Promise<ProjectGridItem[]> {
         img: urlForImage(p.mainImage) || "/projects/Avoria Heights.jpeg",
         desc: p.description || "",
         stats: p.stats && p.stats.length > 0 ? p.stats : [{ label: "Type", val: p.category || "Project" }],
-      }));
-    }
+      });
+    });
   } catch (error) {
     console.error("Error fetching projects from Sanity:", error);
   }
 
-  return defaultProjects;
+  return [...fallbackProjects, ...sanityProjects].filter(
+    (project, index, arr) => arr.findIndex((entry) => entry.id === project.id || entry.name === project.name) === index,
+  );
 }
 
 export default async function ProjectsGrid() {

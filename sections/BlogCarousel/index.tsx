@@ -7,10 +7,28 @@ import BlogCarouselClient, { BlogCarouselItem } from "./Client";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 
+function getPublicBlogCards(blogs: BlogCarouselItem[]): BlogCarouselItem[] {
+  const mergedBlogs = [...blogs, ...defaultBlogs.map((b) => ({
+    _id: b._id,
+    title: b.title,
+    slug: b.slug,
+    excerpt: b.excerpt,
+    coverImage: b.coverImage,
+    category: b.category,
+    author: b.author,
+    readingTime: b.readingTime,
+    createdAt: b.createdAt,
+  }))];
+
+  return mergedBlogs
+    .filter((blog, index, arr) => arr.findIndex((entry) => entry.slug === blog.slug) === index)
+    .slice(0, 8);
+}
+
 async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
   try {
     const sanityPosts = await client.fetch<any[]>(
-      `*[_type == "post"] | order(publishedAt desc, _createdAt desc)[0...8] {
+      `*[_type == "post"] | order(_createdAt desc)[0...8] {
         _id,
         title,
         "slug": slug.current,
@@ -25,7 +43,7 @@ async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
     );
 
     if (sanityPosts && sanityPosts.length > 0) {
-      return sanityPosts.map((p) => ({
+      return getPublicBlogCards(sanityPosts.map((p) => ({
         _id: p._id,
         title: p.title || "Untitled Post",
         slug: p.slug || p._id,
@@ -38,8 +56,8 @@ async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
           avatar: urlForImage(p.author?.image) || "",
         },
         readingTime: p.readingTime || "4 min read",
-        createdAt: p.publishedAt || p._createdAt || new Date().toISOString(),
-      }));
+        createdAt: p._createdAt || p.publishedAt || new Date().toISOString(),
+      })));
     }
   } catch (error) {
     console.error("Error fetching Sanity posts for carousel:", error);
@@ -54,7 +72,7 @@ async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
 
     if (blogs && blogs.length > 0) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return blogs.map((b: any) => ({
+      return getPublicBlogCards(blogs.map((b: any) => ({
         _id: b._id.toString(),
         title: b.title,
         slug: b.slug,
@@ -68,13 +86,13 @@ async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
         },
         readingTime: b.readingTime || "4 min read",
         createdAt: b.createdAt ? new Date(b.createdAt).toISOString() : new Date().toISOString(),
-      }));
+      })));
     }
   } catch (error) {
     console.error("Error fetching blogs for carousel:", error);
   }
 
-  return defaultBlogs.map((b) => ({
+  return getPublicBlogCards(defaultBlogs.map((b) => ({
     _id: b._id,
     title: b.title,
     slug: b.slug,
@@ -84,7 +102,7 @@ async function getCarouselBlogs(): Promise<BlogCarouselItem[]> {
     author: b.author,
     readingTime: b.readingTime,
     createdAt: b.createdAt,
-  }));
+  })));
 }
 
 export default async function BlogCarousel() {

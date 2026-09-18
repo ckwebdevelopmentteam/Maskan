@@ -136,8 +136,11 @@ const defaultProjectsList: ProjectListItem[] = [
 ];
 
 async function getProjects(): Promise<ProjectListItem[]> {
+  const fallbackProjects = defaultProjectsList;
+  const sanityProjects: ProjectListItem[] = [];
+
   try {
-    const sanityProjects = await client.fetch<any[]>(
+    const projects = await client.fetch<any[]>(
       `*[_type == "project"] | order(order asc, _createdAt desc) {
         _id,
         title,
@@ -151,8 +154,8 @@ async function getProjects(): Promise<ProjectListItem[]> {
       }`
     );
 
-    if (sanityProjects && sanityProjects.length > 0) {
-      return sanityProjects.map((p) => ({
+    projects.forEach((p) => {
+      sanityProjects.push({
         id: p.slug || p._id,
         title: p.title || "Untitled Project",
         category: p.category || "Residential",
@@ -161,13 +164,15 @@ async function getProjects(): Promise<ProjectListItem[]> {
         scale: p.scale || "Custom Build",
         status: p.status === "COMPLETED" ? "Completed" : "Ongoing",
         description: p.description || "",
-      }));
-    }
+      });
+    });
   } catch (error) {
     console.error("Error fetching projects from Sanity for /projects:", error);
   }
 
-  return defaultProjectsList;
+  return [...fallbackProjects, ...sanityProjects].filter(
+    (project, index, arr) => arr.findIndex((entry) => entry.id === project.id || entry.title === project.title) === index,
+  );
 }
 
 export default async function ProjectsPage() {
