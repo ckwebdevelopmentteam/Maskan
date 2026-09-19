@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, Share2, Tag, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Share2, Tag } from "lucide-react";
 import NavBar from "@/components/Client/NavBar";
 import Footer from "@/sections/Footer/Server";
 import CTA from "@/sections/CTA";
@@ -19,6 +19,51 @@ import { PortableText } from "next-sanity";
 interface BlogPageProps {
   params: Promise<{ slug: string }>;
 }
+
+type SanityImageValue = {
+  asset?: unknown;
+  _ref?: string;
+  alt?: string;
+};
+
+type SanityAuthor = {
+  name?: string;
+  image?: SanityImageValue;
+};
+
+type SanityBlogPost = {
+  _id: string;
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  body?: DefaultBlogPost["content"];
+  mainImage?: SanityImageValue;
+  category?: string;
+  author?: SanityAuthor;
+  readingTime?: string;
+  publishedAt?: string;
+  _createdAt?: string;
+};
+
+type DbBlogPost = {
+  _id: { toString(): string };
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: DefaultBlogPost["content"];
+  coverImage: string;
+  category: string;
+  author?: {
+    name?: string;
+    role?: string;
+    avatar?: string;
+  };
+  readingTime?: string;
+  tags?: string[];
+  isPublished: boolean;
+  featured?: boolean;
+  createdAt?: string | Date;
+};
 
 async function getBlogBySlug(slug: string): Promise<DefaultBlogPost | null> {
   const cleanSlug = decodeURIComponent(slug).toLowerCase().trim();
@@ -61,7 +106,7 @@ Your builder should listen carefully, answer honestly, and help turn your priori
 
   // Try Sanity first
   try {
-    const sanityPost = await client.fetch<any>(
+    const sanityPost = await client.fetch<SanityBlogPost | null>(
       `*[_type == "post" && slug.current == $slug][0] {
         _id,
         title,
@@ -108,8 +153,7 @@ Your builder should listen carefully, answer honestly, and help turn your priori
     const blog = await Blog.findOne({ slug: cleanSlug, isPublished: true }).lean();
 
     if (blog) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const b = blog as any;
+      const b = blog as DbBlogPost;
       return {
         _id: b._id.toString(),
         title: b.title,
@@ -142,7 +186,7 @@ Your builder should listen carefully, answer honestly, and help turn your priori
 async function getRelatedBlogs(currentSlug: string, category: string): Promise<DefaultBlogPost[]> {
   // Try Sanity
   try {
-    const sanityRelated = await client.fetch<any[]>(
+    const sanityRelated = await client.fetch<SanityBlogPost[]>(
       `*[_type == "post" && slug.current != $slug] | order(publishedAt desc, _createdAt desc)[0...3] {
         _id,
         title,
@@ -162,7 +206,7 @@ async function getRelatedBlogs(currentSlug: string, category: string): Promise<D
       return sanityRelated.map((p) => ({
         _id: p._id,
         title: p.title || "Untitled Post",
-        slug: p.slug,
+        slug: p.slug || p._id,
         excerpt: p.excerpt || "",
         content: "",
         coverImage: urlForImage(p.mainImage) || "/projects/project-1.webp",
@@ -194,8 +238,7 @@ async function getRelatedBlogs(currentSlug: string, category: string): Promise<D
       .lean();
 
     if (related && related.length > 0) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return related.map((b: any) => ({
+      return (related as DbBlogPost[]).map((b) => ({
         _id: b._id.toString(),
         title: b.title,
         slug: b.slug,
@@ -251,7 +294,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     notFound();
   }
 
-  const relatedBlogs = await getRelatedBlogs(blog.slug, blog.category);
+  await getRelatedBlogs(blog.slug, blog.category);
 
   const formatDate = (dateString: string) => {
     try {
@@ -446,7 +489,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 value={blog.content}
                 components={{
                   types: {
-                    image: ({ value }: { value: any }) => {
+                    image: ({ value }: { value: SanityImageValue }) => {
                       const imgUrl = urlForImage(value);
                       if (!imgUrl) return null;
                       return (

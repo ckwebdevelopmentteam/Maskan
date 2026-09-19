@@ -6,6 +6,28 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import ProjectDetailClient, { ProjectData } from "./ProjectDetailClient";
 
+type SanityImageValue = {
+  asset?: unknown;
+  _ref?: string;
+};
+
+type SanityProject = {
+  title?: string;
+  location?: string;
+  category?: string;
+  scale?: string;
+  status?: string;
+  description?: string;
+  mainImage?: SanityImageValue;
+  gallery?: SanityImageValue[];
+  story?: {
+    theWhere?: string;
+    theHow?: string;
+    theDetails?: string;
+  };
+  highlights?: ProjectData["highlights"];
+  highlightImages?: SanityImageValue[];
+};
 
 const meridianShowcaseImages = [
   "/projects/meridian-gallery-1-3x2-v2.webp",
@@ -566,7 +588,7 @@ const getProjectBySlug = async (rawSlug: string): Promise<ProjectData> => {
 
   // 1. Try fetching live from Sanity
   try {
-    const sanityProject = await client.fetch<any>(
+    const sanityProject = await client.fetch<SanityProject | null>(
       `*[_type == "project" && slug.current == $slug][0] {
         _id,
         title,
@@ -588,10 +610,10 @@ const getProjectBySlug = async (rawSlug: string): Promise<ProjectData> => {
     if (sanityProject) {
       const mainImg = urlForImage(sanityProject.mainImage) || "/projects/Avoria Heights.jpeg";
       const galleryImgs = (sanityProject.gallery || [])
-        .map((img: any) => urlForImage(img))
+        .map((img) => urlForImage(img))
         .filter(Boolean);
       const highlightImgs = (sanityProject.highlightImages || [])
-        .map((img: any) => urlForImage(img))
+        .map((img) => urlForImage(img))
         .filter(Boolean);
 
       const allImages = [mainImg, ...galleryImgs];

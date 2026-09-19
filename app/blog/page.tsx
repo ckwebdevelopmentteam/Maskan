@@ -23,6 +23,46 @@ const getBlogTimestamp = (value?: string | Date) => {
   return Number.isNaN(date.getTime()) ? 0 : date.getTime();
 };
 
+type SanityImageValue = {
+  asset?: unknown;
+  _ref?: string;
+};
+
+type SanityBlogPost = {
+  _id: string;
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  mainImage?: SanityImageValue;
+  category?: string;
+  author?: {
+    name?: string;
+    image?: SanityImageValue;
+  };
+  readingTime?: string;
+  publishedAt?: string;
+  _createdAt?: string;
+};
+
+type DbBlogPost = {
+  _id: { toString(): string };
+  title: string;
+  slug: string;
+  excerpt: string;
+  coverImage: string;
+  cardImage?: string;
+  category: string;
+  author?: {
+    name?: string;
+    role?: string;
+    avatar?: string;
+  };
+  readingTime?: string;
+  tags?: string[];
+  createdAt?: string | Date;
+  featured?: boolean;
+};
+
 async function getBlogsData(): Promise<BlogItem[]> {
   const fallbackBlogs: BlogItem[] = defaultBlogs.map((b) => ({
     _id: b._id,
@@ -42,7 +82,7 @@ async function getBlogsData(): Promise<BlogItem[]> {
   const sanityPosts: BlogItem[] = [];
 
   try {
-    const posts = await client.fetch<any[]>(
+    const posts = await client.fetch<SanityBlogPost[]>(
       `*[_type == "post"] | order(_createdAt desc) {
         _id,
         title,
@@ -87,7 +127,7 @@ async function getBlogsData(): Promise<BlogItem[]> {
     await dbConnect();
     const blogs = await Blog.find({ isPublished: true }).sort({ createdAt: -1 }).lean();
 
-    blogs.forEach((b: any) => {
+    (blogs as DbBlogPost[]).forEach((b) => {
       dbBlogs.push({
         _id: b._id.toString(),
         title: b.title,

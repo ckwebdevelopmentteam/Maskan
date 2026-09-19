@@ -12,6 +12,23 @@ export const metadata: Metadata = {
     "Explore our portfolio of premium residential villas, modern commercial complexes, and institutional landmarks across Kerala.",
 };
 
+type SanityImageValue = {
+  asset?: unknown;
+  _ref?: string;
+};
+
+type SanityProjectListItem = {
+  _id: string;
+  title?: string;
+  slug?: string;
+  location?: string;
+  category?: string;
+  scale?: string;
+  status?: string;
+  mainImage?: SanityImageValue;
+  description?: string;
+};
+
 const defaultProjectsList: ProjectListItem[] = [
   {
     id: "maskan-avoria",
@@ -140,7 +157,7 @@ async function getProjects(): Promise<ProjectListItem[]> {
   const sanityProjects: ProjectListItem[] = [];
 
   try {
-    const projects = await client.fetch<any[]>(
+    const projects = await client.fetch<SanityProjectListItem[]>(
       `*[_type == "project"] | order(order asc, _createdAt desc) {
         _id,
         title,
