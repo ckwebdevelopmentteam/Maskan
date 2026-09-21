@@ -5,8 +5,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, Share2, Tag } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Share2, Tag, Plus } from "lucide-react";
 import NavBar from "@/components/Client/NavBar";
+import MobileContentToggle from "../components/MobileContentToggle";
 import Footer from "@/sections/Footer/Server";
 import CTA from "@/sections/CTA";
 import dbConnect from "@/utils/dbConnect";
@@ -63,46 +64,16 @@ type DbBlogPost = {
   isPublished: boolean;
   featured?: boolean;
   createdAt?: string | Date;
+  seoTitle?: string;
+  metaDescription?: string;
+  coverImageAlt?: string;
+  faqs?: { question: string; answer: string }[];
 };
 
 async function getBlogBySlug(slug: string): Promise<DefaultBlogPost | null> {
   const cleanSlug = decodeURIComponent(slug).toLowerCase().trim();
 
-  if (cleanSlug === "how-to-choose-the-best-builders-in-kerala-2026") {
-    return {
-      _id: "dummy-blog-0",
-      title: "How to Choose the Best Builders in Kerala for Your Dream Home in 2026",
-      slug: cleanSlug,
-      excerpt: "A practical guide to finding a reliable Kerala builder who understands quality, climate, design, and the way you want to live.",
-      content: `
-Choosing the right builder is one of the most important decisions you will make when creating a home. The right team brings together design thinking, technical knowledge, clear communication, and dependable execution.
-
-## Start with experience that fits your project
-
-Look for a builder who has completed projects similar to yours and understands the character of Kerala. A good portfolio should show thoughtful planning, durable materials, and homes that respond to local light, rain, and heat.
-
-## Ask about the complete process
-
-The best builders explain each stage clearly, from the first consultation and design coordination to approvals, construction, finishes, and handover. Clear milestones and regular updates make the journey easier to trust.
-
-## Choose quality over shortcuts
-
-Materials, site supervision, workmanship, and aftercare all shape the long-term value of a home. Ask how the team manages quality on site and how they handle changes when the project develops.
-
-## Build with confidence
-
-Your builder should listen carefully, answer honestly, and help turn your priorities into a home that feels considered from the first sketch to the final detail. At Maskan, we bring design and execution together to make that process feel clear and personal.
-      `.trim(),
-      coverImage: "/projects/blog1-detail.png",
-      category: "Home Building",
-      author: { name: "Maskan Editorial Team", role: "Architectural Advisory", avatar: "" },
-      readingTime: "6 min read",
-      tags: ["Home Building", "Kerala", "Construction"],
-      isPublished: true,
-      featured: true,
-      createdAt: new Date().toISOString(),
-    };
-  }
+  // Removed dummy blog check
 
   // Try Sanity first
   try {
@@ -169,6 +140,7 @@ Your builder should listen carefully, answer honestly, and help turn your priori
         },
         readingTime: b.readingTime || "5 min read",
         tags: b.tags || [],
+        faqs: b.faqs,
         isPublished: b.isPublished,
         featured: Boolean(b.featured),
         createdAt: b.createdAt ? new Date(b.createdAt).toISOString() : new Date().toISOString(),
@@ -276,11 +248,11 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 
   return {
-    title: `${blog.title} | Maskan Journal`,
-    description: blog.excerpt,
+    title: blog.seoTitle || `${blog.title} | Maskan Journal`,
+    description: blog.metaDescription || blog.excerpt,
     openGraph: {
-      title: blog.title,
-      description: blog.excerpt,
+      title: blog.seoTitle || blog.title,
+      description: blog.metaDescription || blog.excerpt,
       images: [blog.coverImage],
     },
   };
@@ -319,9 +291,29 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       if (paragraphBuffer.length > 0) {
         const text = paragraphBuffer.join(" ").trim();
         if (text) {
+          const parts: (string | JSX.Element)[] = [];
+          let lastIndex = 0;
+          const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+          let match;
+
+          while ((match = linkRegex.exec(text)) !== null) {
+            if (match.index > lastIndex) {
+              parts.push(text.substring(lastIndex, match.index));
+            }
+            parts.push(
+              <a key={`link-${match.index}`} href={match[2]} className="text-[#e36f2d] underline hover:text-[#c45a22]" target="_blank" rel="noopener noreferrer">
+                {match[1]}
+              </a>
+            );
+            lastIndex = linkRegex.lastIndex;
+          }
+          if (lastIndex < text.length) {
+            parts.push(text.substring(lastIndex));
+          }
+
           elements.push(
-            <p key={`p-${elements.length}`} className="text-gray-700 text-lg leading-relaxed mb-6 font-normal">
-              {text}
+            <p key={`p-${elements.length}`} className="text-gray-700 text-lg leading-relaxed mb-8 font-normal text-justify">
+              {parts.length > 0 ? parts : text}
             </p>
           );
         }
@@ -340,14 +332,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       if (line.startsWith("### ")) {
         flushParagraph();
         elements.push(
-          <h3 key={`h3-${index}`} className="text-2xl md:text-3xl font-bold text-gray-900 mt-10 mb-4 tracking-tight">
+          <h3 key={`h3-${index}`} className="text-[28px] md:text-[36px] font-bold text-gray-900 mt-14 mb-6 tracking-tight">
             {line.replace("### ", "")}
           </h3>
         );
       } else if (line.startsWith("## ")) {
         flushParagraph();
         elements.push(
-          <h2 key={`h2-${index}`} className="text-3xl md:text-4xl font-bold text-gray-900 mt-12 mb-5 tracking-tight">
+          <h2 key={`h2-${index}`} className="text-[40px] md:text-[56px] font-bold text-gray-900 mt-16 mb-8 tracking-tight leading-tight">
             {line.replace("## ", "")}
           </h2>
         );
@@ -356,7 +348,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         elements.push(
           <blockquote
             key={`quote-${index}`}
-            className="my-8 p-6 md:p-8 bg-[#f5f8fa] border-l-4 border-[#245171] rounded-r-2xl italic text-gray-800 text-lg md:text-xl font-medium"
+            className="my-12 p-6 md:p-8 bg-[#f5f8fa] border-l-4 border-[#245171] rounded-r-2xl italic text-gray-800 text-lg md:text-xl font-medium"
           >
             {line.replace("> ", "").replace(/^"|"$/g, "")}
           </blockquote>
@@ -367,7 +359,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         const parts = bulletText.split(":");
         if (parts.length > 1) {
           elements.push(
-            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-3 list-none flex items-start gap-3">
+            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 list-none flex items-start gap-3 text-justify">
               <span className="w-2 h-2 rounded-full bg-[#245171] mt-2.5 shrink-0" />
               <span>
                 <strong className="text-gray-900 font-semibold">{parts[0].replace(/\*\*/g, "")}:</strong>
@@ -377,7 +369,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           );
         } else {
           elements.push(
-            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-3 list-none flex items-start gap-3">
+            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 list-none flex items-start gap-3 text-justify">
               <span className="w-2 h-2 rounded-full bg-[#245171] mt-2.5 shrink-0" />
               <span>{bulletText.replace(/\*\*/g, "")}</span>
             </li>
@@ -386,11 +378,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       } else if (/^\d+\.\s/.test(line)) {
         flushParagraph();
         elements.push(
-          <div key={`num-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-3 flex items-start gap-3">
+          <div key={`num-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 flex items-start gap-3 text-justify">
             <span className="w-6 h-6 rounded-full bg-[#245171]/10 text-[#245171] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
               {line.match(/^\d+/)?.[0]}
             </span>
-            <span>{line.replace(/^\d+\.\s/, "")}</span>
+            <span className="flex-1 text-justify">
+              {line.replace(/^\d+\.\s/, "").replace(/\*\*(.*?)\*\*/g, (match, p1) => `<strong>${p1}</strong>`)}
+            </span>
           </div>
         );
       } else {
@@ -428,11 +422,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               <Calendar className="w-4 h-4 text-gray-400" />
               {formatDate(blog.createdAt)}
             </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-gray-400" />
-              {blog.readingTime}
-            </span>
+
           </div>
 
           {/* Title */}
@@ -474,7 +464,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           <div className="relative mb-14 aspect-[1.38/1] w-full overflow-hidden bg-[#d9d0ca] shadow-2xl">
             <Image
               src={blog.coverImage}
-              alt={blog.title}
+              alt={blog.coverImageAlt || blog.title}
               fill
               priority
               className="object-cover"
@@ -483,40 +473,46 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* Article Body Content */}
-          <div className="prose prose-lg mx-auto w-full max-w-[860px] text-[#3b3034]">
-            {Array.isArray(blog.content) ? (
-              <PortableText
-                value={blog.content}
-                components={{
-                  types: {
-                    image: ({ value }: { value: SanityImageValue }) => {
-                      const imgUrl = urlForImage(value);
-                      if (!imgUrl) return null;
-                      return (
-                        <figure className="my-8">
-                          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gray-100 shadow-md">
-                            <Image
-                              src={imgUrl}
-                              alt={value.alt || "Article illustration"}
-                              fill
-                              className="object-cover"
-                              sizes="(max-width: 1000px) 100vw, 1000px"
-                            />
-                          </div>
-                          {value.alt && (
-                            <figcaption className="mt-2 text-center text-xs text-gray-500 italic">
-                              {value.alt}
-                            </figcaption>
-                          )}
-                        </figure>
-                      );
-                    },
-                  },
-                }}
-              />
-            ) : (
-              renderFormattedContent(typeof blog.content === "string" ? blog.content : "")
-            )}
+          <div className="w-full text-[#3b3034]">
+            <MobileContentToggle>
+              {Array.isArray(blog.content) ? (
+                <div className="prose prose-lg max-w-none">
+                  <PortableText
+                    value={blog.content}
+                    components={{
+                      types: {
+                        image: ({ value }: { value: SanityImageValue }) => {
+                          const imgUrl = urlForImage(value);
+                          if (!imgUrl) return null;
+                          return (
+                            <figure className="my-8">
+                              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gray-100 shadow-md">
+                                <Image
+                                  src={imgUrl}
+                                  alt={value.alt || "Article illustration"}
+                                  fill
+                                  className="object-cover"
+                                  sizes="(max-width: 1000px) 100vw, 1000px"
+                                />
+                              </div>
+                              {value.alt && (
+                                <figcaption className="mt-2 text-center text-xs text-gray-500 italic">
+                                  {value.alt}
+                                </figcaption>
+                              )}
+                            </figure>
+                          );
+                        },
+                      },
+                    }}
+                  />
+                </div>
+              ) : (
+                <div className="custom-blog-content">
+                  {renderFormattedContent(typeof blog.content === "string" ? blog.content : "")}
+                </div>
+              )}
+            </MobileContentToggle>
           </div>
 
           {/* Tags */}
@@ -533,8 +529,33 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               ))}
             </div>
           )}
+
+
         </div>
       </article>
+
+      {/* FAQs Section */}
+      {blog.faqs && blog.faqs.length > 0 && (
+        <section className="bg-[#ece5df] px-5 py-20 sm:px-8 md:py-28 lg:px-12">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="mb-10">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e36f2d]">Need a hand?</p>
+              <h2 className="max-w-[560px] text-4xl font-medium tracking-[-0.05em] md:text-6xl text-[#251a23]">Frequently asked questions</h2>
+            </div>
+            <div className="border-t border-[#cfc4bd]">
+              {blog.faqs.map((faq, index) => (
+                <details key={index} className="group border-b border-[#cfc4bd]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-medium tracking-[-0.02em] text-[#251a23] [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <Plus className="h-5 w-5 shrink-0 text-[#e36f2d] transition-transform group-open:rotate-45" />
+                  </summary>
+                  <p className="max-w-[680px] pb-6 pr-10 text-sm leading-7 text-[#766d70]">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <CTA />

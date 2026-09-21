@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import NavBar from "@/components/Client/NavBar";
 
 export interface BlogItem {
@@ -92,7 +92,7 @@ export default function BlogListingClient({
             </div>
           )}
 
-          <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+          <div className="flex flex-col gap-12">
             {visibleBlogs.map((blog, index) => (
               <BlogEditorialCard key={blog._id} blog={blog} index={index} />
             ))}
@@ -116,35 +116,13 @@ export default function BlogListingClient({
           )}
         </section>
 
-        <section className="bg-[#ece5df] px-5 py-20 sm:px-8 md:py-28 lg:px-12">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="mb-10">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e36f2d]">Need a hand?</p>
-              <h2 className="max-w-[560px] text-4xl font-medium tracking-[-0.05em] md:text-6xl">Frequently asked questions</h2>
-            </div>
-            <div className="border-t border-[#cfc4bd]">
-              {faqItems.map((item) => (
-                <details key={item.question} className="group border-b border-[#cfc4bd]">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-medium tracking-[-0.02em] [&::-webkit-details-marker]:hidden">
-                    {item.question}
-                    <Plus className="h-5 w-5 shrink-0 text-[#e36f2d] transition-transform group-open:rotate-45" />
-                  </summary>
-                  <p className="max-w-[680px] pb-6 pr-10 text-sm leading-7 text-[#766d70]">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+
       </main>
     </>
   );
 }
 
-const faqItems = [
-  { question: "How do I get started with Maskan?", answer: "Tell us about your project, its location, and the kind of space you want to create. Our team will get back to you with the next steps." },
-  { question: "Do you work on both homes and commercial spaces?", answer: "Yes. We work across residential, hospitality, and commercial projects, shaping each response around the people and place involved." },
-  { question: "Can I speak with the design team before starting?", answer: "Absolutely. An initial conversation helps us understand your goals and gives you a clear sense of how we work together." },
-];
+
 
 function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
   const date = new Date(blog.createdAt).toLocaleDateString("en-US", {
@@ -157,32 +135,70 @@ function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
     <Link
       href={`/blog/${blog.slug}`}
       style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
-      className="animate-blog-card group border-t border-[#ded7d2] pt-5 md:grid md:grid-cols-[1.1fr_0.9fr] md:items-start md:gap-x-6 md:gap-y-0"
+      className="group flex flex-col lg:flex-row bg-[#faf8f5] rounded-[24px] p-3 shadow-sm hover:shadow-lg transition-all duration-500 w-full animate-blog-card"
     >
-      <div className="relative aspect-[1.38/1] overflow-hidden rounded-[10px] bg-[#d9d0ca]">
+      {/* Left side: Image */}
+      <div className="relative aspect-[4/3] lg:aspect-auto lg:w-[45%] min-h-[300px] lg:min-h-[400px] rounded-[20px] overflow-hidden shrink-0">
         <Image
           src={blog.cardImage ?? blog.coverImage}
           alt={blog.title}
           fill
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-          sizes="(min-width: 768px) 25vw, 100vw"
+          className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+          sizes="(min-width: 1024px) 50vw, 100vw"
         />
-      </div>
-      <div className="flex flex-col items-start pt-5 text-left md:pt-0">
-        <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e36f2d]">
-          <span>{blog.category}</span>
-          <span className="text-[#b1a6a1]">—</span>
-          <span className="text-[#b1a6a1]">{date}</span>
+        
+        {/* Pill at top left */}
+        <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-sm">
+          <span className="text-[10px] font-semibold tracking-[0.2em] text-[#3b3034] uppercase">
+            {blog.category}
+          </span>
         </div>
-        <h3 className="max-w-[420px] text-2xl font-medium leading-[0.98] tracking-[-0.055em] transition-colors group-hover:text-[#e36f2d] md:text-3xl">
+
+        {/* Text at bottom left */}
+        <div className="absolute bottom-6 left-6 flex items-stretch">
+          <div className="w-[1.5px] bg-white/70 mr-4 rounded-full"></div>
+          <p className="text-white text-[10px] font-medium tracking-[0.15em] uppercase leading-relaxed max-w-[120px]">
+            A better<br/>tomorrow<br/>begins at home
+          </p>
+        </div>
+
+
+      </div>
+
+      {/* Right side: Content */}
+      <div className="relative flex flex-col justify-center p-8 lg:p-12 lg:w-[55%] overflow-hidden rounded-r-[20px]">
+        {/* Background decorative circles */}
+        <div className="absolute -bottom-32 -right-16 w-80 h-80 border-[1.5px] border-[#e8dcd0] rounded-full pointer-events-none opacity-60"></div>
+        <div className="absolute -bottom-16 -right-12 w-56 h-56 bg-[#eaddcf] rounded-full pointer-events-none opacity-50"></div>
+
+        {/* Meta line */}
+        <div className="flex items-center gap-4 mb-8 relative z-10">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-[#e36f2d] uppercase whitespace-nowrap">
+            {blog.category}
+          </span>
+          <div className="h-[1px] flex-grow bg-[#dcd3cb]"></div>
+          <span className="text-[10px] font-semibold tracking-[0.15em] text-[#9c9192] uppercase whitespace-nowrap">
+            {date}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-3xl lg:text-[40px] font-serif text-[#251a23] leading-[1.2] mb-6 relative z-10 tracking-tight">
           {blog.title}
         </h3>
-        <span className="mt-4 flex w-fit max-w-max items-center justify-start gap-1 text-left text-[9px] font-semibold uppercase tracking-[0.1em] text-[#251a23]">
-          Read story <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-        </span>
-        {blog.slug !== "how-to-choose-the-best-builders-in-kerala-2026" && (
-          <p className="mt-6 max-w-[420px] text-sm leading-[1.55] text-[#766d70] md:text-base">{blog.excerpt}</p>
-        )}
+
+        {/* Excerpt */}
+        <p className="text-[#685e60] text-sm lg:text-[15px] leading-[1.7] mb-10 line-clamp-4 relative z-10 font-light">
+          {blog.excerpt}
+        </p>
+
+        {/* Read story */}
+        <div className="mt-auto flex items-center gap-4 relative z-10">
+          <span className="text-[11px] font-bold tracking-[0.15em] text-[#251a23] uppercase border-b border-[#251a23] pb-1">
+            Read story
+          </span>
+          <ArrowRight className="w-4 h-4 text-[#251a23] transition-transform duration-500 group-hover:translate-x-2" />
+        </div>
       </div>
     </Link>
   );
