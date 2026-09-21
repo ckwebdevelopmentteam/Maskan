@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, Share2, Tag, Plus } from "lucide-react";
+import { ArrowLeft, Calendar, Share2, Tag, Plus } from "lucide-react";
 import NavBar from "@/components/Client/NavBar";
 import MobileContentToggle from "../components/MobileContentToggle";
 import Footer from "@/sections/Footer/Server";
@@ -291,7 +291,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       if (paragraphBuffer.length > 0) {
         const text = paragraphBuffer.join(" ").trim();
         if (text) {
-          const parts: (string | JSX.Element)[] = [];
+          const parts: (string | React.ReactNode)[] = [];
           let lastIndex = 0;
           const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
           let match;
