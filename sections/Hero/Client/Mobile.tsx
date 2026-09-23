@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import thumbnail from "@/public/hero-viideo-thumbnail-mobile.png";
+import thumbnail from "@/public/hero-viideo-thumbnail-mobile.webp";
 
 export default function HeroMobileClient() {
   const videoRef = useRef<HTMLVideoElement>(null);

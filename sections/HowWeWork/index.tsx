@@ -28,7 +28,7 @@ export default function HowWeWork() {
       <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] opacity-[0.12] md:block">
         <Image
           src="/build.webp"
-          alt=""
+          alt="Maskan Builder construction site"
           fill
           className="object-cover"
           sizes="58vw"

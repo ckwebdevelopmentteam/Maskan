@@ -34,12 +34,13 @@ export default function IntroductionServer({ noTopPadding = false }: { noTopPadd
 
         {/* Left Column (spans 3 grid columns on md+) */}
         <div className="md:col-span-3 flex flex-col">
-          <p className="text-base md:text-lg text-[var(--fg-primary)]/80 font-light leading-relaxed mb-8">
+          <p suppressHydrationWarning className="text-base md:text-lg text-[var(--fg-primary)]/80 font-light leading-relaxed mb-8">
             At{" "}
             <a
               href="https://www.instagram.com/maskanbuildersanddevelopers/"
               target="_blank"
               rel="noopener noreferrer"
+              suppressHydrationWarning
               className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
             >
               Maskan

@@ -8,12 +8,14 @@ interface MaskTextProps extends MotionProps {
   className?: string;
   style?: MotionStyle;
   transition?: Transition;
+  as?: "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 }
 
 export default function MaskText({
   lines,
   className,
   style,
+  as: Tag = "div",
   ...AnimationProps
 }: MaskTextProps) {
   const containerVariants = {
@@ -35,8 +37,12 @@ export default function MaskText({
       },
     },
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionTag = motion[Tag] as React.ComponentType<any>;
+  const MotionChild = (Tag.startsWith("h") || Tag === "p" || Tag === "span") ? motion.span : motion.div;
+
   return (
-    <motion.div
+    <MotionTag
       initial="initial"
       animate="inView"
       whileInView="inView"
@@ -46,10 +52,10 @@ export default function MaskText({
       className={cn("", className)}
     >
       {lines.map((eachLine, index) => (
-        <motion.div key={index + 1} variants={variants}>
+        <MotionChild key={index + 1} variants={variants} className={MotionChild === motion.span ? "inline-block" : ""}>
           {eachLine}
-        </motion.div>
+        </MotionChild>
       ))}
-    </motion.div>
+    </MotionTag>
   );
 }

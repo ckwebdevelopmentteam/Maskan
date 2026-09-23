@@ -25,10 +25,32 @@ const CormorantGaramond = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.maskanbuilder.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.maskanbuilder.com/",
   },
-  title: "Maskan Builders | Best Construction Company in Kerala | 17+ Years Experience",
+  title: "Maskan Builders | Best Construction Company in Kerala",
   description: "Maskan Builders is the best construction company in Kerala, with 17+ years and 750+ residential & commercial projects completed.",
+  openGraph: {
+    title: "Maskan Builders | Best Construction Company in Kerala",
+    description: "Maskan Builders is the best construction company in Kerala, with 17+ years and 750+ residential & commercial projects completed.",
+    url: "https://www.maskanbuilder.com/",
+    siteName: "Maskan Builders",
+    images: [
+      {
+        url: "/home.png",
+        width: 1200,
+        height: 630,
+        alt: "Maskan Builders - Best Construction Company in Kerala",
+      }
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maskan Builders | Best Construction Company in Kerala",
+    description: "Maskan Builders is the best construction company in Kerala.",
+    images: ["/home.png"],
+  },
   verification: {
     google: "NP97e5qgtp9oad8ojipxMHa6SOCNSYTODp0ekaPEvRg",
   },
@@ -40,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -49,8 +71,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-55BZPFMC');`}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Maskan Builders LLP",
+              "image": "https://www.maskanbuilder.com/home.png",
+              "@id": "https://www.maskanbuilder.com",
+              "url": "https://www.maskanbuilder.com",
+              "telephone": "+917594033300",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Manjeri Road, Half, Valluvambram",
+                "addressLocality": "Malappuram",
+                "addressRegion": "Kerala",
+                "postalCode": "673642",
+                "addressCountry": "IN"
+              }
+            })
+          }}
+        />
       </head>
       <body
+        suppressHydrationWarning
         className={`${outfit.variable} ${CormorantGaramond.variable} overflow-x-clip antialiased selection:bg-[var(--accent)] selection:text-[var(--bg-primary)]`}
       >
         <noscript>

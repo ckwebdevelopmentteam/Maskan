@@ -16,8 +16,9 @@ export default function SeoContent() {
         </h2>
 
         <div className="text-base md:text-lg font-light text-[var(--fg-primary)]/80 leading-relaxed flex flex-col gap-4">
-          <p>
+          <p suppressHydrationWarning>
             <a
+              suppressHydrationWarning
               href="https://www.instagram.com/maskanbuildersanddevelopers/"
               target="_blank"
               rel="noopener noreferrer"
@@ -27,12 +28,13 @@ export default function SeoContent() {
             </a>{" "}
             is one of the best builders in Kerala, with 17+ years of experience delivering residential and commercial projects across the state. We handle projects of every scale, from individual custom villas to large multi-unit developments and commercial complexes, with the same commitment to quality and on-time delivery, and the capacity to take on 100+ projects at a time.
           </p>
-          <p>
+          <p suppressHydrationWarning>
             As one of the best builders in Kerala, we offer end-to-end services including residential construction, commercial construction, structural work, and project management — all focused on delivering real, lasting value for our clients.
           </p>
-          <p>
+          <p suppressHydrationWarning>
             To date, we've completed 750+ projects for clients across Kerala, including our ongoing developments at{" "}
             <Link
+              suppressHydrationWarning
               href="/projects/meridian-heights"
               className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
             >
@@ -40,6 +42,7 @@ export default function SeoContent() {
             </Link>{" "}
             (Perinthalmanna) and{" "}
             <Link
+              suppressHydrationWarning
               href="/projects/kakanad-commercial-hub"
               className="underline underline-offset-4 decoration-[var(--fg-primary)]/40 hover:decoration-[var(--fg-primary)] font-medium text-[var(--fg-primary)] transition-colors"
             >

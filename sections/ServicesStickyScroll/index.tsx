@@ -134,6 +134,7 @@ export default function ServicesStickyScroll() {
                     
                     <Link
                       href="/services"
+                      aria-label={`View details for ${service.name}`}
                       className="w-10 h-10 rounded-full border border-[var(--fg-primary)]/20 flex items-center justify-center text-[var(--fg-primary)]/70 group-hover:bg-[var(--fg-primary)] group-hover:text-white transition-all duration-300 shrink-0"
                     >
                       <ArrowUpRight className="w-4 h-4" />

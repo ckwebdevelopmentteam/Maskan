@@ -171,7 +171,7 @@ export default function NavBar() {
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
                   <h4 className="text-xs font-semibold tracking-[0.2em] text-white/50 mb-6">SAY HELLO</h4>
-                  <a href="mailto:hello@maskan.com" className="text-xl lg:text-3xl font-light hover:text-white transition-colors block mb-2">
+                  <a suppressHydrationWarning href="mailto:hello@maskan.com" className="text-xl lg:text-3xl font-light hover:text-white transition-colors block mb-2">
                     hello@maskan.com
                   </a>
                   <p className="text-white/50 text-sm tracking-wider">+91 98765 43210</p>

@@ -30,11 +30,12 @@ export default function HeroServer() {
             ]}
           />
           <MaskText
+            as="h1"
             transition={{ delayChildren: 0.3 }}
             className="max-w-4xl text-[3.5rem] font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4.5rem] xl:text-[5.6rem]"
             lines={[
-              <>Building Dreams, One</>,
-              <>Brick at a Time</>,
+              <React.Fragment key="1">Building Dreams, One</React.Fragment>,
+              <React.Fragment key="2">Brick at a Time</React.Fragment>,
             ]}
           />
           <div className="mt-8 md:mt-12">
