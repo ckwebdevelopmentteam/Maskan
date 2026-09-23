@@ -1,19 +1,44 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
+import thumbnail from "@/public/hero-viideo-thumbnail-mobile.png";
 
 export default function HeroMobileClient() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const thumbRef = useRef<HTMLDivElement>(null);
 
   const handleCanPlay = () => {
     if (videoRef.current) {
       videoRef.current.style.opacity = "1";
     }
+    if (thumbRef.current) {
+      thumbRef.current.style.opacity = "0";
+    }
   };
 
   return (
     <div className="absolute inset-0 grid place-items-center">
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none md:hidden" />
+
+      {/* Mobile thumbnail — shows instantly, fades out when video is ready */}
+      <div
+        ref={thumbRef}
+        className="absolute inset-0 z-[1] md:hidden"
+        style={{ transition: "opacity 0.6s ease" }}
+      >
+        <Image
+          src={thumbnail}
+          alt="Hero thumbnail"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* Video — hidden until canplay, then fades in over thumbnail */}
       <video
         ref={videoRef}
         className="size-full object-cover md:hidden"
