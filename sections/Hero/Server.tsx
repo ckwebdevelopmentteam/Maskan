@@ -29,15 +29,18 @@ export default function HeroServer() {
               </div>,
             ]}
           />
-          <MaskText
-            as="h1"
-            transition={{ delayChildren: 0.3 }}
-            className="max-w-4xl text-[3.5rem] font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4.5rem] xl:text-[5.6rem]"
-            lines={[
-              <React.Fragment key="1">Building Dreams, One</React.Fragment>,
-              <React.Fragment key="2">Brick at a Time</React.Fragment>,
-            ]}
-          />
+          <h1 className="sr-only">Building Dreams, One Brick at a Time</h1>
+          <div aria-hidden="true">
+            <MaskText
+              as="div"
+              transition={{ delayChildren: 0.3 }}
+              className="max-w-4xl text-[3.5rem] font-light leading-[0.98] tracking-[-0.02em] md:text-6xl lg:text-[4.5rem] xl:text-[5.6rem]"
+              lines={[
+                <React.Fragment key="1">Building Dreams, One</React.Fragment>,
+                <React.Fragment key="2">Brick at a Time</React.Fragment>,
+              ]}
+            />
+          </div>
           <div className="mt-8 md:mt-12">
             <Link
               href="#contact"

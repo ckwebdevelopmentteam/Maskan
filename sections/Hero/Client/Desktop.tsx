@@ -48,7 +48,8 @@ export default function HeroDesktopClient() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
+          poster={thumbnail.src}
           onCanPlay={handleCanPlay}
         >
           <source src="/WBpOY8hrNdXiZ4GGR4RQTxf4R4.mp4" type="video/mp4" />

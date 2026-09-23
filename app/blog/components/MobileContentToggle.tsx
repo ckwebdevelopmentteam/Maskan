@@ -19,6 +19,7 @@ export default function MobileContentToggle({ children }: { children: React.Reac
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f7f4f1] via-[#f7f4f1]/90 to-transparent flex items-end justify-center pb-2 md:hidden">
           <button 
             onClick={() => setIsExpanded(true)}
+            aria-label="Read more content"
             className="group flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] text-[#251a23] uppercase border-b border-[#251a23] pb-1 hover:text-[#e36f2d] hover:border-[#e36f2d] transition-all duration-300"
           >
             Read More

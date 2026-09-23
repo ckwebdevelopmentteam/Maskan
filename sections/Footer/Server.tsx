@@ -27,7 +27,7 @@ export default function Footer() {
             <span className="text-[10px] uppercase tracking-widest text-white/40 font-semibold mb-1">Get in touch</span>
             <a suppressHydrationWarning href="tel:+917594033300" className="text-sm text-white/80 hover:text-white transition-colors">+91 75940 33300</a>
             <a suppressHydrationWarning href="mailto:maskanplans@gmail.com" className="text-sm text-white/80 hover:text-white transition-colors">maskanplans@gmail.com</a>
-            <p suppressHydrationWarning className="text-sm text-white/50">Maskan Builders, Manjeri Road, Half, Valluvambram, Kerala 673642, India</p>
+            <p suppressHydrationWarning className="text-sm text-white/50">Maskan Builders, Manjeri Road, Half, Valluvambram, Kerala 673642</p>
           </div>
 
           {/* Navigation */}

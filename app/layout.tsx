@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     canonical: "https://www.maskanbuilder.com/",
   },
   title: "Maskan Builders | Best Construction Company in Kerala",
-  description: "Maskan Builders is the best construction company in Kerala, with 17+ years and 750+ residential & commercial projects completed.",
+  description: "Maskan Builders is the best construction company in Kerala, delivering premium residential & commercial projects.",
   openGraph: {
     title: "Maskan Builders | Best Construction Company in Kerala",
-    description: "Maskan Builders is the best construction company in Kerala, with 17+ years and 750+ residential & commercial projects completed.",
+    description: "Maskan Builders is the best construction company in Kerala, delivering premium residential & commercial projects.",
     url: "https://www.maskanbuilder.com/",
     siteName: "Maskan Builders",
     images: [
@@ -84,7 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "telephone": "+917594033300",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Manjeri Road, Half, Valluvambram",
+                "streetAddress": "Maskan Builders, Manjeri Road, Half, Valluvambram",
                 "addressLocality": "Malappuram",
                 "addressRegion": "Kerala",
                 "postalCode": "673642",
