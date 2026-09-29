@@ -312,7 +312,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           }
 
           elements.push(
-            <p key={`p-${elements.length}`} className="text-gray-700 text-lg leading-relaxed mb-8 font-normal text-justify">
+            <p key={`p-${elements.length}`} className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-normal text-left sm:text-justify">
               {parts.length > 0 ? parts : text}
             </p>
           );
@@ -332,14 +332,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       if (line.startsWith("### ")) {
         flushParagraph();
         elements.push(
-          <h3 key={`h3-${index}`} className="text-[28px] md:text-[36px] font-bold text-gray-900 mt-14 mb-6 tracking-tight">
+          <h3 key={`h3-${index}`} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#251a23] mt-6 sm:mt-8 md:mt-10 mb-2 sm:mb-3 tracking-tight">
             {line.replace("### ", "")}
           </h3>
         );
       } else if (line.startsWith("## ")) {
         flushParagraph();
         elements.push(
-          <h2 key={`h2-${index}`} className="text-[40px] md:text-[56px] font-bold text-gray-900 mt-16 mb-8 tracking-tight leading-tight">
+          <h2 key={`h2-${index}`} className="text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-bold text-[#245171] mt-8 sm:mt-12 md:mt-14 mb-3 sm:mb-4 md:mb-5 tracking-tight leading-snug">
             {line.replace("## ", "")}
           </h2>
         );
@@ -348,7 +348,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         elements.push(
           <blockquote
             key={`quote-${index}`}
-            className="my-12 p-6 md:p-8 bg-[#f5f8fa] border-l-4 border-[#245171] rounded-r-2xl italic text-gray-800 text-lg md:text-xl font-medium"
+            className="my-6 sm:my-8 md:my-10 p-4 sm:p-6 md:p-8 bg-[#f5f8fa] border-l-4 border-[#245171] rounded-r-2xl italic text-gray-800 text-sm sm:text-base md:text-lg font-medium"
           >
             {line.replace("> ", "").replace(/^"|"$/g, "")}
           </blockquote>
@@ -359,7 +359,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         const parts = bulletText.split(":");
         if (parts.length > 1) {
           elements.push(
-            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 list-none flex items-start gap-3 text-justify">
+            <li key={`li-${index}`} className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 list-none flex items-start gap-3 text-left sm:text-justify">
               <span className="w-2 h-2 rounded-full bg-[#245171] mt-2.5 shrink-0" />
               <span>
                 <strong className="text-gray-900 font-semibold">{parts[0].replace(/\*\*/g, "")}:</strong>
@@ -369,7 +369,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           );
         } else {
           elements.push(
-            <li key={`li-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 list-none flex items-start gap-3 text-justify">
+            <li key={`li-${index}`} className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 list-none flex items-start gap-3 text-left sm:text-justify">
               <span className="w-2 h-2 rounded-full bg-[#245171] mt-2.5 shrink-0" />
               <span>{bulletText.replace(/\*\*/g, "")}</span>
             </li>
@@ -378,11 +378,11 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       } else if (/^\d+\.\s/.test(line)) {
         flushParagraph();
         elements.push(
-          <div key={`num-${index}`} className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 flex items-start gap-3 text-justify">
+          <div key={`num-${index}`} className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 flex items-start gap-3 text-left sm:text-justify">
             <span className="w-6 h-6 rounded-full bg-[#245171]/10 text-[#245171] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
               {line.match(/^\d+/)?.[0]}
             </span>
-            <span className="flex-1 text-justify">
+            <span className="flex-1 text-left sm:text-justify">
               {line.replace(/^\d+\.\s/, "").replace(/\*\*(.*?)\*\*/g, (match, p1) => `<strong>${p1}</strong>`)}
             </span>
           </div>
@@ -426,12 +426,12 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* Title */}
-          <h1 className="mb-6 max-w-[1000px] text-4xl font-medium leading-[0.98] tracking-[-0.055em] text-[#251a23] sm:text-6xl md:text-7xl">
+          <h1 className="mb-4 sm:mb-6 max-w-[1000px] text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.12] sm:leading-[1.02] tracking-[-0.035em] text-[#251a23]">
             {blog.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="mb-10 max-w-[720px] border-b border-[#ded7d2] pb-8 text-lg font-light leading-relaxed text-[#766d70] md:text-xl">
+          <p className="mb-8 sm:mb-10 max-w-[720px] border-b border-[#ded7d2] pb-6 sm:pb-8 text-sm sm:text-base md:text-lg font-light leading-relaxed text-[#766d70]">
             {blog.excerpt}
           </p>
 

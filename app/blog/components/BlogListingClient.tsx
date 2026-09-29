@@ -149,13 +149,13 @@ function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
       </div>
 
       {/* Right side: Content */}
-      <div className="relative flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12 w-full lg:w-[52%] overflow-hidden rounded-r-[20px]">
+      <div className="relative flex flex-col justify-center p-5 sm:p-6 md:p-8 lg:p-10 w-full lg:w-[52%] overflow-hidden rounded-b-[20px] lg:rounded-b-none lg:rounded-r-[20px]">
         {/* Background decorative circles */}
         <div className="absolute -bottom-32 -right-16 w-80 h-80 border-[1.5px] border-[#e8dcd0] rounded-full pointer-events-none opacity-60"></div>
         <div className="absolute -bottom-16 -right-12 w-56 h-56 bg-[#eaddcf] rounded-full pointer-events-none opacity-50"></div>
 
         {/* Meta line */}
-        <div className="flex items-center gap-4 mb-8 relative z-10">
+        <div className="flex items-center gap-4 mb-4 sm:mb-6 relative z-10">
           <span className="text-[10px] font-bold tracking-[0.2em] text-[#e36f2d] uppercase whitespace-nowrap">
             {blog.category}
           </span>
@@ -166,18 +166,18 @@ function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
         </div>
 
         {/* Title */}
-        <h3 className="text-3xl lg:text-[40px] font-serif text-[#251a23] leading-[1.2] mb-6 relative z-10 tracking-tight">
+        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-3xl font-serif text-[#251a23] leading-[1.25] mb-3 sm:mb-4 md:mb-5 relative z-10 tracking-tight">
           {blog.title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-[#685e60] text-sm lg:text-[15px] leading-[1.7] mb-10 line-clamp-4 relative z-10 font-light">
+        <p className="text-[#685e60] text-xs sm:text-sm lg:text-[14.5px] leading-relaxed mb-6 sm:mb-8 line-clamp-3 lg:line-clamp-4 relative z-10 font-light">
           {blog.excerpt}
         </p>
 
         {/* Read story */}
         <div className="mt-auto flex items-center gap-4 relative z-10">
-          <span className="text-[11px] font-bold tracking-[0.15em] text-[#251a23] uppercase border-b border-[#251a23] pb-1">
+          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.15em] text-[#251a23] uppercase border-b border-[#251a23] pb-1">
             Read story
           </span>
           <ArrowRight className="w-4 h-4 text-[#251a23] transition-transform duration-500 group-hover:translate-x-2" />
