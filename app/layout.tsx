@@ -27,6 +27,26 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.maskanbuilder.com/",
   },
+  applicationName: "Maskan Builders",
+  appleWebApp: {
+    title: "Maskan Builders",
+    statusBarStyle: "default",
+    capable: true,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
   title: "Maskan Builders | Best Construction Company in Kerala",
   description: "Maskan Builders is the best construction company in Kerala, delivering premium residential & commercial projects.",
   openGraph: {
@@ -64,6 +84,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-title" content="Maskan Builders" />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -76,20 +103,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Maskan Builders LLP",
-              "image": "https://www.maskanbuilder.com/home.png",
-              "@id": "https://www.maskanbuilder.com",
-              "url": "https://www.maskanbuilder.com",
-              "telephone": "+917594033300",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Maskan Builders, Manjeri Road, Half, Valluvambram",
-                "addressLocality": "Malappuram",
-                "addressRegion": "Kerala",
-                "postalCode": "673642",
-                "addressCountry": "IN"
-              }
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.maskanbuilder.com/#website",
+                  "name": "Maskan Builders",
+                  "alternateName": [
+                    "Maskan",
+                    "Maskan Builder",
+                    "Maskan Builders LLP",
+                    "Maskan Builders & Developers"
+                  ],
+                  "url": "https://www.maskanbuilder.com/"
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.maskanbuilder.com/#organization",
+                  "name": "Maskan Builders",
+                  "alternateName": ["Maskan", "Maskan Builder"],
+                  "url": "https://www.maskanbuilder.com/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.maskanbuilder.com/icon-512.png",
+                    "width": 512,
+                    "height": 512
+                  }
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://www.maskanbuilder.com/#localbusiness",
+                  "name": "Maskan Builders LLP",
+                  "image": "https://www.maskanbuilder.com/home.png",
+                  "url": "https://www.maskanbuilder.com",
+                  "telephone": "+917594033300",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Maskan Builders, Manjeri Road, Half, Valluvambram",
+                    "addressLocality": "Malappuram",
+                    "addressRegion": "Kerala",
+                    "postalCode": "673642",
+                    "addressCountry": "IN"
+                  }
+                }
+              ]
             })
           }}
         />
