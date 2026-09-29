@@ -135,10 +135,10 @@ function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
     <Link
       href={`/blog/${blog.slug}`}
       style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
-      className="group flex flex-col lg:flex-row bg-[#faf8f5] rounded-[24px] p-3 shadow-sm hover:shadow-lg transition-all duration-500 w-full animate-blog-card"
+      className="group flex flex-col lg:flex-row items-center bg-[#faf8f5] rounded-[24px] p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-500 w-full animate-blog-card"
     >
       {/* Left side: Image */}
-      <div className="relative aspect-[4/3] lg:aspect-auto lg:w-[45%] min-h-[300px] lg:min-h-[400px] rounded-[20px] overflow-hidden shrink-0">
+      <div className="relative aspect-[1.38/1] w-full lg:w-[48%] rounded-[20px] overflow-hidden shrink-0 bg-[#ebe5df]">
         <Image
           src={blog.cardImage ?? blog.coverImage}
           alt={blog.title}
@@ -146,27 +146,10 @@ function BlogEditorialCard({ blog, index }: { blog: BlogItem; index: number }) {
           className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           sizes="(min-width: 1024px) 50vw, 100vw"
         />
-        
-        {/* Pill at top left */}
-        <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-sm">
-          <span className="text-[10px] font-semibold tracking-[0.2em] text-[#3b3034] uppercase">
-            {blog.category}
-          </span>
-        </div>
-
-        {/* Text at bottom left */}
-        <div className="absolute bottom-6 left-6 flex items-stretch">
-          <div className="w-[1.5px] bg-white/70 mr-4 rounded-full"></div>
-          <p className="text-white text-[10px] font-medium tracking-[0.15em] uppercase leading-relaxed max-w-[120px]">
-            A better<br/>tomorrow<br/>begins at home
-          </p>
-        </div>
-
-
       </div>
 
       {/* Right side: Content */}
-      <div className="relative flex flex-col justify-center p-8 lg:p-12 lg:w-[55%] overflow-hidden rounded-r-[20px]">
+      <div className="relative flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12 w-full lg:w-[52%] overflow-hidden rounded-r-[20px]">
         {/* Background decorative circles */}
         <div className="absolute -bottom-32 -right-16 w-80 h-80 border-[1.5px] border-[#e8dcd0] rounded-full pointer-events-none opacity-60"></div>
         <div className="absolute -bottom-16 -right-12 w-56 h-56 bg-[#eaddcf] rounded-full pointer-events-none opacity-50"></div>
